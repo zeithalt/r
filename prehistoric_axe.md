@@ -14,4 +14,4 @@ That's when the axe was finally transformed into a weapon worthy to be wielded b
 
 
 ----------
-[⬅️ Back to index](../r/#e4e0_s)
+[⬅️ Back to index](/#e4e0_s)

@@ -18,4 +18,4 @@ However, the most prevalent theory is actually a running joke that the book is i
 
 
 ----------
-[⬅️ Back to index](../r/#5480_s)
+[⬅️ Back to index](/#5480_s)

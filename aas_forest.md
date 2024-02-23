@@ -15,4 +15,4 @@ In the said population, most of them work as lumberjacks and craftsmen, supplyin
 
 
 ----------
-[⬅️ Back to index](../r/#dd50_s)
+[⬅️ Back to index](/#dd50_s)

@@ -14,4 +14,4 @@ From the symbols of the other factions, to the replica of the welcome sign of th
 
 
 ----------
-[⬅️ Back to index](../r/#ef90_s)
+[⬅️ Back to index](/#ef90_s)

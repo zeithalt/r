@@ -8,4 +8,4 @@ This establishment, nonetheless, becomes the first physical evidence of the once
 
 
 ----------
-[⬅️ Back to index](../r/#b0c0_s)
+[⬅️ Back to index](/#b0c0_s)

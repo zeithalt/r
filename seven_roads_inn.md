@@ -11,4 +11,4 @@ Due to this clever location, the Seven Roads Inn became a preferred resting plac
 ![Seven Roads Inn](../i/seven_roads_inn.png)
 
 ----------
-[⬅️ Back to index](../r/#1780_s)
+[⬅️ Back to index](/#1780_s)

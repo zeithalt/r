@@ -8,4 +8,4 @@ It covers vast land areas, destroying everything it touches and making lands pra
 
 
 ----------
-[⬅️ Back to index](../r/#17b0_s)
+[⬅️ Back to index](/#17b0_s)

@@ -10,4 +10,4 @@ If not contained properly, it can result in an event called Corruption Fallout, 
 
 
 ----------
-[⬅️ Back to index](../r/#a2b0_s)
+[⬅️ Back to index](/#a2b0_s)

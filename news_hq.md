@@ -8,4 +8,4 @@ Located in a scenic location near [Lake Corsair](../refs/lake_corsair.md), in Ad
 
 
 ----------
-[⬅️ Back to index](../r/#3820_s)
+[⬅️ Back to index](/#3820_s)

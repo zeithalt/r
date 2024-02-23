@@ -14,4 +14,4 @@ Often regarded as "the most important building on the Island" by MT followers, C
 
 
 ----------
-[⬅️ Back to index](../r/#a610_s)
+[⬅️ Back to index](/#a610_s)

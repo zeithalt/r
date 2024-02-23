@@ -15,4 +15,4 @@ This phenomena happens every winter solstice and is when most of the tourists co
 
 
 ----------
-[⬅️ Back to index](../r/#e630_s)
+[⬅️ Back to index](/#e630_s)

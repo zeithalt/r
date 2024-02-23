@@ -10,4 +10,4 @@ Using a natural clearing as the site of construction, the plaza was made using S
 
 
 ----------
-[⬅️ Back to index](../r/#09e0_s)
+[⬅️ Back to index](/#09e0_s)

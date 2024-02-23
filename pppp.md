@@ -8,4 +8,4 @@ Pierre Porph Pickleson, the owner of 4P has been running 4P for the majority of 
 
 
 ----------
-[⬅️ Back to index](../r/#fc70_s)
+[⬅️ Back to index](/#fc70_s)

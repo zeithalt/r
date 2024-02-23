@@ -13,4 +13,4 @@ People new to the chronoglass concept, can often be riddled by the question:
 
 
 ----------
-[⬅️ Back to index](../r/#e320_s)
+[⬅️ Back to index](/#e320_s)

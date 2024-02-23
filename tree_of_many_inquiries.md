@@ -12,4 +12,4 @@ It is believed that Mimb gets many of her questions from The Tree of Many Inquir
 
 
 ----------
-[⬅️ Back to index](../r/#64c0_s)
+[⬅️ Back to index](/#64c0_s)

@@ -16,4 +16,4 @@ These paths mostly go along the same routes Mire's inhabitants use for ceonturie
 
 
 ----------
-[⬅️ Back to index](../r/#9840_s)
+[⬅️ Back to index](/#9840_s)

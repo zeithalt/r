@@ -8,4 +8,4 @@ ZIPP Lines or Zeithalt Industry Protection Protocol Starline is a Safety Service
 
 
 ----------
-[⬅️ Back to index](../r/#4d60_s)
+[⬅️ Back to index](/#4d60_s)

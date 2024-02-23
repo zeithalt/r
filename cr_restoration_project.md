@@ -8,4 +8,4 @@ Since then, it has been reviewed and adapted to be used in other areas of the Is
 
 
 ----------
-[⬅️ Back to index](../r/#2390_s)
+[⬅️ Back to index](/#2390_s)

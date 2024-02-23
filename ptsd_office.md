@@ -6,4 +6,4 @@ The main administrative building of PS Taxes & Stuff Department ([PTSD](../refs/
 
 
 ----------
-[⬅️ Back to index](../r/#aaf0_s)
+[⬅️ Back to index](/#aaf0_s)

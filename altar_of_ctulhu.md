@@ -10,4 +10,4 @@ _This entry is considered incomplete - you can request more info for it [on disc
 
 
 ----------
-[⬅️ Back to index](../r/#8270_s)
+[⬅️ Back to index](/#8270_s)

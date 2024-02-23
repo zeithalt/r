@@ -11,4 +11,4 @@ Synopsis:
 
 
 ----------
-[⬅️ Back to index](../r/#6550_s)
+[⬅️ Back to index](/#6550_s)

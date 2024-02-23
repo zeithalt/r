@@ -10,4 +10,4 @@ Fighters Guild sees its goal in allowing sellswords of all kinds get support bot
 
 
 ----------
-[⬅️ Back to index](../r/#ee30_s)
+[⬅️ Back to index](/#ee30_s)

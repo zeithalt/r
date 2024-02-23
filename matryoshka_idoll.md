@@ -6,4 +6,4 @@ Built on eon 526 by [Delta Collective](../refs/delta_collective.md)
 
 
 ----------
-[⬅️ Back to index](../r/#b751_s)
+[⬅️ Back to index](/#b751_s)

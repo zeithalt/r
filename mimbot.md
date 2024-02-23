@@ -10,4 +10,4 @@ Feel free to ask me about anything!
 
 
 ----------
-[⬅️ Back to index](../r/#1670_s)
+[⬅️ Back to index](/#1670_s)

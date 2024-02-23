@@ -8,4 +8,4 @@ The _World Seed Pendant_ was made with a seed that, according to local legend, w
 
 
 ----------
-[⬅️ Back to index](../r/#0fd0_s)
+[⬅️ Back to index](/#0fd0_s)

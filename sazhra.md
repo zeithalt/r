@@ -8,4 +8,4 @@ Their symbiotic relationship with the nanotechnology of the region allowed him t
 
 
 ----------
-[⬅️ Back to index](../r/#7e11_s)
+[⬅️ Back to index](/#7e11_s)

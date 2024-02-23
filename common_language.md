@@ -6,4 +6,4 @@ Main language of Zeithalt, universally used by everyone on the Island.
 
 
 ----------
-[⬅️ Back to index](../r/#bef0_s)
+[⬅️ Back to index](/#bef0_s)

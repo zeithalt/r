@@ -6,4 +6,4 @@ The second-largest road in [Paradox Pass](../refs/paradox_pass.md) - that connec
 
 
 ----------
-[⬅️ Back to index](../r/#7d60_s)
+[⬅️ Back to index](/#7d60_s)
