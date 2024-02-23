@@ -2,9 +2,9 @@
 
 `📑 Term`
 
-**Book of Balance** is a traditional book for the [MindTech Institute](../refs/mindtech_institute.md), which, however, does not have a direct connection to the Institute and presumably was written long before the Institute was even founded.
+**Book of Balance** is a traditional book for the [MindTech Institute](/mindtech_institute.md), which, however, does not have a direct connection to the Institute and presumably was written long before the Institute was even founded.
 
-This is one of the few known books originating from the [Age of Darkness](../refs/age_of_darkness.md), the author (or likely multiple authors) of the book are unknown.
+This is one of the few known books originating from the [Age of Darkness](/age_of_darkness.md), the author (or likely multiple authors) of the book are unknown.
 
 The Book of Balance teaches readers the topics of mindfulness and meditation, the importance of emotional awareness and self-control, and is generally directed towards improving one's cognitive abilities and decision-making skills.
 

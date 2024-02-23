@@ -1,10 +1,10 @@
 ## 📰 News HQ
 
-**🪧 Place** in [Admincity](../refs/admincity.md)
+**🪧 Place** in [Admincity](/admincity.md)
 
-The headquarters of [Zeithalt Zeitgeist](../refs/zeithalt_zeitgeist.md) newspaper and primary residence of its owner and editor [Alexx](../refs/alexx.md).
+The headquarters of [Zeithalt Zeitgeist](/zeithalt_zeitgeist.md) newspaper and primary residence of its owner and editor [Alexx](/alexx.md).
 
-Located in a scenic location near [Lake Corsair](../refs/lake_corsair.md), in Admincity area.
+Located in a scenic location near [Lake Corsair](/lake_corsair.md), in Admincity area.
 
 
 ----------

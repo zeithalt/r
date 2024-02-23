@@ -1,8 +1,8 @@
 ## 🧜‍♀️ Siren's Lighthouse
 
-`🪧 Place` in [Dev Null Marsh](../refs/dev_null_marsh.md)
+`🪧 Place` in [Dev Null Marsh](/dev_null_marsh.md)
 
-Built on eon 509 by [Delta Collective](../refs/delta_collective.md)
+Built on eon 509 by [Delta Collective](/delta_collective.md)
 
 _This entry is considered incomplete - you can request more info for it [on discord](<https://discord.com/channels/562910943848169472/1173922660489633802>) or write it yourself_
 

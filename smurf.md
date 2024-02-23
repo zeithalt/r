@@ -1,6 +1,6 @@
 ## 👤 SMURF
 
-**🪧 Place** in [Ares Gardens](../refs/ares_gardens.md)
+**🪧 Place** in [Ares Gardens](/ares_gardens.md)
 
 SMURF stands for Sustainable Mineral Usage Regarding Forests and was built by Protectores Silva in Ares Gardens Eon 550.
 

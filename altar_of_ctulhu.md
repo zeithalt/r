@@ -1,8 +1,8 @@
 ## 🐙 Altar of Ctulhu
 
-`🪧 Place` in [Imperial Swamp](../refs/imperial_swamp.md)
+`🪧 Place` in [Imperial Swamp](/imperial_swamp.md)
 
-Build on eon 506 by [Delta Collective](../refs/delta_collective.md)
+Build on eon 506 by [Delta Collective](/delta_collective.md)
 
 Destroyed during the The Fall of Imperial Swamp on eon 596.
 

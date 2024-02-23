@@ -1,8 +1,8 @@
 ## 🎮 G.A.M.E. Complex
 
-`🖼️ Landmark` in [PEBKAC Peak](../refs/pebkac_peak.md)
+`🖼️ Landmark` in [PEBKAC Peak](/pebkac_peak.md)
 
-The great minds at [Cybernetics Inc](../refs/cybernetics_inc.md) have come up with a new way to improve future human digital enhancement – video games.
+The great minds at [Cybernetics Inc](/cybernetics_inc.md) have come up with a new way to improve future human digital enhancement – video games.
 
 Humans are notoriously inept at objectivity and have a remarkable ability to ignore or discard information that is inconvenient. Removing bias and enhancing information intake and processing capabilities is a key component of human improvement.
 

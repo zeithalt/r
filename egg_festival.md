@@ -1,8 +1,8 @@
 ## 🥚 Egg Festival
 
-`🪧 Place` in [Cerene Vale](../refs/cerene_vale.md)
+`🪧 Place` in [Cerene Vale](/cerene_vale.md)
 
-Built on eon 527 by [Protectores Silva](../refs/protectores_silva.md)
+Built on eon 527 by [Protectores Silva](/protectores_silva.md)
 
 _This entry is considered incomplete - you can request more info for it [on discord](<https://discord.com/channels/562910943848169472/1173922660489633802>) or write it yourself_
 

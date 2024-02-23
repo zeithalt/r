@@ -1,8 +1,8 @@
 ## 🌌 Stellarium
 
-`🖼️ Landmark` in [Indigo Shore](../refs/indigo_shore.md)
+`🖼️ Landmark` in [Indigo Shore](/indigo_shore.md)
 
-Built on eon 804 by [Delta Collective](../refs/delta_collective.md)
+Built on eon 804 by [Delta Collective](/delta_collective.md)
 
 A planetarium that brings the experience of the stars to the people. The programming and shows concentrate on stars, constellations, the lifecycle of stars, and other star-related astronomical phenomena. Its structure is established in Indigo Shore, away from the bustling light and crowd mass of towns and cities, for a more immersive experience.
 

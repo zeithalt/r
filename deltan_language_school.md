@@ -1,6 +1,6 @@
 ## 💬 Deltan Language School
 
-`🖼️ Landmark` in [Oblivion Mire](../refs/oblivion_mire.md)
+`🖼️ Landmark` in [Oblivion Mire](/oblivion_mire.md)
 
 Built on eon 780 in Oblivion Mire, rather out of practical necessity than appreciation of Deltan culture.
 
