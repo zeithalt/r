@@ -8,7 +8,7 @@ Mysterious sands of Timeless Desert are known to affect travellers' perception o
 
 There are cases of people wandering the desert for months only to find they there were missing for a few hours, and what was perceived as a short hike sometimes lasted eons for people outside the desert. 
 
-![Timeless Desert during Corruption outburst](/i/corrupted_desert.png)
+![Timeless Desert during Corruption outburst](https://zeithalt.github.io/r/i/corrupted_desert.png)
 
 
 ----------

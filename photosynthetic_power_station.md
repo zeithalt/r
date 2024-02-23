@@ -1,8 +1,8 @@
 ## 🌿 Photosynthetic Power Station
 
-**🪧 Place** in [A'as Forest](/aas_forest.html)
+**🪧 Place** in [A'as Forest](https://zeithalt.github.io/r/aas_forest.html)
 
-PPS in short, this building was one of the first construction and scientific projects completed by [Protectores Silva](/protectores_silva.html), in Eon 457.
+PPS in short, this building was one of the first construction and scientific projects completed by [Protectores Silva](https://zeithalt.github.io/r/protectores_silva.html), in Eon 457.
 
 As the name itself suggests, the installation uses trees to transform solar energy into chemical, and then, thanks to technology specially developed as part of this project, into electricity.
 

@@ -1,8 +1,8 @@
 ## 🌌 Stellarium
 
-`🖼️ Landmark` in [Indigo Shore](/indigo_shore.html)
+`🖼️ Landmark` in [Indigo Shore](https://zeithalt.github.io/r/indigo_shore.html)
 
-Built on eon 804 by [Delta Collective](/delta_collective.html)
+Built on eon 804 by [Delta Collective](https://zeithalt.github.io/r/delta_collective.html)
 
 A planetarium that brings the experience of the stars to the people. The programming and shows concentrate on stars, constellations, the lifecycle of stars, and other star-related astronomical phenomena. Its structure is established in Indigo Shore, away from the bustling light and crowd mass of towns and cities, for a more immersive experience.
 

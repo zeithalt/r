@@ -1,8 +1,8 @@
 ## 🥡 Valhalla Bar
 
-`🪧 Place` in [Oblivion Mire](/oblivion_mire.html)
+`🪧 Place` in [Oblivion Mire](https://zeithalt.github.io/r/oblivion_mire.html)
 
-Build on eon 480 by [MindTech Institute](/mindtech_institute.html)
+Build on eon 480 by [MindTech Institute](https://zeithalt.github.io/r/mindtech_institute.html)
 
 
 ----------
