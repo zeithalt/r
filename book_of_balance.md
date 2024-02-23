@@ -10,7 +10,7 @@ The Book of Balance teaches readers the topics of mindfulness and meditation, th
 
 It is customary among MindTech followers to give out copies of this book to friends a families outside the faction as a token of appreciation and gratitude. The highest of honour is *The Gift of Balance* - the act of gifting away the very same book the person has read themselves.
 
-![Modern edition of the Book of Balance](../i/book_of_balance.png)
+![Modern edition of the Book of Balance](/i/book_of_balance.png)
 
 
 ----------

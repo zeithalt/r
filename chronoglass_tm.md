@@ -6,7 +6,7 @@ A commercial product made from the [chronoglass](../refs/chronoglass.md) by the 
 
 > _See the Past through the Glass!_
 
-![chronoglass_tm](../i/chronoglass_tm.png)
+![chronoglass_tm](/i/chronoglass_tm.png)
 
 
 ----------

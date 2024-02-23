@@ -19,12 +19,12 @@ The following meanings are assigned to these symbols:
 > **Official MT flag**  
 > (main version, used for diplomatic and ceremonial purposes)
 > 
-> ![MindTech Peace Flag](../i/mt_peace_flag.png)
+> ![MindTech Peace Flag](/i/mt_peace_flag.png)
 
 > **War MT flag**  
 > (used exclusively in wartime by MT army) 
 > 
-> ![MindTech War Flag](../i/mt_war_flag.png)
+> ![MindTech War Flag](/i/mt_war_flag.png)
 
 
 

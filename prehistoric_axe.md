@@ -10,7 +10,7 @@ Started just as a piece of iron ore tied to a stick; this axe underwent many tra
 
 That's when the axe was finally transformed into a weapon worthy to be wielded by a faction leader.
 
-![Prehistoric Axe](../i/prehistoric_axe.png)
+![Prehistoric Axe](/i/prehistoric_axe.png)
 
 
 ----------

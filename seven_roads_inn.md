@@ -8,7 +8,7 @@ It sits near the crossroads where a lesser known, but important [Syncrax Road](.
 
 Due to this clever location, the Seven Roads Inn became a preferred resting place for generations of people travelling the [MindTech](../refs/mindtech_institute.md) lands, and rightfully evokes many warn feelings in the hearts of travelers.
 
-![Seven Roads Inn](../i/seven_roads_inn.png)
+![Seven Roads Inn](/i/seven_roads_inn.png)
 
 ----------
 [⬅️ Back to index](/index.md#1780_s)

@@ -4,7 +4,7 @@
 
 Opened to the public on eon 770, this memorial is primarily dedicated to the [MindTech Institute symbology](../refs/mt_symbology.md) and culture, but also serves as an archive for symbols and signs used anywhere on the Island.
 
-The main features of the Hill are the 100m flagpole of the [Official MT Flag](../i/mt_peace_flag.png), and a smaller - 3/4 of that height - [Wartime MT flag](../i/mt_war_flag.png).
+The main features of the Hill are the 100m flagpole of the [Official MT Flag](/i/mt_peace_flag.png), and a smaller - 3/4 of that height - [Wartime MT flag](/i/mt_war_flag.png).
 
 What surround the main exposition, are rows and rows of flags and crests and banners for different departments of [MindTech Institute](../refs/mindtech_institute.md), MT regions, towns, villages, families, and even specific people.
 

@@ -10,7 +10,7 @@ The stone emanates a bright white light when first seen that will make the behol
 
 These stones, though, are very rare due to it taking hundreds of years to form and being very difficult to find as the [Desert](../refs/timeless_desert.md) where they are made are famous for being a place where you can easily get lost or lose your way, leading to many adventurers never coming back.
 
-![Timeless Waystone](../i/timeless_waystone.png)
+![Timeless Waystone](/i/timeless_waystone.png)
 
 
 ----------

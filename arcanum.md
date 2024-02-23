@@ -14,7 +14,7 @@ This paves the way for many conspiracy theories ranging from relatively modest -
 
 However, the most prevalent theory is actually a running joke that the book is in fact empty, and Masters are making up their lectures on the spot.
 
-> ![The Arcanum](../i/arcanum.png)
+> ![The Arcanum](/i/arcanum.png)
 
 
 ----------
