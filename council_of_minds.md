@@ -10,7 +10,7 @@ The leader of the Council is called the _Headmaster_, who also acts as a Headmas
 
 The Council is as old as the faction itself, and its history ranges from the ultimate power on the island during the times it was led by [hexAgon](/hexagon.md) to the complete dissolution during the times of [Loki](/loki.md)'s dictatorship.
 
-The Council was restored on [Eon 755](../timeline/eon0755.md) following the fall of the ruthless dictator.
+The Council was restored on [Eon 755](t/eon0755.md) following the fall of the ruthless dictator.
 
 
 ----------

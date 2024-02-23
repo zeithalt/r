@@ -2,7 +2,7 @@
 
 `🪧 Place` in [Neuropolis](/neuropolis.md)
 
-Built by [Cybernetics Inc](/cybernetics_inc.md) on eon 457 during restoration of MT capital soon after [the siege](../timeline/eon0384.md).
+Built by [Cybernetics Inc](/cybernetics_inc.md) on eon 457 during restoration of MT capital soon after [the siege](t/eon0384.md).
 
 This project brought the whole districts of [Neuropolis](/neuropolis.md) up to the modern standard of infrastructure, greatly increasing the living conditions of lower-class citizens.
 
