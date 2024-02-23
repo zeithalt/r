@@ -8,4 +8,4 @@ She has some skills with computers, but found her calling in trying to research 
 
 
 ----------
-[⬅️ Back to index](../#0a70_s)
+[⬅️ Back to index](../r/#0a70_s)

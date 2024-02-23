@@ -10,4 +10,4 @@ Airmanon has seen that the dagger has been effective in cutting down fungal grow
 
 
 ----------
-[⬅️ Back to index](../#f750_s)
+[⬅️ Back to index](../r/#f750_s)

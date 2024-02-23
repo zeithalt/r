@@ -8,4 +8,4 @@ A journalist, a historian, a political consultant for factions and an owner of Z
 
 
 ----------
-[⬅️ Back to index](../#9a30_s)
+[⬅️ Back to index](../r/#9a30_s)

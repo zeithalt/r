@@ -6,4 +6,4 @@ Also known as "double-Z", the newspaper is the main source of news for all Zeith
 
 
 ----------
-[⬅️ Back to index](../#fad0_s)
+[⬅️ Back to index](../r/#fad0_s)

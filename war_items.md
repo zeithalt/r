@@ -12,4 +12,4 @@ They also divide into Common and Epic variants. Epic items do what Common items 
 
 
 ----------
-[⬅️ Back to index](../#9930_s)
+[⬅️ Back to index](../r/#9930_s)

@@ -14,4 +14,4 @@ These stones, though, are very rare due to it taking hundreds of years to form a
 
 
 ----------
-[⬅️ Back to index](../#22a0_s)
+[⬅️ Back to index](../r/#22a0_s)

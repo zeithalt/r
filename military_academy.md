@@ -12,4 +12,4 @@ At the center of the academy is the _[Revalx](../refs/revalx.md) Memorial Park_,
 
 
 ----------
-[⬅️ Back to index](../#be90_s)
+[⬅️ Back to index](../r/#be90_s)

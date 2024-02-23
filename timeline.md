@@ -8,4 +8,4 @@ You can access the full timeline on a single page [via this link](../timeline/in
 
 
 ----------
-[⬅️ Back to index](../#1e30_s)
+[⬅️ Back to index](../r/#1e30_s)

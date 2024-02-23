@@ -12,4 +12,4 @@ Even though there were no huge successes since then, it's still considered a bus
 
 
 ----------
-[⬅️ Back to index](../#6ad0_s)
+[⬅️ Back to index](../r/#6ad0_s)

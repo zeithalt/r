@@ -8,4 +8,4 @@ Usually they sell their services for gold to the attacking or the defending side
 
 
 ----------
-[⬅️ Back to index](../#3ec0_s)
+[⬅️ Back to index](../r/#3ec0_s)

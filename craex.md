@@ -14,4 +14,4 @@ Head Researcher of The [Timeless Sands](../refs/temporal_resources.md).
 
 
 ----------
-[⬅️ Back to index](../#45d0_s)
+[⬅️ Back to index](../r/#45d0_s)

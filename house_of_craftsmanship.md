@@ -12,4 +12,4 @@ The forge is traditionally used for students graduating from the school, with th
 
 
 ----------
-[⬅️ Back to index](../#1b90_s)
+[⬅️ Back to index](../r/#1b90_s)

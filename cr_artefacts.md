@@ -10,4 +10,4 @@ There are three two types of Corrupted Artefacts: CR Mines and CR Shards.
 
 
 ----------
-[⬅️ Back to index](../#a1a0_s)
+[⬅️ Back to index](../r/#a1a0_s)

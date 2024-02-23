@@ -8,4 +8,4 @@ _This entry is considered incomplete - you can request more info for it [on disc
 
 
 ----------
-[⬅️ Back to index](../#25b0_s)
+[⬅️ Back to index](../r/#25b0_s)

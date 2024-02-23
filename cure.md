@@ -6,4 +6,4 @@ Built in Eon 540 during the `🦠 Mimps Virus` pandemic, CURE (Central Universit
 
 
 ----------
-[⬅️ Back to index](../#9670_s)
+[⬅️ Back to index](../r/#9670_s)

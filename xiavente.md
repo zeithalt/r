@@ -11,4 +11,4 @@ Will you request others to that?
 You can do both [on discord](<https://discord.com/channels/562910943848169472/1173922660489633802>)
 
 ----------
-[⬅️ Back to index](../#40a0_s)
+[⬅️ Back to index](../r/#40a0_s)

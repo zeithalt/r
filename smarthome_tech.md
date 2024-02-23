@@ -10,4 +10,4 @@ However, at the same time it is vastly criticised as a project enforced by [Cybe
 
 
 ----------
-[⬅️ Back to index](../#39b0_s)
+[⬅️ Back to index](../r/#39b0_s)
