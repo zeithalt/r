@@ -11,4 +11,4 @@ Synopsis:
 
 
 ----------
-[⬅️ Back to index](/#6550_s)
+[⬅️ Back to index](/index.md#6550_s)

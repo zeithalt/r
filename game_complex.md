@@ -14,4 +14,4 @@ The data will be used to imbue future humans with efficient, optimized pruning a
 
 
 ----------
-[⬅️ Back to index](/#6ee0_s)
+[⬅️ Back to index](/index.md#6ee0_s)

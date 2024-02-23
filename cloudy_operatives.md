@@ -9,4 +9,4 @@ Synopsis:
 
 
 ----------
-[⬅️ Back to index](/#36b0_s)
+[⬅️ Back to index](/index.md#36b0_s)

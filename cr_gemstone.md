@@ -22,4 +22,4 @@ It seems that the gemstone has bonded with **hexAgon** in some special way.
 
 
 ----------
-[⬅️ Back to index](/#08c0_s)
+[⬅️ Back to index](/index.md#08c0_s)

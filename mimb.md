@@ -12,4 +12,4 @@ You can write or request lore [on discord](<https://discord.com/channels/5629109
 
 
 ----------
-[⬅️ Back to index](/#34f0_s)
+[⬅️ Back to index](/index.md#34f0_s)

@@ -13,4 +13,4 @@ The ruling structure is **The Chaos Council** consists of people marked by **Cha
 
 
 ----------
-[⬅️ Back to index](/#3911_s)
+[⬅️ Back to index](/index.md#3911_s)

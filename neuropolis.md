@@ -16,4 +16,4 @@ It contains many ancient books and scrolls that dates back to when the capital w
 
 
 ----------
-[⬅️ Back to index](/#b870_s)
+[⬅️ Back to index](/index.md#b870_s)

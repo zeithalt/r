@@ -12,4 +12,4 @@ It also holds many places where those who break the law gets sentenced or punish
 
 
 ----------
-[⬅️ Back to index](/#b9a0_s)
+[⬅️ Back to index](/index.md#b9a0_s)

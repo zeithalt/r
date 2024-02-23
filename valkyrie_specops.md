@@ -8,4 +8,4 @@ Initially, there were no proper pricing scheme, only running on opinion-based di
 
 
 ----------
-[⬅️ Back to index](/#3660_s)
+[⬅️ Back to index](/index.md#3660_s)

@@ -6,4 +6,4 @@ The language predominantly used by the Deltans.
 
 
 ----------
-[⬅️ Back to index](/#4de0_s)
+[⬅️ Back to index](/index.md#4de0_s)

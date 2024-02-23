@@ -11,4 +11,4 @@ Apart from those, the map contains icons for various building / landmarks found 
 
 
 ----------
-[⬅️ Back to index](/#e850_s)
+[⬅️ Back to index](/index.md#e850_s)

@@ -14,4 +14,4 @@ The Council was restored on [Eon 755](../timeline/eon0755.md) following the fall
 
 
 ----------
-[⬅️ Back to index](/#7c90_s)
+[⬅️ Back to index](/index.md#7c90_s)

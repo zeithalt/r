@@ -8,4 +8,4 @@ _This entry is considered incomplete - you can request more info for it [on disc
 
 
 ----------
-[⬅️ Back to index](/#7e10_s)
+[⬅️ Back to index](/index.md#7e10_s)

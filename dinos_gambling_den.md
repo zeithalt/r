@@ -8,4 +8,4 @@ Despite multiple allegations of illicit activities happening in the Den, the pla
 
 
 ----------
-[⬅️ Back to index](/#ee20_s)
+[⬅️ Back to index](/index.md#ee20_s)

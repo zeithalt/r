@@ -10,4 +10,4 @@ While not being comparable to Wildlife Preservation in Ares Gardens in terms of 
 
 
 ----------
-[⬅️ Back to index](/#1fa0_s)
+[⬅️ Back to index](/index.md#1fa0_s)

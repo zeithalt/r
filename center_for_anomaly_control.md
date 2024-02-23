@@ -14,4 +14,4 @@ Later, the resources of the Center were used in Restoration Projects in other la
 
 
 ----------
-[⬅️ Back to index](/#0330_s)
+[⬅️ Back to index](/index.md#0330_s)

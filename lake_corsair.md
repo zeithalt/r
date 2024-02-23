@@ -6,4 +6,4 @@ A picturesque lake in the middle of traditionally [Cyber](../refs/cybers.md) lan
 
 
 ----------
-[⬅️ Back to index](/#bca0_s)
+[⬅️ Back to index](/index.md#bca0_s)

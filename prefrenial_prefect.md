@@ -10,4 +10,4 @@ Modernized by [MindTech Institute](../refs/mindtech_institute.md) on eon 735.
 
 
 ----------
-[⬅️ Back to index](/#9850_s)
+[⬅️ Back to index](/index.md#9850_s)

@@ -29,4 +29,4 @@ The following meanings are assigned to these symbols:
 
 
 ----------
-[⬅️ Back to index](/#cbe0_s)
+[⬅️ Back to index](/index.md#cbe0_s)
