@@ -2,7 +2,7 @@
 
 `🖼️ Landmark`
 
-A picturesque lake in the middle of traditionally [Cyber](/cybers.md) lands, at the meeting point of three lands: [Admincity](/admincity.md), [Webified Hills](/webified_hills.md) and [Singularity Valley](/singularity_valley.md).
+A picturesque lake in the middle of traditionally [Cyber](/cybers.html) lands, at the meeting point of three lands: [Admincity](/admincity.html), [Webified Hills](/webified_hills.html) and [Singularity Valley](/singularity_valley.html).
 
 
 ----------

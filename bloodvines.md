@@ -2,7 +2,7 @@
 
 `📑 Term`
 
-Bloodvine or a stranger vine is a type of carnivore plant that grows in the shallower parts of [Oblivion Mire](/oblivion_mire.md). It's known for its strength with which the vines can pull in and even trap the largest of creatures.
+Bloodvine or a stranger vine is a type of carnivore plant that grows in the shallower parts of [Oblivion Mire](/oblivion_mire.html). It's known for its strength with which the vines can pull in and even trap the largest of creatures.
 
 The plant by itself has unassuming bright-green leaves on a thin stem and lays dormant in the small pools of water known as _bloodvine pits_. 
 

@@ -1,8 +1,8 @@
 ## ☁️ Cloudy Data Center
 
-`🪧 Place` in [Timeless Desert](/timeless_desert.md)
+`🪧 Place` in [Timeless Desert](/timeless_desert.html)
 
-Built on eon 507 by [MindTech Institute](/mindtech_institute.md)
+Built on eon 507 by [MindTech Institute](/mindtech_institute.html)
 
 _This entry is considered incomplete - you can request more info for it [on discord](<https://discord.com/channels/562910943848169472/1173922660489633802>) or write it yourself_
 

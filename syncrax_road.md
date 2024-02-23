@@ -2,7 +2,7 @@
 
 `🪧 Place`
 
-The second-largest road in [Paradox Pass](/paradox_pass.md) - that connects the northern regions of [Xyrclaox Watch](/xyrclaox_watch.md) and [Synaxos Fields](/synaxos_fields.md) to the [Axonite Road](/axonite_road.md) and therefore to the rest of the [MindTech Institute](/mindtech_institute.md) lands.
+The second-largest road in [Paradox Pass](/paradox_pass.html) - that connects the northern regions of [Xyrclaox Watch](/xyrclaox_watch.html) and [Synaxos Fields](/synaxos_fields.html) to the [Axonite Road](/axonite_road.html) and therefore to the rest of the [MindTech Institute](/mindtech_institute.html) lands.
 
 
 ----------

@@ -1,8 +1,8 @@
 ## 💰 PTSD Office
 
-**🪧 Place** in [Cerene Vale](/cerene_vale.md)
+**🪧 Place** in [Cerene Vale](/cerene_vale.html)
 
-The main administrative building of PS Taxes & Stuff Department ([PTSD](/ptsd.md)), built Eon 468 in Cerene Vale.
+The main administrative building of PS Taxes & Stuff Department ([PTSD](/ptsd.html)), built Eon 468 in Cerene Vale.
 
 
 ----------

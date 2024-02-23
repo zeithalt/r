@@ -1,8 +1,8 @@
 ## 🦆 Duck Farm
 
-`🪧 Place` in [Indigo Shore](/indigo_shore.md)
+`🪧 Place` in [Indigo Shore](/indigo_shore.html)
 
-Built by [Delta Collective](/delta_collective.md) on eon 470.
+Built by [Delta Collective](/delta_collective.html) on eon 470.
 
 _This entry is considered incomplete - you can request more info for it [on discord](<https://discord.com/channels/562910943848169472/1173922660489633802>) or write it yourself_
 

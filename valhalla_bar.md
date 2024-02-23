@@ -1,8 +1,8 @@
 ## 🥡 Valhalla Bar
 
-`🪧 Place` in [Oblivion Mire](/oblivion_mire.md)
+`🪧 Place` in [Oblivion Mire](/oblivion_mire.html)
 
-Build on eon 480 by [MindTech Institute](/mindtech_institute.md)
+Build on eon 480 by [MindTech Institute](/mindtech_institute.html)
 
 
 ----------

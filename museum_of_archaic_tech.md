@@ -1,8 +1,8 @@
 ## 💾 Museum of Archaic Technology
 
-`🪧 Place` in [Singularity Valley](/singularity_valley.md)
+`🪧 Place` in [Singularity Valley](/singularity_valley.html)
 
-Built on eon 504 by [Cybernetics Inc](/cybernetics_inc.md) in honour of the [Great AI](/great_ai.md).
+Built on eon 504 by [Cybernetics Inc](/cybernetics_inc.html) in honour of the [Great AI](/great_ai.html).
 
 
 ----------

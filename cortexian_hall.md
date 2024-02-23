@@ -1,12 +1,12 @@
 ## 📖 Cortexian Hall
 
-`🖼️ Landmark` in [Neuropolis](/neuropolis.md)
+`🖼️ Landmark` in [Neuropolis](/neuropolis.html)
 
-A complex of administrative buildings situated at the center point of the Cerebrime Peak in [Neuropolis](/neuropolis.md).
+A complex of administrative buildings situated at the center point of the Cerebrime Peak in [Neuropolis](/neuropolis.html).
 
-Cortexian Hall servers as a permanent residence for the [Council of Minds](/council_of_minds.md), as well as the greatest archive of official documents in MT lands, and a living quarters for the Masters of the Council.
+Cortexian Hall servers as a permanent residence for the [Council of Minds](/council_of_minds.html), as well as the greatest archive of official documents in MT lands, and a living quarters for the Masters of the Council.
 
-It contains many ancient books and scrolls that date back to when the capital was still in the [A'as Forest](/aas_forest.md).
+It contains many ancient books and scrolls that date back to when the capital was still in the [A'as Forest](/aas_forest.html).
 
 The Great Auditorium where the Council holds their meetings is one of the biggest indoor spaces of the island.
 
