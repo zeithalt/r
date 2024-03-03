@@ -2,7 +2,7 @@
 
 `🪧 Place` in [Neuropolis](https://zeithalt.github.io/r/neuropolis.html)
 
-Built on eon 495 by [MindTech Institute](https://zeithalt.github.io/r/mindtech_institute.html) - a few eons after the [Oblivious Battle on the Mire](<https://alexeygorovoy.github.io/zeithalt/timeline/#eon-491---the-oblivious-battle-on-the-mire>) that showed the MT planning and foresight department at arguably the lowest point.
+Built on eon 495 by [MindTech Institute](https://zeithalt.github.io/r/mindtech_institute.html) - a few eons after the [Oblivious Battle on the Mire](https://alexeygorovoy.github.io/zeithalt/timeline/#eon-491---the-oblivious-battle-on-the-mire) that showed the MT planning and foresight department at arguably the lowest point.
 
 This, essentially a lighthouse, served as a wake-up call to the MindTech citizens and simultaneously a reminder of where a clouded mind could lead even the brightest of people.
 
