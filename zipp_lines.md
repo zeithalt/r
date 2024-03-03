@@ -1,11 +1,8 @@
 ## 🌟 ZIPP Lines
 
-**🪧 Place** in [Chaotic Plains](https://zeithalt.github.io/r/chaotic_plains.html)
+**🪧 Place** in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>)
 
-Built on eon 527 by [Cybernetics Inc](https://zeithalt.github.io/r/cybernetics_inc.html)
+Built on eon 527 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
 
 ZIPP Lines or Zeithalt Industry Protection Protocol Starline is a Safety Service providing everything from technical engineering support to personal accident protection services.
 
-
-----------
-[⬅️ Back to index](/index.md#4d60_s)

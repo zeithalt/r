@@ -7,8 +7,5 @@ Protectores Silva (PS) - a newer faction on the island, founded in former MT lan
 Capital city - **Cerene Vale**.
 
 Synopsis:
-> *Zeithalt is changing, under threat from unnatural disturbances and behavior (see [Corruption](https://zeithalt.github.io/r/corruption.html)). We must protect her and live in balance with nature to thrive long-term.*
+> *Zeithalt is changing, under threat from unnatural disturbances and behavior (see [Corruption](<https://zeithalt.github.io/r/corruption.html>)). We must protect her and live in balance with nature to thrive long-term.*
 
-
-----------
-[⬅️ Back to index](/index.md#7a60_s)

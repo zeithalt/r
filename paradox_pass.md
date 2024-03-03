@@ -11,6 +11,3 @@ But these are not the only economic structures in the region. There are also hot
 
 The main and busiest road, Axonite Road, is also the biggest out of all the 7 main roads. It stretches from Axhillock to Spinal Foothills, which connects the eastern-most part of the faction, to the western-most part. And the Syncrax Road and R'etenet Road follows the Axonite Road for being the second biggest and busiest roads. These two roads connects the northern-most part of the faction, to the southern part of it.
 
-
-----------
-[⬅️ Back to index](/index.md#cb50_s)

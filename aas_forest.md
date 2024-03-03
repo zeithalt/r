@@ -13,6 +13,3 @@ Although with little population, with the previous capital being here, it has ma
 In the said population, most of them work as lumberjacks and craftsmen, supplying wood, wooden supplies, and even furniture to the rest of the faction. Some others work as farmers that tend the orchard trees around the forest, which produces many fruits that is either shipped as it is, pickled, made into jams, or other fruit-preserving methods.
 
 
-
-----------
-[⬅️ Back to index](/index.md#dd50_s)

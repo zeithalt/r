@@ -8,6 +8,3 @@ Also a versatile database holding all (well, almost) the information you may nee
 
 Feel free to ask me about anything!
 
-
-----------
-[⬅️ Back to index](/index.md#1670_s)

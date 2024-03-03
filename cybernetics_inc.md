@@ -7,6 +7,3 @@ Cybernetics Inc (CI) - one of the three original factions. Located in the north 
 Synopsis:
 > *The rise of AI is imminent. We must just embrace it and lead the movement. We won’t live inside the matrix, we will run it! Human digital enhancement - this is our vision for the future.*
 
-
-----------
-[⬅️ Back to index](/index.md#80b0_s)

@@ -8,8 +8,5 @@ The training facilities here are made for those who wants to enter military or l
 
 A lot of the MindTech Institute leaders went here to train their minds not only in the league of knowledge and wisdom, but also in the forte of war tactics, demeanor, cunning, and many more.
 
-It also holds many places where those who break the law gets sentenced or punished, and kept. Which is the main reason why the place is always heavily guarded. The biggest prison in the faction, [Prefrenial Prefect](https://zeithalt.github.io/r/prefrenial_prefect.html), is the most heavily guarded, with layers and layers of walls in all walls, roofs, and floors. It is said that once you get in here, it would take you days to get out, even if you're not a prisoner.
+It also holds many places where those who break the law gets sentenced or punished, and kept. Which is the main reason why the place is always heavily guarded. The biggest prison in the faction, [Prefrenial Prefect](<https://zeithalt.github.io/r/prefrenial_prefect.html>), is the most heavily guarded, with layers and layers of walls in all walls, roofs, and floors. It is said that once you get in here, it would take you days to get out, even if you're not a prisoner.
 
-
-----------
-[⬅️ Back to index](/index.md#b9a0_s)

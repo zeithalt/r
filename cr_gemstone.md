@@ -20,6 +20,3 @@ Since then other people have touched the gemstone, but got no visions from it. A
 
 It seems that the gemstone has bonded with **hexAgon** in some special way.
 
-
-----------
-[⬅️ Back to index](/index.md#08c0_s)

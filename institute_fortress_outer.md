@@ -18,6 +18,3 @@ Inside the perimeter there is the *Forest of Bitter Regrets*, where mainly willo
 
 Trees and fog hide the view of the structure built in the center of the perimeter, the actual Fortress.
 
-
-----------
-[⬅️ Back to index](/index.md#8a90_s)

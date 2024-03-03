@@ -11,6 +11,3 @@ It is said that Oblivion Mire was once a great and lush jungle, filled with many
 Although barren and wastes, the region is still filled with many things yet to be explored or discovered, which is why there's a lot of research centers situated here. These research centers mainly study the earth and the trees, as long as the waters to solve what made the region into what it is now, and how they could fix it.
 
 
-
-----------
-[⬅️ Back to index](/index.md#8840_s)

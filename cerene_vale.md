@@ -10,6 +10,3 @@ The region's capital, Silent Gulf, is famous for having its seasonal festivals e
 
 *(Allevanos - The Valley's Blessings) (Autumn is when the crops are usually harvested)*
 
-
-----------
-[⬅️ Back to index](/index.md#3850_s)

@@ -11,6 +11,3 @@ But everything changes when  **Chaos Coordinator**s appear among them, they are 
 The ruling structure is **The Chaos Council** consists of people marked by **Chaos** itself and who are very unusual in a combat situation.
 
 
-
-----------
-[⬅️ Back to index](/index.md#3911_s)
