@@ -8,3 +8,7 @@ It is located in Oblivion Mire, close to the border with [Brickland Fortress](<h
 
 Using a natural clearing as the site of construction, the plaza was made using Silvan architectural design to coexist with the environment. Support from CI allowed for ease of maintenance, which helps make this coexistence easier.
 
+<!---
+keywords: oblivion, mire, brickland, fortress, airmanon, driftwing, silvan, ci, party, plaza
+aliases: 
+-->

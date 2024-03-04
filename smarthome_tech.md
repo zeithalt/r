@@ -8,3 +8,7 @@ This project brought the whole districts of [Neuropolis](<https://zeithalt.githu
 
 However, at the same time it is vastly criticised as a project enforced by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) against [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) will, and even partially aimed at diluting the unique culture of the MindTech capital.
 
+<!---
+keywords: neuropolis 
+aliases: 
+-->

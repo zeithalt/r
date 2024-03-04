@@ -12,3 +12,7 @@ It is customary among MindTech followers to give out copies of this book to frie
 
 ![Modern edition of the Book of Balance](https://zeithalt.github.io/r/i/book_of_balance.png)
 
+<!---
+keywords: 
+aliases: Gift of Balance
+-->

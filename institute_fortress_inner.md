@@ -19,3 +19,7 @@ Some claim that, especially at the end of the day when the sun's rays are very l
 
 There is no evidence that it actually exists.
 
+<!---
+keywords: mt, blue, green, orange, red, tower, neuropolis
+aliases: Towers of MindTech Institute
+-->

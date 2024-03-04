@@ -8,3 +8,7 @@ It's believed to be constantly "building up" under the surface of the island, re
 
 If not contained properly, it can result in an event called Corruption Fallout, covering vast areas, destroying everything it touches and making lands practically uninhabitable.
 
+<!---
+keywords:
+aliases:
+-->

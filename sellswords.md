@@ -6,3 +6,7 @@ Sellswords (SW) are people who chose not to join any faction and instead just de
 
 Usually they sell their services for gold to the attacking or the defending side.
 
+<!---
+keywords: sw, battle, mercenary
+aliases:
+-->

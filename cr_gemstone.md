@@ -20,3 +20,7 @@ Since then other people have touched the gemstone, but got no visions from it. A
 
 It seems that the gemstone has bonded with **hexAgon** in some special way.
 
+<!---
+keywords: cr, artifact, artefact, hexagon
+aliases:
+-->

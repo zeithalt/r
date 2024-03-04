@@ -8,3 +8,7 @@ It was built by the Arcology Building for Operators of Desert Experiments (ABODE
 
 It lies in a tunnel 34 kilometres (which in miles is 21) in circumference and as deep as 150 metres (which in inches is a different number) beneath the Timeless-Pickles border.
 
+<!---
+keywords: mt, timeless, desert, abode, particle, collider, mindtech, institute
+aliases: 
+-->

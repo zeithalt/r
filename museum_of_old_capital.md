@@ -8,3 +8,7 @@ This museum is believed to host the greatest collection of historical artifacts 
 
 From the Shaushka runes describing the foundation of the [First Capital](<https://zeithalt.github.io/r/first_capital.html>), to the detailed maps of the old ruins of [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>) created ceonturies after its fall - the museum hosts it all, while the work to restore and rediscover the secrets of the _First Capital_ continues within its walls.
 
+<!---
+keywords: neuropolis, mt, aas
+aliases: 
+-->

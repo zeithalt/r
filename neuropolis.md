@@ -14,3 +14,7 @@ But what holds the greatest importance to them is the [Cortexian Hall](<https://
 In here, many of the greatest minds come and tell what they have found from researches and expeditions, and talk about problems that the country is and may be facing to find the solution in the best manner possible.
 It contains many ancient books and scrolls that dates back to when the capital was still in the A'as Forest. It's also where the current leaders of the faction are staying.
 
+<!---
+keywords: mt, capital, landmark
+aliases: 
+-->

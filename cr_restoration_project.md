@@ -6,3 +6,7 @@ A project initially developed to recover [Synaxos Fields](<https://zeithalt.gith
 
 Since then, it has been reviewed and adapted to be used in other areas of the Island affected by _Corruption_.
 
+<!---
+keywords:  cr, synaxos
+aliases: 
+-->

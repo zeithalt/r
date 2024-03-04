@@ -10,3 +10,7 @@ A lot of the MindTech Institute leaders went here to train their minds not only 
 
 It also holds many places where those who break the law gets sentenced or punished, and kept. Which is the main reason why the place is always heavily guarded. The biggest prison in the faction, [Prefrenial Prefect](<https://zeithalt.github.io/r/prefrenial_prefect.html>), is the most heavily guarded, with layers and layers of walls in all walls, roofs, and floors. It is said that once you get in here, it would take you days to get out, even if you're not a prisoner.
 
+<!---
+keywords: mt, landmark
+aliases: 
+-->

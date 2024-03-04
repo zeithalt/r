@@ -9,3 +9,7 @@ It sits near the crossroads where a lesser known, but important [Syncrax Road](<
 Due to this clever location, the Seven Roads Inn became a preferred resting place for generations of people travelling the [MindTech](<https://zeithalt.github.io/r/mindtech_institute.html>) lands, and rightfully evokes many warn feelings in the hearts of travelers.
 
 ![Seven Roads Inn](https://zeithalt.github.io/r/i/seven_roads_inn.png)
+<!---
+keywords:  
+aliases: 
+-->

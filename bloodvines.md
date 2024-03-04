@@ -10,3 +10,7 @@ If disturbed, it'll quickly wrap around the object, tighten to the point of immo
 
 The skin in contact with the goo starts to bleed, and the open wound gets further infected by the unhealthy swamp waters. The unprotected contact with the goo can lead to loss of a limb, or even death from infection and further complications.
 
+<!---
+keywords: oblivion mire, plants, pits 
+aliases: 
+-->

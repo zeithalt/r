@@ -4,3 +4,7 @@
 
 Build on eon 480 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
 
+<!---
+keywords:  mt, oblivion mire
+aliases: 
+-->

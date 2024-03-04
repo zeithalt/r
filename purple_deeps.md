@@ -11,3 +11,7 @@ But everything changes when  **Chaos Coordinator**s appear among them, they are 
 The ruling structure is **The Chaos Council** consists of people marked by **Chaos** itself and who are very unusual in a combat situation.
 
 
+<!---
+keywords: dc, capital, landmark
+aliases: 
+-->

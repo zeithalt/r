@@ -12,3 +12,7 @@ That's when the axe was finally transformed into a weapon worthy to be wielded b
 
 ![Prehistoric Axe](https://zeithalt.github.io/r/i/prehistoric_axe.png)
 
+<!---
+keywords: dino, CuriousDino
+aliases: 
+-->

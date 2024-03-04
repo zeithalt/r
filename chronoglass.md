@@ -11,3 +11,7 @@ It takes a very skillful craftsman to craft lenses which exactly 1 day, 1 week, 
 People new to the chronoglass concept, can often be riddled by the question:  
 *Would a mirror made of the chronoglass give you a reflection from your past self?*
 
+<!---
+keywords: mt, glass, timeless, desert, sand, time, past
+aliases: 
+-->

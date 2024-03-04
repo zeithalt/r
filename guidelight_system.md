@@ -14,3 +14,7 @@ These paths mostly go along the same routes Mire's inhabitants use for ceonturie
 
 ![Guidelight System](https://zeithalt.github.io/r/i/guidelight_system.png)
 
+<!---
+keywords:  mt, oblivion mire
+aliases: 
+-->

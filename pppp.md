@@ -6,3 +6,7 @@ Pierre's Porous Pickle Porch (also known as PPPP or 4P) is a business formerly o
 
 Pierre Porph Pickleson, the owner of 4P has been running 4P for the majority of his life with his now-late wife Pamela Pickleson, throughout his life he was always fond of pickles and to be able to find land that is named after Pickle was his dream come true, he now resides on Mt. Pickles where he runs his business.
 
+<!---
+keywords: mt, bumps, picles, bumps, pppp, 4p
+aliases: 
+-->

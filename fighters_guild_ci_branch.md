@@ -4,3 +4,7 @@
 
 Built on eon 612 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) as the first office of the [Fighters Guild](<https://zeithalt.github.io/r/fighters_guild.html>) 
 
+<!---
+keywords:  ci, virtuara outpost
+aliases: 
+-->

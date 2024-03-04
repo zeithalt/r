@@ -4,3 +4,7 @@
 
 Built on eon 526 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
 
+<!---
+keywords:  dc, singularity valley
+aliases: 
+-->

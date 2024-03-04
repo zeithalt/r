@@ -27,3 +27,7 @@ The following meanings are assigned to these symbols:
 > ![MindTech War Flag](https://zeithalt.github.io/r/i/mt_war_flag.png)
 
 
+<!---
+keywords:  mt, flag, banner, triquetra
+aliases: MindTech Triquetra, MindTech Flags, MindTech Banners
+-->

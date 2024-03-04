@@ -12,3 +12,7 @@ At the foot of the Hill, there are several buildings belonging to the *Symbology
 
 From the symbols of the other factions, to the replica of the welcome sign of the famous [Valhalla Bar](<https://zeithalt.github.io/r/valhalla_bar.html>), and to the corporate brand books of the [Cloudy Corporation](<https://zeithalt.github.io/r/cloudy_co_datacenter.html>) - the Archives are rumored to host truly *all* known symbols and signs of the Island.
 
+<!---
+keywords: mt, paradox pass, triquetra, flag, banner, symbology, archives 
+aliases: 
+-->

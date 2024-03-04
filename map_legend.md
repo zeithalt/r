@@ -9,3 +9,7 @@ Icons used on the timeline maps:
 
 Apart from those, the map contains icons for various building / landmarks found on the island. 
 
+<!---
+keywords: 
+aliases: 
+-->

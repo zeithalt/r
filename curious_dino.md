@@ -10,3 +10,7 @@ Despite his participation in the [Rebellion in the Desert](<https://alexeygorovo
 
 Wields a legendary [Prehistoric Axe](<https://zeithalt.github.io/r/prehistoric_axe.html>) and often speaks of himself in third person, as customary in native dinoman language.
 
+<!---
+keywords: sw, CuriousDino, gambling, fighters
+aliases: 
+-->

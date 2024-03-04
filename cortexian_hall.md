@@ -12,3 +12,7 @@ The Great Auditorium where the Council holds their meetings is one of the bigges
 
 Often regarded as "the most important building on the Island" by MT followers, Cortexian Hall is definitely one for the MindTech Institute.
 
+<!---
+keywords: neuropolis, council, cerebrime peak
+aliases: The Great Auditorium
+-->

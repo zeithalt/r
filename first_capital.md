@@ -6,3 +6,7 @@ Refers to [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.
 
 See also: [Museum of the Old Capital](<https://zeithalt.github.io/r/museum_of_old_capital.html>)
 
+<!---
+keywords:  mt, aas
+aliases: 
+-->

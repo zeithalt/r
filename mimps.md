@@ -8,3 +8,6 @@ It can spread rapidly through personal interactions and can be challenging to co
 
 The virus was named in honor of the first two researchers who studied it Mimb and Bumps.
 
+<!---
+keywords: virus, yes, mimb, bumps
+-->

@@ -6,3 +6,7 @@ A massive collaborative undertaking by the top engineers from [Cybernetics Inc](
 
 Solar run and with networking backed by the Admincity power grid in the heart of the ruins of brickland fortress.
 
+<!---
+keywords: ps, brickland, fortress, ci, containment, observation, center, solar
+aliases: 
+-->
