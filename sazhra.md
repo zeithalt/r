@@ -10,3 +10,5 @@ Their symbiotic relationship with the nanotechnology of the region allowed him t
 keywords: ci, dev, null, marsh
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#7e11>)

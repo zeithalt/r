@@ -8,3 +8,5 @@ Military unit that helps its faction in battles by providing additional fighting
 keywords: battle, unit
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#e390>)

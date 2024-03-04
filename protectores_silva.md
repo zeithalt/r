@@ -13,3 +13,5 @@ Synopsis:
 keywords: ps
 aliases: PS, Tree Huggers
 -->
+----------
+[`📑` Mimbot Index](</index.md#7a60>)

@@ -14,3 +14,5 @@ In recent eons the Great AI has been encouraging all CI citizenry to learn more 
 keywords: ci, landmark, great ai
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#dd30>)

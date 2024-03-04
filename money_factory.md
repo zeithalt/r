@@ -10,3 +10,5 @@ Destroyed during the The Fall of Imperial Swamp on eon 596.
 keywords:  dc, imperial swamp
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#18c0>)

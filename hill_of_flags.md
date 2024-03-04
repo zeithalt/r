@@ -16,3 +16,5 @@ From the symbols of the other factions, to the replica of the welcome sign of th
 keywords: mt, paradox pass, triquetra, flag, banner, symbology, archives 
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#ef90>)

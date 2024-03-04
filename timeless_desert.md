@@ -14,3 +14,5 @@ There are cases of people wandering the desert for months only to find they ther
 keywords: mt, chronoglass, landmark
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#0130>)

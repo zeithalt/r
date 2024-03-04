@@ -13,3 +13,5 @@ Apart from those, the map contains icons for various building / landmarks found 
 keywords: 
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#e850>)

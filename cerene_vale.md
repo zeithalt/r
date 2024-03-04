@@ -14,3 +14,5 @@ The region's capital, Silent Gulf, is famous for having its seasonal festivals e
 keywords: mt, landmark, ps
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#3850>)

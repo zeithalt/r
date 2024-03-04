@@ -10,3 +10,5 @@ It started at Eon 258 with the ***Battle of Mt. Pickles*** - the first ever batt
 keywords:
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#32e0>)

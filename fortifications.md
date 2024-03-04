@@ -7,3 +7,5 @@ A group term for all kinds of permanent defensive structures factions can build 
 <!---
 keywords: battle, unit
 -->
+----------
+[`📑` Mimbot Index](</index.md#9ff0>)

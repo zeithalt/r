@@ -10,3 +10,5 @@ Since then, it has been reviewed and adapted to be used in other areas of the Is
 keywords:  cr, synaxos
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#2390>)

@@ -17,3 +17,5 @@ This phenomena happens every winter solstice and is when most of the tourists co
 keywords: mt, landmark 
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#e630>)

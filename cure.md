@@ -8,3 +8,5 @@ Built in Eon 540 during the `🦠 Mimps Virus` pandemic, CURE (Central Universit
 keywords: ps, brickland, fortress, mimps, epidemiology, hospital, viral, pandemic
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#9670>)

@@ -10,3 +10,5 @@ _This entry is considered incomplete - you can request more info for it [on disc
 keywords:  dc, peace death gorge
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#3760>)

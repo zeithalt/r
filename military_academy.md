@@ -14,3 +14,5 @@ At the center of the academy is the _[Revalx](<https://zeithalt.github.io/r/reva
 keywords: mt, xyrclaox watch 
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#be90>)

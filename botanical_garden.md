@@ -12,3 +12,5 @@ While not being comparable to Wildlife Preservation in Ares Gardens in terms of 
 keywords: ps, aas, a'as, ares, flora, fauna
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#1fa0>)

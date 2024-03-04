@@ -14,3 +14,5 @@ Even though there were no huge successes since then, it's still considered a bus
 keywords:  synaxos fields
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#6ad0>)

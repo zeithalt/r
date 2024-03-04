@@ -10,3 +10,5 @@ ZIPP Lines or Zeithalt Industry Protection Protocol Starline is a Safety Service
 keywords: ci, chaotic, planes, starline
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#4d60>)

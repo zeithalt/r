@@ -12,3 +12,5 @@ This includes but is not limited to taxing business from non PS members who has 
 keywords: ps, taxes, treasury
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#e4f0>)

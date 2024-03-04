@@ -10,3 +10,5 @@ Head researcher, intrepid explorer, permanent resident, and resource exploiter o
 keywords: bumps, desert
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#8880>)

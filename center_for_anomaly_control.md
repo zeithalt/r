@@ -16,3 +16,5 @@ Later, the resources of the Center were used in Restoration Projects in other la
 keywords:  neuropolis, synaxos fields
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#0330>)

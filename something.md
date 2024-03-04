@@ -10,3 +10,5 @@ A curious and adventurous lore writer with diplomat work on the side. He prides 
 keywords: mt, sus, silent gulf
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#53e0>)

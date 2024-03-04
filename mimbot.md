@@ -12,3 +12,5 @@ Feel free to ask me about anything!
 keywords: you, bot, help
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#1670>)

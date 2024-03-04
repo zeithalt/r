@@ -14,3 +14,5 @@ It also holds many places where those who break the law gets sentenced or punish
 keywords: mt, landmark
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#b9a0>)

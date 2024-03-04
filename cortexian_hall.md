@@ -16,3 +16,5 @@ Often regarded as "the most important building on the Island" by MT followers, C
 keywords: neuropolis, council, cerebrime peak
 aliases: The Great Auditorium
 -->
+----------
+[`📑` Mimbot Index](</index.md#a610>)

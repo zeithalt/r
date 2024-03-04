@@ -15,3 +15,5 @@ People new to the chronoglass concept, can often be riddled by the question:
 keywords: mt, glass, timeless, desert, sand, time, past
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#e320>)

@@ -10,3 +10,5 @@ Eon 0 is the end of Age of Darkness and start of Age of Conquest.
 keywords:
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#b750>)

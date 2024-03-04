@@ -8,3 +8,5 @@ A mountain range that is located in [Brickland Fortress](<https://zeithalt.githu
 keywords: brickland
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#50d0>)

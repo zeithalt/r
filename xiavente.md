@@ -14,3 +14,5 @@ tag: todo
 keywords:  
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#40a0>)

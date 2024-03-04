@@ -21,3 +21,5 @@ At some point [Double-Z](<https://zeithalt.github.io/r/zeithalt_zeitgeist.html>)
 keywords:  
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#f910>)

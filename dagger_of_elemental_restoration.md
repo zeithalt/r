@@ -12,3 +12,5 @@ Airmanon has seen that the dagger has been effective in cutting down fungal grow
 keywords: airmanon
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#f750>)

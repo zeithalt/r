@@ -16,3 +16,5 @@ The Council was restored on [Eon 755](<https://zeithalt.github.io/t/#eon0755>) f
 keywords:  headmaster, masters
 aliases: Masters of the Council, Headmaster of the Institute
 -->
+----------
+[`📑` Mimbot Index](</index.md#7c90>)

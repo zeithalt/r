@@ -12,3 +12,5 @@ The beacon is not a dominant structure of the [Neuropolis](<https://zeithalt.git
 keywords:  neuropolis, lighthouse
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#2880>)

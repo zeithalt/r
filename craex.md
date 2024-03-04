@@ -16,3 +16,5 @@ Head Researcher of The [Timeless Sands](<https://zeithalt.github.io/r/temporal_r
 keywords: master, desert
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#45d0>)

@@ -8,3 +8,5 @@ Built on eon 504 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_
 keywords:  ci, singularity valley
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#50e0>)

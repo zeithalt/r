@@ -13,3 +13,5 @@ Due to this clever location, the Seven Roads Inn became a preferred resting plac
 keywords:  
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#1780>)

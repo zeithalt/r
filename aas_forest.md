@@ -18,3 +18,5 @@ keywords: mt, landmark, ps
 aliases: 
 hash: bba
 -->
+----------
+[`📑` Mimbot Index](</index.md#dd50>)

@@ -10,3 +10,5 @@ For example, TMP can be transmuted into any other kind of resources and is known
 keywords: tmp, timeless, desert, sands, chronoglass
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#6590>)

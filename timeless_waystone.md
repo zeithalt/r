@@ -16,3 +16,5 @@ These stones, though, are very rare due to it taking hundreds of years to form a
 keywords: timeless desert, mt 
 aliases: Isynthillicus Cyrciniae
 -->
+----------
+[`📑` Mimbot Index](</index.md#22a0>)

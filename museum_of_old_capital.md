@@ -12,3 +12,5 @@ From the Shaushka runes describing the foundation of the [First Capital](<https:
 keywords: neuropolis, mt, aas
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#6c20>)

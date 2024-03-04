@@ -12,3 +12,5 @@ After Old Olly's death, his son Oliver "Young Olly" Stonehaver inherited the Inn
 keywords:  
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#3d30>)

@@ -13,3 +13,5 @@ Synopsis:
 keywords: dc
 aliases: DC
 -->
+----------
+[`📑` Mimbot Index](</index.md#8bc0>)

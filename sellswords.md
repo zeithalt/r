@@ -10,3 +10,5 @@ Usually they sell their services for gold to the attacking or the defending side
 keywords: sw, battle, mercenary
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#3ec0>)

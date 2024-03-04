@@ -23,3 +23,5 @@ There is no evidence that it actually exists.
 keywords: mt, blue, green, orange, red, tower, neuropolis
 aliases: Towers of MindTech Institute
 -->
+----------
+[`📑` Mimbot Index](</index.md#ea90>)

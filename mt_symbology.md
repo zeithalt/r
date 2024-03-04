@@ -31,3 +31,5 @@ The following meanings are assigned to these symbols:
 keywords:  mt, flag, banner, triquetra
 aliases: MindTech Triquetra, MindTech Flags, MindTech Banners
 -->
+----------
+[`📑` Mimbot Index](</index.md#cbe0>)

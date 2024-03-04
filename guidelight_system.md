@@ -18,3 +18,5 @@ These paths mostly go along the same routes Mire's inhabitants use for ceonturie
 keywords:  mt, oblivion mire
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#9840>)

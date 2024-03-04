@@ -10,3 +10,5 @@ Fortunately, after over half a thousand eons of sleep, he was able to get healed
 keywords: ci, virtuara
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#c480>)

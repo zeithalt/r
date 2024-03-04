@@ -10,3 +10,5 @@ Pierre Porph Pickleson, the owner of 4P has been running 4P for the majority of 
 keywords: mt, bumps, picles, bumps, pppp, 4p
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#fc70>)

@@ -14,3 +14,6 @@ They also divide into Common and Epic variants. Epic items do what Common items 
 keywords: battle, common, epic, weapons, armor, relics
 aliases: Weapons, Armor, Relics
 -->
+
+----------
+[`📑` Mimbot Index](</index.md#9930>)

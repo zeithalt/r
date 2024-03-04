@@ -12,3 +12,5 @@ It lies in a tunnel 34 kilometres (which in miles is 21) in circumference and as
 keywords: mt, timeless, desert, abode, particle, collider, mindtech, institute
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#3910>)

@@ -12,3 +12,5 @@ The Age of Conquest started at Eon 0 and ended at Eon 253 with the ***Battle of 
 keywords:
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#0620>)

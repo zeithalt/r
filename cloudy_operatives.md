@@ -11,3 +11,5 @@ Synopsis:
 keywords: co
 aliases: CO
 -->
+----------
+[`📑` Mimbot Index](</index.md#36b0>)

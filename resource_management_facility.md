@@ -10,3 +10,5 @@ The Resource Management Facility is also responsible for managing all the resour
 keywords: ci, admincity, gaia, biosphere 
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#7a61>)

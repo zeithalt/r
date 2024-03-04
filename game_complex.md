@@ -16,3 +16,5 @@ The data will be used to imbue future humans with efficient, optimized pruning a
 keywords: game complex, ci, pebkac peak 
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#6ee0>)

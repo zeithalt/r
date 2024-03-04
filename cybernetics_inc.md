@@ -11,3 +11,5 @@ Synopsis:
 keywords: ci
 aliases: CI
 -->
+----------
+[`📑` Mimbot Index](</index.md#80b0>)

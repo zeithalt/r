@@ -13,3 +13,5 @@ You can write or request lore [on discord](<https://discord.com/channels/5629109
 keywords: todo
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#bda0>)

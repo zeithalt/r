@@ -10,3 +10,5 @@ Located in a scenic location near [Lake Corsair](<https://zeithalt.github.io/r/l
 keywords: ci, admincity, zeithalt, zeitgeist, newspaper, alexx, lake, corsair
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#3820>)

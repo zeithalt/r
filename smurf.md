@@ -10,3 +10,5 @@ SMURFs primary goal is to make sure mineral resources harvested from forest area
 keywords: ps, ares, gardens, sustainable, mineral, usage, regarding, forests
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#6760>)

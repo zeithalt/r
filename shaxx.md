@@ -10,3 +10,5 @@ His eccentric lifestyle sets him apart, embracing the unknown with unwavering fa
 keywords:  mt, corruption
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#f4e0>)

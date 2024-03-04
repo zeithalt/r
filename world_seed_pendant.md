@@ -10,3 +10,5 @@ The _World Seed Pendant_ was made with a seed that, according to local legend, w
 keywords: airmanon, ozimud
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#0fd0>)

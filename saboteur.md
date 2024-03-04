@@ -7,3 +7,5 @@ Special military operations unit that is used by factions to locate and neutrali
 <!---
 keywords: battle, unit
 -->
+----------
+[`📑` Mimbot Index](</index.md#0090>)

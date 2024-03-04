@@ -14,3 +14,5 @@ tag: todo
 keywords:  
 aliases: The Algorithms
 -->
+----------
+[`📑` Mimbot Index](</index.md#fd60>)

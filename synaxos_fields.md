@@ -20,3 +20,5 @@ The people who come here are either businessmen or merchants who came to buy the
 keywords: mt, landmark
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#7cc0>)

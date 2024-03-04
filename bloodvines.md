@@ -14,3 +14,5 @@ The skin in contact with the goo starts to bleed, and the open wound gets furthe
 keywords: oblivion mire, plants, pits 
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#0580>)

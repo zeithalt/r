@@ -12,3 +12,5 @@ However, at the same time it is vastly criticised as a project enforced by [Cybe
 keywords: neuropolis 
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#39b0>)

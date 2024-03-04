@@ -8,3 +8,5 @@ CR Mines - a powerful artefact constructed from CR samples. Can be used as a def
 keywords: corrupted, battle
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#8360>)

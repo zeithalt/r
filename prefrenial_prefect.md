@@ -12,3 +12,5 @@ Modernized by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_instit
 keywords:  mt, xyrclaox watch, prison
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#9850>)

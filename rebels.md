@@ -8,3 +8,5 @@ Various anti-faction military groups around the island, some of them seeking to 
 keywords: sw
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#4270>)

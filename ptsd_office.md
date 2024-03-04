@@ -8,3 +8,5 @@ The main administrative building of PS Taxes & Stuff Department ([PTSD](<https:/
 keywords: ps, cerene, vale, taxes, stuff, department, ptsd
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#aaf0>)

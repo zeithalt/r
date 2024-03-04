@@ -8,3 +8,5 @@ A collective term to refer to MindTech Institute's members or the faction in gen
 keywords: mt
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#7c50>)

@@ -28,3 +28,6 @@ The majority of Brickland Fortress's population lives in the Eastern Part - in i
 keywords: ci, dc, landmark
 aliases: Western Brickland, Eastern Brickland
 -->
+
+----------
+[`📑` Mimbot Index](</index.md#f6d0>)

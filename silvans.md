@@ -8,3 +8,5 @@ A collective term to refer to (Protectores Silva's)[/protectores_silva.html] mem
 keywords: ps
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#3480>)

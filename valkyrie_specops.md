@@ -10,3 +10,5 @@ Initially, there were no proper pricing scheme, only running on opinion-based di
 keywords: revalx, valkyrie, mercenary, fighters guild
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#3660>)

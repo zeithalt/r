@@ -14,3 +14,5 @@ The supporting facilities are split into three sections. One is the educational 
 keywords:  dc, indigo shore
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#3520>)

@@ -20,3 +20,5 @@ However, the most prevalent theory is actually a running joke that the book is i
 keywords: masters, council
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#5480>)

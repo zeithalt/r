@@ -14,3 +14,5 @@ The forge is traditionally used for students graduating from the school, with th
 keywords:  somnivale, synaxos fields
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#1b90>)

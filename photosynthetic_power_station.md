@@ -12,3 +12,5 @@ The project involves trees from over 150.000 hectares of A'as forests and suppli
 keywords: ps, pps, aas, a'as, forest, ares, flora, fauna
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#e470>)

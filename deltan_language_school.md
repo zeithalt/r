@@ -10,3 +10,5 @@ This establishment, nonetheless, becomes the first physical evidence of the once
 keywords: landmark
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#b0c0>)

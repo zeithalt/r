@@ -15,3 +15,5 @@ The ruling structure is **The Chaos Council** consists of people marked by **Cha
 keywords: dc, capital, landmark
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#3911>)

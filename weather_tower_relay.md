@@ -10,3 +10,5 @@ _This entry is considered incomplete - you can request more info for it [on disc
 keywords:  ci, synaxos fields
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#a1d0>)

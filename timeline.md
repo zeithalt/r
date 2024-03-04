@@ -10,3 +10,5 @@ You can access the full timeline on a single page [via this link](<https://zeith
 keywords:  
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#1e30>)

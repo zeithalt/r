@@ -10,3 +10,5 @@ Despite multiple allegations of illicit activities happening in the Den, the pla
 keywords: ps, ares, gardens, dino, gambling, den, bookie, vip, lounge
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#ee20>)

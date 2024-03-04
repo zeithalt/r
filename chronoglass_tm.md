@@ -12,3 +12,5 @@ A commercial product made from the [chronoglass](<https://zeithalt.github.io/r/c
 keywords:  chronoglass, cloudy co, bumps
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#29a0>)

@@ -24,3 +24,5 @@ It seems that the gemstone has bonded with **hexAgon** in some special way.
 keywords: cr, artifact, artefact, hexagon
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#08c0>)

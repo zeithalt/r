@@ -16,3 +16,5 @@ That's when the axe was finally transformed into a weapon worthy to be wielded b
 keywords: dino, CuriousDino
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#e4e0>)

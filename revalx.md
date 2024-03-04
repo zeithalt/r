@@ -13,3 +13,5 @@ He co-founded the [Fighters Guild](<https://zeithalt.github.io/r/fighters_guild.
 keywords: revalx, valkyrie, mercenary, mt, character
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#9ff1>)

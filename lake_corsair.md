@@ -8,3 +8,5 @@ A picturesque lake in the middle of traditionally [Cyber](<https://zeithalt.gith
 keywords: todo
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#bca0>)

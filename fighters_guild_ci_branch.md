@@ -8,3 +8,5 @@ Built on eon 612 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_
 keywords:  ci, virtuara outpost
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#ff60>)

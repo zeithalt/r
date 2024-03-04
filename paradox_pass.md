@@ -15,3 +15,5 @@ The main and busiest road, Axonite Road, is also the biggest out of all the 7 ma
 keywords: mt, landmark
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#cb50>)

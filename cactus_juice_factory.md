@@ -14,3 +14,5 @@ The factory provides a steady supply of cactus-related produce to the [Neuropoli
 keywords:  mccactusson, synaxos fields
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#32c0>)

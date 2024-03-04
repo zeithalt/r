@@ -10,3 +10,5 @@ _This entry is considered incomplete - you can request more info for it [on disc
 keywords:  ps, cerene vale
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#25b0>)

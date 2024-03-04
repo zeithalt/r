@@ -8,3 +8,5 @@ A unit of time used on Zeithalt Island, as the perception of time on the island 
 keywords:
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#8730>)

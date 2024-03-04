@@ -10,3 +10,5 @@ Solar run and with networking backed by the Admincity power grid in the heart of
 keywords: ps, brickland, fortress, ci, containment, observation, center, solar
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#9f60>)

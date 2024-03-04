@@ -9,3 +9,5 @@ Fighters Guild sees its goal in allowing sellswords of all kinds get support bot
 <!---
 keywords: battle, dino, sw
 -->
+----------
+[`📑` Mimbot Index](</index.md#ee30>)

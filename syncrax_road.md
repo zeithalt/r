@@ -8,3 +8,5 @@ The second-largest road in [Paradox Pass](<https://zeithalt.github.io/r/paradox_
 keywords:  
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#7d60>)

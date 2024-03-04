@@ -14,3 +14,5 @@ Ruins reconstructed by [MindTech Institute](<https://zeithalt.github.io/r/mindte
 keywords:  mt, xyrclaox watch
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#60b0>)

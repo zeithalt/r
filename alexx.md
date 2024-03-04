@@ -10,3 +10,5 @@ A journalist, a historian, a political consultant for factions and an owner of Z
 keywords: gm, sw
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#9a30>)

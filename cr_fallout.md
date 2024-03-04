@@ -10,3 +10,5 @@ It covers vast land areas, destroying everything it touches and making lands pra
 keywords: corrupted
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#17b0>)

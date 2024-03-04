@@ -10,3 +10,5 @@ Even though he seems like an egg himself he has been seen on multiple occasions 
 keywords: ps, egg
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#c080>)

@@ -10,3 +10,5 @@ Besides offering delicious pizzas it also has arcade games and serves as a cente
 keywords: ps, brickland, fortress, pizza, zesty, zahrada, arena, arcade, games, freedom, speech  
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#b910>)

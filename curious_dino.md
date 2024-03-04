@@ -14,3 +14,5 @@ Wields a legendary [Prehistoric Axe](<https://zeithalt.github.io/r/prehistoric_a
 keywords: sw, CuriousDino, gambling, fighters
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#8f50>)

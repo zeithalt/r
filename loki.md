@@ -14,3 +14,5 @@ This very same event is quoted to be the sole reason for his downfall and the [r
 keywords: character, mt, dictator, valhalla bar
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#5850>)

@@ -12,3 +12,5 @@ Using a natural clearing as the site of construction, the plaza was made using S
 keywords: oblivion, mire, brickland, fortress, airmanon, driftwing, silvan, ci, party, plaza
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#09e0>)

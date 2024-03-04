@@ -22,3 +22,5 @@ Trees and fog hide the view of the structure built in the center of the perimete
 keywords: mt, neuropolis
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#8a90>)

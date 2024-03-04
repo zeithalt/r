@@ -18,3 +18,5 @@ It contains many ancient books and scrolls that dates back to when the capital w
 keywords: mt, capital, landmark
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#b870>)

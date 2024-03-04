@@ -15,3 +15,5 @@ Although barren and wastes, the region is still filled with many things yet to b
 keywords: mt, landmark, ps
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#8840>)

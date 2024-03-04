@@ -16,3 +16,5 @@ It is customary among MindTech followers to give out copies of this book to frie
 keywords: 
 aliases: Gift of Balance
 -->
+----------
+[`📑` Mimbot Index](</index.md#b710>)

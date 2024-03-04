@@ -12,3 +12,5 @@ There are three two types of Corrupted Artefacts: CR Mines and CR Shards.
 keywords: cr, artifact, samples
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#a1a0>)

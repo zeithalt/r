@@ -8,3 +8,5 @@ A town located in the [Eastern Brickland](<https://zeithalt.github.io/r/bricklan
 keywords: brickland
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#c860>)

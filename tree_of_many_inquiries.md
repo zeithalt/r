@@ -14,3 +14,5 @@ It is believed that Mimb gets many of her questions from The Tree of Many Inquir
 keywords: ps, cybertron, jungle, tree, many, inquiries, tmi, mimb
 aliases: 
 -->
+----------
+[`📑` Mimbot Index](</index.md#64c0>)

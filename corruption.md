@@ -12,3 +12,5 @@ If not contained properly, it can result in an event called Corruption Fallout, 
 keywords:
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#a2b0>)

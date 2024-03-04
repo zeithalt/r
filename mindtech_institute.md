@@ -13,3 +13,5 @@ Synopsis:
 keywords: mt
 aliases: MT
 -->
+----------
+[`📑` Mimbot Index](</index.md#6550>)

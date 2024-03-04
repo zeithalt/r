@@ -8,3 +8,5 @@ A collective term to refer to Delta Collective's members or the faction in gener
 keywords:
 aliases:
 -->
+----------
+[`📑` Mimbot Index](</index.md#b730>)
