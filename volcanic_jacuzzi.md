@@ -11,4 +11,4 @@ keywords:  dc, peace death gorge, influeno
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#16d0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#16d0>)

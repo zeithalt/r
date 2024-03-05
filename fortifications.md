@@ -8,4 +8,4 @@ A group term for all kinds of permanent defensive structures factions can build 
 keywords: battle, unit
 -->
 ----------
-[`📑` Mimbot Index](</index.md#9ff0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9ff0>)

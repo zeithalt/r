@@ -13,4 +13,4 @@ keywords: oblivion, mire, brickland, fortress, airmanon, driftwing, silvan, ci, 
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#09e0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#09e0>)

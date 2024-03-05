@@ -11,4 +11,4 @@ keywords:  dc, indigo shore
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#ce70>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#ce70>)

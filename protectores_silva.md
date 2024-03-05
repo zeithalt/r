@@ -14,4 +14,4 @@ keywords: ps
 aliases: PS, Tree Huggers
 -->
 ----------
-[`📑` Mimbot Index](</index.md#7a60>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7a60>)

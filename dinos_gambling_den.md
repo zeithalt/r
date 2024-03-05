@@ -11,4 +11,4 @@ keywords: ps, ares, gardens, dino, gambling, den, bookie, vip, lounge
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#ee20>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#ee20>)

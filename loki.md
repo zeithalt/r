@@ -15,4 +15,4 @@ keywords: character, mt, dictator, valhalla bar
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#5850>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5850>)

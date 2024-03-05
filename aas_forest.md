@@ -19,4 +19,4 @@ aliases:
 hash: bba
 -->
 ----------
-[`📑` Mimbot Index](</index.md#dd50>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#dd50>)

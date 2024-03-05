@@ -13,4 +13,4 @@ keywords: mt, timeless, desert, abode, particle, collider, mindtech, institute
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#3910>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3910>)

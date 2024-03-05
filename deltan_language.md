@@ -9,4 +9,4 @@ keywords: dc
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#4de0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#4de0>)

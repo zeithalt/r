@@ -15,4 +15,4 @@ keywords: mt, chronoglass, landmark
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#0130>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#0130>)

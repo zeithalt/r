@@ -15,4 +15,4 @@ keywords: sw, CuriousDino, gambling, fighters
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#8f50>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#8f50>)

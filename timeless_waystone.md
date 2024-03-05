@@ -17,4 +17,4 @@ keywords: timeless desert, mt
 aliases: Isynthillicus Cyrciniae
 -->
 ----------
-[`📑` Mimbot Index](</index.md#22a0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#22a0>)

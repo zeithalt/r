@@ -16,4 +16,4 @@ aliases: Weapons, Armor, Relics
 -->
 
 ----------
-[`📑` Mimbot Index](</index.md#9930>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9930>)

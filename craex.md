@@ -17,4 +17,4 @@ keywords: master, desert
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#45d0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#45d0>)

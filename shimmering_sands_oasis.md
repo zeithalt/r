@@ -13,4 +13,4 @@ keywords: oasis, timeless desert, caravans
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#e2f0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e2f0>)

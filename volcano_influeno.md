@@ -11,4 +11,4 @@ keywords:  dc, peace death gorge
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#0780>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#0780>)

@@ -15,4 +15,4 @@ keywords:
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#8f30>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#8f30>)

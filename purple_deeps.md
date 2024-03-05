@@ -16,4 +16,4 @@ keywords: dc, capital, landmark
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#3911>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3911>)

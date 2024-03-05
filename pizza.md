@@ -11,4 +11,4 @@ keywords: ps, brickland, fortress, pizza, zesty, zahrada, arena, arcade, games, 
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#b910>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#b910>)

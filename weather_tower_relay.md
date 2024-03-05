@@ -11,4 +11,4 @@ keywords:  ci, synaxos fields
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#a1d0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#a1d0>)

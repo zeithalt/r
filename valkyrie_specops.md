@@ -11,4 +11,4 @@ keywords: revalx, valkyrie, mercenary, fighters guild
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#3660>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3660>)

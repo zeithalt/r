@@ -14,4 +14,4 @@ keywords: revalx, valkyrie, mercenary, mt, character
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#9ff1>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9ff1>)

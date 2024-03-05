@@ -30,4 +30,4 @@ aliases: Western Brickland, Eastern Brickland
 -->
 
 ----------
-[`📑` Mimbot Index](</index.md#f6d0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#f6d0>)

@@ -11,4 +11,4 @@ keywords:  ps, are gardens
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#ca80>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#ca80>)

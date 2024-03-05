@@ -13,4 +13,4 @@ keywords:  neuropolis, lighthouse
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#2880>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#2880>)

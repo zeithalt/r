@@ -12,4 +12,4 @@ It’s assumed to be by far the richest organisation on the island, being the ow
 keywords: money, gold, economy
 -->
 ----------
-[`📑` Mimbot Index](</index.md#ee50>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#ee50>)

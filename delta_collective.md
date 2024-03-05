@@ -14,4 +14,4 @@ keywords: dc
 aliases: DC
 -->
 ----------
-[`📑` Mimbot Index](</index.md#8bc0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#8bc0>)

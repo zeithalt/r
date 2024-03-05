@@ -17,4 +17,4 @@ keywords: neuropolis, council, cerebrime peak
 aliases: The Great Auditorium
 -->
 ----------
-[`📑` Mimbot Index](</index.md#a610>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#a610>)

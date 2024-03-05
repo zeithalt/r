@@ -11,4 +11,4 @@ keywords: mt, bumps, picles, bumps, pppp, 4p
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#fc70>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#fc70>)

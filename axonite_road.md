@@ -11,4 +11,4 @@ keywords:  mt, paradox pass
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#a740>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#a740>)

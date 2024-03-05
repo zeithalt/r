@@ -9,4 +9,4 @@ keywords: mt
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#7c50>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7c50>)

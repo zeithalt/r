@@ -11,4 +11,4 @@ keywords:  mt, corruption
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#f4e0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#f4e0>)

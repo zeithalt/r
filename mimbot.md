@@ -13,4 +13,4 @@ keywords: you, bot, help
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#1670>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#1670>)

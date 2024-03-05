@@ -9,4 +9,4 @@ keywords: battle, unit
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#e390>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e390>)

@@ -11,4 +11,4 @@ keywords: ps, desert
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#0a70>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#0a70>)

@@ -9,4 +9,4 @@ keywords: ps, brickland, fortress, mimps, epidemiology, hospital, viral, pandemi
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#9670>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9670>)

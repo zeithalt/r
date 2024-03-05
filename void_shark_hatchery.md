@@ -11,4 +11,4 @@ keywords:  dc, dev null marsh
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#3e80>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3e80>)

@@ -11,4 +11,4 @@ keywords: ci, admincity, zeithalt, zeitgeist, newspaper, alexx, lake, corsair
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#3820>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3820>)

@@ -17,4 +17,4 @@ keywords:
 aliases: Gift of Balance
 -->
 ----------
-[`📑` Mimbot Index](</index.md#b710>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#b710>)

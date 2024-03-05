@@ -15,4 +15,4 @@ keywords:
 aliases: The Algorithms
 -->
 ----------
-[`📑` Mimbot Index](</index.md#fd60>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#fd60>)

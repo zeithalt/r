@@ -11,4 +11,4 @@ keywords: ps, brickland, fortress, ci, containment, observation, center, solar
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#9f60>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9f60>)

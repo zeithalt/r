@@ -9,4 +9,4 @@ keywords:  ci, singularity valley
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#50e0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#50e0>)

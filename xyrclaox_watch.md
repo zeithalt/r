@@ -15,4 +15,4 @@ keywords: mt, landmark
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#b9a0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#b9a0>)

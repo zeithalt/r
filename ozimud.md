@@ -11,4 +11,4 @@ keywords: ps, egg
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#c080>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#c080>)

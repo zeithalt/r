@@ -9,4 +9,4 @@ keywords:  ci, virtuara outpost
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#ff60>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#ff60>)

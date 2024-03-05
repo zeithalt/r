@@ -12,4 +12,4 @@ keywords: ci
 aliases: CI
 -->
 ----------
-[`📑` Mimbot Index](</index.md#80b0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#80b0>)

@@ -17,4 +17,4 @@ keywords: dc, duckism, holy duck, ducktopia
 aliases: Ducktopia
 -->
 ----------
-[`📑` Mimbot Index](</index.md#7a70>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7a70>)

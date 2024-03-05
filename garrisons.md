@@ -8,4 +8,4 @@ Defensive military regiments, that can be stationed in a territory to increase i
 keywords: battle, unit
 -->
 ----------
-[`📑` Mimbot Index](</index.md#6fe0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#6fe0>)

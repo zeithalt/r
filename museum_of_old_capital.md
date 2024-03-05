@@ -13,4 +13,4 @@ keywords: neuropolis, mt, aas
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#6c20>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#6c20>)

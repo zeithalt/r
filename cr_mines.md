@@ -9,4 +9,4 @@ keywords: corrupted, battle
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#8360>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#8360>)

@@ -12,4 +12,4 @@ The virus was named in honor of the first two researchers who studied it Mimb an
 keywords: virus, yes, mimb, bumps
 -->
 ----------
-[`📑` Mimbot Index](</index.md#a4e0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#a4e0>)

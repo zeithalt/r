@@ -17,4 +17,4 @@ keywords: dino, CuriousDino
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#e4e0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e4e0>)

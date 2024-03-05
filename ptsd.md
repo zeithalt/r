@@ -13,4 +13,4 @@ keywords: ps, taxes, treasury
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#e4f0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e4f0>)

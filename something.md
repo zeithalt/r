@@ -11,4 +11,4 @@ keywords: mt, sus, silent gulf
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#53e0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#53e0>)

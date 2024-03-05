@@ -11,4 +11,4 @@ keywords:  ci, virtuara outpost
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#e851>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e851>)

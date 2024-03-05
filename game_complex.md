@@ -17,4 +17,4 @@ keywords: game complex, ci, pebkac peak
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#6ee0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#6ee0>)

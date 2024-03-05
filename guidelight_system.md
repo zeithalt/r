@@ -19,4 +19,4 @@ keywords:  mt, oblivion mire
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#9840>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9840>)

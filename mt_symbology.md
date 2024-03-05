@@ -32,4 +32,4 @@ keywords:  mt, flag, banner, triquetra
 aliases: MindTech Triquetra, MindTech Flags, MindTech Banners
 -->
 ----------
-[`📑` Mimbot Index](</index.md#cbe0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#cbe0>)

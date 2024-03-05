@@ -11,4 +11,4 @@ keywords:  ci, webified hills
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#9340>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9340>)

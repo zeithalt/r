@@ -11,4 +11,4 @@ keywords:  ps, cerene vale
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#25b0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#25b0>)

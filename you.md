@@ -11,4 +11,4 @@ keywords: ci, virtuara
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#c480>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#c480>)

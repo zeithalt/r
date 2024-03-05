@@ -11,4 +11,4 @@ keywords: corrupted
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#17b0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#17b0>)

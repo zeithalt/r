@@ -11,4 +11,4 @@ keywords:  cr, synaxos
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#2390>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#2390>)

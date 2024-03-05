@@ -17,4 +17,4 @@ keywords: sci, min, erg, tmp, science, mineral, energy, temporal
 aliases: Science Resources, Mineral Resources, Energy Resources
 -->
 ----------
-[`📑` Mimbot Index](</index.md#74f0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#74f0>)

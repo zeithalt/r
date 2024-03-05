@@ -11,4 +11,4 @@ keywords: bumps, desert
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#8880>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#8880>)

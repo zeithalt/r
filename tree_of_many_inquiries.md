@@ -15,4 +15,4 @@ keywords: ps, cybertron, jungle, tree, many, inquiries, tmi, mimb
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#64c0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#64c0>)

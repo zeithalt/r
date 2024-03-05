@@ -11,4 +11,4 @@ keywords: airmanon, ozimud
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#0fd0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#0fd0>)

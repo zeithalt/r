@@ -11,4 +11,4 @@ keywords:  mt, timeless desert
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#4120>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#4120>)

@@ -13,4 +13,4 @@ keywords: oblivion mire, timeless desert
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#b4d0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#b4d0>)

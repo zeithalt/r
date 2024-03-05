@@ -14,4 +14,4 @@ keywords: todo
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#bda0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#bda0>)

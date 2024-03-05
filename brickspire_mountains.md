@@ -9,4 +9,4 @@ keywords: brickland
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#50d0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#50d0>)

@@ -11,4 +11,4 @@ keywords:  mt, illusion cliffs
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#cea0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#cea0>)

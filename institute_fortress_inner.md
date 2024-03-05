@@ -24,4 +24,4 @@ keywords: mt, blue, green, orange, red, tower, neuropolis
 aliases: Towers of MindTech Institute
 -->
 ----------
-[`📑` Mimbot Index](</index.md#ea90>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#ea90>)

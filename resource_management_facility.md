@@ -11,4 +11,4 @@ keywords: ci, admincity, gaia, biosphere
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#7a61>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7a61>)

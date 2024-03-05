@@ -9,4 +9,4 @@ keywords:  dc, singularity valley
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#b751>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#b751>)

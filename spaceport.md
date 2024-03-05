@@ -11,4 +11,4 @@ keywords:  dc, chaotic plains
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#6690>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#6690>)

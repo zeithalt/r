@@ -17,4 +17,4 @@ keywords: mt, paradox pass, triquetra, flag, banner, symbology, archives
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#ef90>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#ef90>)

@@ -11,4 +11,4 @@ keywords:  dc, purple deeps
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#c980>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#c980>)

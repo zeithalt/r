@@ -11,4 +11,4 @@ keywords:  mt, singularity valley
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#3460>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3460>)

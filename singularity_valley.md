@@ -15,4 +15,4 @@ keywords: ci, landmark, great ai
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#dd30>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#dd30>)

@@ -14,4 +14,4 @@ keywords: mt
 aliases: MT
 -->
 ----------
-[`📑` Mimbot Index](</index.md#6550>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#6550>)

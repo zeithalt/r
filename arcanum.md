@@ -21,4 +21,4 @@ keywords: masters, council
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#5480>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5480>)

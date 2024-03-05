@@ -11,4 +11,4 @@ keywords: ps, ares, gardens, sustainable, mineral, usage, regarding, forests
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#6760>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#6760>)

@@ -9,4 +9,4 @@ keywords: ci
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#7b30>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7b30>)

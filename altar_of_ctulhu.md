@@ -13,4 +13,4 @@ keywords:  dc, imperial swamp
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#8270>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#8270>)

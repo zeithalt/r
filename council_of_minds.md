@@ -17,4 +17,4 @@ keywords:  headmaster, masters
 aliases: Masters of the Council, Headmaster of the Institute
 -->
 ----------
-[`📑` Mimbot Index](</index.md#7c90>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7c90>)

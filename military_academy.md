@@ -15,4 +15,4 @@ keywords: mt, xyrclaox watch
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#be90>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#be90>)

@@ -13,4 +13,4 @@ keywords: ps, aas, a'as, ares, flora, fauna
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#1fa0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#1fa0>)

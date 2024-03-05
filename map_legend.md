@@ -14,4 +14,4 @@ keywords:
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#e850>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e850>)

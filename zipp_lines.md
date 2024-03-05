@@ -11,4 +11,4 @@ keywords: ci, chaotic, planes, starline
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#4d60>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#4d60>)

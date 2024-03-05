@@ -19,4 +19,4 @@ keywords: mt, capital, landmark
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#b870>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#b870>)

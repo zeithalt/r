@@ -25,4 +25,4 @@ keywords: cr, artifact, artefact, hexagon
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#08c0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#08c0>)

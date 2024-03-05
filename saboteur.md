@@ -8,4 +8,4 @@ Special military operations unit that is used by factions to locate and neutrali
 keywords: battle, unit
 -->
 ----------
-[`📑` Mimbot Index](</index.md#0090>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#0090>)

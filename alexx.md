@@ -11,4 +11,4 @@ keywords: gm, sw
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#9a30>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9a30>)

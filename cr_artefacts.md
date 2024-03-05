@@ -13,4 +13,4 @@ keywords: cr, artifact, samples
 aliases:
 -->
 ----------
-[`📑` Mimbot Index](</index.md#a1a0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#a1a0>)

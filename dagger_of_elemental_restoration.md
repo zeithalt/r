@@ -13,4 +13,4 @@ keywords: airmanon
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#f750>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#f750>)

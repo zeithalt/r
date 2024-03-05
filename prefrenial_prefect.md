@@ -13,4 +13,4 @@ keywords:  mt, xyrclaox watch, prison
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#9850>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9850>)

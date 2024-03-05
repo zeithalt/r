@@ -11,4 +11,4 @@ keywords: tmp, timeless, desert, sands, chronoglass
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#6590>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#6590>)

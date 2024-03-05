@@ -12,4 +12,4 @@ keywords: co
 aliases: CO
 -->
 ----------
-[`📑` Mimbot Index](</index.md#36b0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#36b0>)

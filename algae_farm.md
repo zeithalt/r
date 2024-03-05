@@ -11,4 +11,4 @@ keywords:  ci, blue screen lagoon
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#4450>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#4450>)

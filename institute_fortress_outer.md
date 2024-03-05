@@ -23,4 +23,4 @@ keywords: mt, neuropolis
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#8a90>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#8a90>)

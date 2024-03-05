@@ -11,4 +11,4 @@ keywords:  ps, cybertron jungle
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#9640>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9640>)

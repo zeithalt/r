@@ -9,4 +9,4 @@ keywords: ps, cerene, vale, taxes, stuff, department, ptsd
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#aaf0>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#aaf0>)

@@ -15,4 +15,4 @@ keywords:  somnivale, synaxos fields
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#1b90>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#1b90>)

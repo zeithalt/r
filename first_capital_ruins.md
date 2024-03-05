@@ -17,4 +17,4 @@ keywords: mt, aas, a'as
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#5590>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5590>)

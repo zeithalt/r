@@ -17,4 +17,4 @@ keywords:  neuropolis, synaxos fields
 aliases: 
 -->
 ----------
-[`📑` Mimbot Index](</index.md#0330>)
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#0330>)
