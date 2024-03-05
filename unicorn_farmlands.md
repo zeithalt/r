@@ -10,9 +10,10 @@ The company made this hoax into a reality, even featuring the hexAgon himself in
 
 Even though there were no huge successes since then, it's still considered a business of local importance for the region of [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields.html>).
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#6ad0>)
 <!---
 keywords:  synaxos fields
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#6ad0>)

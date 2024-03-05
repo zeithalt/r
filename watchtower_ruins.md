@@ -10,9 +10,10 @@ The exact reason of its fall is lost in history, with versions ranging from it b
 
 Ruins reconstructed by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) into a tourist attraction on eon 737.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#60b0>)
 <!---
 keywords:  mt, xyrclaox watch
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#60b0>)

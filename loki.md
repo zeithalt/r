@@ -10,9 +10,10 @@ But it's the [Burning of Cerene Vale](<https://zeithalt.github.io/t/#eon0749>) t
 
 This very same event is quoted to be the sole reason for his downfall and the [restoration of the Council of Minds in MT on eon 755](<https://zeithalt.github.io/t/#eon0755>).
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5850>)
 <!---
 keywords: character, mt, dictator, valhalla bar
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5850>)

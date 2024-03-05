@@ -27,9 +27,10 @@ The following meanings are assigned to these symbols:
 > ![MindTech War Flag](https://zeithalt.github.io/r/i/mt_war_flag.png)
 
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#cbe0>)
 <!---
 keywords:  mt, flag, banner, triquetra
 aliases: MindTech Triquetra, MindTech Flags, MindTech Banners
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#cbe0>)

@@ -6,9 +6,10 @@ The operational center of Gaia Biosphere Project. It is HQ of Chief Engineer in 
 
 The Resource Management Facility is also responsible for managing all the resources in CI-controlled lands, and serves as a control center and basis of operations for other construction projects.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7a61>)
 <!---
 keywords: ci, admincity, gaia, biosphere 
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7a61>)

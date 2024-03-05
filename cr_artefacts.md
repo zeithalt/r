@@ -8,9 +8,10 @@ These samples are known as CR Samples, and factions use them to develop Corrupte
 
 There are three two types of Corrupted Artefacts: CR Mines and CR Shards.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#a1a0>)
 <!---
 keywords: cr, artifact, samples
 aliases:
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#a1a0>)

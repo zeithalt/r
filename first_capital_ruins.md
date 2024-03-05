@@ -12,9 +12,10 @@ Beneath the open part of the ruins are catacombs, which are still being excavate
 
 ![First Capital Ruins](https://zeithalt.github.io/r/i/first_capital_ruins.png)
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5590>)
 <!---
 keywords: mt, aas, a'as
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5590>)

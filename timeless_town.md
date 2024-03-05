@@ -8,9 +8,10 @@ Anyone unfamiliar with the place could be forgiven for thinking they walked into
 
 The schools and colleges in town do their best to accommodate different learning styles, but the school board has admitted that there are some things that they need to improve upon in terms of curriculum. Due to the inhabitants' prior history of keeping to themselves in the Timeless Desert, they never had the Deltan Language as something  to learn. Nowadays, due to moving closer to borders with DC, the schools are trying to incorporate learning Deltan into curriculum as quickly as possible to make it easier for future generations to communicate with DC should the time arise.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#2e90>)
 <!---
 keywords: PS, brickland, airmanon
 aliases: Sandy Saloon
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#2e90>)

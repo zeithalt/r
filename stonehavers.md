@@ -8,9 +8,10 @@ _Oliver "Old Olly" Stonehaver_ is the most famous of the family, to many older t
 
 After Old Olly's death, his son Oliver "Young Olly" Stonehaver inherited the Inn.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3d30>)
 <!---
 keywords:  
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3d30>)

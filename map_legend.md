@@ -9,9 +9,10 @@ Icons used on the timeline maps:
 
 Apart from those, the map contains icons for various building / landmarks found on the island. 
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e850>)
 <!---
 keywords: 
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e850>)

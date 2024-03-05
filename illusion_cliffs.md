@@ -13,9 +13,10 @@ But the truly, most wonderous view in the region is right by the farthest edge o
 This phenomena happens every winter solstice and is when most of the tourists comes to the region.
 
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e630>)
 <!---
 keywords: mt, landmark 
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e630>)

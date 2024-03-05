@@ -6,9 +6,10 @@ Refers to [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.
 
 See also: [Museum of the Old Capital](<https://zeithalt.github.io/r/museum_of_old_capital.html>) and [First Capital Ruins](<https://zeithalt.github.io/r/first_capital_ruins.html>).
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5570>)
 <!---
 keywords:  mt, aas
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5570>)

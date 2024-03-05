@@ -8,9 +8,10 @@ However, some parts of this land (especially the ones closer to [Blue Screen Lag
 
 There's no way to know for sure why the Cut was named this way. The leading theories are for the thorns of its many spiky bushes or for the fact that it quite literally cuts off the Mire from the Desert.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#b4d0>)
 <!---
 keywords: oblivion mire, timeless desert
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#b4d0>)

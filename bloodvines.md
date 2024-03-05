@@ -10,9 +10,10 @@ If disturbed, it'll quickly wrap around the object, tighten to the point of immo
 
 The skin in contact with the goo starts to bleed, and the open wound gets further infected by the unhealthy swamp waters. The unprotected contact with the goo can lead to loss of a limb, or even death from infection and further complications.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#0580>)
 <!---
 keywords: oblivion mire, plants, pits 
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#0580>)

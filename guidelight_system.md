@@ -14,9 +14,10 @@ These paths mostly go along the same routes Mire's inhabitants use for ceonturie
 
 ![Guidelight System](https://zeithalt.github.io/r/i/guidelight_system.png)
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9840>)
 <!---
 keywords:  mt, oblivion mire
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#9840>)

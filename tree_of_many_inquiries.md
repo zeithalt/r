@@ -10,9 +10,10 @@ Mimb claims the tree then "woke up" from a deep sleep, happy that someone would 
 
 It is believed that Mimb gets many of her questions from The Tree of Many Inquiries.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#64c0>)
 <!---
 keywords: ps, cybertron, jungle, tree, many, inquiries, tmi, mimb
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#64c0>)

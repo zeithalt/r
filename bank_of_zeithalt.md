@@ -8,8 +8,9 @@ Bank of Zeithalt stays out of faction politics and largely remains in shadows, k
 
 It’s assumed to be by far the richest organisation on the island, being the owner of multiple Gold Mines in different parts of the Island.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#ee50>)
 <!---
 keywords: money, gold, economy
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#ee50>)

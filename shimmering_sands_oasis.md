@@ -8,9 +8,10 @@ Its location and freshwater supplies allowed for it to become a permanent tradin
 
 ---
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e2f0>)
 <!---
 keywords: oasis, timeless desert, caravans
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#e2f0>)

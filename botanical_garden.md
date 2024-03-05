@@ -8,9 +8,10 @@ Due to dense, ancient forests overgrowing surface of A'as, the Botanical Garden 
 
 While not being comparable to Wildlife Preservation in Ares Gardens in terms of variety of animals, it is unbeatable when it comes to number of carefully catalogued and cultivated representatives of flora from diverse lands and biomes.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#1fa0>)
 <!---
 keywords: ps, aas, a'as, ares, flora, fauna
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#1fa0>)

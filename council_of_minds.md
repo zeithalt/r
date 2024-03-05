@@ -12,9 +12,10 @@ The Council is as old as the faction itself, and its history ranges from the ult
 
 The Council was restored on [Eon 755](<https://zeithalt.github.io/t/#eon0755>) following the fall of the ruthless dictator.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7c90>)
 <!---
 keywords:  headmaster, masters
 aliases: Masters of the Council, Headmaster of the Institute
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7c90>)

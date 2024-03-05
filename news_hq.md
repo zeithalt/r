@@ -6,9 +6,10 @@ The headquarters of [Zeithalt Zeitgeist](<https://zeithalt.github.io/r/zeithalt_
 
 Located in a scenic location near [Lake Corsair](<https://zeithalt.github.io/r/lake_corsair.html>), in Admincity area.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3820>)
 <!---
 keywords: ci, admincity, zeithalt, zeitgeist, newspaper, alexx, lake, corsair
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#3820>)

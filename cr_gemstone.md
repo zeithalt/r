@@ -20,9 +20,10 @@ Since then other people have touched the gemstone, but got no visions from it. A
 
 It seems that the gemstone has bonded with **hexAgon** in some special way.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#08c0>)
 <!---
 keywords: cr, artifact, artefact, hexagon
 aliases:
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#08c0>)

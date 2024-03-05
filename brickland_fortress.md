@@ -24,10 +24,10 @@ Eastern Brickland, in addition to being a larger part, has much more life and gr
 
 The majority of Brickland Fortress's population lives in the Eastern Part - in its villages, but mainly in [Meadowridge](<https://zeithalt.github.io/r/meadowridge.html>) - the largest town of the entire region.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#f6d0>)
 <!---
 keywords: ci, dc, landmark
 aliases: Western Brickland, Eastern Brickland
 -->
-
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#f6d0>)

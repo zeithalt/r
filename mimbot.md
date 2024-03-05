@@ -8,9 +8,10 @@ Also a versatile database holding all (well, almost) the information you may nee
 
 Feel free to ask me about anything!
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#1670>)
 <!---
 keywords: you, bot, help
 aliases:
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#1670>)

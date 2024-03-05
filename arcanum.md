@@ -16,9 +16,10 @@ However, the most prevalent theory is actually a running joke that the book is i
 
 > ![The Arcanum](https://zeithalt.github.io/r/i/arcanum.png)
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5480>)
 <!---
 keywords: masters, council
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#5480>)

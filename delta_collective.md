@@ -9,9 +9,10 @@ Occupies south-west parts of the Island, with the capital in **Purple Deeps**.
 Synopsis:
 > *While global organisations think they have everything under their control, a new movement is emerging. Across the world, more and more people join this initiative to take back control over their lives.*
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#8bc0>)
 <!---
 keywords: dc
 aliases: DC
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#8bc0>)

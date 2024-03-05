@@ -16,9 +16,10 @@ The other half of the region are filled with places meant for production and man
 
 The people who come here are either businessmen or merchants who came to buy their products and sell it across the faction, or people who wish to learn the ways of the artisans and master their own craft.
 
+
+-----
+[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7cc0>)
 <!---
 keywords: mt, landmark
 aliases: 
 -->
-----------
-[`📑` Mimbot Index](<https://zeithalt.github.io/r/#7cc0>)
