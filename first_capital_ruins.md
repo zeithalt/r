@@ -1,6 +1,6 @@
 ## First Capital Ruins
 
-`🖼️ Landmark`
+`🖼️ Landmark` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
 
 Reopened on Eon 829, shortly after the [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) retook the [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>) back [under control](<https://zeithalt.github.io/t/#eon0825>).
 

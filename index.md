@@ -355,6 +355,8 @@
 
 ▪️ <a id="7d60"></a>[Syncrax Road](/syncrax_road.md)
 
+▪️ <a id="2e90"></a>[Sandy Saloon](/timeless_town.md)
+
 ### <a id="#top"></a>T
 ▪️ <a id="5480"></a>[The Arcanum](/arcanum.md)
 
@@ -381,6 +383,8 @@
 ▪️ <a id="b4d0"></a>[The Cut (area)](/the_cut_area.md)
 
 ▪️ <a id="0130"></a>[Timeless Desert](/timeless_desert.md)
+
+▪️ <a id="2e90"></a>[🌇 Timeless Town](/timeless_town.md)
 
 ▪️ <a id="22a0"></a>[Timeless Waystone](/timeless_waystone.md)
 
