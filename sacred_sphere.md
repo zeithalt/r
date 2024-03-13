@@ -12,6 +12,8 @@ Expanding from the structure's original purpose, it now accepts tourists and tra
 
 A series of clever engineering are used to maintain the Sacred Sphere. Its outer shell is constructed using thick tempered glass and reinforced steel for long-lasting durability across various terrains. The internals of the building are equipped with sophisticated gyroscopic stabilizers to keep the entire facility standing upright while the sphere is rolling towards its destination.
 
+![Sacred Sphere](https://zeithalt.github.io/r/i/sacred_sphere.png)
+
 
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#f840>)

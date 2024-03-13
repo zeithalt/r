@@ -53,6 +53,8 @@
 ### <a id="#top"></a>C
 ▪️ <a id="32c0"></a>[🌵 Cactus Juice Factory](/cactus_juice_factory.md)
 
+▪️ <a id="96c0"></a>[Cave of Mirrors](/cave_of_mirrors.md)
+
 ▪️ <a id="0330"></a>[🏢 Center for Anomaly Control](/center_for_anomaly_control.md)
 
 ▪️ <a id="3850"></a>[Cerene Vale](/cerene_vale.md)
@@ -196,9 +198,13 @@
 ### <a id="#top"></a>L
 ▪️ <a id="bca0"></a>[Lake Corsair](/lake_corsair.md)
 
+▪️ <a id="68e0"></a>[Leaf Frog Sanctuary](/leaf_frog_sanctuary.md)
+
 ▪️ <a id="5220"></a>[🗼 Lime Tower](/lime_tower.md)
 
 ▪️ <a id="5850"></a>[Loki](/loki.md)
+
+▪️ <a id="8870"></a>[Lower Mire (area)](/lower_mire_area.md)
 
 ### <a id="#top"></a>M
 ▪️ <a id="7c90"></a>[Masters of the Council](/council_of_minds.md)
