@@ -1,4 +1,4 @@
-## Leaf Frog Sanctuary
+## 🐸 Leaf Frog Sanctuary
 
 `🪧 Place` in [Oblivion Mire](<https://zeithalt.github.io/r/oblivion_mire.html>)
 

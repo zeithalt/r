@@ -1,4 +1,4 @@
-## Cave of Mirrors
+## 🪞 Cave of Mirrors
 
 `🪧 Place` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>)
 
