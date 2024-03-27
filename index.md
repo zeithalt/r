@@ -196,6 +196,8 @@
 ▪️ <a id="8810"></a>[🌳 Kingtree Sanctuary](/kingtree_sanctuary.md)
 
 ### <a id="#top"></a>L
+▪️ <a id="21f0"></a>[--- Lore Guidebook ---](/guidebook_link.md)
+
 ▪️ <a id="bca0"></a>[Lake Corsair](/lake_corsair.md)
 
 ▪️ <a id="68e0"></a>[🐸 Leaf Frog Sanctuary](/leaf_frog_sanctuary.md)
