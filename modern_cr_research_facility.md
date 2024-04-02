@@ -6,7 +6,6 @@ A massive collaborative undertaking by the top engineers from [Cybernetics Inc](
 
 Solar run and with networking backed by the Admincity power grid in the heart of the ruins of brickland fortress.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#9f60>)
 <!---

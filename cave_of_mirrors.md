@@ -14,7 +14,6 @@ The Cave of Mirrors stands as a testament to the extraordinary beauty that can b
 
 ![Cave of Mirrors](https://zeithalt.github.io/r/i/cave_of_mirrors.png)
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#96c0>)
 <!---

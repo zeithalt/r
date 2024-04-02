@@ -6,7 +6,6 @@ Built on eon 780 in Oblivion Mire, rather out of practical necessity than apprec
 
 This establishment, nonetheless, becomes the first physical evidence of the once unlikely DC-MT alliance in the Institute's lands.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#b0c0>)
 <!---

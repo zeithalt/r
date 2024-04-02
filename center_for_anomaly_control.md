@@ -12,7 +12,6 @@ However, CAC did not escape its fair share of controversy, as the first weapon-g
 
 Later, the resources of the Center were used in Restoration Projects in other lands, including the ones held by other factions and to this day the CAC remains a crucial point of CR Research.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#0330>)
 <!---

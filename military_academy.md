@@ -10,7 +10,6 @@ At the center of the academy is the _[Revalx](<https://zeithalt.github.io/r/reva
 
 [`🐙`](<https://zeithalt.github.io/r/altar_of_ctulhu.html>)
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#be90>)
 <!---

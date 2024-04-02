@@ -8,7 +8,6 @@ A dagger made with some of the very same gems found in the mines, the _Dagger of
 
 Airmanon has seen that the dagger has been effective in cutting down fungal growths of Corruption left behind after such Outbursts.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#f750>)
 <!---

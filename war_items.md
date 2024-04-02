@@ -10,7 +10,6 @@ Each of these categories have different kinds of bonuses and help factions immen
 
 They also divide into Common and Epic variants. Epic items do what Common items do but better and stronger.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#9930>)
 <!---

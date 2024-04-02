@@ -12,7 +12,6 @@ These stones, though, are very rare due to it taking hundreds of years to form a
 
 ![Timeless Waystone](https://zeithalt.github.io/r/i/timeless_waystone.png)
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#22a0>)
 <!---

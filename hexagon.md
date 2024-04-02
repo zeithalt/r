@@ -17,7 +17,6 @@ They say he has a weakness for chocolate cookies.
 
 At some point [Double-Z](<https://zeithalt.github.io/r/zeithalt_zeitgeist.html>) was hyping rumours that hexAgon might be addicted to drinking baby unicorn blood, however that story remains unconfirmed and is believed to be a newspaper hoax
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#f910>)
 <!---

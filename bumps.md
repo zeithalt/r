@@ -6,7 +6,6 @@ Bumpus (aka Bumps) is a mysterious race of blue humanoids rumored to originate s
 
 Head researcher, intrepid explorer, permanent resident, and resource exploiter of the Timeless Desert known for his questionable curiosity for knowledge, attraction to anomalies, devious business dealings, and the widespread Bumpus race that has recently appeared throughout the island.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#8880>)
 <!---

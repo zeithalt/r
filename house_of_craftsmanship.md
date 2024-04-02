@@ -10,7 +10,6 @@ Its most priced artifact, the *Dreamforge* (or the *Litunera-lleumeo*), said to 
 
 The forge is traditionally used for students graduating from the school, with their forged weapons being a sign of completion in the academe.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#1b90>)
 <!---

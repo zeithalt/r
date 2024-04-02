@@ -8,7 +8,6 @@ As the name itself suggests, the installation uses trees to transform solar ener
 
 The project involves trees from over 150.000 hectares of A'as forests and supplies whole Protectores Silva with ecological, renewable energy.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#e470>)
 <!---

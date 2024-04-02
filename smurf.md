@@ -6,7 +6,6 @@ SMURF stands for Sustainable Mineral Usage Regarding Forests and was built by Pr
 
 SMURFs primary goal is to make sure mineral resources harvested from forest areas doesn't have a negative environmental impact.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#6760>)
 <!---

@@ -10,7 +10,6 @@ Despite the climate of Synaxos Fields not being well-fitted to the flora importe
 
 The factory provides a steady supply of cactus-related produce to the [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>) and nearby lands, eliminating the dangers and uncertainty that arise when such products are delivered from the Desert itself.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#32c0>)
 <!---

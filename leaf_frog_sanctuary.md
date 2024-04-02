@@ -16,7 +16,6 @@ Answering the requests of locals, MindTech Institute funded the creation and mai
 
 ![Leaf Frog Sanctuary](https://zeithalt.github.io/r/i/leaf_frog_sanctuary.png)
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#68e0>)
 <!---

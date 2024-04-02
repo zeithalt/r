@@ -8,8 +8,6 @@ A former Minister of Defense during his time in MindTech Institute, he assumes t
 
 He co-founded the [Fighters Guild](<https://zeithalt.github.io/r/fighters_guild.html>) with other prominent sellswords and act as a proxy on the behalf of his squads to fund their combat operations.
 
-
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#9ff1>)
 <!---

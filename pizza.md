@@ -6,7 +6,6 @@ Pizza Installation Zesty Zahrada Arena (PIZZA for short) is a pizza place in Bri
 
 Besides offering delicious pizzas it also has arcade games and serves as a center for freedom of speech in Zeithalt.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#b910>)
 <!---

@@ -12,8 +12,6 @@ Many tourists here comes at day to appreciate the beautiful marble-white cliffs 
 But the truly, most wonderous view in the region is right by the farthest edge of the Aurora Cliffs. As the ocean gives birth to the other world, and the sunlight wakes the colors underground, a wave of australis seeps through the skies of dusk and dawn that brings down the universe to earth.
 This phenomena happens every winter solstice and is when most of the tourists comes to the region.
 
-
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#e630>)
 <!---

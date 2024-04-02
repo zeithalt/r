@@ -14,7 +14,6 @@ A series of clever engineering are used to maintain the Sacred Sphere. Its outer
 
 ![Sacred Sphere](https://zeithalt.github.io/r/i/sacred_sphere.png)
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#f840>)
 <!---

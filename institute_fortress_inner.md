@@ -19,7 +19,6 @@ Some claim that, especially at the end of the day when the sun's rays are very l
 
 There is no evidence that it actually exists.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#ea90>)
 <!---

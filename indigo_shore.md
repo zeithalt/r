@@ -12,7 +12,6 @@ The official religion of Indigo Shore is [Duckism](<https://zeithalt.github.io/r
 
 ![Indigo Shore](https://zeithalt.github.io/r/i/indigo_shore.png)
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#7a70>)
 <!---

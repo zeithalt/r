@@ -10,7 +10,6 @@ There are cases of people wandering the desert for months only to find they ther
 
 ![Timeless Desert during Corruption outburst](https://zeithalt.github.io/r/i/corrupted_desert.png)
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#0130>)
 <!---

@@ -6,7 +6,6 @@ Or TMP for short, refers to the sands of [Timeless Desert](<https://zeithalt.git
 
 For example, TMP can be transmuted into any other kind of resources and is known to be used in [Chronoglass](<https://zeithalt.github.io/r/chronoglass.html>) production.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#6590>)
 <!---

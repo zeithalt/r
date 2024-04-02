@@ -10,7 +10,6 @@ The main area of the Stellarium features a performance stage as the highlight of
 
 The supporting facilities are split into three sections. One is the educational area, where there is an observatory deck nearby, with rooms for lectures and workshops not far from it. The other is the recreational area, where visitors arrive after experiencing the various shows in the main area. This area will have a café and a gift shop to help with the revenue. Finally, there is the outdoor area, where visitors can watch the stars in great comfort with their own eyes.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#3520>)
 <!---

@@ -12,7 +12,6 @@ That's when the axe was finally transformed into a weapon worthy to be wielded b
 
 ![Prehistoric Axe](https://zeithalt.github.io/r/i/prehistoric_axe.png)
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#e4e0>)
 <!---

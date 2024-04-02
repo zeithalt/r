@@ -8,7 +8,6 @@ PTSD is focused on building PS treasury.
 
 This includes but is not limited to taxing business from non PS members who has business located in PS territory, suggest taxes for PS members and try to limit PS spending gold on unnecessary costs.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#e4f0>)
 <!---

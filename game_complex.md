@@ -12,7 +12,6 @@ Planned future improvements include additional installations all over CI territo
 
 The data will be used to imbue future humans with efficient, optimized pruning and sorting capabilities, reducing the number of problems between keyboards and computers.
 
-
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#6ee0>)
 <!---
