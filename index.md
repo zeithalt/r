@@ -17,6 +17,8 @@
 
 ▪️ <a id="8270"></a>[🐙 Altar of Ctulhu](/altar_of_ctulhu.md)
 
+▪️ <a id="7840"></a>[🪄 Arcane Citadel](/arcane_citadel.md)
+
 ▪️ <a id="cea0"></a>[📚 Archives of Subconsciousness](/archives_of_subcon.md)
 
 ▪️ <a id="fff0"></a>[Ares Gardens](/ares_gardens.md)
@@ -31,6 +33,8 @@
 ▪️ <a id="9640"></a>[🎋 Bamboo Grove](/bamboo_grove.md)
 
 ▪️ <a id="ee50"></a>[Bank of Zeithalt](/bank_of_zeithalt.md)
+
+▪️ <a id="1400"></a>[🏮 Beacon for Perseverance](/beacon_for_perseverance.md)
 
 ▪️ <a id="3460"></a>[🔱 Beacon for the Sight of Innovation](/beacon_of_innovation.md)
 
@@ -53,9 +57,13 @@
 ### <a id="#top"></a>C
 ▪️ <a id="32c0"></a>[🌵 Cactus Juice Factory](/cactus_juice_factory.md)
 
+▪️ <a id="e190"></a>[🧭 Cartographers Guild HQ](/cartographers_guild_hq.md)
+
 ▪️ <a id="96c0"></a>[🪞 Cave of Mirrors](/cave_of_mirrors.md)
 
 ▪️ <a id="0330"></a>[🏢 Center for Anomaly Control](/center_for_anomaly_control.md)
+
+▪️ <a id="0db0"></a>[💽 Central Nexus](/central_nexus.md)
 
 ▪️ <a id="3850"></a>[Cerene Vale](/cerene_vale.md)
 
@@ -114,6 +122,8 @@
 
 ▪️ <a id="b0c0"></a>[💬 Deltan Language School](/deltan_language_school.md)
 
+▪️ <a id="3c10"></a>[👁️‍🗨️ Deltan Watchtower](/deltan_watchtower.md)
+
 ▪️ <a id="8bc0"></a>[Delta Collective](/delta_collective.md)
 
 ▪️ <a id="8bc0"></a>[DC](/delta_collective.md)
@@ -170,6 +180,8 @@
 ### <a id="#top"></a>H
 ▪️ <a id="7c90"></a>[Headmaster of the Institute](/council_of_minds.md)
 
+▪️ <a id="bed0"></a>[🍻 Helheim Bar](/helheim_bar.md)
+
 ▪️ <a id="f910"></a>[hexAgon](/hexagon.md)
 
 ▪️ <a id="ef90"></a>[🎌️ Hill of 1000 flags](/hill_of_flags.md)
@@ -201,6 +213,8 @@
 ▪️ <a id="bca0"></a>[Lake Corsair](/lake_corsair.md)
 
 ▪️ <a id="68e0"></a>[🐸 Leaf Frog Sanctuary](/leaf_frog_sanctuary.md)
+
+▪️ <a id="dae0"></a>[🏛️ Library of Eternal Knowledge](/library_of_eternal_knowledge.md)
 
 ▪️ <a id="5220"></a>[🗼 Lime Tower](/lime_tower.md)
 
@@ -267,6 +281,10 @@
 ### <a id="#top"></a>O
 ▪️ <a id="8840"></a>[Oblivion Mire](/oblivion_mire.md)
 
+▪️ <a id="8eb0"></a>[🐬 Oceanarium](/oceanarium.md)
+
+▪️ <a id="f6d1"></a>[🐟 Oceanic Discovery Center](/oceanic_discovery_center.md)
+
 ▪️ <a id="e810"></a>[Ogrodnik](/ogrodnik.md)
 
 ▪️ <a id="c080"></a>[Ozimud](/ozimud.md)
@@ -280,9 +298,15 @@
 
 ▪️ <a id="f6f0"></a>[PEBKAC Peak](/pebkac_peak.md)
 
+▪️ <a id="ad60"></a>[🦴 Pet Sematary](/pet_sematary.md)
+
+▪️ <a id="28f0"></a>[🔭 Photonic Observatory](/photonic_observatory.md)
+
 ▪️ <a id="e470"></a>[🌿 Photosynthetic Power Station](/photosynthetic_power_station.md)
 
 ▪️ <a id="ae70"></a>[⛽️ Pickled Ooblek Deli](/pickled_ooblek_deli.md)
+
+▪️ <a id="e0f0"></a>[Pickled Wind Farm](/pickled_wind_farm.md)
 
 ▪️ <a id="a810"></a>[🏴‍☠️ Pirate Harbor](/pirate_harbor.md)
 
@@ -302,12 +326,18 @@
 
 ▪️ <a id="aaf0"></a>[💰 PTSD Office](/ptsd_office.md)
 
+▪️ <a id="50e1"></a>[🚽 Public Toilet](/public_toilet.md)
+
 ▪️ <a id="3911"></a>[Purple Deeps](/purple_deeps.md)
 
 ### <a id="#top"></a>Q
+▪️ <a id="8850"></a>[🔋 Quantum Generator](/quantum_generator.md)
+
 ▪️ <a id="f880"></a>[🛰️ Quantum Nexus Laboratory](/quantum_nexus_lab.md)
 
 ### <a id="#top"></a>R
+▪️ <a id="c5a0"></a>[🔭 Ranger Network](/ranger_network.md)
+
 ▪️ <a id="4270"></a>[Rebels](/rebels.md)
 
 ▪️ <a id="74f0"></a>[Resources (RES)](/resources.md)
@@ -327,11 +357,19 @@
 
 ▪️ <a id="3ec0"></a>[Sellswords](/sellswords.md)
 
+▪️ <a id="58d0"></a>[🌵 Sentient Cactus Reservation](/sentient_cactus_reservation.md)
+
+▪️ <a id="8460"></a>[🏄‍♂️ Serotonin Splash Park](/serotonin_splash_park.md)
+
 ▪️ <a id="1780"></a>[🍺 Seven Roads Inn](/seven_roads_inn.md)
+
+▪️ <a id="8731"></a>[🗿 Shapeshifter Statue](/shapeshifter_statue.md)
 
 ▪️ <a id="f4e0"></a>[Shaxx](/shaxx.md)
 
 ▪️ <a id="e2f0"></a>[Shimmering Sands (oasis)](/shimmering_sands_oasis.md)
+
+▪️ <a id="dde0"></a>[🏟️ Showdown Arena](/showdown_arena.md)
 
 ▪️ <a id="3480"></a>[Silvans](/silvans.md)
 
@@ -388,7 +426,13 @@
 
 ▪️ <a id="6590"></a>[Temporal Resources](/temporal_resources.md)
 
+▪️ <a id="9db0"></a>[🏜️ Teremok of Cactus Patron](/teremok_of_cactus_patron.md)
+
 ▪️ <a id="b4d0"></a>[The Cut (area)](/the_cut_area.md)
+
+▪️ <a id="9940"></a>[🎵 The Juketower](/the_juketower.md)
+
+▪️ <a id="1b80"></a>[🗺️ The Webeporter](/the_webeporter.md)
 
 ▪️ <a id="0130"></a>[Timeless Desert](/timeless_desert.md)
 
@@ -416,6 +460,8 @@
 
 ▪️ <a id="3660"></a>[Valkyrie Spec Ops](/valkyrie_specops.md)
 
+▪️ <a id="2ea0"></a>[👻 Valley of Lost Spirits](/valley_of_lost_spirits.md)
+
 ▪️ <a id="6e00"></a>[Virtuara Outpost](/virtuara_outpost.md)
 
 ▪️ <a id="3e80"></a>[🦈 Void Shark Hatchery](/void_shark_hatchery.md)
@@ -436,6 +482,8 @@
 ▪️ <a id="a1d0"></a>[🎏 Weather Tower Relay](/weather_tower_relay.md)
 
 ▪️ <a id="ada0"></a>[Webified Hills](/webified_hills.md)
+
+▪️ <a id="93f0"></a>[📻 West Coast Research Station](/west_coast_research_station.md)
 
 ▪️ <a id="ca80"></a>[🐅 Wildlife Preservation](/wildlife_preservation.md)
 
