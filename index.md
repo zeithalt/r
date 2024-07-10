@@ -57,6 +57,8 @@
 ### <a id="#top"></a>C
 ▪️ <a id="32c0"></a>[🌵 Cactus Juice Factory](/cactus_juice_factory.md)
 
+▪️ <a id="ce71"></a>[😎 Cannabliss Camp](/cannabliss_camp.md)
+
 ▪️ <a id="e190"></a>[🧭 Cartographers Guild HQ](/cartographers_guild_hq.md)
 
 ▪️ <a id="96c0"></a>[🪞 Cave of Mirrors](/cave_of_mirrors.md)
@@ -355,6 +357,8 @@
 
 ▪️ <a id="7e11"></a>[Sazhra](/sazhra.md)
 
+▪️ <a id="39a0"></a>[🌱 Seed Sanctuaries](/seed_sanctuaries.md)
+
 ▪️ <a id="3ec0"></a>[Sellswords](/sellswords.md)
 
 ▪️ <a id="58d0"></a>[🌵 Sentient Cactus Reservation](/sentient_cactus_reservation.md)
@@ -364,6 +368,8 @@
 ▪️ <a id="1780"></a>[🍺 Seven Roads Inn](/seven_roads_inn.md)
 
 ▪️ <a id="8731"></a>[🗿 Shapeshifter Statue](/shapeshifter_statue.md)
+
+▪️ <a id="7fa0"></a>[🌯 Shawarmind Joint](/shawarmind_joint.md)
 
 ▪️ <a id="f4e0"></a>[Shaxx](/shaxx.md)
 
