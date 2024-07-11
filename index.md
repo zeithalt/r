@@ -32,6 +32,10 @@
 
 ▪️ <a id="9640"></a>[🎋 Bamboo Grove](/bamboo_grove.md)
 
+▪️ <a id="e500"></a>[Band of Brothers](/band_of_brothers.md)
+
+▪️ <a id="e500"></a>[BB](/band_of_brothers.md)
+
 ▪️ <a id="ee50"></a>[Bank of Zeithalt](/bank_of_zeithalt.md)
 
 ▪️ <a id="1400"></a>[🏮 Beacon for Perseverance](/beacon_for_perseverance.md)
@@ -51,6 +55,8 @@
 ▪️ <a id="f6d0"></a>[Brickland Fortress](/brickland_fortress.md)
 
 ▪️ <a id="50d0"></a>[Brickspire Mountains](/brickspire_mountains.md)
+
+▪️ <a id="e501"></a>[Brothers](/brothers.md)
 
 ▪️ <a id="8880"></a>[Bumpus Mackamarus Arbum](/bumps.md)
 
