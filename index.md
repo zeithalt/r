@@ -196,6 +196,8 @@
 
 ▪️ <a id="1b90"></a>[🛖 House of Craftsmanship](/house_of_craftsmanship.md)
 
+▪️ <a id="d970"></a>[🛖 Humble Abode](/humble_abode.md)
+
 ### <a id="#top"></a>I
 ▪️ <a id="e630"></a>[Illusion Cliffs](/illusion_cliffs.md)
 
@@ -286,6 +288,8 @@
 
 ▪️ <a id="3820"></a>[📰 News HQ](/news_hq.md)
 
+▪️ <a id="fab0"></a>[🔇 No-Echo Chamber](/noecho_chamber.md)
+
 ### <a id="#top"></a>O
 ▪️ <a id="8840"></a>[Oblivion Mire](/oblivion_mire.md)
 
@@ -309,6 +313,8 @@
 ▪️ <a id="ad60"></a>[🦴 Pet Sematary](/pet_sematary.md)
 
 ▪️ <a id="28f0"></a>[🔭 Photonic Observatory](/photonic_observatory.md)
+
+▪️ <a id="28f0"></a>[Photon Tree Observatory](/photonic_observatory.md)
 
 ▪️ <a id="e470"></a>[🌿 Photosynthetic Power Station](/photosynthetic_power_station.md)
 
