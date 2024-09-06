@@ -217,6 +217,8 @@
 
 ▪️ <a id="8810"></a>[🌳 Kingtree Sanctuary](/kingtree_sanctuary.md)
 
+▪️ <a id="c2b0"></a>[👑 King of Zeithalt](/king_of_zeithalt.md)
+
 ### <a id="#top"></a>L
 ▪️ <a id="21f0"></a>[--- Lore Guidebook ---](/guidebook_link.md)
 
