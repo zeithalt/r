@@ -15,6 +15,8 @@
 
 ▪️ <a id="9a30"></a>[Alexx](/alexx.md)
 
+▪️ <a id="1540"></a>[Alpickle Goats](/alpickle_goats.md)
+
 ▪️ <a id="8270"></a>[🐙 Altar of Ctulhu](/altar_of_ctulhu.md)
 
 ▪️ <a id="7840"></a>[🪄 Arcane Citadel](/arcane_citadel.md)
@@ -43,6 +45,10 @@
 ▪️ <a id="3460"></a>[🔱 Beacon for the Sight of Innovation](/beacon_of_innovation.md)
 
 ▪️ <a id="2880"></a>[🕯️ Beacon for the Light of Reason](/beacon_of_reason.md)
+
+▪️ <a id="a270"></a>[🏠 Benastone](/benastone.md)
+
+▪️ <a id="aeb0"></a>[🧬 BioMechanical Sanctuary](/biomechanical_sanctuary.md)
 
 ▪️ <a id="0580"></a>[Bloodvine](/bloodvines.md)
 
@@ -190,6 +196,8 @@
 
 ▪️ <a id="bed0"></a>[🍻 Helheim Bar](/helheim_bar.md)
 
+▪️ <a id="9010"></a>[📗 Herbarium Library](/herbarium_library.md)
+
 ▪️ <a id="f910"></a>[hexAgon](/hexagon.md)
 
 ▪️ <a id="ef90"></a>[🎌️ Hill of 1000 flags](/hill_of_flags.md)
@@ -326,6 +334,8 @@
 
 ▪️ <a id="e0f0"></a>[Pickled Wind Farm](/pickled_wind_farm.md)
 
+▪️ <a id="4240"></a>[Pineville](/pineville.md)
+
 ▪️ <a id="a810"></a>[🏴‍☠️ Pirate Harbor](/pirate_harbor.md)
 
 ▪️ <a id="b910"></a>[🍕 PIZZA](/pizza.md)
@@ -335,6 +345,10 @@
 ▪️ <a id="9850"></a>[🚷 Prefrenial Prefect (Prison)](/prefrenial_prefect.md)
 
 ▪️ <a id="e4e0"></a>[🪓 Prehistoric Axe](/prehistoric_axe.md)
+
+▪️ <a id="96d0"></a>[🔸 Proprioceptic Gems](/proprioceptic_gem.md)
+
+▪️ <a id="5fa0"></a>[⚓ Proprioceptic Shipyard](/proprioceptic_shipyard.md)
 
 ▪️ <a id="7a60"></a>[Protectores Silva](/protectores_silva.md)
 
@@ -427,6 +441,8 @@
 
 ### <a id="#top"></a>T
 ▪️ <a id="5480"></a>[The Arcanum](/arcanum.md)
+
+▪️ <a id="7a00"></a>[💃 The Bada Bing!](/bada_bing.md)
 
 ▪️ <a id="a610"></a>[The Great Auditorium](/cortexian_hall.md)
 
