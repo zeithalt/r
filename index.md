@@ -87,6 +87,8 @@
 
 ▪️ <a id="29a0"></a>[ChronoGlass™️](/chronoglass_tm.md)
 
+▪️ <a id="1fb0"></a>[C.I.A.](/cia.md)
+
 ▪️ <a id="4120"></a>[☁️ Cloudy Data Center](/cloudy_co_datacenter.md)
 
 ▪️ <a id="36b0"></a>[Cloudy Operatives](/cloudy_operatives.md)
@@ -468,7 +470,7 @@
 
 ▪️ <a id="b4d0"></a>[The Cut (area)](/the_cut_area.md)
 
-▪️ <a id="9940"></a>[🎵 The Juketower](/the_juketower.md)
+▪️ <a id="9940"></a>[🎵 The JukeTower](/the_juketower.md)
 
 ▪️ <a id="1b80"></a>[🗺️ The Webeporter](/the_webeporter.md)
 

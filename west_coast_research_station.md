@@ -4,7 +4,7 @@
 
 Built on eon 847 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
 
-_This entry is considered incomplete - you can request more info for it [on discord](<https://discord.com/channels/562910943848169472/1173922660489633802>) or write it yourself_
+A repurposed MT radio tower, maps depository and spying outpost now used as a scientific research station and CI trading post.
 
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#93f0>)
