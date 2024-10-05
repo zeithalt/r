@@ -1,6 +1,6 @@
 ## PEBKAC Peak
 
-`📃 To-do list`
+`🖼️ Landmark`
 
 PEBKAC Peak is a region of unparalleled beauty and technological wonder nestled in the southern reaches of Cybernetics Inc territory. Named in jest for the common tech troubleshooting acronym, PEBKAC (Problem Exists Between Keyboard And Chair), this area embodies the resilience and adaptability of both nature and technology.
 
