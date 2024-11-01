@@ -81,6 +81,8 @@
 
 ▪️ <a id="3850"></a>[Cerene Vale](/cerene_vale.md)
 
+▪️ <a id="17e0"></a>[📊 Chaosflux Observatory](/chaosflux_observatory.md)
+
 ▪️ <a id="8a30"></a>[Chaotic Plains](/chaotic_plains.md)
 
 ▪️ <a id="e320"></a>[Chronoglass](/chronoglass.md)

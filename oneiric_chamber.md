@@ -14,6 +14,8 @@ Oneiric Chamber is a personal project of _Headmaster Dino_ and part of his studi
 
 The access to the chamber is restricted only to _Headmaster Dino_, but upon its completion he started letting his best students to use it to aid in the studies of Shaushka rune-writing.
 
+![Oneiric Chamber](https://zeithalt.github.io/r/i/oneiric_chamber.png)
+
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#6250>)
 <!---
