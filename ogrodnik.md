@@ -1,18 +1,18 @@
 ## Ogrodnik
 
-`📃 To-do list`
+`🧙‍♂️ Character`
 
-This entry has not been written yet.
+A man of unknown origin, he appeared on the political scene of Zeithalt as an apprentice of [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) in Eon 260.
 
-Will you write the text for it?
+Quickly finding his way to the top during what some call Institute's Golden Age, he became a member of its Government. 
 
-Will you request others to that?
+However, not a long time later, he resigned from that position and sparkled the creation of the 4th Faction, [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>).
 
-You can write or request lore [on discord](<https://discord.com/channels/562910943848169472/1173922660489633802>)
+Although an experienced warrior and active politician, in his personal life he is a calm and withdrawn person preferring [istant hideouts](<https://zeithalt.github.io/r/botanical_garden.html>) over rowdy meeting rooms.
 
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#e810>)
 <!---
-keywords: todo
+keywords: ogorod, tree, hugger
 aliases: 
 -->

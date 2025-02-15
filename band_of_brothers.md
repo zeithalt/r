@@ -13,6 +13,10 @@ However, in the [Battle of Brickland Fortress](<https://zeithalt.github.io/t/#eo
 
 The faction then reached a deal with [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>), which effectively separated the Deltan faction into two parts, with _Band of Brothers_ taking under control the western regions of [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>), [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh.html>) and [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>). The latter subsequently became the new faction's capital.
 
+> Привет! Ты сейчас читаешь Дельтанский язык. На Дельтанском тут говорят в Band of Brothers и Delta Collective. Все остальные фракции говорят на международном языке. Если ты хочешь понимать что у нас здесь происходит, тогда заходи в наш дискорд сервер.
+
+> Фракция Band of Brothers была образована путём мирного отсоединения от Delta Collective. Мы - Мафия. Крышуем весь нелегал в Цайтхальте. Ни одно нелегальное дело здесь не проходит мимо нас.
+
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#e500>)
 <!---

@@ -1,6 +1,6 @@
 ## Dino Saurex
 
-**🧙‍♂️ Character**
+`🧙‍♂️ Character`
 
 Also known as CuriousDino in his early years is a person of dinoman race - something best described as "an anthropomorphic dinosaur."
 

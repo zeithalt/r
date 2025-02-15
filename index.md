@@ -64,6 +64,8 @@
 
 ▪️ <a id="e501"></a>[Brothers](/brothers.md)
 
+▪️ <a id="c820"></a>[🥩 Brother's Meat Market](/brothers_meat_market.md)
+
 ▪️ <a id="8880"></a>[Bumpus Mackamarus Arbum](/bumps.md)
 
 ### <a id="#top"></a>C
@@ -160,6 +162,8 @@
 ▪️ <a id="f6d0"></a>[Eastern Brickland](/brickland_fortress.md)
 
 ▪️ <a id="7d50"></a>[🥚 Egg Festival](/egg_festival.md)
+
+▪️ <a id="da50"></a>[🌀 Entropy Harmonizer](/entropy_harmonizer.md)
 
 ▪️ <a id="8730"></a>[Eon](/eon.md)
 
@@ -300,6 +304,10 @@
 ▪️ <a id="74f0"></a>[Mineral Resources](/resources.md)
 
 ### <a id="#top"></a>N
+▪️ <a id="ae50"></a>[NAIRO](/nairo.md)
+
+▪️ <a id="a300"></a>[⬡ Nanobot Hive](/nanobot_hive.md)
+
 ▪️ <a id="b870"></a>[Neuropolis](/neuropolis.md)
 
 ▪️ <a id="3820"></a>[📰 News HQ](/news_hq.md)
@@ -314,6 +322,10 @@
 ▪️ <a id="f6d1"></a>[🐟 Oceanic Discovery Center](/oceanic_discovery_center.md)
 
 ▪️ <a id="e810"></a>[Ogrodnik](/ogrodnik.md)
+
+▪️ <a id="2870"></a>[👁 Omnituens Eye](/omnituens_eye.md)
+
+▪️ <a id="a5e0"></a>[Omnituens Lens](/omnituens_lens.md)
 
 ▪️ <a id="6250"></a>[💤 Oneiric Chamber](/oneiric_chamber.md)
 
@@ -351,6 +363,8 @@
 ▪️ <a id="9850"></a>[🚷 Prefrenial Prefect (Prison)](/prefrenial_prefect.md)
 
 ▪️ <a id="e4e0"></a>[🪓 Prehistoric Axe](/prehistoric_axe.md)
+
+▪️ <a id="a930"></a>[🏡 Presidential Dacha](/presidential_dacha.md)
 
 ▪️ <a id="96d0"></a>[🔸 Proprioceptic Gems](/proprioceptic_gem.md)
 
@@ -431,6 +445,10 @@
 
 ▪️ <a id="6690"></a>[🛸 Spaceport](/spaceport.md)
 
+▪️ <a id="9360"></a>[👹 Square of Fighting Spirit](/square_of_fighting_spirit.md)
+
+▪️ <a id="0331"></a>[🗽 Statue of INK](/statue_of_ink.md)
+
 ▪️ <a id="25b0"></a>[🗽 Statue of Mimb](/statue_of_mimb.md)
 
 ▪️ <a id="3520"></a>[🌌 Stellarium](/stellarium.md)
@@ -467,6 +485,8 @@
 ▪️ <a id="02e0"></a>[🫖 Tea Emporium](/tea_emporium.md)
 
 ▪️ <a id="c980"></a>[Teleport](/teleport.md)
+
+▪️ <a id="50e2"></a>[⌛ Temporal Research Center](/temporal_research_center.md)
 
 ▪️ <a id="6590"></a>[Temporal Resources](/temporal_resources.md)
 
