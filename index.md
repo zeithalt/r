@@ -240,6 +240,8 @@
 
 ▪️ <a id="bca0"></a>[Lake Corsair](/lake_corsair.md)
 
+▪️ <a id="2871"></a>[🧼 Laundry N°131691](/laundry_131691.md)
+
 ▪️ <a id="68e0"></a>[🐸 Leaf Frog Sanctuary](/leaf_frog_sanctuary.md)
 
 ▪️ <a id="dae0"></a>[🏛️ Library of Eternal Knowledge](/library_of_eternal_knowledge.md)
@@ -481,6 +483,8 @@
 ▪️ <a id="7a60"></a>[Tree Huggers](/protectores_silva.md)
 
 ▪️ <a id="f840"></a>[🪩 The Sacred Sphere](/sacred_sphere.md)
+
+▪️ <a id="8e60"></a>[T, Cactus Patron](/t.md)
 
 ▪️ <a id="02e0"></a>[🫖 Tea Emporium](/tea_emporium.md)
 
