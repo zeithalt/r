@@ -1,4 +1,4 @@
-## TITLE
+## 🚰 Water Filtering Station
 
 `🖼️ Landmark` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
 

@@ -154,6 +154,8 @@
 
 ▪️ <a id="c200"></a>[🤿 Diving School](/diving_school.md)
 
+▪️ <a id="8ba0"></a>[Duckism](/duckism.md)
+
 ▪️ <a id="7e10"></a>[🦆 Duck Farm](/duck_farm.md)
 
 ▪️ <a id="7a70"></a>[Ducktopia](/indigo_shore.md)
@@ -234,6 +236,8 @@
 ▪️ <a id="2dc0"></a>[🕸️ K2 Fibers](/k2_fibers.md)
 
 ▪️ <a id="8810"></a>[🌳 Kingtree Sanctuary](/kingtree_sanctuary.md)
+
+▪️ <a id="5571"></a>[King A'as](/king_aas.md)
 
 ▪️ <a id="c2b0"></a>[👑 King of Zeithalt](/king_of_zeithalt.md)
 
@@ -474,13 +478,9 @@
 
 ▪️ <a id="a610"></a>[The Great Auditorium](/cortexian_hall.md)
 
-▪️ <a id="8ba0"></a>[TITLE](/duckism.md)
-
 ▪️ <a id="fd60"></a>[The Algorithms](/great_ai.md)
 
 ▪️ <a id="ea90"></a>[Towers of MindTech Institute](/institute_fortress_inner.md)
-
-▪️ <a id="5571"></a>[TITLE](/king_aas.md)
 
 ▪️ <a id="7a60"></a>[Tree Huggers](/protectores_silva.md)
 
@@ -518,8 +518,6 @@
 
 ▪️ <a id="64c0"></a>[🌳 Tree of Many Inquiries](/tree_of_many_inquiries.md)
 
-▪️ <a id="1390"></a>[TITLE](/water_filtering_station.md)
-
 ### <a id="#top"></a>U
 ▪️ <a id="1fa0"></a>[🌺 Underground Botanical Garden](/botanical_garden.md)
 
@@ -550,6 +548,8 @@
 ▪️ <a id="9930"></a>[Weapons](/war_items.md)
 
 ▪️ <a id="60b0"></a>[Watchtower Ruins](/watchtower_ruins.md)
+
+▪️ <a id="1390"></a>[🚰 Water Filtering Station](/water_filtering_station.md)
 
 ▪️ <a id="a1d0"></a>[🎏 Weather Tower Relay](/weather_tower_relay.md)
 
