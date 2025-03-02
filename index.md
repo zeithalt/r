@@ -271,6 +271,8 @@
 
 ▪️ <a id="c860"></a>[Meadowridge](/meadowridge.md)
 
+▪️ <a id="ab40"></a>[🔥 Midnight Oil Burner](/midnight_oil_burner.md)
+
 ▪️ <a id="be90"></a>[🏯 Military Academy](/military_academy.md)
 
 ▪️ <a id="53b0"></a>[`🦅` Millennium Falcon](/millennium_falcon.md)
@@ -292,6 +294,8 @@
 ▪️ <a id="18c0"></a>[🏦 Money Factory](/money_factory.md)
 
 ▪️ <a id="74a0"></a>[🎲 Monument to Chaos](/monument_to_chaos.md)
+
+▪️ <a id="b8a0"></a>[Morpheus Zvezda](/morpheus_zvezda.md)
 
 ▪️ <a id="7490"></a>[Mt. Pickles](/mt_pickles.md)
 
@@ -330,6 +334,8 @@
 ▪️ <a id="f6d1"></a>[🐟 Oceanic Discovery Center](/oceanic_discovery_center.md)
 
 ▪️ <a id="e810"></a>[Ogrodnik](/ogrodnik.md)
+
+▪️ <a id="1750"></a>[Okeanida Zvezdnaya](/okeanida.md)
 
 ▪️ <a id="2870"></a>[👁 Omnituens Eye](/omnituens_eye.md)
 
