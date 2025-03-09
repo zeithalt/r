@@ -1,6 +1,6 @@
 ## 🏭 Resource Management Facility
 
-**🪧 Place** in [Admincity](<https://zeithalt.github.io/r/admincity.html>)
+`🖼️ Landmark` in [Admincity](<https://zeithalt.github.io/r/admincity.html>)
 
 The operational center of Gaia Biosphere Project. It is HQ of Chief Engineer in [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>), an authority that oversees all resources, funding, building, and organisation needed to build and maintain the Gaia Biosphere Project.
 

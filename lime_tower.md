@@ -1,6 +1,6 @@
 ## 🗼 Lime Tower
 
-`🪧 Place` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields.html>)
+`🖼️ Landmark` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields.html>)
 
 Built on eon 575 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
 

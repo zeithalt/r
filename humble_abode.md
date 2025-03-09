@@ -1,6 +1,6 @@
 ## 🛖 Humble Abode
 
-`🪧 Place` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
+`🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
 
 Built on eon 831 by [Cloudy Operatives](<https://zeithalt.github.io/r/cloudy_operatives.html>).
 

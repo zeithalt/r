@@ -1,6 +1,6 @@
 ## ⛽️ Pickled Ooblek Deli
 
-`🪧 Place` in [Mt. Pickles](<https://zeithalt.github.io/r/mt_pickles.html>)
+`🖼️ Landmark` in [Mt. Pickles](<https://zeithalt.github.io/r/mt_pickles.html>)
 
 Built on eon 555 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
 

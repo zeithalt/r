@@ -25,12 +25,16 @@
 
 ▪️ <a id="fff0"></a>[Ares Gardens](/ares_gardens.md)
 
+▪️ <a id="6120"></a>[💉 Antibody Research Institute and Library](/arial.md)
+
 ▪️ <a id="a740"></a>[🛣️ Axonite Road](/axonite_road.md)
 
 ▪️ <a id="9930"></a>[Armor](/war_items.md)
 
 ### <a id="#top"></a>B
 ▪️ <a id="4450"></a>[⚗️ Bioengineered Algae Farm](/algae_farm.md)
+
+▪️ <a id="a8a0"></a>[🍆 Baklazhan Park](/baklazhan_park.md)
 
 ▪️ <a id="9640"></a>[🎋 Bamboo Grove](/bamboo_grove.md)
 
@@ -56,6 +60,10 @@
 
 ▪️ <a id="b710"></a>[Book of Balance](/book_of_balance.md)
 
+▪️ <a id="d510"></a>[🎳 Bowling Center](/bowling_center.md)
+
+▪️ <a id="9b60"></a>[🏬 BoZ: Retailants and Supplitarium](/boz_r_and_s.md)
+
 ▪️ <a id="6a20"></a>[🍺 Brewery](/brewery.md)
 
 ▪️ <a id="f6d0"></a>[Brickland Fortress](/brickland_fortress.md)
@@ -72,6 +80,8 @@
 ▪️ <a id="32c0"></a>[🌵 Cactus Juice Factory](/cactus_juice_factory.md)
 
 ▪️ <a id="ce71"></a>[😎 Cannabliss Camp](/cannabliss_camp.md)
+
+▪️ <a id="da90"></a>[Capos of Mafia](/capos_of_mafia.md)
 
 ▪️ <a id="e190"></a>[🧭 Cartographers Guild HQ](/cartographers_guild_hq.md)
 
@@ -187,13 +197,15 @@
 ### <a id="#top"></a>G
 ▪️ <a id="b710"></a>[Gift of Balance](/book_of_balance.md)
 
-▪️ <a id="9340"></a>[💿 Gaia Knowledge Database](/gaia_knowledbe_db.md)
+▪️ <a id="ce60"></a>[💿️ Gaia Knowledge Database](/gaia_knowledge_db.md)
 
 ▪️ <a id="6ee0"></a>[🎮 G.A.M.E. Complex](/game_complex.md)
 
 ▪️ <a id="6fe0"></a>[Garrisons](/garrisons.md)
 
 ▪️ <a id="ce70"></a>[🏹 Giant Slingshot](/giant_slingshot.md)
+
+▪️ <a id="fec0"></a>[🏹 Giant Slingshot](/giant_sling_shot.md)
 
 ▪️ <a id="7210"></a>[Gold Mines](/gold_mines.md)
 
@@ -205,6 +217,8 @@
 
 ### <a id="#top"></a>H
 ▪️ <a id="7c90"></a>[Headmaster of the Institute](/council_of_minds.md)
+
+▪️ <a id="9ea0"></a>[🗽 Headmaster Dino Saurex Statue](/headmaster_dino_saurex_statue.md)
 
 ▪️ <a id="bed0"></a>[🍻 Helheim Bar](/helheim_bar.md)
 
@@ -241,6 +255,8 @@
 
 ▪️ <a id="c2b0"></a>[👑 King of Zeithalt](/king_of_zeithalt.md)
 
+▪️ <a id="fed0"></a>[🏕️️ Kragthar Nexus](/kragthar_nexus.md)
+
 ### <a id="#top"></a>L
 ▪️ <a id="21f0"></a>[--- Lore Guidebook ---](/guidebook_link.md)
 
@@ -275,6 +291,8 @@
 
 ▪️ <a id="be90"></a>[🏯 Military Academy](/military_academy.md)
 
+▪️ <a id="5a70"></a>[💥 Military Training Ground](/military_training_ground.md)
+
 ▪️ <a id="53b0"></a>[`🦅` Millennium Falcon](/millennium_falcon.md)
 
 ▪️ <a id="34f0"></a>[Mimb](/mimb.md)
@@ -288,6 +306,8 @@
 ▪️ <a id="6550"></a>[MindTech Institute](/mindtech_institute.md)
 
 ▪️ <a id="6550"></a>[MT](/mindtech_institute.md)
+
+▪️ <a id="6770"></a>[💹 MMM, Money Making Machine](/mmm.md)
 
 ▪️ <a id="9f60"></a>[🔬 Modern CR Research Facility](/modern_cr_research_facility.md)
 
@@ -346,6 +366,8 @@
 ▪️ <a id="c080"></a>[Ozimud](/ozimud.md)
 
 ### <a id="#top"></a>P
+▪️ <a id="0010"></a>[🏢 Palace of Bureaucracy](/palace_of_bureaucracy.md)
+
 ▪️ <a id="cb50"></a>[Paradox Pass](/paradox_pass.md)
 
 ▪️ <a id="3910"></a>[🎡 Particle Collitionist](/partcile_collitionist.md)
@@ -364,7 +386,7 @@
 
 ▪️ <a id="ae70"></a>[⛽️ Pickled Ooblek Deli](/pickled_ooblek_deli.md)
 
-▪️ <a id="e0f0"></a>[Pickled Wind Farm](/pickled_wind_farm.md)
+▪️ <a id="e0f0"></a>[Pickled Wind Farms](/pickled_wind_farm.md)
 
 ▪️ <a id="4240"></a>[Pineville](/pineville.md)
 
@@ -420,6 +442,10 @@
 ▪️ <a id="0090"></a>[Saboteur](/saboteur.md)
 
 ▪️ <a id="7e11"></a>[Sazhra](/sazhra.md)
+
+▪️ <a id="6460"></a>[☄️ Sazhra's Space Spire](/sazhras_space_spire.md)
+
+▪️ <a id="87f0"></a>[🏫 School of Spatial Magic](/school_of_spatial_magic.md)
 
 ▪️ <a id="39a0"></a>[🌱 Seed Sanctuaries](/seed_sanctuaries.md)
 
@@ -490,6 +516,8 @@
 
 ▪️ <a id="7a60"></a>[Tree Huggers](/protectores_silva.md)
 
+▪️ <a id="5090"></a>[🕷️️️ The Queen's Lair](/queens_lair.md)
+
 ▪️ <a id="f840"></a>[🪩 The Sacred Sphere](/sacred_sphere.md)
 
 ▪️ <a id="8e60"></a>[T, Cactus Patron](/t.md)
@@ -506,7 +534,11 @@
 
 ▪️ <a id="b4d0"></a>[The Cut (area)](/the_cut_area.md)
 
+▪️ <a id="6591"></a>[🪦 The Grand Memorial](/the_grand_memorial.md)
+
 ▪️ <a id="9940"></a>[🎵 The JukeTower](/the_juketower.md)
+
+▪️ <a id="d940"></a>[🪺 The Nest](/the_nest.md)
 
 ▪️ <a id="1b80"></a>[🗺️ The Webeporter](/the_webeporter.md)
 
@@ -524,8 +556,14 @@
 
 ▪️ <a id="64c0"></a>[🌳 Tree of Many Inquiries](/tree_of_many_inquiries.md)
 
+▪️ <a id="5ea0"></a>[💈 Turing Tower](/turing_tower.md)
+
 ### <a id="#top"></a>U
 ▪️ <a id="1fa0"></a>[🌺 Underground Botanical Garden](/botanical_garden.md)
+
+▪️ <a id="da60"></a>[🌫️ Uncanny Valley](/uncanny_valley.md)
+
+▪️ <a id="ade0"></a>[📚️️️ Underground Accounting](/underground_accounting.md)
 
 ▪️ <a id="e851"></a>[⚙️ Underwater Turbine Power Plant](/underwater_power_plant.md)
 
@@ -548,6 +586,8 @@
 
 ### <a id="#top"></a>W
 ▪️ <a id="f6d0"></a>[Western Brickland](/brickland_fortress.md)
+
+▪️ <a id="e6e0"></a>[🏯️️️ Wall of Unity](/wall_of_unity.md)
 
 ▪️ <a id="9930"></a>[WAR items](/war_items.md)
 
@@ -581,6 +621,8 @@
 ▪️ <a id="2e80"></a>[🦁 Zeithalt Pet Zoo and Animal Shelter](/animal_shelter.md)
 
 ▪️ <a id="fad0"></a>[Zeithalt Zeitgeist newspaper](/zeithalt_zeitgeist.md)
+
+▪️ <a id="2bb0"></a>[🛕 Ziggurat, Shrine of Loyalty](/ziggurat_shrine_of_loyalty.md)
 
 ▪️ <a id="e480"></a>[🗼 Zikkurat](/zikkurat.md)
 

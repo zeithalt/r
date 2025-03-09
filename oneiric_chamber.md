@@ -1,6 +1,6 @@
 ## 💤 Oneiric Chamber
 
-`🪧 Place` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
+`🖼️ Landmark` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
 
 Built on eon 1045 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>).
 

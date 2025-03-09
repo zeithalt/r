@@ -1,6 +1,6 @@
 ## 🌺 Underground Botanical Garden
 
-**🪧 Place** in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
+`🖼️ Landmark` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
 
 Built in Eon 509 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>), the garden serves as a refuge for numerous species of plants and animals coming from all over the Zeithalt.
 

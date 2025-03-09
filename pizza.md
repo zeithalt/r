@@ -1,6 +1,6 @@
 ## 🍕 PIZZA
 
-**🪧 Place** in [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress.html>)
+`🖼️ Landmark` in [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress.html>)
 
 Pizza Installation Zesty Zahrada Arena (PIZZA for short) is a pizza place in Brickland Fortress built by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>) in Eon 506.
 

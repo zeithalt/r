@@ -1,6 +1,6 @@
 ## 🕸️ K2 Fibers
 
-`🪧 Place` in [Webified Hills](<https://zeithalt.github.io/r/webified_hills.html>)
+`🖼️ Landmark` in [Webified Hills](<https://zeithalt.github.io/r/webified_hills.html>)
 
 Built on eon 507 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
 

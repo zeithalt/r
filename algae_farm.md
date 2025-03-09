@@ -1,6 +1,6 @@
 ## ⚗️ Bioengineered Algae Farm
 
-`🪧 Place` in [Blue Screen Lagoon](<https://zeithalt.github.io/r/blue_screen_lagoon.html>)
+`🖼️ Landmark` in [Blue Screen Lagoon](<https://zeithalt.github.io/r/blue_screen_lagoon.html>)
 
 Built on eon 497 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
 

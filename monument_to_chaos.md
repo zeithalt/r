@@ -1,6 +1,6 @@
 ## 🎲 Monument to Chaos
 
-`🪧 Place` in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>)
+`🖼️ Landmark` in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>)
 
 Built on eon 565 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
 

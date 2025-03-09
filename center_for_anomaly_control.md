@@ -1,6 +1,6 @@
 ## 🏢 Center for Anomaly Control
 
-`🪧 Place` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
+`🖼️ Landmark` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
 
 Center for Anomaly Control (CAC) was built on eon 511 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) under supervision of [Xiavente](<https://zeithalt.github.io/r/xiavente.html>), shortly after the [Disaster of Synaxos Fields](<https://zeithalt.github.io/t/#eon0508>).
 

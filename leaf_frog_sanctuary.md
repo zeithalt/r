@@ -1,6 +1,6 @@
 ## 🐸 Leaf Frog Sanctuary
 
-`🪧 Place` in [Oblivion Mire](<https://zeithalt.github.io/r/oblivion_mire.html>)
+`🖼️ Landmark` in [Oblivion Mire](<https://zeithalt.github.io/r/oblivion_mire.html>)
 
 Built on eon 837 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
 

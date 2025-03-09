@@ -1,6 +1,6 @@
 ## 🥚 Egg Festival
 
-`🪧 Place` in [Cerene Vale](<https://zeithalt.github.io/r/cerene_vale.html>)
+`🖼️ Landmark` in [Cerene Vale](<https://zeithalt.github.io/r/cerene_vale.html>)
 
 Built on eon 527 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>)
 

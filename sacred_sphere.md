@@ -1,6 +1,6 @@
 ## 🪩 The Sacred Sphere
 
-`🪧 Place` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>)
+`🖼️ Landmark` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>)
 
 Built on eon 538 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
 

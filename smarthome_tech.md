@@ -1,6 +1,6 @@
 ## 💡 SmartHome Tech
 
-`🪧 Place` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
+`🖼️ Landmark` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
 
 Built by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) on eon 457 during restoration of MT capital soon after [the siege](<https://zeithalt.github.io/t/#eon0384>).
 

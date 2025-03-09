@@ -1,6 +1,6 @@
 ## 🏦 Money Factory
 
-`🪧 Place` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
+`🖼️ Landmark` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
 
 Built on eon 465 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>).
 

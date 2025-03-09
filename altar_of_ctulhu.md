@@ -1,6 +1,6 @@
 ## 🐙 Altar of Ctulhu
 
-`🪧 Place` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
+`🖼️ Landmark` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
 
 Build on eon 506 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>).
 

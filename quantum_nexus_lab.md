@@ -1,6 +1,6 @@
 ## 🛰️ Quantum Nexus Laboratory
 
-`🪧 Place` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>)
+`🖼️ Landmark` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>)
 
 Built on eon 503 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
 

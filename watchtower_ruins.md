@@ -1,6 +1,6 @@
 ## Watchtower Ruins
 
-`🪧 Place` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
+`🖼️ Landmark` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
 
 Ruins of the very same watchtower that game the land its name. It once stood strong and overlooked the shores of Xyclaox Watch, hosting a watch guard to ward against any potential thread from the sea.
 

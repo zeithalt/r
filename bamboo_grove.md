@@ -1,6 +1,6 @@
 ## 🎋 Bamboo Grove
 
-`🪧 Place` in [Cybertron Jungle](<https://zeithalt.github.io/r/cybertron_jungle.html>)
+`🖼️ Landmark` in [Cybertron Jungle](<https://zeithalt.github.io/r/cybertron_jungle.html>)
 
 Build on eon 494 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>)
 

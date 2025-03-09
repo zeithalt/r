@@ -1,6 +1,6 @@
 ## 🎊 Jackbox Party Central
 
-**🪧 Place** in [Oblivion Mire](<https://zeithalt.github.io/r/oblivion_mire.html>)
+`🖼️ Landmark` in [Oblivion Mire](<https://zeithalt.github.io/r/oblivion_mire.html>)
 
 The Jackbox Party Central is a plaza created by [Airmanon Driftwing](<https://zeithalt.github.io/r/airmanon.html>) as a place where people can gather and party together. 
 

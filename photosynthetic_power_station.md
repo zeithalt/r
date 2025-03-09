@@ -1,6 +1,6 @@
 ## 🌿 Photosynthetic Power Station
 
-**🪧 Place** in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
+`🖼️ Landmark` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
 
 PPS in short, this building was one of the first construction and scientific projects completed by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>), in Eon 457.
 

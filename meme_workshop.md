@@ -1,6 +1,6 @@
 ## 🎨 Xiavente's Meme Workshop
 
-`🪧 Place` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
+`🖼️ Landmark` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
 
 Built on eon 628 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
 

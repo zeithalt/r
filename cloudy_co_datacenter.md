@@ -1,6 +1,6 @@
 ## ☁️ Cloudy Data Center
 
-`🪧 Place` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
+`🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
 
 Built on eon 507 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
 

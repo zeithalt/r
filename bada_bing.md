@@ -1,6 +1,6 @@
 ## 💃 The Bada Bing!
 
-`🪧 Place` in [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress.html>)
+`🖼️ Landmark` in [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress.html>)
 
 Built on eon 962 by the [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>)
 

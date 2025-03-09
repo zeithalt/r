@@ -1,6 +1,6 @@
 ## ⚙️ Underwater Turbine Power Plant
 
-`🪧 Place` in [Virtuara Outpost](<https://zeithalt.github.io/r/virtuara_outpost.html>)
+`🖼️ Landmark` in [Virtuara Outpost](<https://zeithalt.github.io/r/virtuara_outpost.html>)
 
 Built on eon 579 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
 

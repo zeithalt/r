@@ -1,6 +1,6 @@
 ## 🚷 Prefrenial Prefect (Prison)
 
-`🪧 Place` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
+`🖼️ Landmark` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
 
 The biggest and the most guarded prison built by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>). 
 

@@ -1,6 +1,6 @@
 ## 🧬 BioMechanical Sanctuary
 
-`🪧 Place` in [Cybertron Jungle](../public_lore/atlas/cybertron_jungle.html)
+`🖼️ Landmark` in [Cybertron Jungle](../public_lore/atlas/cybertron_jungle.html)
 
 Built on eon 1012 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
 

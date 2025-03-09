@@ -1,6 +1,6 @@
 ## 🏯 Military Academy
 
-`🪧 Place` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
+`🖼️ Landmark` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
 
 Build on Eon 471 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>), the complex known under the full name **Academy of Military Tactics and Defense Intelligence**.
 

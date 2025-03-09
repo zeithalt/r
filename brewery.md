@@ -1,6 +1,6 @@
 ## 🍺 Brewery
 
-`🪧 Place` in [Purple Deeps](<https://zeithalt.github.io/r/purple_deeps.html>)
+`🖼️ Landmark` in [Purple Deeps](<https://zeithalt.github.io/r/purple_deeps.html>)
 
 Built on eon 576 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
 

@@ -1,6 +1,6 @@
 ## 🕯️ Beacon for the Light of Reason
 
-`🪧 Place` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
+`🖼️ Landmark` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
 
 Built on eon 495 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) - a few eons after the [Oblivious Battle on the Mire](<https://alexeygorovoy.github.io/zeithalt/timeline/#eon-491---the-oblivious-battle-on-the-mire>) that showed the MT planning and foresight department at arguably the lowest point.
 

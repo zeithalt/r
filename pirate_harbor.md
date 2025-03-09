@@ -1,6 +1,6 @@
 ## 🏴‍☠️ Pirate Harbor
 
-`🪧 Place` in [Purple Deeps](<https://zeithalt.github.io/r/purple_deeps.html>)
+`🖼️ Landmark` in [Purple Deeps](<https://zeithalt.github.io/r/purple_deeps.html>)
 
 Build on eon 479 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
 

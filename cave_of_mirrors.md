@@ -1,6 +1,6 @@
 ## 🪞 Cave of Mirrors
 
-`🪧 Place` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>)
+`🖼️ Landmark` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>)
 
 Discovered on Eon 837 by the explorers of [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>).
 

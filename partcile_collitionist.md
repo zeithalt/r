@@ -1,6 +1,6 @@
 ## 🎡 Particle Collitionist
 
-**🪧 Place** in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
+`🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
 
 The Particle Collider Of Little Light Items To Include Occupation Nonsense In Sands of Time (Particle COLLITIONIST) is the island's largest and only high-energy particle collider.
 

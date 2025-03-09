@@ -1,6 +1,6 @@
 ## 🌟 ZIPP Lines
 
-**🪧 Place** in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>)
+`🖼️ Landmark` in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>)
 
 Built on eon 527 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
 

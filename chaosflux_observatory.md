@@ -1,6 +1,6 @@
 ## 📊 Chaosflux Observatory
 
-`🪧 Place` in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>)
+`🖼️ Landmark` in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>)
 
 Built on eon 1046 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>).
 

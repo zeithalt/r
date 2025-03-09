@@ -1,6 +1,6 @@
 ## 📚 Archives of Subconsciousness
 
-`🪧 Place` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>)
+`🖼️ Landmark` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>)
 
 Build on eon 520 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
 

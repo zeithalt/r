@@ -1,6 +1,6 @@
 ## 🦖 Jurassic Park
 
-`🪧 Place` in [Peace Death Gorge](<https://zeithalt.github.io/r/peace_death_gorge.html>)
+`🖼️ Landmark` in [Peace Death Gorge](<https://zeithalt.github.io/r/peace_death_gorge.html>)
 
 Built on eon 515 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
 

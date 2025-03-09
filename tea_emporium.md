@@ -1,6 +1,6 @@
 ## 🫖 Tea Emporium
 
-`🪧 Place` in [PEBKAC Peak](<https://zeithalt.github.io/r/pebkac_peak.html>)
+`🖼️ Landmark` in [PEBKAC Peak](<https://zeithalt.github.io/r/pebkac_peak.html>)
 
 Built on eon 516 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
 

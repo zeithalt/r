@@ -1,6 +1,6 @@
 ## ⚓ Proprioceptic Shipyard
 
-`🪧 Place` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
+`🖼️ Landmark` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
 
 Built on eon 961 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
 
