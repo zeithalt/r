@@ -1,18 +1,14 @@
 ## GreenOtter
 
-`📃 To-do list`
+`🧙‍♂️ Character`
 
-This entry has not been written yet.
+An influential family bloodline native to [Indigo Shores](<https://zeithalt.github.io/r/indigo_shore.html>). 
 
-Will you write the text for it?
-
-Will you request others to that?
-
-You can write or request lore [on discord](<https://discord.com/channels/562910943848169472/1173922660489633802>)
+This family was highly active representing the region in the [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>) up until Eon 607. Notable contributions include religion, fishing techniques, exploration and travel.
 
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#06a0>)
 <!---
-keywords: todo
+keywords:  
 aliases: 
 -->
