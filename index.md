@@ -29,6 +29,8 @@
 
 ▪️ <a id="a740"></a>[🛣️ Axonite Road](/axonite_road.md)
 
+▪️ <a id="cfd0"></a>[🦋 Azure Butterflies Continent](/azure_butterflies_continent.md)
+
 ▪️ <a id="9930"></a>[Armor](/war_items.md)
 
 ### <a id="#top"></a>B
@@ -100,6 +102,8 @@
 ▪️ <a id="e320"></a>[Chronoglass](/chronoglass.md)
 
 ▪️ <a id="29a0"></a>[ChronoGlass™️](/chronoglass_tm.md)
+
+▪️ <a id="0950"></a>[🧭 Chrono-Compass Tower](/chrono_compass_tower.md)
 
 ▪️ <a id="1fb0"></a>[C.I.A.](/cia.md)
 
@@ -193,6 +197,8 @@
 ▪️ <a id="5590"></a>[First Capital Ruins](/first_capital_ruins.md)
 
 ▪️ <a id="9ff0"></a>[Fortifications](/fortifications.md)
+
+▪️ <a id="5320"></a>[🌀 Fractal Fields](/fractal_fields.md)
 
 ### <a id="#top"></a>G
 ▪️ <a id="b710"></a>[Gift of Balance](/book_of_balance.md)

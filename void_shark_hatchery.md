@@ -8,7 +8,7 @@ Essentially, an abandoned building on the seashore in Dev Null Marsh.
 
 According to rumors, it was planned to breed Void Sharks here, which were then supposed to receive internal cybernetic implants. 
 
-However, for unknown reasons, [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) did not get around to the final implementation of this idea, and the project was abandoned, and all the equipment was taken away.
+However, for unknown reasons, the creators did not get around to the final implementation of this idea, and the project was abandoned, and all the equipment was taken away.
 
 At the moment, this building is a reminder to all residents of Zeithalt, and especially those in power, that they must be more responsible in their projects. 
 
