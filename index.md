@@ -211,8 +211,6 @@
 
 ▪️ <a id="ce70"></a>[🏹 Giant Slingshot](/giant_slingshot.md)
 
-▪️ <a id="fec0"></a>[🏹 Giant Slingshot](/giant_sling_shot.md)
-
 ▪️ <a id="7210"></a>[Gold Mines](/gold_mines.md)
 
 ▪️ <a id="fd60"></a>[Great AI](/great_ai.md)
