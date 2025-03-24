@@ -5,6 +5,10 @@
 
 ▪️ <a id="1a00"></a>[Admincity](/admincity.md)
 
+▪️ <a id="e280"></a>[Aethelstone (sunstone)](/aethelstone.md)
+
+▪️ <a id="3330"></a>[⛏️ Aethelstone Mining Cave](/aethelstone_mining_cave.md)
+
 ▪️ <a id="32e0"></a>[Age of Battles](/age_of_battles.md)
 
 ▪️ <a id="0620"></a>[Age of Conquest](/age_of_conquest.md)
