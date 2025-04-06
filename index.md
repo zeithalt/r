@@ -58,6 +58,8 @@
 
 ▪️ <a id="a270"></a>[🏠 Benastone](/benastone.md)
 
+▪️ <a id="85f0"></a>[🦿 Big Mean Machine](/big_mean_machine.md)
+
 ▪️ <a id="aeb0"></a>[🧬 BioMechanical Sanctuary](/biomechanical_sanctuary.md)
 
 ▪️ <a id="0580"></a>[Bloodvine](/bloodvines.md)
@@ -310,6 +312,8 @@
 ▪️ <a id="a4e0"></a>[Mimps Virus](/mimps.md)
 
 ▪️ <a id="7c50"></a>[Minds](/minds.md)
+
+▪️ <a id="7dd0"></a>[🪶 MindTech Culture Center](/mindtech_culture_center.md)
 
 ▪️ <a id="6550"></a>[MindTech Institute](/mindtech_institute.md)
 
