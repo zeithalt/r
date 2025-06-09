@@ -200,7 +200,17 @@
 ### <a id="#top"></a>F
 ▪️ <a id="ee30"></a>[Fighters Guild](/fighters_guild.md)
 
+▪️ <a id="dcb0"></a>[⚔️ Fighters Guild, BB Branch](/fighters_guild_bb_branch.md)
+
 ▪️ <a id="ff60"></a>[🏢 Fighters Guild, CI Branch](/fighters_guild_ci_branch.md)
+
+▪️ <a id="1c80"></a>[⚔️ Fighters Guild, CO Branch](/fighters_guild_co_branch.md)
+
+▪️ <a id="e6c0"></a>[⚔️ Fighters Guild, DC Branch](/fighters_guild_dc_branch.md)
+
+▪️ <a id="e8f0"></a>[⚔️ Fighters Guild, MT Branch](/fighters_guild_mt_branch.md)
+
+▪️ <a id="4cc0"></a>[⚔️ Fighters Guild, PS Branch](/fighters_guild_ps_branch.md)
 
 ▪️ <a id="5570"></a>[First Capital](/first_capital.md)
 
@@ -565,6 +575,8 @@
 ▪️ <a id="d940"></a>[🪺 The Nest](/the_nest.md)
 
 ▪️ <a id="1b80"></a>[🗺️ The Webeporter](/the_webeporter.md)
+
+▪️ <a id="8c40"></a>[🗿 Tiki Bar](/tiki_bar.md)
 
 ▪️ <a id="0130"></a>[Timeless Desert](/timeless_desert.md)
 
