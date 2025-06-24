@@ -16,7 +16,7 @@ There is an inscription on base of the statue:
 
 > Mimb  
 > CCCXLI -  
-> *Etsi Mimb eam a nobis abstulit, in cordibus nostris in aeternum vivet. In his spem tenemus ut aliquando evigilet.  
+> *Etsi mimps eam a nobis abstulit, in cordibus nostris in aeternum vivet. In his spem tenemus ut aliquando evigilet.  
 > ~ Protectores Silva*
 
 -----
