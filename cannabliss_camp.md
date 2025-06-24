@@ -8,7 +8,7 @@ Officially marketed as a "recreational research facility" and "a place for relax
 
 The camp is located in a secluded area of the island, surrounded by lush vegetation and offering a stunning view of the [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>).
 
-The "research assignments and materials" are provided to the members by the camp leader, a dark-skinned sylvan herb specialist that goes by the name of _Spoondogg_.
+The "research assignments and materials" are provided to the members by the camp leader, a dark-skinned silvan herb specialist that goes by the name of _Spoondogg_.
 
 ![Cannabliss Camp](https://zeithalt.github.io/r/i/cannabliss_camp.png)
 
