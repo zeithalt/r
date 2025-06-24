@@ -54,6 +54,8 @@
 
 ▪️ <a id="1400"></a>[🏮 Beacon for Perseverance](/beacon_for_perseverance.md)
 
+▪️ <a id="97f0"></a>[🙏 Beacon of Hope](/beacon_of_hope.md)
+
 ▪️ <a id="3460"></a>[🔱 Beacon for the Sight of Innovation](/beacon_of_innovation.md)
 
 ▪️ <a id="2880"></a>[🕯️ Beacon for the Light of Reason](/beacon_of_reason.md)
@@ -263,6 +265,8 @@
 
 ▪️ <a id="7a70"></a>[Indigo Shore](/indigo_shore.md)
 
+▪️ <a id="5d80"></a>[☯ Isle Of Solitude](/isle_of_solitude.md)
+
 ▪️ <a id="22a0"></a>[Isynthillicus Cyrciniae](/timeless_waystone.md)
 
 ### <a id="#top"></a>J
@@ -458,6 +462,8 @@
 
 ▪️ <a id="4270"></a>[Rebels](/rebels.md)
 
+▪️ <a id="86b0"></a>[🧠 Resonance Chamber](/resonance_chamber.md)
+
 ▪️ <a id="74f0"></a>[Resources (RES)](/resources.md)
 
 ▪️ <a id="7a61"></a>[🏭 Resource Management Facility](/resource_management_facility.md)
@@ -534,6 +540,8 @@
 ▪️ <a id="7cc0"></a>[Synaxos Fields](/synaxos_fields.md)
 
 ▪️ <a id="7d60"></a>[Syncrax Road](/syncrax_road.md)
+
+▪️ <a id="2ef0"></a>[🌳 Stillwater Glade](/the_stillwater_glade.md)
 
 ▪️ <a id="2e90"></a>[Sandy Saloon](/timeless_town.md)
 
