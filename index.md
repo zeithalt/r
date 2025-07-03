@@ -25,6 +25,8 @@
 
 ▪️ <a id="8270"></a>[🐙 Altar of Ctulhu](/altar_of_ctulhu.md)
 
+▪️ <a id="33d0"></a>[🗡️ A-maze-ing Mindblade](/amazeing_mindblade.md)
+
 ▪️ <a id="7840"></a>[🪄 Arcane Citadel](/arcane_citadel.md)
 
 ▪️ <a id="cea0"></a>[📚 Archives of Subconsciousness](/archives_of_subcon.md)
@@ -348,6 +350,8 @@
 ▪️ <a id="74a0"></a>[🎲 Monument to Chaos](/monument_to_chaos.md)
 
 ▪️ <a id="b8a0"></a>[Morpheus Zvezda](/morpheus_zvezda.md)
+
+▪️ <a id="9de0"></a>[🏞️ Mother's Tears](/mothers_tears.md)
 
 ▪️ <a id="7490"></a>[Mt. Pickles](/mt_pickles.md)
 
