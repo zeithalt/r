@@ -239,6 +239,8 @@
 
 ▪️ <a id="fd60"></a>[Great AI](/great_ai.md)
 
+▪️ <a id="f820"></a>[🔺 Great Pyramid of Tesselthorn](/great_pyramid_of_tesselthorn.md)
+
 ▪️ <a id="06a0"></a>[GreenOtter](/greenotter.md)
 
 ▪️ <a id="9840"></a>[🔦 Guidelight System](/guidelight_system.md)
@@ -585,6 +587,8 @@
 ▪️ <a id="9940"></a>[🎵 The JukeTower](/the_juketower.md)
 
 ▪️ <a id="d940"></a>[🪺 The Nest](/the_nest.md)
+
+▪️ <a id="ca90"></a>[🔲 The Obelisk](/the_obelisk.md)
 
 ▪️ <a id="1b80"></a>[🗺️ The Webeporter](/the_webeporter.md)
 
