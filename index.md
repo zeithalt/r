@@ -91,7 +91,11 @@
 ▪️ <a id="8880"></a>[Bumpus Mackamarus Arbum](/bumps.md)
 
 ### <a id="#top"></a>C
+▪️ <a id="8640"></a>[👑 Cactus Crown](/cactus_crown.md)
+
 ▪️ <a id="32c0"></a>[🌵 Cactus Juice Factory](/cactus_juice_factory.md)
+
+▪️ <a id="56e0"></a>[🧥 Cactus Mantle](/cactus_mantle.md)
 
 ▪️ <a id="ce71"></a>[😎 Cannabliss Camp](/cannabliss_camp.md)
 
@@ -257,6 +261,8 @@
 ▪️ <a id="f910"></a>[hexAgon](/hexagon.md)
 
 ▪️ <a id="ef90"></a>[🎌️ Hill of 1000 flags](/hill_of_flags.md)
+
+▪️ <a id="4630"></a>[🔫 Hooly Gun of the INKuisition](/hooly_gun_of_ink.md)
 
 ▪️ <a id="1b90"></a>[🛖 House of Craftsmanship](/house_of_craftsmanship.md)
 
@@ -563,6 +569,10 @@
 ▪️ <a id="ea90"></a>[Towers of MindTech Institute](/institute_fortress_inner.md)
 
 ▪️ <a id="7a60"></a>[Tree Huggers](/protectores_silva.md)
+
+▪️ <a id="da30"></a>[🎒 The Queen's Companion](/queens_companion.md)
+
+▪️ <a id="7770"></a>[🏹 The Queen's Gambit](/queens_gambit.md)
 
 ▪️ <a id="5090"></a>[🕷️️️ The Queen's Lair](/queens_lair.md)
 
