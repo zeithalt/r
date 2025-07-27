@@ -12,6 +12,8 @@ This crown is a symbol of the power of the _Cactus Tsar_, and it chooses its bea
 
 The crown is a powerful ancient artifact and a vast source of magical power. Its full properties are known only to its owner, who closely guards its secrets.
 
+![Cactus Mantle](https://zeithalt.github.io/r/i/cactus_mantle.png)
+
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#8640>)
 <!---

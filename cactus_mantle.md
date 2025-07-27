@@ -12,6 +12,8 @@ It's believed that only representatives of the _Cactus Race_ can wear this artif
 
 Two such mantles are known to exist in Zeithalt. The first belongs to [T](<https://zeithalt.github.io/r/t.html>); it is now stained red with the blood of his enemies—a stain that, to his great regret, will not wash out. He is driven into a rage whenever reminded of this fact. The second mantle, _T_ gifted to an individual named _Picky_. This one retains its original, noble emerald color.
 
+![Cactus Mantle](https://zeithalt.github.io/r/i/cactus_mantle.png)
+
 -----
 [`📑` Mimbot Index](<https://zeithalt.github.io/r/#56e0>)
 <!---
