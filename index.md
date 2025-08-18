@@ -78,6 +78,8 @@
 
 ▪️ <a id="9b60"></a>[🏬 BoZ: Retailants and Supplitarium](/boz_r_and_s.md)
 
+▪️ <a id="80b1"></a>[BoZ: State of Emergency](/boz_state_of_emergency.md)
+
 ▪️ <a id="6a20"></a>[🍺 Brewery](/brewery.md)
 
 ▪️ <a id="f6d0"></a>[Brickland Fortress](/brickland_fortress.md)
@@ -150,6 +152,8 @@
 ▪️ <a id="2390"></a>[Corruption Restoration Project](/cr_restoration_project.md)
 
 ▪️ <a id="1330"></a>[CR Shards](/cr_shards.md)
+
+▪️ <a id="9950"></a>[Corruption Sickness](/cr_sickness.md)
 
 ▪️ <a id="9670"></a>[🏥 CURE](/cure.md)
 
