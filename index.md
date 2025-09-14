@@ -167,6 +167,8 @@
 
 ▪️ <a id="b9b0"></a>[Cybertron Jungle](/cybertron_jungle.md)
 
+▪️ <a id="2c70"></a>[Cycle of Restoration](/cycle_of_restoration.md)
+
 ### <a id="#top"></a>D
 ▪️ <a id="8f50"></a>[Dino Saurex](/curious_dino.md)
 
