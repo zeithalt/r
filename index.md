@@ -56,6 +56,8 @@
 
 ▪️ <a id="1400"></a>[🏮 Beacon for Perseverance](/beacon_for_perseverance.md)
 
+▪️ <a id="0a90"></a>[🕊️ Beacon for Prosperity](/beacon_for_prosperity.md)
+
 ▪️ <a id="97f0"></a>[🙏 Beacon of Hope](/beacon_of_hope.md)
 
 ▪️ <a id="3460"></a>[🔱 Beacon for the Sight of Innovation](/beacon_of_innovation.md)
