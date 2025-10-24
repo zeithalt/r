@@ -576,6 +576,8 @@
 
 ▪️ <a id="ea90"></a>[Towers of MindTech Institute](/institute_fortress_inner.md)
 
+▪️ <a id="64b0"></a>[TITLE](/obsidian_wolf.md)
+
 ▪️ <a id="7a60"></a>[Tree Huggers](/protectores_silva.md)
 
 ▪️ <a id="da30"></a>[🎒 The Queen's Companion](/queens_companion.md)
@@ -604,9 +606,13 @@
 
 ▪️ <a id="9940"></a>[🎵 The JukeTower](/the_juketower.md)
 
+▪️ <a id="a090"></a>[⚗️ The Kitchen](/the_kitchen.md)
+
 ▪️ <a id="d940"></a>[🪺 The Nest](/the_nest.md)
 
 ▪️ <a id="ca90"></a>[🔲 The Obelisk](/the_obelisk.md)
+
+▪️ <a id="3780"></a>[⚙️ The Sound of Gears Workshop](/the_sound_of_gears_workshop.md)
 
 ▪️ <a id="1b80"></a>[🗺️ The Webeporter](/the_webeporter.md)
 
@@ -660,6 +666,8 @@
 ▪️ <a id="f6d0"></a>[Western Brickland](/brickland_fortress.md)
 
 ▪️ <a id="e6e0"></a>[🏯️️️ Wall of Unity](/wall_of_unity.md)
+
+▪️ <a id="0131"></a>[🛠️ Warehouse № 7](/warehouse__7.md)
 
 ▪️ <a id="9930"></a>[WAR items](/war_items.md)
 
