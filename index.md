@@ -295,6 +295,8 @@
 ### <a id="#top"></a>K
 ▪️ <a id="2dc0"></a>[🕸️ K2 Fibers](/k2_fibers.md)
 
+▪️ <a id="c8b0"></a>[King's Challenges](/kings_challenges.md)
+
 ▪️ <a id="8810"></a>[🌳 Kingtree Sanctuary](/kingtree_sanctuary.md)
 
 ▪️ <a id="5571"></a>[King A'as](/king_aas.md)
@@ -489,6 +491,10 @@
 ▪️ <a id="7a61"></a>[🏭 Resource Management Facility](/resource_management_facility.md)
 
 ▪️ <a id="9ff1"></a>[Revalx](/revalx.md)
+
+▪️ <a id="6300"></a>[Royal Guard](/royal_guard.md)
+
+▪️ <a id="6300"></a>[RG](/royal_guard.md)
 
 ▪️ <a id="9930"></a>[Relics](/war_items.md)
 

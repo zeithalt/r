@@ -1,6 +1,6 @@
 ## MindTech Institute
 
-**🪪 Faction**
+`🪪 Faction`
 
 MindTech Institute (MT) - one of the three original factions, which can boast the deep lore, long history and a rich economy - all propped up be the ideals of knowledge and growth held by its scholars.
 
