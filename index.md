@@ -207,6 +207,8 @@
 
 ▪️ <a id="7d50"></a>[🥚 Egg Festival](/egg_festival.md)
 
+▪️ <a id="88d0"></a>[Eldar](/eldar.md)
+
 ▪️ <a id="da50"></a>[🌀 Entropy Harmonizer](/entropy_harmonizer.md)
 
 ▪️ <a id="8730"></a>[Eon](/eon.md)
@@ -334,6 +336,8 @@
 ▪️ <a id="e850"></a>[Map Legend](/map_legend.md)
 
 ▪️ <a id="b751"></a>[🪆 Matryoshka Idoll](/matryoshka_idoll.md)
+
+▪️ <a id="ee21"></a>[Mysterious Mazes](/maze.md)
 
 ▪️ <a id="c860"></a>[Meadowridge](/meadowridge.md)
 
@@ -495,6 +499,8 @@
 ▪️ <a id="6300"></a>[Royal Guard](/royal_guard.md)
 
 ▪️ <a id="6300"></a>[RG](/royal_guard.md)
+
+▪️ <a id="4280"></a>[Royal Guard Commander](/royal_guard_commander.md)
 
 ▪️ <a id="9930"></a>[Relics](/war_items.md)
 
