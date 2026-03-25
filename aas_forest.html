@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PRE-UPLOAD SCRIPT TARGET: Basic Title -->
+  <title>Aas Forest | Mimbot Lore Index</title>
+
+  <!-- ============================================== -->
+  <!-- SOCIAL MEDIA PREVIEW TAGS (OPEN GRAPH)         -->
+  <!-- ============================================== -->
+
+  <!-- PRE-UPLOAD SCRIPT TARGET: Inject page URL -->
+  <meta property="og:url" content="https://zeithalt.github.io/r/aas_forest.html">
+  <meta property="og:type" content="article">
+
+  <!-- PRE-UPLOAD SCRIPT TARGET: Inject page title -->
+  <meta property="og:title" content="Aas Forest">
+
+  <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
+  <meta property="og:description" content="Named after one of the old kings of the Mindtech Institute, A'as Forest is a lush and bountiful woods at the south of the faction that is considered as an ancient and the oldest place in the faction.">
+
+  <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
+  <meta property="og:image" content="">
+
+  <!-- Twitter/Discord specific tags for large image previews -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aas Forest">
+  <meta name="twitter:description" content="Named after one of the old kings of the Mindtech Institute, A'as Forest is a lush and bountiful woods at the south of the faction that is considered as an ancient and the oldest place in the faction.">
+  <meta name="twitter:image" content="">
+
+  <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
+  <meta name="theme-color" content="#933c24">
+
+  <!-- ============================================== -->
+  <!-- PRODUCTION CODE: KEEP EVERYTHING IN THE HEAD   -->
+  <!-- ============================================== -->
+
+  <!-- Load softer, more traditional fonts for that "Encyclopedia" feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Variables for theming. You can pick your favorite and set it as the default :root */
+
+    /* THEME 1: Parchment (Default Light) */
+    :root {
+      --bg: #fdfaf2;
+      --text: #3e322b;
+      --text-muted: #7c6b5d;
+      --link: #933c24;
+      --link-hover: #b84a2b;
+      --meta-bg: #f4ecd8;
+      --border: #e6d8c3;
+      --shadow: 0 4px 15px rgba(62, 50, 43, 0.08);
+      --font-serif: 'Crimson Pro', Georgia, serif;
+      --font-sans: 'Outfit', system-ui, sans-serif;
+    }
+
+    /* Default Dark Mode (Midnight) */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120;
+        --text: #e2e8f0;
+        --text-muted: #94a3b8;
+        --link: #38bdf8;
+        --link-hover: #7dd3fc;
+        --meta-bg: #1e293b;
+        --border: #334155;
+        --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    /* Explicit theme toggles (these override the OS default if selected) */
+    [data-theme="parchment"] {
+      --bg: #fdfaf2;
+      --text: #3e322b;
+      --text-muted: #7c6b5d;
+      --link: #933c24;
+      --link-hover: #b84a2b;
+      --meta-bg: #f4ecd8;
+      --border: #e6d8c3;
+      --shadow: 0 4px 15px rgba(62, 50, 43, 0.08);
+    }
+
+    /* THEME 2: Midnight */
+    [data-theme="midnight"] {
+      --bg: #0b1120;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --link: #38bdf8;
+      --link-hover: #7dd3fc;
+      --meta-bg: #1e293b;
+      --border: #334155;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Base Typography & Layout */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 1.2rem; /* Slightly larger for easier reading */
+      line-height: 1.65;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Prevents page from scrolling when image zoom is open */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      position: relative;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      line-height: 1.2;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    h1 { font-size: 2.5rem; margin-top: 0; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+
+    p { margin-top: 0; margin-bottom: 1.5rem; }
+
+    /* Links */
+    a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--link);
+      transition: color 0.2s, border-bottom-color 0.2s;
+      font-weight: 600;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      border-bottom: 1px solid var(--link-hover);
+    }
+
+    /* Article Header / Metadata block */
+    header {
+      margin-bottom: 3rem;
+    }
+
+    .metadata {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+
+    .metadata p { margin: 0; }
+
+    .tag {
+      display: inline-block;
+      background: var(--meta-bg);
+      padding: 0.15rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    /* Images */
+    figure {
+      margin: 3.5rem 0;
+      padding: 0;
+    }
+
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px; /* Slightly sharper corners fit the book aesthetic */
+      box-shadow: var(--shadow);
+      display: block;
+      margin: 0 auto;
+      cursor: zoom-in;
+    }
+
+    figcaption {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    /* Image Zoom Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(5px);
+      cursor: zoom-out;
+    }
+
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 4px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+      object-fit: contain;
+      cursor: grab;
+      transition: transform 0.1s ease-out;
+      will-change: transform;
+    }
+
+    .lightbox img:active {
+      cursor: grabbing;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: var(--border);
+      margin: 3rem 0;
+    }
+
+    /* Footer / Navigation */
+    .site-footer {
+      font-family: var(--font-sans);
+      margin-top: 1.5rem;
+      padding: 0.75rem 0 0 0; /* Reduced to 75% height. L/R padding explicitly zeroed for perfect alignment */
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Use an unstyled list for automatic separator handling */
+    .footer-right {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Automatically insert a dot ONLY between adjacent footer items */
+    .footer-item + .footer-item::before {
+      content: "•";
+      color: var(--border);
+      font-size: 1rem;
+      line-height: 1;
+      margin: 0 0.75rem;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 400;
+      font-size: 0.9rem;
+      border: none !important;
+      color: var(--text-muted);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      transition: color 0.2s;
+      font-family: inherit;
+    }
+
+    .footer-link:hover {
+      color: var(--text);
+    }
+
+    .footer-link svg {
+      width: 1.1em;
+      height: 1.1em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================== -->
+<!-- PRODUCTION CODE: PAGE CONTENT                  -->
+<!-- ============================================== -->
+<main class="container">
+  <article>
+    <header>
+      <h1>Aas Forest</h1>
+      <div class="metadata">
+        <p><span class="tag">🖼️ Landmark</span></p>
+      </div>
+    </header>
+
+    <div class="content">
+      <p>Named after one of the old kings of the Mindtech Institute, A'as Forest is a lush and bountiful woods at the south of the faction that is considered as an ancient and the oldest place in the faction.</p>
+      <p>It is also where the previous capital of the MindTech Institute used to be.</p>
+      <p>Most of the people who live here presides near the borders or the eastern and southern parts of the region.</p>
+      <p>Although with little population, with the previous capital being here, it has many ancient and forgotten structures that lie around, with most of it being in the north-western part of the forest. The mystery around the forest stands there, where not in a mile radius can you see signs of fauna. Even people who pass here feels a chill in their spines, as if the forest is telling them to not set foot in those lands. Although shown in most books, no one but those at the Cortexian Hall holds the old books and ancient scrolls that might answer the mystery of to what may have happened there.</p>
+      <p>In the said population, most of them work as lumberjacks and craftsmen, supplying wood, wooden supplies, and even furniture to the rest of the faction. Some others work as farmers that tend the orchard trees around the forest, which produces many fruits that is either shipped as it is, pickled, made into jams, or other fruit-preserving methods.</p>
+    </div>
+  </article>
+
+  <footer class="site-footer">
+    <a href="https://zeithalt.github.io/r/#dd50" class="footer-link">
+      <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+      Mimbot Index
+    </a>
+
+    <ul class="footer-right">
+      <!-- PRE-UPLOAD SCRIPT TARGET: Inject this entire <li> ONLY if suggest edits is needed -->
+      <li class="footer-item">
+        <a href="#" class="footer-link">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+          Suggest edits
+        </a>
+      </li>
+
+      <li class="footer-item">
+        <a href="#" class="footer-link">Share</a>
+      </li>
+
+      <li class="footer-item">
+        <button id="theme-toggle" class="footer-link" aria-label="Toggle Theme" title="Toggle Theme">
+          <!-- Text will be injected by JS -->
+        </button>
+      </li>
+    </ul>
+  </footer>
+</main>
+
+<!-- Lightbox Modal for Image Zoom -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <img id="lightbox-img" src="" alt="Zoomed image view">
+</div>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const root = document.documentElement;
+
+  // Determine initial theme (checking localStorage first, then system preference)
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedTheme = localStorage.getItem('theme');
+  let currentTheme = savedTheme ? savedTheme : (prefersDark ? 'midnight' : 'parchment');
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeToggle.textContent = theme === 'midnight' ? 'Light mode' : 'Dark mode';
+    themeToggle.setAttribute('aria-label', theme === 'midnight' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+    themeToggle.setAttribute('title', theme === 'midnight' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
+  }
+
+  // Apply initially
+  applyTheme(currentTheme);
+
+  // Toggle on click
+  themeToggle.addEventListener('click', () => {
+    currentTheme = currentTheme === 'parchment' ? 'midnight' : 'parchment';
+    applyTheme(currentTheme);
+  });
+
+  // --- Image Lightbox Functionality ---
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  // Find all images inside figures within the content area
+  const contentImages = document.querySelectorAll('.content figure img');
+
+  let currentScale = 1;
+  let isDragging = false;
+  let startX, startY;
+  let translateX = 0, translateY = 0;
+
+  function updateTransform() {
+    lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+  }
+
+  function resetImage() {
+    currentScale = 1;
+    translateX = 0;
+    translateY = 0;
+    lightboxImg.style.transition = 'transform 0.1s ease-out';
+    updateTransform();
+  }
+
+  contentImages.forEach(img => {
+    img.addEventListener('click', function() {
+      lightboxImg.src = this.src;
+      lightboxImg.alt = this.alt;
+      resetImage();
+      lightbox.classList.add('active');
+      document.body.classList.add('modal-open'); // Prevent background scrolling
+    });
+  });
+
+  // Close lightbox ONLY when clicking on the overlay (not the image itself)
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+  });
+
+  // Zoom functionality (Wheel)
+  lightbox.addEventListener('wheel', (e) => {
+    e.preventDefault(); // Prevent page scroll
+    const zoomSensitivity = 0.1;
+    const delta = e.deltaY < 0 ? 1 : -1;
+    const zoomFactor = 1 + delta * zoomSensitivity;
+
+    let newScale = currentScale * zoomFactor;
+
+    // Limit scale bounds (allow deep zoom for large maps)
+    if (newScale < 0.2) newScale = 0.2;
+    if (newScale > 15) newScale = 15;
+
+    // Math to zoom in exactly toward the mouse pointer
+    const rect = lightbox.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left - rect.width / 2;
+    const mouseY = e.clientY - rect.top - rect.height / 2;
+
+    const scaleChange = newScale / currentScale;
+    translateX = mouseX - (mouseX - translateX) * scaleChange;
+    translateY = mouseY - (mouseY - translateY) * scaleChange;
+
+    currentScale = newScale;
+    lightboxImg.style.transition = 'transform 0.1s ease-out'; // Keep zoom smooth
+    updateTransform();
+  }, { passive: false });
+
+  // Pan functionality (Mouse Drag)
+  lightboxImg.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    isDragging = true;
+    lightboxImg.style.transition = 'none'; // Disable transition for instant 1:1 panning
+    startX = e.clientX - translateX;
+    startY = e.clientY - translateY;
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    translateX = e.clientX - startX;
+    translateY = e.clientY - startY;
+    updateTransform();
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      lightboxImg.style.transition = 'transform 0.1s ease-out'; // Restore transition
+    }
+  });
+
+  // Pan functionality (Touch Drag for Mobile)
+  lightboxImg.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      isDragging = true;
+      lightboxImg.style.transition = 'none';
+      startX = e.touches[0].clientX - translateX;
+      startY = e.touches[0].clientY - translateY;
+    }
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!isDragging || e.touches.length !== 1) return;
+    // Prevent default behavior (pull-to-refresh, scrolling) while dragging image
+    if (lightbox.classList.contains('active')) {
+      e.preventDefault();
+    }
+    translateX = e.touches[0].clientX - startX;
+    translateY = e.touches[0].clientY - startY;
+    updateTransform();
+  }, { passive: false });
+
+  window.addEventListener('touchend', () => {
+    isDragging = false;
+    lightboxImg.style.transition = 'transform 0.1s ease-out';
+  });
+</script>
+</body>
+</html>
