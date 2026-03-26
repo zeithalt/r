@@ -1592,15 +1592,19 @@
   let revisionsData = {{ REVISIONS }};
 
   if (!Array.isArray(revisionsData) || revisionsData.length === 0) {
-      revisionsData = [{ id: "main", comment: "New File", time: new Date().toISOString(), status: "draft", text: initialText }];
+      if (initialText.trim() !== '') {
+          revisionsData = [{ id: "main", comment: "Current Version", timestamp: Math.floor(Date.now() / 1000), status: "published", text: initialText }];
+      } else {
+          revisionsData = [{ id: "main", comment: "New File", timestamp: Math.floor(Date.now() / 1000), status: "draft", text: "" }];
+      }
   } else {
       const mainRev = revisionsData.find(r => r.status === 'published' && !r.text);
       if (mainRev) mainRev.text = initialText;
-      revisionsData.forEach(r => { if (!r.time) r.time = new Date(0).toISOString() });
+      revisionsData.forEach(r => { if (typeof r.timestamp !== 'number') r.timestamp = 0; });
   }
 
   // Sort newest on top
-  revisionsData.sort((a, b) => new Date(b.time) - new Date(a.time));
+  revisionsData.sort((a, b) => b.timestamp - a.timestamp);
 
   let activeRevisionId = revisionsData[0].id;
   let activeRevisionCleanText = revisionsData[0].text || "";
