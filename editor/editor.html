@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mimbot Editor - {{ FILENAME }}</title>
+  <title>{{ FILENAME }} | Mimbot Editor</title>
 
   <!-- Load Mimbot Fonts (Crimson Pro & Outfit) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -667,6 +667,7 @@
       "@codemirror/autocomplete": "https://ga.jspm.io/npm:@codemirror/autocomplete@6.12.0/dist/index.js",
       "@codemirror/commands": "https://ga.jspm.io/npm:@codemirror/commands@6.3.3/dist/index.js",
       "@codemirror/lang-markdown": "https://ga.jspm.io/npm:@codemirror/lang-markdown@6.2.4/dist/index.js",
+      "@codemirror/search": "https://ga.jspm.io/npm:@codemirror/search@6.5.6/dist/index.js",
       "@codemirror/state": "https://ga.jspm.io/npm:@codemirror/state@6.4.0/dist/index.js",
       "@codemirror/view": "https://ga.jspm.io/npm:@codemirror/view@6.23.0/dist/index.js"
     },
@@ -695,8 +696,9 @@
 <script type="module">
   import { EditorState } from "@codemirror/state";
   import { EditorView, keymap, lineNumbers } from "@codemirror/view";
-  import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
+  import { history, historyKeymap } from "@codemirror/commands";
   import { markdown } from "@codemirror/lang-markdown";
+  import { search, searchKeymap } from "@codemirror/search";
   import { autocompletion, acceptCompletion } from "@codemirror/autocomplete";
 
   // ==========================================
@@ -1430,6 +1432,7 @@
       keymap.of([
         ...defaultKeymap,
         ...historyKeymap,
+        ...searchKeymap,
         { key: "Mod-b", run: toggleBold },
         { key: "Mod-i", run: toggleItalic },
         { key: "Mod-l", run: insertLink },
@@ -1438,6 +1441,7 @@
         { key: "Tab", run: () => true }
       ]),
       markdown(),
+      search({ top: true }),
       autocompletion({ override: [tagAutocomplete, linkAutocomplete] }),
       updateListener,
       EditorView.lineWrapping,
@@ -1520,6 +1524,14 @@
       showToast("Edits submitted successfully!", "success");
       document.getElementById('edit-comment').value = '';
     }, 1500);
+  });
+
+  window.addEventListener('beforeunload', (e) => {
+    const markdownContent = view.state.doc.toString();
+    if (markdownContent.trim() !== lastSubmittedText.trim()) {
+      e.preventDefault();
+      e.returnValue = ''; // Browsers will show their default warning dialog
+    }
   });
 
   // ==========================================
