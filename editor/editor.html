@@ -439,6 +439,66 @@
       background-color: rgba(245, 158, 11, 0.6) !important;
     }
 
+    /* Revisions Bar */
+    .revisions-bar {
+      padding: 8px 15px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-sans);
+    }
+
+    .rev-status {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .rev-status.published { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+    .rev-status.approved { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .rev-status.draft { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+    .rev-status.new { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+
+    .rev-selector select {
+      background: var(--meta-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      cursor: pointer;
+      font-weight: 500;
+      outline: none;
+    }
+
+    .rev-btn {
+      border: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .rev-btn.green {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+    }
+    .rev-btn.green:hover { background: rgba(16, 185, 129, 0.25); }
+    .rev-btn.red {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+    }
+    .rev-btn.red:hover { background: rgba(239, 68, 68, 0.25); }
+
     /* Comment & Submit Section */
     .submit-section {
       padding: 12px 15px;
@@ -565,7 +625,7 @@
     .toast.success { background: #10b981; color: #ffffff; }
     .toast.warning { background: #f59e0b; color: #ffffff; }
 
-    /* Help Modal Styles */
+    /* Modal Styles (Help & Confirm) */
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(15, 23, 42, 0.5); z-index: 1000;
@@ -587,6 +647,20 @@
       line-height: 1; transition: color 0.2s;
     }
     .modal-close:hover { color: var(--text); }
+    .modal-btn {
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .modal-btn.cancel { background: var(--border); color: var(--text); }
+    .modal-btn.cancel:hover { opacity: 0.8; }
+    .modal-btn.confirm { background: var(--link); color: white; }
+    .modal-btn.confirm:hover { opacity: 0.8; }
 
     /* ========================================================= */
     /* RESPONSIVE DESIGN (MOBILE & SMALL SCREENS)                */
@@ -656,8 +730,30 @@
 
       <div id="editor"></div>
 
+      <!-- Revisions Bar -->
+      <div class="revisions-bar">
+        <div id="rev-status-badge" class="rev-status published" style="cursor: pointer;">Published</div>
+        <div class="rev-selector" style="display: flex; gap: 8px; align-items: center;">
+          <button id="btn-revert" class="rev-btn red" title="Discard Draft" style="display: none;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+          </button>
+          <div id="reviewer-actions" style="display: none; gap: 6px; align-items: center; margin-right: 2px;">
+            <button id="btn-approve" class="rev-btn green" title="Approve Edit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </button>
+            <button id="btn-discard" class="rev-btn red" title="Reject Edit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+          <select id="revision-select" aria-label="Select Revision"></select>
+        </div>
+      </div>
+
       <div class="submit-section">
-        <textarea id="edit-comment" spellcheck="true" placeholder="Optional comment about your edits..."></textarea>
+        <textarea id="edit-comment" spellcheck="true" maxlength="200" placeholder="Optional edit message..."></textarea>
 
         <button id="btn-submit-edits" title="Submit Edits">
           <!-- Solid Send Icon -->
@@ -720,6 +816,18 @@
     </ul>
     <h3 style="color: #0f172a; margin-bottom: 8px;">Link Autocomplete</h3>
     <p style="color: #334155; margin-top: 0; font-size: 14px;">Type <code>[</code> to also find internal pages (e.g. <code>[Castle</code>, <code>[Eon 1024</code>).</p>
+  </div>
+</div>
+
+<!-- Confirm Modal -->
+<div id="confirm-modal" class="modal-overlay">
+  <div class="modal-content" style="max-width: 400px; text-align: center; padding: 30px;">
+    <h2 id="confirm-title" style="margin-top: 0; font-size: 18px; color: var(--text);"></h2>
+    <div id="confirm-body" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; font-size: 14px; text-align: left;"></div>
+    <div style="display: flex; gap: 12px; justify-content: center;">
+      <button id="btn-confirm-cancel" class="modal-btn cancel">Cancel</button>
+      <button id="btn-confirm-ok" class="modal-btn confirm">Confirm</button>
+    </div>
   </div>
 </div>
 
@@ -1471,23 +1579,98 @@
   const insertLink = formatCommand("[", "](https://)", "link text");
 
   // ==========================================
-  // 4. EDITOR INITIALIZATION
+  // 4. EDITOR INITIALIZATION & REVISIONS LOGIC
   // ==========================================
 
   // Load the initial text dynamically via the template
   const initialText = `{{ INITIAL_TEXT }}`;
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const reviewerKey = urlParams.get('r');
+
+  // Revisions Data payload
+  let revisionsData = [
+    {
+        "id": "rev_main",
+        "comment": "Current Version",
+        "time": "2026-03-26T10:00:00Z",
+        "status": "published"
+    },
+    {
+        "id": "rev_2",
+        "comment": "Alexx's Test Edit",
+        "time": "2026-03-26T10:15:00Z",
+        "status": "new",
+        "text": "This is a dummy test edit to demonstrate the new edit state.\nLet's see how it looks."
+    },
+    {
+        "id": "rev_1",
+        "comment": "Typo fix (Merged)",
+        "time": "2026-03-24T18:20:00Z",
+        "status": "approved",
+        "text": "This is an approved typo fix waiting to be technically deployed.\n\nApproved text."
+    }
+];
+
+  if (!Array.isArray(revisionsData) || revisionsData.length === 0) {
+      revisionsData = [{ id: "main", comment: "New File", time: new Date().toISOString(), status: "draft", text: initialText }];
+  } else {
+      const mainRev = revisionsData.find(r => r.status === 'published' && !r.text);
+      if (mainRev) mainRev.text = initialText;
+      revisionsData.forEach(r => { if (!r.time) r.time = new Date(0).toISOString() });
+  }
+
+  // Sort newest on top
+  revisionsData.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+  let activeRevisionId = revisionsData[0].id;
+  let activeRevisionCleanText = revisionsData[0].text || "";
+
+  const updateRevisionStatus = (docText) => {
+    const statusEl = document.getElementById('rev-status-badge');
+    const selectEl = document.getElementById('revision-select');
+    const btnRevert = document.getElementById('btn-revert');
+    const reviewerActions = document.getElementById('reviewer-actions');
+
+    if (docText.trim() !== activeRevisionCleanText.trim()) {
+      statusEl.className = 'rev-status draft';
+      statusEl.textContent = 'Draft';
+      statusEl.title = 'your unsaved changes';
+      selectEl.title = 'Draft modifications applied on top of ' + activeRevisionId;
+      selectEl.disabled = true;
+      btnRevert.style.display = 'inline-flex';
+      reviewerActions.style.display = 'none';
+    } else {
+      selectEl.disabled = false;
+      const activeRev = revisionsData.find(r => r.id === activeRevisionId) || revisionsData[0];
+      const st = activeRev.status || 'published';
+      statusEl.className = `rev-status ${st}`;
+      statusEl.textContent = st; 
+      
+      let msg = "";
+      if (st === "published") msg = "currently live version of the file";
+      else if (st === "approved") msg = "edit is approved by reviewers but not yet published";
+      else if (st === "new") msg = "edit is submitted for review";
+      else if (st === "draft") msg = "your unsaved changes";
+      statusEl.title = msg;
+
+      selectEl.title = activeRev.comment;
+      btnRevert.style.display = 'none';
+      reviewerActions.style.display = (st === "new" && reviewerKey) ? 'flex' : 'none';
+    }
+  };
+
   const updateListener = EditorView.updateListener.of((update) => {
     if (update.docChanged) {
       const docText = update.state.doc.toString();
       const processedText = preprocessMarkdown(docText);
-      // Inject the parsed HTML into the article block inside the preview
       document.getElementById('preview-article').innerHTML = marked.parse(processedText);
+      updateRevisionStatus(docText);
     }
   });
 
   const state = EditorState.create({
-    doc: initialText,
+    doc: activeRevisionCleanText,
     extensions: [
       lineNumbers(),
       history(),
@@ -1518,7 +1701,95 @@
     parent: document.getElementById('editor')
   });
 
-  const initialProcessedText = preprocessMarkdown(initialText);
+  // Initialize Revisions UI
+  const selectEl = document.getElementById('revision-select');
+  selectEl.innerHTML = '';
+  revisionsData.forEach(rev => {
+      const option = document.createElement('option');
+      option.value = rev.id;
+      let label = rev.comment;
+      if (label.length > 25) label = label.substring(0, 25) + '...';
+      option.textContent = label;
+      selectEl.appendChild(option);
+  });
+  selectEl.value = activeRevisionId;
+  updateRevisionStatus(activeRevisionCleanText);
+
+  // Reviewer actions click listeners
+  document.getElementById('btn-approve').addEventListener('click', () => {
+      showConfirm(
+         "Approve this edit?",
+         "earlier edits than this one will be discarded, this edit will be scheduled for publshing",
+         async () => {
+             const fileParam = urlParams.get('file') || "";
+             try {
+                const res = await fetch(`https://alexxdev.eu/approve_edit?file=${encodeURIComponent(fileParam)}&k=${encodeURIComponent(reviewerKey || "")}&rev=${encodeURIComponent(activeRevisionId)}`);
+                if (res.ok) window.location.reload();
+                else showToast("Failed to approve.", "warning");
+             } catch (e) {
+                showToast("Network error.", "warning");
+             }
+         }
+      );
+  });
+
+  document.getElementById('btn-discard').addEventListener('click', () => {
+      showConfirm(
+         "Discard this edit?",
+         "this edit will be permanently deleted, other edits won't be affected",
+         async () => {
+             const fileParam = urlParams.get('file') || "";
+             try {
+                const res = await fetch(`https://alexxdev.eu/discard_edit?file=${encodeURIComponent(fileParam)}&k=${encodeURIComponent(reviewerKey || "")}&rev=${encodeURIComponent(activeRevisionId)}`);
+                if (res.ok) window.location.reload();
+                else showToast("Failed to discard.", "warning");
+             } catch (e) {
+                showToast("Network error.", "warning");
+             }
+         }
+      );
+  });
+
+  // Click listener for status badge
+  document.getElementById('rev-status-badge').addEventListener('click', function() {
+      if (this.title) {
+          // Toast system is defined below, safely call if exists
+          if (typeof showToast === 'function') showToast(this.title, 'success');
+      }
+  });
+
+  // Revert button listener
+  document.getElementById('btn-revert').addEventListener('click', () => {
+      if (confirm("Are you sure you want to discard your draft changes?")) {
+          view.dispatch({
+            changes: { from: 0, to: view.state.doc.length, insert: activeRevisionCleanText }
+          });
+      }
+  });
+
+  selectEl.addEventListener('change', (e) => {
+      const currentText = view.state.doc.toString();
+      if (currentText.trim() !== activeRevisionCleanText.trim()) {
+          if (!confirm("You have unsaved draft changes. Discard them to load this revision?")) {
+              e.target.value = activeRevisionId;
+              return;
+          }
+      }
+      
+      const revId = e.target.value;
+      const rev = revisionsData.find(r => r.id === revId);
+      if (!rev) return;
+
+      activeRevisionId = rev.id;
+      activeRevisionCleanText = rev.text || "";
+      lastSubmittedText = activeRevisionCleanText;
+
+      view.dispatch({
+        changes: { from: 0, to: view.state.doc.length, insert: activeRevisionCleanText }
+      });
+  });
+
+  const initialProcessedText = preprocessMarkdown(activeRevisionCleanText);
   document.getElementById('preview-article').innerHTML = marked.parse(initialProcessedText);
 
 
@@ -1557,13 +1828,36 @@
     }, 3000);
   }
 
-  let lastSubmittedText = initialText;
+  // Wait, lastSubmittedText needs to default to activeRevisionCleanText instead of initialText since it tracks the loaded one
+  let lastSubmittedText = activeRevisionCleanText;
+
+  // Confirm Modal Logic
+  const confirmModal = document.getElementById('confirm-modal');
+  const confirmTitle = document.getElementById('confirm-title');
+  const confirmBody = document.getElementById('confirm-body');
+  const btnConfirmOk = document.getElementById('btn-confirm-ok');
+  const btnConfirmCancel = document.getElementById('btn-confirm-cancel');
+
+  let activeConfirmAction = null;
+
+  function showConfirm(title, htmlBody, onConfirm) {
+    confirmTitle.textContent = title;
+    confirmBody.innerHTML = htmlBody;
+    activeConfirmAction = onConfirm;
+    confirmModal.style.display = 'flex';
+  }
+
+  btnConfirmCancel.addEventListener('click', () => confirmModal.style.display = 'none');
+  btnConfirmOk.addEventListener('click', () => {
+    confirmModal.style.display = 'none';
+    if (activeConfirmAction) activeConfirmAction();
+  });
 
   document.getElementById('btn-submit-edits').addEventListener('click', (e) => {
     const btn = e.currentTarget;
     if (btn.disabled) return;
 
-    const comment = document.getElementById('edit-comment').value;
+    const comment = document.getElementById('edit-comment').value.trim();
     const markdownContent = view.state.doc.toString();
 
     if (markdownContent.trim() === lastSubmittedText.trim()) {
@@ -1571,21 +1865,37 @@
       return;
     }
 
-    console.log("--- SUBMITTING EDITS ---");
-    console.log("Comment:", comment);
-    console.log("Content:", markdownContent);
+    let bodyHtml = ``;
+    if (comment) {
+      bodyHtml += `<div style="margin-bottom: 12px;"><strong>comment:</strong><br/><em style="color: var(--text);">${comment}</em></div>`;
+    }
+    bodyHtml += `<div>edits submitted within one minute override one another</div>`;
 
-    const originalHtml = btn.innerHTML;
-    btn.innerHTML = '<div class="spinner"></div>';
-    btn.disabled = true;
-
-    setTimeout(() => {
-      btn.innerHTML = originalHtml;
-      btn.disabled = false;
-      lastSubmittedText = markdownContent;
-      showToast("Edits submitted successfully!", "success");
-      document.getElementById('edit-comment').value = '';
-    }, 1500);
+    showConfirm("Submitting a new edit", bodyHtml, async () => {
+        const originalHtml = btn.innerHTML;
+        btn.innerHTML = '<div class="spinner"></div>';
+        btn.disabled = true;
+        
+        const fileParam = urlParams.get('file') || "";
+        
+        try {
+            const res = await fetch(`https://alexxdev.eu/submit_edit?file=${encodeURIComponent(fileParam)}`, {
+                method: 'POST',
+                body: markdownContent
+            });
+            if (res.ok) {
+                window.location.reload();
+            } else {
+                showToast("Failed to submit edit.", "warning");
+                btn.innerHTML = originalHtml;
+                btn.disabled = false;
+            }
+        } catch (err) {
+            showToast("Network error.", "warning");
+            btn.innerHTML = originalHtml;
+            btn.disabled = false;
+        }
+    });
   });
 
   window.addEventListener('beforeunload', (e) => {
