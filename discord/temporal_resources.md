@@ -1,6 +1,6 @@
 ## Temporal Resources
 
-**📑 Term**
+`📑 Term`
 
 Or TMP for short, refers to the sands of [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>) which possess unique _time-bending_ properties.
 

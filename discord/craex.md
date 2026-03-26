@@ -1,6 +1,6 @@
 ## CrAEX
 
-**🧙‍♂️ Character**
+`🧙‍♂️ Character`
 
 One of the Elder, Respected Inhabitants of Zeithalt.
 

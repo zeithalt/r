@@ -1,6 +1,6 @@
 ## Corrupted Artefacts
 
-**📜 Item**
+`📜 Item`
 
 During Corruption outbursts, sometimes samples of the corrupted matter itself can be found and carefully collected.
 

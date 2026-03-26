@@ -1,6 +1,6 @@
 ## Alexx
 
-**🧙‍♂️ Character**
+`🧙‍♂️ Character`
 
 One of the oldest inhabitants of Zeithalt, notable sellsword.
 

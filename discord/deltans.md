@@ -1,6 +1,6 @@
 ## Deltans
 
-**📑 Term**
+`📑 Term`
 
 A collective term primarily used to refer to [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>) members or the faction in general.
 

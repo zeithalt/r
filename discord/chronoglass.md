@@ -1,6 +1,6 @@
 ## Chronoglass
 
-**📑 Term**
+`📑 Term`
 
 Special kind of glass that is forged from the Timeless Desert sand. Due to unique properties of the sand, Chronoglass is able to preserve snapshots of the world, frozen in time. 
 

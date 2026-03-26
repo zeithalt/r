@@ -1,6 +1,6 @@
 ## Airmanon 'Air' Driftwing
 
-**🧙‍♂️ Character**
+`🧙‍♂️ Character`
 
 A human woman from the Timeless Desert who left it to find her purpose in life.
 

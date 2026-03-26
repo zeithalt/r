@@ -1,6 +1,6 @@
 ## Cybers
 
-**📑 Term**
+`📑 Term`
 
 A collective term to refer to [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) members or the faction in general.
 

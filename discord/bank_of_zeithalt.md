@@ -1,6 +1,6 @@
 ## Bank of Zeithalt
 
-**🪪 Entity**
+`🪪 Entity`
 
 Bank of Zeithalt (BoZ) is the governing entity of the whole ***Zeithalt Island***; it manages and overlooks the entire island's economy system. 
 

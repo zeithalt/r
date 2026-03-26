@@ -1,6 +1,6 @@
 ## Mimbot, the Lore Keeper
 
-**🧙‍♂️ Character**
+`🧙‍♂️ Character`
 
 Mimbot? Oh, it's obviously me. 
 

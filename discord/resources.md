@@ -1,6 +1,6 @@
 ## Resources (RES)
 
-**📑 Term**
+`📑 Term`
 
 All lands of Zeithalt Island are rich in resources.
 

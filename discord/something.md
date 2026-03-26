@@ -1,6 +1,6 @@
 ## Something Tacensis Rock
 
-**🧙‍♂️ Character**
+`🧙‍♂️ Character`
 
 (a.k.a. "SUS")
 

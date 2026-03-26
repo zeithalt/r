@@ -1,6 +1,6 @@
 ## Bumpus Mackamarus Arbum
 
-**🧙‍♂️ Character**
+`🧙‍♂️ Character`
 
 Bumpus (aka Bumps) is a mysterious race of blue humanoids rumored to originate somewhere near the Timeless Desert called the Bumpus.
 

@@ -1,6 +1,6 @@
 ## Mimps Virus
 
-**📑 Term**
+`📑 Term`
 
 Mimps is an infectious virus that suddenly and randomly appeared on the Zeithalt Island and has been prominent in the island ever since.
 

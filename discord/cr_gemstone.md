@@ -1,6 +1,6 @@
 ## Corrupted Gemstone
 
-**📜 Item**
+`📜 Item`
 
 An artefact retrieved by **hexAgon** during the Defence of Timeless Desert.
 

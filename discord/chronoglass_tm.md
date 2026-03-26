@@ -1,6 +1,6 @@
 ## ChronoGlass™️
 
-**📑 Term**
+`📑 Term`
 
 A commercial product made from the [chronoglass](<https://zeithalt.github.io/r/chronoglass.html>) by the Cloudy Co. corporation lead by Bumps The Businessman. 
 

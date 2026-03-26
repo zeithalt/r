@@ -1,6 +1,6 @@
 ## Common language
 
-**📑 Term**
+`📑 Term`
 
 Main language of Zeithalt, universally used by everyone on the Island.
 

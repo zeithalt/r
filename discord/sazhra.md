@@ -1,6 +1,6 @@
 ## Sazhra
 
-**🧙‍♂️ Character**
+`🧙‍♂️ Character`
 
 Sazhra is a half-dryad cyborg from Dev Null Marsh.
 

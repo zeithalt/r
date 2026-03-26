@@ -1,6 +1,6 @@
 ## WAR items
 
-**📑 Term**
+`📑 Term`
 
 WAR ancient artifacts that have been dug out of the mines. 
 

@@ -1,6 +1,6 @@
 ## CR Fallout
 
-**📑 Term**
+`📑 Term`
 
 The devastating event that happens if CR outburst is not contained properly.
 

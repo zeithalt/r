@@ -1,6 +1,6 @@
 ## PTSD
 
-**📑 Term**
+`📑 Term`
 
 PTSD is short for PS Taxes & Stuff Department. PTSD was founded Eon 370, one Eon after PS was founded.
 

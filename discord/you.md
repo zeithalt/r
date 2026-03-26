@@ -1,6 +1,6 @@
 ## You
 
-**🧙‍♂️ Character**
+`🧙‍♂️ Character`
 
 An engineer from Admincity who had long been lost to Corruption in Virtuara Outpost during the late Age of Darkness.
 

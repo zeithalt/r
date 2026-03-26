@@ -1,6 +1,6 @@
 ## Brothers
 
-**📑 Term**
+`📑 Term`
 
 A collective term to refer to [Band of Brothers'](<https://zeithalt.github.io/r/band_of_brothers.html>) members or the faction in general.
 
