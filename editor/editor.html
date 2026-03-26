@@ -1589,28 +1589,7 @@
   const reviewerKey = urlParams.get('r');
 
   // Revisions Data payload
-  let revisionsData = [
-    {
-        "id": "rev_main",
-        "comment": "Current Version",
-        "time": "2026-03-26T10:00:00Z",
-        "status": "published"
-    },
-    {
-        "id": "rev_2",
-        "comment": "Alexx's Test Edit",
-        "time": "2026-03-26T10:15:00Z",
-        "status": "new",
-        "text": "This is a dummy test edit to demonstrate the new edit state.\nLet's see how it looks."
-    },
-    {
-        "id": "rev_1",
-        "comment": "Typo fix (Merged)",
-        "time": "2026-03-24T18:20:00Z",
-        "status": "approved",
-        "text": "This is an approved typo fix waiting to be technically deployed.\n\nApproved text."
-    }
-];
+  let revisionsData = {{ REVISIONS }};
 
   if (!Array.isArray(revisionsData) || revisionsData.length === 0) {
       revisionsData = [{ id: "main", comment: "New File", time: new Date().toISOString(), status: "draft", text: initialText }];
