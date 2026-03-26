@@ -377,6 +377,68 @@
       background-color: var(--meta-bg) !important;
     }
 
+    /* CodeMirror Search Panel Overrides */
+    .cm-panel.cm-search {
+      background-color: var(--meta-bg) !important;
+      color: var(--text) !important;
+      padding: 10px 14px !important;
+      font-family: var(--font-sans) !important;
+      border-bottom: 1px solid var(--border) !important;
+      gap: 6px;
+    }
+    
+    .cm-panel.cm-search input[type="checkbox"] {
+      margin-left: 2px;
+      margin-right: -2px;
+      transform: translateY(1px);
+    }
+
+    .cm-search input.cm-textfield {
+      background: var(--bg) !important;
+      color: var(--text) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 4px;
+      padding: 5px 8px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+    }
+
+    .cm-search input.cm-textfield:focus {
+      outline: none;
+      border-color: var(--link) !important;
+    }
+
+    .cm-search button.cm-button {
+      background: var(--bg) !important;
+      color: var(--text) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 4px;
+      padding: 4px 10px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .cm-search button.cm-button:hover {
+      background: var(--border) !important;
+    }
+
+    .cm-search label {
+      font-size: 13px;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+
+    .cm-searchMatch {
+      background-color: rgba(250, 204, 21, 0.4) !important;
+    }
+
+    .cm-searchMatch.cm-searchMatch-selected {
+      background-color: rgba(245, 158, 11, 0.6) !important;
+    }
+
     /* Comment & Submit Section */
     .submit-section {
       padding: 12px 15px;
