@@ -1707,8 +1707,10 @@
              const fileParam = urlParams.get('file') || "";
              try {
                 const res = await fetch(`https://alexxdev.eu/approve_edit?file=${encodeURIComponent(fileParam)}&k=${encodeURIComponent(reviewerKey || "")}&rev=${encodeURIComponent(activeRevisionId)}`);
-                if (res.ok) window.location.reload();
-                else showToast("Failed to approve.", "warning");
+                if (res.ok) {
+                    window.isSubmitting = true;
+                    window.location.reload();
+                } else showToast("Failed to approve.", "warning");
              } catch (e) {
                 showToast("Network error.", "warning");
              }
@@ -1724,8 +1726,10 @@
              const fileParam = urlParams.get('file') || "";
              try {
                 const res = await fetch(`https://alexxdev.eu/discard_edit?file=${encodeURIComponent(fileParam)}&k=${encodeURIComponent(reviewerKey || "")}&rev=${encodeURIComponent(activeRevisionId)}`);
-                if (res.ok) window.location.reload();
-                else showToast("Failed to discard.", "warning");
+                if (res.ok) {
+                    window.isSubmitting = true;
+                    window.location.reload();
+                } else showToast("Failed to discard.", "warning");
              } catch (e) {
                 showToast("Network error.", "warning");
              }
@@ -1862,11 +1866,12 @@
         const fileParam = urlParams.get('file') || "";
         
         try {
-            const res = await fetch(`https://alexxdev.eu/submit_edit?file=${encodeURIComponent(fileParam)}`, {
+            const res = await fetch(`https://alexxdev.eu/submit_edit?file=${encodeURIComponent(fileParam)}&comment=${encodeURIComponent(comment)}`, {
                 method: 'POST',
                 body: markdownContent
             });
             if (res.ok) {
+                window.isSubmitting = true;
                 window.location.reload();
             } else {
                 showToast("Failed to submit edit.", "warning");
@@ -1882,6 +1887,7 @@
   });
 
   window.addEventListener('beforeunload', (e) => {
+    if (window.isSubmitting) return;
     const markdownContent = view.state.doc.toString();
     if (markdownContent.trim() !== lastSubmittedText.trim()) {
       e.preventDefault();
