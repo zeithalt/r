@@ -15,180 +15,230 @@
 
   <style>
     /* ========================================================= */
-    /* 🦋 MIMBOT SHARED THEME BLOCK (Copy to shared.css)         */
-    /* ========================================================= */
-    :root, [data-theme="parchment"] {
-      /* Parchment Light Theme */
-      --bg: #fdfaf2;
-      --text: #3e322b;
-      --text-muted: #7c6b5d;
-      --link: #933c24;
-      --link-hover: #b84a2b;
-      --meta-bg: #f4ecd8;
-      --border: #e6d8c3;
-      --shadow: 0 4px 15px rgba(62, 50, 43, 0.08);
-      --font-serif: 'Crimson Pro', Georgia, serif;
-      --font-sans: 'Outfit', system-ui, sans-serif;
-      --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    }
+/* 🦋 MIMBOT SHARED THEME BLOCK                              */
+/* ========================================================= */
+:root, [data-theme="parchment"] {
+  /* Parchment Light Theme */
+  --bg: #fdfaf2;
+  --text: #3e322b;
+  --text-muted: #7c6b5d;
+  --link: #933c24;
+  --link-hover: #b84a2b;
+  --meta-bg: #f4ecd8;
+  --border: #e6d8c3;
+  --shadow: 0 4px 15px rgba(62, 50, 43, 0.08);
+  --font-serif: 'Crimson Pro', Georgia, serif;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
 
-    [data-theme="midnight"] {
-      /* Midnight Dark Theme */
-      --bg: #0b1120;
-      --text: #e2e8f0;
-      --text-muted: #94a3b8;
-      --link: #38bdf8;
-      --link-hover: #7dd3fc;
-      --meta-bg: #1e293b;
-      --border: #334155;
-      --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-    }
+[data-theme="midnight"] {
+  /* Midnight Dark Theme */
+  --bg: #0b1120;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --link: #38bdf8;
+  --link-hover: #7dd3fc;
+  --meta-bg: #1e293b;
+  --border: #334155;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
 
-    .mimbot-theme {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-size: 1.2rem;
-      line-height: 1.65;
-      transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
-    }
+.mimbot-theme {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  line-height: 1.65;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
 
-    /* Scoped to elements within .mimbot-content so it doesn't break app UI like toolbars */
-    .mimbot-content h1, .mimbot-content h2, .mimbot-content h3 {
-      font-weight: 600;
-      line-height: 1.2;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      color: var(--text);
-    }
+/* Reading Area Constraint */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  position: relative;
+}
 
-    .mimbot-content h1 { font-size: 2.5rem; margin-top: 0; margin-bottom: 0.5rem; }
-    .mimbot-content h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-    .mimbot-content h2:first-child { font-size: 2.5rem; margin-top: 0; border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; }
-    .mimbot-content p { margin-top: 0; margin-bottom: 1.5rem; }
+/* Scoped to elements within .mimbot-content so it doesn't break app UI like toolbars */
+.mimbot-content h1, .mimbot-content h2, .mimbot-content h3 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
 
-    .mimbot-content a {
-      color: var(--link);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--link);
-      font-weight: 600;
-      transition: color 0.2s, border-bottom-color 0.2s;
-    }
+.mimbot-content h1 { font-size: 2.5rem; margin-top: 0; margin-bottom: 0.5rem; }
+.mimbot-content h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+.mimbot-content h2:first-child { font-size: 2.5rem; margin-top: 0; border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; }
+.mimbot-content p { margin-top: 0; margin-bottom: 1.5rem; }
 
-    .mimbot-content a:hover {
-      color: var(--link-hover);
-      border-bottom: 1px solid var(--link-hover);
-    }
+.mimbot-content a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link);
+  font-weight: 600;
+  transition: color 0.2s, border-bottom-color 0.2s;
+}
 
-    .mimbot-content blockquote {
-      border-left: 4px solid var(--border);
-      margin: 0 0 1.5rem 0;
-      padding-left: 1rem;
-      color: var(--text-muted);
-      font-style: italic;
-    }
+.mimbot-content a:hover {
+  color: var(--link-hover);
+  border-bottom: 1px solid var(--link-hover);
+}
 
-    .mimbot-content code {
-      font-family: var(--font-mono);
-      font-size: 0.85em;
-      background: var(--meta-bg);
-      padding: 0.15em 0.3em;
-      border-radius: 4px;
-    }
+.mimbot-content blockquote {
+  border-left: 4px solid var(--border);
+  margin: 0 0 1.5rem 0;
+  padding-left: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
 
-    .mimbot-content ul, .mimbot-content ol { margin-bottom: 1.5rem; }
+.mimbot-content code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--meta-bg);
+  padding: 0.15em 0.3em;
+  border-radius: 4px;
+}
 
-    .mimbot-content img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      display: block;
-      margin: 3.5rem auto;
-    }
+.mimbot-content ul, .mimbot-content ol { margin-bottom: 1.5rem; }
 
-    .mimbot-content hr {
-      border: 0;
-      height: 1px;
-      background: var(--border);
-      margin: 3rem 0;
-    }
+.mimbot-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: block;
+  margin: 3.5rem auto;
+  cursor: zoom-in;
+}
 
-    /* Metadata */
-    .mimbot-content .metadata {
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      margin-top: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .mimbot-content .metadata p { margin: 0; }
+.mimbot-content hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 3rem 0;
+}
 
-    .mimbot-content .tag {
-      display: inline-block;
-      background: var(--meta-bg);
-      padding: 0.15rem 0.6rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: 0.02em;
-    }
+/* Metadata */
+.mimbot-content .metadata {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+.mimbot-content .metadata p { margin: 0; }
 
-    /* Footer */
-    .mimbot-content .site-footer {
-      font-family: var(--font-sans);
-      margin-top: 1.5rem;
-      padding: 0.75rem 0 0 0;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .mimbot-content .footer-right {
-      display: flex;
-      align-items: center;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .mimbot-content .footer-item {
-      display: flex;
-      align-items: center;
-    }
-    .mimbot-content .footer-item + .footer-item::before {
-      content: "•";
-      color: var(--border);
-      font-size: 1rem;
-      line-height: 1;
-      margin: 0 0.75rem;
-      user-select: none;
-      pointer-events: none;
-    }
-    .mimbot-content .footer-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-weight: 400;
-      font-size: 0.9rem;
-      border: none !important;
-      color: var(--text-muted);
-      background: transparent;
-      padding: 0;
-      cursor: pointer;
-      transition: color 0.2s;
-      font-family: inherit;
-    }
-    .mimbot-content .footer-link:hover {
-      color: var(--text);
-    }
-    .mimbot-content .footer-link svg {
-      width: 1.1em;
-      height: 1.1em;
-    }
+.mimbot-content .tag {
+  display: inline-block;
+  background: var(--meta-bg);
+  padding: 0.15rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+/* Footer */
+.mimbot-content .site-footer {
+  font-family: var(--font-sans);
+  margin-top: 1.5rem;
+  padding: 0.75rem 0 0 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mimbot-content .footer-right {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mimbot-content .footer-item {
+  display: flex;
+  align-items: center;
+}
+.mimbot-content .footer-item + .footer-item::before {
+  content: "•";
+  color: var(--border);
+  font-size: 1rem;
+  line-height: 1;
+  margin: 0 0.75rem;
+  user-select: none;
+  pointer-events: none;
+}
+.mimbot-content .footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 400;
+  font-size: 0.9rem;
+  border: none !important;
+  color: var(--text-muted);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  font-family: inherit;
+}
+.mimbot-content .footer-link:hover {
+  color: var(--text);
+}
+.mimbot-content .footer-link svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ========================================================= */
+/* LIGHTBOX MODAL (Image Zoom capabilities for output pages) */
+/* ========================================================= */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 4px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+  cursor: grab;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
+.lightbox img:active {
+  cursor: grabbing;
+}
+
 
     /* ========================================================= */
     /* EDITOR APP UI (Specific to this page)                     */
@@ -1226,7 +1276,8 @@
       return {
         label: tag,
         apply: tag,
-        detail: previewText.replace(/`/g, '')
+        detail: previewText.replace(/`/g, ''),
+        boost: 90
       };
     });
 
@@ -1244,7 +1295,7 @@
     const options = [];
 
     options.push({
-      label: "[tml",
+      label: "[tml]",
       detail: "Timeline Link Template",
       boost: 98,
       apply: (view, completion, from, to) => {
@@ -1257,7 +1308,7 @@
     });
 
     options.push({
-      label: "[ref",
+      label: "[ref]",
       detail: "Reference Link Template",
       boost: 99,
       apply: (view, completion, from, to) => {
@@ -1269,10 +1320,11 @@
       }
     });
 
-    const createLinkOption = (insertName, searchLabel, path, category) => {
+    const createLinkOption = (insertName, searchLabel, path, category, itemBoost) => {
       return {
-        label: `[${searchLabel}`,
+        label: `[${searchLabel}]`,
         detail: category,
+        boost: itemBoost,
         apply: (view, completion, from, to) => {
           const insertText = `[${insertName}](${path})`;
           view.dispatch({
@@ -1284,11 +1336,11 @@
     };
 
     references.forEach(ref => {
-      options.push(createLinkOption(ref.name, ref.name, `../refs/${ref.file}`, 'Reference'));
+      options.push(createLinkOption(ref.name, ref.name, `../refs/${ref.file}`, 'Reference', 80));
     });
 
     timelineEvents.forEach(ev => {
-      options.push(createLinkOption(ev.name, `${ev.id} - ${ev.name}`, `../timeline/${ev.file}`, 'Timeline'));
+      options.push(createLinkOption(ev.name, `${ev.id} - ${ev.name}`, `../timeline/${ev.file}`, 'Timeline', 70));
     });
 
     return { from: word.from, options: options };
@@ -1318,9 +1370,10 @@
   }
 
   function preprocessMarkdown(text) {
-    let result = text.replace(/\[(fg|gm|ip|term|faction|character|battle|event|place)\]/g, (match) => {
-      return customTags[match] || match;
-    });
+    let result = text;
+    for (const tag in customTags) {
+      result = result.replaceAll(tag, customTags[tag]);
+    }
 
     result = result.replaceAll('../refs/img/', 'https://zeithalt.github.io/r/i/')
                    .replaceAll('../refs/', 'https://zeithalt.github.io/r/')
@@ -1358,24 +1411,7 @@
   // ==========================================
 
   // Load the initial text dynamically via the template
-  const initialText = `## 🦋 Azure Butterflies Continent
-
-[landmark] in [Indigo Shore](../refs/indigo_shore)
-
-Built on eon 1208 by [Band of Brothers](../refs/band_of_brothers)
-
-_Azure Butterflies Continent_ (also known as ABC Resort or simply ABC) is a seaside resort located on a small plateau among the peaks of _Indigo Shores_. It's open to the beautiful view of the ocean from one side while also shielded from the coastal winds from the other.
-
-The resort offers its visitors comfortable hotel rooms, an open-air restaurant near the shore, a spacious gymnasium with a variety of equipment, as well as a spa and a small shopping district. The main attraction, however, is its garden that doubles as a sanctuary for several species of butterflies with blue-colored wings, born this way thanks to the mysterious phenomenon behind the blue waters of the region. Rumor goes that such a butterfly touching you can bring good fortune or clarity of mind, however, the staff advises against attempting to catch one, as the insects are rare and fragile creatures.
-
-Local souvenir shops sell various merchandise that incorporates the butterflies in its design: hairpins, bracelets, necklaces and shirts, among other items. One can also purchase postcards with depictions of the butterfly garden and shoreline landscapes there.
-
-The resort's slogan is "Your azure-colored paradise", a simple yet memorable sentence that is rarely left out of the conversation, be the name _"Azure Butterflies Continent"_ mentioned. Its options remain affordable, while making even the shortest visit worth the spent money, living up to the proclaimed title of a paradise in the hearts of most visitors.
-
-![Azure Butterflies Continent](../refs/img/azure_butterflies_continent.png)
-
-<!---
--->`;
+  const initialText = `{{ INITIAL_TEXT }}`;
 
   const updateListener = EditorView.updateListener.of((update) => {
     if (update.docChanged) {
