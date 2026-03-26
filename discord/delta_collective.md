@@ -1,10 +1,10 @@
 ## Delta Collective
 
-**🪪 Faction**
+`🪪 Faction`
 
 Delta Collective (DC) - one of the three original factions.
 
-Occupies south-west parts of the Island, with the capital in **Purple Deeps**.
+Occupies south-west parts of the Island, with the capital in [Purple Deeps](<https://zeithalt.github.io/r/purple_deeps.html>).
 
 Synopsis:
 > *While global organisations think they have everything under their control, a new movement is emerging. Across the world, more and more people join this initiative to take back control over their lives.*
