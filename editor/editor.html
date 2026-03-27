@@ -837,9 +837,11 @@
       "@codemirror/autocomplete": "https://ga.jspm.io/npm:@codemirror/autocomplete@6.12.0/dist/index.js",
       "@codemirror/commands": "https://ga.jspm.io/npm:@codemirror/commands@6.3.3/dist/index.js",
       "@codemirror/lang-markdown": "https://ga.jspm.io/npm:@codemirror/lang-markdown@6.2.4/dist/index.js",
+      "@codemirror/language": "https://ga.jspm.io/npm:@codemirror/language@6.10.1/dist/index.js",
       "@codemirror/search": "https://ga.jspm.io/npm:@codemirror/search@6.5.6/dist/index.js",
       "@codemirror/state": "https://ga.jspm.io/npm:@codemirror/state@6.4.0/dist/index.js",
-      "@codemirror/view": "https://ga.jspm.io/npm:@codemirror/view@6.23.0/dist/index.js"
+      "@codemirror/view": "https://ga.jspm.io/npm:@codemirror/view@6.23.0/dist/index.js",
+      "@lezer/highlight": "https://ga.jspm.io/npm:@lezer/highlight@1.2.0/dist/index.js"
     },
     "scopes": {
       "https://ga.jspm.io/": {
@@ -868,8 +870,10 @@
   import { EditorView, keymap, lineNumbers } from "@codemirror/view";
   import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
   import { markdown } from "@codemirror/lang-markdown";
+  import { syntaxHighlighting, HighlightStyle } from "@codemirror/language";
   import { search, searchKeymap } from "@codemirror/search";
   import { autocompletion, acceptCompletion } from "@codemirror/autocomplete";
+  import { tags as t } from "@lezer/highlight";
 
   // ==========================================
   // 1. DATA SOURCES
@@ -1582,6 +1586,15 @@
   // 4. EDITOR INITIALIZATION & REVISIONS LOGIC
   // ==========================================
 
+  const mimbotHighlightStyle = HighlightStyle.define([
+    { tag: t.link, color: "var(--link)", fontWeight: "500" },
+    { tag: t.url, color: "var(--text-muted)", fontStyle: "italic" },
+    { tag: t.strong, fontWeight: "bold" },
+    { tag: t.emphasis, fontStyle: "italic" },
+    { tag: t.strikethrough, textDecoration: "line-through" },
+    { tag: t.heading, fontWeight: "bold" }
+  ]);
+
   // Load the initial text dynamically via the template
   const initialText = `{{ INITIAL_TEXT }}`;
 
@@ -1669,6 +1682,7 @@
         { key: "Tab", run: () => true }
       ]),
       markdown(),
+      syntaxHighlighting(mimbotHighlightStyle),
       search({ top: true }),
       autocompletion({ override: [tagAutocomplete, linkAutocomplete] }),
       updateListener,
