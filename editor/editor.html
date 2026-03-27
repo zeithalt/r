@@ -1751,7 +1751,7 @@
          async () => {
              const fileParam = urlParams.get('file') || "";
              try {
-                const res = await fetch(`https://alexxdev.eu/approve_edit?file=${encodeURIComponent(fileParam)}&k=${encodeURIComponent(reviewerKey || "")}&rev=${encodeURIComponent(activeRevisionId)}`);
+                const res = await fetch(`https://alexxdev.eu/accept_edit?file=${encodeURIComponent(fileParam)}&k=${encodeURIComponent(reviewerKey || "")}&rev=${encodeURIComponent(activeRevisionId)}`);
                 if (res.ok) {
                     window.isSubmitting = true;
                     window.location.reload();
