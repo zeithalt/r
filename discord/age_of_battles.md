@@ -1,6 +1,6 @@
 ## Age of Battles
 
-**📅 Time period**
+`📅 Time period`
 
 The current Age the Zeithalt Island lives in.
 

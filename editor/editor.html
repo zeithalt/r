@@ -1438,7 +1438,8 @@
     '[place]': '`🪧 Place`',
     '[entity]': '`🪪 Entity`',
     '[item]': '`📜 Item`',
-    '[landmark]': '`🖼️ Landmark`'
+    '[landmark]': '`🖼️ Landmark`',
+    '[period]': '`📅 Time period`'
   };
 
   function tagAutocomplete(context) {
@@ -1610,7 +1611,9 @@
   const fileParamOriginal = urlParams.get('file') || "";
   let originalPageUrl = "#";
   if (fileParamOriginal) {
-     originalPageUrl = `../${fileParamOriginal}`
+     // Clean up any leading ./ or ../ from the file parameter
+     const cleanFile = fileParamOriginal.replace(/^(\.\/|\.\.\/)+/, "");
+     originalPageUrl = `../${cleanFile}`
          .replaceAll('../refs/img/', 'https://zeithalt.github.io/r/i/')
          .replaceAll('../refs/', 'https://zeithalt.github.io/r/')
          .replaceAll('../timeline/map/', 'https://zeithalt.github.io/t/m/')

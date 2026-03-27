@@ -1,6 +1,6 @@
 ## Age of Darkness
 
-**📅 Time period**
+`📅 Time period`
 
 Unknown part of the Zeithalt history - the time before factions even formed.
 

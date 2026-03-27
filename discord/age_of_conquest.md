@@ -1,6 +1,6 @@
 ## Age of Conquest
 
-**📅 Time period**
+`📅 Time period`
 
 The age during which factions formed and grew powerful enough to start conquering nearby free lands.
 
