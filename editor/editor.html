@@ -777,9 +777,9 @@
 
         <!-- Persistent Footer with Theme Toggle -->
         <footer class="site-footer">
-          <a href="#" class="footer-link">
+          <a href="#" class="footer-link" id="original-page-link" target="_blank">
             <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
-            Mimbot Index
+            Original Page
           </a>
 
           <ul class="footer-right">
@@ -1551,14 +1551,19 @@
       result = result.replaceAll(tag, customTags[tag]);
     }
 
-    result = result.replaceAll('../refs/img/', 'https://zeithalt.github.io/r/i/')
-                   .replaceAll('../refs/', 'https://zeithalt.github.io/r/')
-                   .replaceAll('../timeline/map/', 'https://zeithalt.github.io/t/m/')
-                   .replaceAll('../timeline/', 'https://zeithalt.github.io/t/')
-                   .replaceAll('../rules/', 'https://zeithalt.github.io/rules/')
-                   .replaceAll('../stories/img', 'https://zeithalt.github.io/lore/i/')
-                   .replaceAll('../stories/', 'https://zeithalt.github.io/lore/')
-                   .replaceAll('.md', '.html');
+    // Only transform URLs inside valid markdown links [text](url)
+    result = result.replace(/\[([\s\S]*?)\]\((.*?)\)/g, (match, linkText, url) => {
+      let newUrl = url;
+      newUrl = newUrl.replaceAll('../refs/img/', 'https://zeithalt.github.io/r/i/')
+                     .replaceAll('../refs/', 'https://zeithalt.github.io/r/')
+                     .replaceAll('../timeline/map/', 'https://zeithalt.github.io/t/m/')
+                     .replaceAll('../timeline/', 'https://zeithalt.github.io/t/')
+                     .replaceAll('../rules/', 'https://zeithalt.github.io/rules/')
+                     .replaceAll('../stories/img', 'https://zeithalt.github.io/lore/i/')
+                     .replaceAll('../stories/', 'https://zeithalt.github.io/lore/')
+                     .replaceAll('.md', '.html');
+      return `[${linkText}](${newUrl})`;
+    });
 
     return result;
   }
@@ -1600,6 +1605,25 @@
 
   const urlParams = new URLSearchParams(window.location.search);
   const reviewerKey = localStorage.getItem('r_key');
+  
+  const fileParamOriginal = urlParams.get('file') || "";
+  let originalPageUrl = "#";
+  if (fileParamOriginal) {
+     originalPageUrl = `../${fileParamOriginal}`
+         .replaceAll('../refs/img/', 'https://zeithalt.github.io/r/i/')
+         .replaceAll('../refs/', 'https://zeithalt.github.io/r/')
+         .replaceAll('../timeline/map/', 'https://zeithalt.github.io/t/m/')
+         .replaceAll('../timeline/', 'https://zeithalt.github.io/t/')
+         .replaceAll('../rules/', 'https://zeithalt.github.io/rules/')
+         .replaceAll('../stories/img', 'https://zeithalt.github.io/lore/i/')
+         .replaceAll('../stories/', 'https://zeithalt.github.io/lore/')
+         .replaceAll('.md', '.html');
+  }
+
+  const origPageLink = document.getElementById('original-page-link');
+  if (origPageLink) {
+     origPageLink.href = originalPageUrl;
+  }
   
   window.r = new Proxy({}, {
     get: (target, prop) => {
