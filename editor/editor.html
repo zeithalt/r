@@ -1599,7 +1599,38 @@
   const initialText = `{{ INITIAL_TEXT }}`;
 
   const urlParams = new URLSearchParams(window.location.search);
-  const reviewerKey = urlParams.get('r');
+  const reviewerKey = localStorage.getItem('r_key');
+  
+  window.r = new Proxy({}, {
+    get: (target, prop) => {
+      if (prop !== 'Symbol(Symbol.toStringTag)') {
+        localStorage.setItem('r_key', prop);
+        console.log(`Reviewer key set to: ${prop}. Reloading...`);
+        setTimeout(() => location.reload(), 500); // Small delay to let the log show
+      }
+    }
+  });
+
+  window.s = new Proxy({}, {
+    get: (target, prop) => {
+      if (prop === 'true' || prop === 'false') {
+        localStorage.setItem('s_silent', prop);
+        console.log(`Silent mode set to: ${prop}`);
+      } else if (prop !== 'Symbol(Symbol.toStringTag)') {
+        console.log(`Invalid value for silent mode. Use s.true or s.false`);
+      }
+    }
+  });
+
+  // Magic console helper to view current config (r & s)
+  Object.defineProperty(window, 'v', {
+    get: () => {
+      const rVal = localStorage.getItem('r_key') || 'Not Set';
+      const sVal = localStorage.getItem('s_silent') || 'Not Set';
+      console.log(`Current Configuration:\nReviewer Key (r): ${rVal}\nSilent Mode  (s): ${sVal}`);
+      return 'Displayed in console ⬆️';
+    }
+  });
 
   // Revisions Data payload
   let revisionsData = {{ REVISIONS }};
@@ -1880,7 +1911,11 @@
         const fileParam = urlParams.get('file') || "";
         
         try {
-            const res = await fetch(`https://alexxdev.eu/submit_edit?file=${encodeURIComponent(fileParam)}&comment=${encodeURIComponent(comment)}`, {
+            let submitUrl = `https://alexxdev.eu/submit_edit?file=${encodeURIComponent(fileParam)}&comment=${encodeURIComponent(comment)}`;
+            if (localStorage.getItem('s_silent') === 'true') {
+                submitUrl += '&s=true';
+            }
+            const res = await fetch(submitUrl, {
                 method: 'POST',
                 body: markdownContent
             });
