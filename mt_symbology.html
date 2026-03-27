@@ -346,12 +346,20 @@
 
   // Determine initial theme (checking localStorage first, then system preference)
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const savedTheme = localStorage.getItem('theme');
+  
+  let savedTheme = null;
+  try {
+    savedTheme = localStorage.getItem('theme');
+  } catch(e) { /* Ignore if DOM Storage is disabled */ }
+  
   let currentTheme = savedTheme ? savedTheme : (prefersDark ? 'midnight' : 'parchment');
 
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch(e) { /* Ignore if DOM Storage is disabled */ }
+    
     themeToggle.textContent = theme === 'midnight' ? 'Light mode' : 'Dark mode';
     themeToggle.setAttribute('aria-label', theme === 'midnight' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
     themeToggle.setAttribute('title', theme === 'midnight' ? 'Switch to Light Mode' : 'Switch to Dark Mode');

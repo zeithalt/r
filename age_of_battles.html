@@ -290,7 +290,7 @@
 
     <div class="content">
       <p>The current Age the Zeithalt Island lives in.</p>
-      <p>It started at Eon 258 with the <em><strong>Battle of Mt. Pickles</strong></em> - the first ever battle where one faction attacked another faction’s lands.</p>
+      <p>It started at Eon 257 with the <a href="https://zeithalt.github.io/t/#eon0257">Battle of Mt. Pickles</a> – the first ever battle where one faction attacked another faction’s lands.</p>
     </div>
   </article>
 
@@ -331,12 +331,20 @@
 
   // Determine initial theme (checking localStorage first, then system preference)
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const savedTheme = localStorage.getItem('theme');
+  
+  let savedTheme = null;
+  try {
+    savedTheme = localStorage.getItem('theme');
+  } catch(e) { /* Ignore if DOM Storage is disabled */ }
+  
   let currentTheme = savedTheme ? savedTheme : (prefersDark ? 'midnight' : 'parchment');
 
   function applyTheme(theme) {
     root.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch(e) { /* Ignore if DOM Storage is disabled */ }
+    
     themeToggle.textContent = theme === 'midnight' ? 'Light mode' : 'Dark mode';
     themeToggle.setAttribute('aria-label', theme === 'midnight' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
     themeToggle.setAttribute('title', theme === 'midnight' ? 'Switch to Light Mode' : 'Switch to Dark Mode');
