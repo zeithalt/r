@@ -156,10 +156,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  row-gap: 0.75rem;
 }
 .mimbot-content .footer-right {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -568,9 +572,7 @@
       position: relative;
     }
 
-    #preview a:not(.footer-link) {
-      pointer-events: none; /* Make unclickable */
-    }
+
 
     /* Loading Spinner */
     @keyframes spin {
@@ -778,7 +780,6 @@
         <!-- Persistent Footer with Theme Toggle -->
         <footer class="site-footer">
           <a href="#" class="footer-link" id="original-page-link" target="_blank">
-            <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
             Original Page
           </a>
 
