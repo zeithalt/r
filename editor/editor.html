@@ -663,11 +663,15 @@
       background: rgba(15, 23, 42, 0.6); z-index: 1000;
       display: none; justify-content: center; align-items: center;
       backdrop-filter: blur(3px);
+      padding: 24px;
+      box-sizing: border-box;
     }
     .modal-content {
       background: var(--bg); padding: 28px 28px 24px;
       border-radius: 10px;
       max-width: 500px; width: 90%;
+      max-height: calc(100vh - 48px);
+      display: flex; flex-direction: column;
       box-shadow: 0 20px 50px rgba(0,0,0,0.2);
       position: relative;
       color: var(--text);
@@ -692,6 +696,8 @@
       font-size: 14px;
       line-height: 1.65;
       margin-bottom: 20px;
+      overflow-y: auto;
+      flex: 1;
     }
     .modal-body p { margin: 0 0 8px 0; }
     .modal-body h3 { font-size: 14px; font-weight: 700; color: var(--text); margin: 16px 0 4px 0; }
@@ -1860,7 +1866,7 @@
   document.getElementById('btn-approve').addEventListener('click', () => {
       showConfirm(
          "Approve this edit?",
-         "Earlier edits than this one will be discarded. This edit will be scheduled for publishing.",
+         "All other edits will be discarded. This edit will be scheduled for publishing.",
          async () => {
              const fileParam = urlParams.get('file') || "";
              try {
@@ -2008,9 +2014,14 @@
   let activeCancelAction = null;
 
   // isDanger: true = red destructive button, false = default link-color button
-  function showConfirm(title, bodyText, onConfirm, isDanger = false, onCancel = null) {
+  // isHtml: true = body rendered as innerHTML, false (default) = safe textContent
+  function showConfirm(title, bodyText, onConfirm, isDanger = false, onCancel = null, isHtml = false) {
     confirmTitle.textContent = title;
-    confirmBody.textContent = bodyText;
+    if (isHtml) {
+      confirmBody.innerHTML = bodyText;
+    } else {
+      confirmBody.textContent = bodyText;
+    }
     activeConfirmAction = onConfirm;
     activeCancelAction = onCancel;
     btnConfirmOk.className = 'modal-btn ' + (isDanger ? 'danger' : 'confirm');
@@ -2046,9 +2057,9 @@
 
     let bodyHtml = ``;
     if (comment) {
-      bodyHtml += `<div style="margin-bottom: 12px;"><strong>comment:</strong><br/><em style="color: var(--text);">${comment}</em></div>`;
+      bodyHtml += `<p><strong>Comment:</strong> <em>${comment}</em></p>`;
     }
-    bodyHtml += `<div>edits submitted within one minute override one another</div>`;
+    bodyHtml += `<p>Edits submitted within one minute override one another.</p>`;
 
     showConfirm("Submitting a new edit", bodyHtml, async () => {
         const originalHtml = btn.innerHTML;
@@ -2079,7 +2090,7 @@
             btn.innerHTML = originalHtml;
             btn.disabled = false;
         }
-    });
+    }, false, null, true);
   });
 
   window.addEventListener('beforeunload', (e) => {
