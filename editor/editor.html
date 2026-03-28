@@ -1531,11 +1531,11 @@
     const textAfter = context.state.sliceDoc(context.pos, context.state.doc.lineAt(context.pos).to);
     if (textAfter.match(/^[^\[]*\]/)) return null;
 
-    const options = Object.entries(customTags).map(([tag, previewText]) => {
+    const options = customTags.map(item => {
       return {
-        label: tag,
-        apply: tag,
-        detail: previewText.replace(/`/g, ''),
+        label: item.name,
+        apply: item.name,
+        detail: item.file.replace(/`/g, ''),
         boost: 90
       };
     });
@@ -1634,9 +1634,9 @@
 
   function preprocessMarkdown(text) {
     let result = text;
-    for (const tag in customTags) {
-      result = result.replaceAll(tag, customTags[tag]);
-    }
+    customTags.forEach(item => {
+      result = result.replaceAll(item.name, item.file);
+    });
 
     // Only transform URLs inside valid markdown links [text](url)
     result = result.replace(/\[([\s\S]*?)\]\((.*?)\)/g, (match, linkText, url) => {
