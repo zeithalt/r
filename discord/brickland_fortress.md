@@ -1,4 +1,4 @@
-## Brickland Fortress
+# Brickland Fortress
 
 `🖼️ Landmark`
 

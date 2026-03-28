@@ -1,4 +1,4 @@
-## 🌳 Stillwater Glade
+# 🌳 Stillwater Glade
 
 `🖼️ Landmark` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest>)
 

@@ -1,4 +1,4 @@
-## 🎳 Bowling Center
+# 🎳 Bowling Center
 
 `🖼️ Landmark` in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains>)
 

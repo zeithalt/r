@@ -1,4 +1,4 @@
-## MindTech Institute
+# MindTech Institute
 
 `🪪 Faction`
 

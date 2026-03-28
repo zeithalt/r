@@ -1,4 +1,4 @@
-## 📻 West Coast Research Station
+# 📻 West Coast Research Station
 
 `🖼️ Landmark` in [Virtuara Outpost](<https://zeithalt.github.io/r/virtuara_outpost.html>)
 

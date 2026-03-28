@@ -1,4 +1,4 @@
-## 🌱 World Seed Pendant
+# 🌱 World Seed Pendant
 
 `📜 Item`
 

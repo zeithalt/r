@@ -1,4 +1,4 @@
-## 🍺 The Yarrow Beer Shop
+# 🍺 The Yarrow Beer Shop
 
 `🖼️ Landmark` in [Blue Screen Lagoon](<https://zeithalt.github.io/r/blue_screen_lagoon>)
 

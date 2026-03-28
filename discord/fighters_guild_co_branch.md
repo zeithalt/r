@@ -1,4 +1,4 @@
-## ⚔️ Fighters Guild, CO Branch
+# ⚔️ Fighters Guild, CO Branch
 
 `🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert>)
 

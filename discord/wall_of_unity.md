@@ -1,4 +1,4 @@
-## 🏯️️️ Wall of Unity
+# 🏯️️️ Wall of Unity
 
 `🖼️ Landmark` in [Admincity](<https://zeithalt.github.io/r/admincity>)
 

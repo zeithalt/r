@@ -1,4 +1,4 @@
-## 🌿 Photosynthetic Power Station
+# 🌿 Photosynthetic Power Station
 
 `🖼️ Landmark` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
 

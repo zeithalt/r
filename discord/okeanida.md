@@ -1,4 +1,4 @@
-## Okeanida Zvezdnaya
+# Okeanida Zvezdnaya
 
 `🧙‍♂️ Character`
 

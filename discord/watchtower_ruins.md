@@ -1,4 +1,4 @@
-## Watchtower Ruins
+# Watchtower Ruins
 
 `🖼️ Landmark` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
 

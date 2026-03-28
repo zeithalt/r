@@ -1,4 +1,4 @@
-## ⚔️ Fighters Guild, PS Branch
+# ⚔️ Fighters Guild, PS Branch
 
 `🖼️ Landmark` in [Oblivion Mire](<https://zeithalt.github.io/r/oblivion_mire>)
 

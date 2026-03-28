@@ -1,4 +1,4 @@
-## 💾 Museum of Archaic Technology
+# 💾 Museum of Archaic Technology
 
 `🖼️ Landmark` in [Singularity Valley](<https://zeithalt.github.io/r/singularity_valley.html>)
 

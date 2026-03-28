@@ -1,4 +1,4 @@
-## MindTech Symbology
+# MindTech Symbology
 
 `📑 Term`
 

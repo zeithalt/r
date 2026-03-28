@@ -1,4 +1,4 @@
-## 🐙 Altar of Ctulhu
+# 🐙 Altar of Ctulhu
 
 `🖼️ Landmark` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
 

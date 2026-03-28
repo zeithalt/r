@@ -1,4 +1,4 @@
-## 🔫 Hooly Gun of the INKuisition
+# 🔫 Hooly Gun of the INKuisition
 
 `📜 Item`
 

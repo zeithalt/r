@@ -1,4 +1,4 @@
-## 🐟 Oceanic Discovery Center
+# 🐟 Oceanic Discovery Center
 
 `🖼️ Landmark` in [Cerene Vale](<https://zeithalt.github.io/r/cerene_vale.html>)
 

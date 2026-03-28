@@ -1,4 +1,4 @@
-## 📊 Chaosflux Observatory
+# 📊 Chaosflux Observatory
 
 `🖼️ Landmark` in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>)
 

@@ -1,4 +1,4 @@
-## Corruption
+# Corruption
 
 `🪪 Entity`
 

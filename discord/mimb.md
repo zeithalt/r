@@ -1,4 +1,4 @@
-## Mimb
+# Mimb
 
 `📃 To-do list`
 

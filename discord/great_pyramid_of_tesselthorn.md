@@ -1,4 +1,4 @@
-## 🔺 Great Pyramid of Tesselthorn
+# 🔺 Great Pyramid of Tesselthorn
 
 `🖼️ Landmark` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp>)
 

@@ -1,4 +1,4 @@
-## 🎰 Dino's Gambling Den
+# 🎰 Dino's Gambling Den
 
 `🖼️ Landmark` in [Ares Gardens](<https://zeithalt.github.io/r/ares_gardens.html>)
 

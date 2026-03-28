@@ -1,4 +1,4 @@
-## 🌀 Fractal Fields
+# 🌀 Fractal Fields
 
 `🖼️ Landmark` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields>)
 

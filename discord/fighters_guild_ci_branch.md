@@ -1,4 +1,4 @@
-## 🏢 Fighters Guild, CI Branch
+# 🏢 Fighters Guild, CI Branch
 
 `🖼️ Landmark` in [Virtuara Outpost](<https://zeithalt.github.io/r/virtuara_outpost.html>)
 

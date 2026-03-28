@@ -1,4 +1,4 @@
-## Lower Mire (area)
+# Lower Mire (area)
 
 `🪧 Place`
 

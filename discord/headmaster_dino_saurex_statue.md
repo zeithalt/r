@@ -1,4 +1,4 @@
-## 🗽 Headmaster Dino Saurex Statue
+# 🗽 Headmaster Dino Saurex Statue
 
 `🖼️ Landmark` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis>)
 

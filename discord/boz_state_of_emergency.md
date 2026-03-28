@@ -1,4 +1,4 @@
-## BoZ: State of Emergency
+# BoZ: State of Emergency
 
 `📃 To-do list`
 

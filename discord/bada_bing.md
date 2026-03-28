@@ -1,4 +1,4 @@
-## 💃 The Bada Bing!
+# 💃 The Bada Bing!
 
 `🖼️ Landmark` in [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress.html>)
 

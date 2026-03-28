@@ -1,4 +1,4 @@
-## 🗡️ Dagger of Elemental Restoration
+# 🗡️ Dagger of Elemental Restoration
 
 `📜 Item`
 

@@ -1,4 +1,4 @@
-## MindTech Institute Fortress (inner walls)
+# MindTech Institute Fortress (inner walls)
 
 `🪧 Place`
 

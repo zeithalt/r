@@ -1,4 +1,4 @@
-## 🦁 Zeithalt Pet Zoo and Animal Shelter
+# 🦁 Zeithalt Pet Zoo and Animal Shelter
 
 `🖼️ Landmark` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
 

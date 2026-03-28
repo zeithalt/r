@@ -1,4 +1,4 @@
-## 🍻 Helheim Bar
+# 🍻 Helheim Bar
 
 `🖼️ Landmark` in [Singularity Valley](<https://zeithalt.github.io/r/singularity_valley.html>)
 

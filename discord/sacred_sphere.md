@@ -1,4 +1,4 @@
-## 🪩 The Sacred Sphere
+# 🪩 The Sacred Sphere
 
 `🖼️ Landmark` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>)
 

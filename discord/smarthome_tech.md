@@ -1,4 +1,4 @@
-## 💡 SmartHome Tech
+# 💡 SmartHome Tech
 
 `🖼️ Landmark` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
 

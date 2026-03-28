@@ -1,4 +1,4 @@
-## Council of Minds
+# Council of Minds
 
 `📑 Term`
 

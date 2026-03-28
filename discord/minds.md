@@ -1,4 +1,4 @@
-## Minds
+# Minds
 
 `📑 Term`
 

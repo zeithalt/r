@@ -1,4 +1,4 @@
-## First Capital
+# First Capital
 
 `📑 Term`
 

@@ -1,4 +1,4 @@
-## ⚔️ Fighters Guild, MT Branch
+# ⚔️ Fighters Guild, MT Branch
 
 `🖼️ Landmark` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass>)
 

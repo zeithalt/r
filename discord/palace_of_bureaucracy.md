@@ -1,4 +1,4 @@
-## 🏢 Palace of Bureaucracy
+# 🏢 Palace of Bureaucracy
 
 `🖼️ Landmark` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp>)
 

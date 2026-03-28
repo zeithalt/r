@@ -1,4 +1,4 @@
-## Loki
+# Loki
 
 `🧙‍♂️ Character`
 

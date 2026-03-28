@@ -1,4 +1,4 @@
-## 🧭 Chrono-Compass Tower
+# 🧭 Chrono-Compass Tower
 
 `🖼️ Landmark` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
 

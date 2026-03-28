@@ -1,4 +1,4 @@
-## 🌱 Seed Sanctuaries
+# 🌱 Seed Sanctuaries
 
 `🖼️ Landmark` in [Mt. Pickles](<https://zeithalt.github.io/r/mt_pickles.html>)
 

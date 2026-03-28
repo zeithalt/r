@@ -1,4 +1,4 @@
-## PTSD
+# PTSD
 
 `📑 Term`
 

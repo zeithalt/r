@@ -1,4 +1,4 @@
-## 📖 Cortexian Hall
+# 📖 Cortexian Hall
 
 `🖼️ Landmark` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
 

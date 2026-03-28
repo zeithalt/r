@@ -1,4 +1,4 @@
-## 💥 Military Training Ground
+# 💥 Military Training Ground
 
 `🖼️ Landmark` in [Cybertron Jungle](<https://zeithalt.github.io/r/cybertron_jungle>)
 

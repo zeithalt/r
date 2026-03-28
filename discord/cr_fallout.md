@@ -1,4 +1,4 @@
-## CR Fallout
+# CR Fallout
 
 `📑 Term`
 

@@ -1,4 +1,4 @@
-## 🥡 Valhalla Bar
+# 🥡 Valhalla Bar
 
 `🖼️ Landmark` in [Oblivion Mire](<https://zeithalt.github.io/r/oblivion_mire.html>)
 

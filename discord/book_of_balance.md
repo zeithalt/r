@@ -1,4 +1,4 @@
-## Book of Balance
+# Book of Balance
 
 `📑 Term`
 

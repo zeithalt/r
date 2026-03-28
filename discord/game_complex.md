@@ -1,4 +1,4 @@
-## 🎮 G.A.M.E. Complex
+# 🎮 G.A.M.E. Complex
 
 `🖼️ Landmark` in [PEBKAC Peak](<https://zeithalt.github.io/r/pebkac_peak.html>)
 

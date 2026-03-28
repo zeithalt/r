@@ -1,4 +1,4 @@
-## 💿️ Gaia Knowledge Database
+# 💿️ Gaia Knowledge Database
 
 `🖼️ Landmark` in [Webified Hills](<https://zeithalt.github.io/r/webified_hills>)
 

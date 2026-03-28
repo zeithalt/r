@@ -1,4 +1,4 @@
-## 👑 King of Zeithalt
+# 👑 King of Zeithalt
 
 `📑 Term`
 

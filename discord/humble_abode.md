@@ -1,4 +1,4 @@
-## 🛖 Humble Abode
+# 🛖 Humble Abode
 
 `🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
 

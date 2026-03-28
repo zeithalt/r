@@ -1,4 +1,4 @@
-## Garrisons
+# Garrisons
 
 `📑 Term`
 

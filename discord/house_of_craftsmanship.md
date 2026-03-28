@@ -1,4 +1,4 @@
-## 🛖 House of Craftsmanship
+# 🛖 House of Craftsmanship
 
 `🖼️ Landmark` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields.html>).
 

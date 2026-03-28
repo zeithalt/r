@@ -1,4 +1,4 @@
-## Age of Battles
+# Age of Battles
 
 `📅 Time period`
 

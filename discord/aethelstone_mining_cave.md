@@ -1,4 +1,4 @@
-## ⛏️ Aethelstone Mining Cave
+# ⛏️ Aethelstone Mining Cave
 
 `🖼️ Landmark` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch>)
 

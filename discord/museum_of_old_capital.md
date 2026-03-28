@@ -1,4 +1,4 @@
-## 🏛️ Museum of the Old Capital
+# 🏛️ Museum of the Old Capital
 
 `🖼️ Landmark`
 

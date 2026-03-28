@@ -1,4 +1,4 @@
-## 🛰️ Quantum Nexus Laboratory
+# 🛰️ Quantum Nexus Laboratory
 
 `🖼️ Landmark` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>)
 

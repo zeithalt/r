@@ -1,4 +1,4 @@
-## 🏬 BoZ: Retailants and Supplitarium
+# 🏬 BoZ: Retailants and Supplitarium
 
 `🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert>)
 

@@ -1,4 +1,4 @@
-## 🏦 Money Factory
+# 🏦 Money Factory
 
 `🖼️ Landmark` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
 

@@ -1,4 +1,4 @@
-## Gold Mines
+# Gold Mines
 
 `📃 To-do list`
 

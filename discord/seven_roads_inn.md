@@ -1,4 +1,4 @@
-## 🍺 Seven Roads Inn
+# 🍺 Seven Roads Inn
 
 `🖼️ Landmark` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
 

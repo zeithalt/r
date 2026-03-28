@@ -1,4 +1,4 @@
-## Pickled Wind Farms
+# Pickled Wind Farms
 
 `🖼️ Landmark` in [Mt. Pickles](<https://zeithalt.github.io/r/mt_pickles.html>)
 

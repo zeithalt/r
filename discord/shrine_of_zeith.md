@@ -1,4 +1,4 @@
-## ⛩️ Shrine of Zeith
+# ⛩️ Shrine of Zeith
 
 `🖼️ Landmark` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest>)
 

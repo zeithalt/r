@@ -1,4 +1,4 @@
-## 🔱 Beacon for the Sight of Innovation
+# 🔱 Beacon for the Sight of Innovation
 
 `🖼️ Landmark` in [Singularity Valley](<https://zeithalt.github.io/r/singularity_valley.html>)
 

@@ -1,4 +1,4 @@
-## King's Challenges
+# King's Challenges
 
 `📑 Term`
 

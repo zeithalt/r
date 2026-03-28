@@ -1,4 +1,4 @@
-## 🎋 Bamboo Grove
+# 🎋 Bamboo Grove
 
 `🖼️ Landmark` in [Cybertron Jungle](<https://zeithalt.github.io/r/cybertron_jungle.html>)
 

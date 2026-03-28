@@ -1,4 +1,4 @@
-## 🏯 Military Academy
+# 🏯 Military Academy
 
 `🖼️ Landmark` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
 

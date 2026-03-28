@@ -1,4 +1,4 @@
-## Map Legend
+# Map Legend
 
 Icons used on the timeline maps: 
 - `🏰` [Fortifications](<https://zeithalt.github.io/r/fortifications.html>)

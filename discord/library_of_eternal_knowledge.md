@@ -1,4 +1,4 @@
-## 🏛️ Library of Eternal Knowledge
+# 🏛️ Library of Eternal Knowledge
 
 `🖼️ Landmark` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
 

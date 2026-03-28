@@ -1,4 +1,4 @@
-## Teleport
+# Teleport
 
 `🖼️ Landmark` in [Purple Deeps](<https://zeithalt.github.io/r/purple_deeps.html>)
 

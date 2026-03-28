@@ -1,4 +1,4 @@
-## 🎨 Xiavente's Meme Workshop
+# 🎨 Xiavente's Meme Workshop
 
 `🖼️ Landmark` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
 

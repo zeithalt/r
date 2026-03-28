@@ -1,4 +1,4 @@
-## 🔋 Quantum Generator
+# 🔋 Quantum Generator
 
 `🖼️ Landmark` in [Webified Hills](<https://zeithalt.github.io/r/webified_hills.html>)
 

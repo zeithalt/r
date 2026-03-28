@@ -1,4 +1,4 @@
-## CrAEX
+# CrAEX
 
 `🧙‍♂️ Character`
 

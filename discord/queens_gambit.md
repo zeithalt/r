@@ -1,4 +1,4 @@
-## 🏹 The Queen's Gambit
+# 🏹 The Queen's Gambit
 
 `📜 Item`
 

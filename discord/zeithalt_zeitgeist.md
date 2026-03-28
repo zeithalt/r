@@ -1,4 +1,4 @@
-## Zeithalt Zeitgeist newspaper
+# Zeithalt Zeitgeist newspaper
 
 `📑 Term`
 

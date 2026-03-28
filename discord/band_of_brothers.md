@@ -1,4 +1,4 @@
-## Band of Brothers
+# Band of Brothers
 
 `🪪 Faction`
 

@@ -1,4 +1,4 @@
-## ⚙️ The Sound of Gears Workshop
+# ⚙️ The Sound of Gears Workshop
 
 `🖼️ Landmark` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore>)
 

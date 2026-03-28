@@ -1,4 +1,4 @@
-## Corrupted Gemstone
+# Corrupted Gemstone
 
 `📜 Item`
 

@@ -1,4 +1,4 @@
-## 📰 News HQ
+# 📰 News HQ
 
 `🖼️ Landmark` in [Admincity](<https://zeithalt.github.io/r/admincity.html>)
 

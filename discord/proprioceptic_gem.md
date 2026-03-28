@@ -1,4 +1,4 @@
-## 🔸 Proprioceptic Gems
+# 🔸 Proprioceptic Gems
 
 `📜 Item`
 

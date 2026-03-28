@@ -1,4 +1,4 @@
-## Neuropolis
+# Neuropolis
 
 `🖼️ Landmark`
 

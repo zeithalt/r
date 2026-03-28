@@ -1,4 +1,4 @@
-## 🛕 Ziggurat, Shrine of Loyalty
+# 🛕 Ziggurat, Shrine of Loyalty
 
 `🖼️ Landmark` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs>)
 

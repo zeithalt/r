@@ -1,4 +1,4 @@
-## 🦴 Pet Sematary
+# 🦴 Pet Sematary
 
 `🖼️ Landmark` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
 

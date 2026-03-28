@@ -1,4 +1,4 @@
-## 🪓 Prehistoric Axe
+# 🪓 Prehistoric Axe
 
 `📜 Item`
 

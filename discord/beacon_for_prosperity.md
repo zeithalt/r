@@ -1,4 +1,4 @@
-## 🕊️ Beacon for Prosperity
+# 🕊️ Beacon for Prosperity
 
 `🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert>)
 

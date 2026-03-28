@@ -1,4 +1,4 @@
-## 🔬 Modern CR Research Facility
+# 🔬 Modern CR Research Facility
 
 `🖼️ Landmark` in [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress.html>)
 

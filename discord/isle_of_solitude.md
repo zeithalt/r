@@ -1,4 +1,4 @@
-## ☯ Isle Of Solitude
+# ☯ Isle Of Solitude
 
 `🖼️ Landmark` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs>)
 

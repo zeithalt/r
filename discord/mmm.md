@@ -1,4 +1,4 @@
-## 💹 MMM, Money Making Machine
+# 💹 MMM, Money Making Machine
 
 `🖼️ Landmark` in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains>)
 

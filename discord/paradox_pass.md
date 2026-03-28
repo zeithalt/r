@@ -1,4 +1,4 @@
-## Paradox Pass
+# Paradox Pass
 
 `🖼️ Landmark`
 

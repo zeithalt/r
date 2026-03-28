@@ -1,4 +1,4 @@
-## Royal Guard Commander
+# Royal Guard Commander
 
 The leadership position of the [Royal Guard](<https://zeithalt.github.io/r/royal_guard.html>) faction.
 

@@ -1,4 +1,4 @@
-## 🎒 The Queen's Companion
+# 🎒 The Queen's Companion
 
 `📜 Item`
 

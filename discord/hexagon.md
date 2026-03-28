@@ -1,4 +1,4 @@
-## hexAgon
+# hexAgon
 
 `🧙‍♂️ Character`
 

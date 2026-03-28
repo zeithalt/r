@@ -1,4 +1,4 @@
-## Mimbot, the Lore Keeper
+# Mimbot, the Lore Keeper
 
 `🧙‍♂️ Character`
 

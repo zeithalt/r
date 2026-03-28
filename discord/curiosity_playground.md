@@ -1,4 +1,4 @@
-## 🛝 Curiosity Playground
+# 🛝 Curiosity Playground
 
 `🖼️ Landmark` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields>)
 

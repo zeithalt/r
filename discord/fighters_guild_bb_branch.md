@@ -1,4 +1,4 @@
-## ⚔️ Fighters Guild, BB Branch
+# ⚔️ Fighters Guild, BB Branch
 
 `🖼️ Landmark` in [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh>)
 

@@ -1,4 +1,4 @@
-## Valkyrie Spec Ops
+# Valkyrie Spec Ops
 
 `📑 Term`
 

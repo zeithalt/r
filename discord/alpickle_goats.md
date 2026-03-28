@@ -1,4 +1,4 @@
-## Alpickle Goats
+# Alpickle Goats
 
 `📃 Term`
 

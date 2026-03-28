@@ -1,4 +1,4 @@
-## ⚗️ Bioengineered Algae Farm
+# ⚗️ Bioengineered Algae Farm
 
 `🖼️ Landmark` in [Blue Screen Lagoon](<https://zeithalt.github.io/r/blue_screen_lagoon.html>)
 

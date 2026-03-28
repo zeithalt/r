@@ -1,4 +1,4 @@
-## Mysterious Mazes
+# Mysterious Mazes
 
 `🪧 Place`
 

@@ -1,4 +1,4 @@
-## Shaxx
+# Shaxx
 
 `🧙‍♂️ Character`
 

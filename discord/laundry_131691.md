@@ -1,4 +1,4 @@
-## 🧼 Laundry N°131691
+# 🧼 Laundry N°131691
 
 `🖼️ Landmark` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>)
 

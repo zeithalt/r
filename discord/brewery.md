@@ -1,4 +1,4 @@
-## 🍺 Brewery
+# 🍺 Brewery
 
 `🖼️ Landmark` in [Purple Deeps](<https://zeithalt.github.io/r/purple_deeps.html>)
 

@@ -1,4 +1,4 @@
-## Duckism
+# Duckism
 
 `📃 To-do list`
 

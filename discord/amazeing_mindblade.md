@@ -1,4 +1,4 @@
-## 🗡️ A-maze-ing Mindblade
+# 🗡️ A-maze-ing Mindblade
 
 `📜 Item`
 

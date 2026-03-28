@@ -1,4 +1,4 @@
-## 🌳 Tree of Many Inquiries
+# 🌳 Tree of Many Inquiries
 
 `🖼️ Landmark` in [Cybertron Jungle](<https://zeithalt.github.io/r/cybertron_jungle.html>)
 

@@ -1,4 +1,4 @@
-## 🌊 Kragg's Run Company
+# 🌊 Kragg's Run Company
 
 `🖼️ Landmark` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis>)
 

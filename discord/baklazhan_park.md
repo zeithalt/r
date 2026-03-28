@@ -1,4 +1,4 @@
-## 🍆 Baklazhan Park
+# 🍆 Baklazhan Park
 
 `🖼️ Landmark` in [Ares Garden](<https://zeithalt.github.io/r/ares_gardens>)
 

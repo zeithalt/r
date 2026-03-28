@@ -1,4 +1,4 @@
-## 💬 Deltan Language School
+# 💬 Deltan Language School
 
 `🖼️ Landmark` in [Oblivion Mire](<https://zeithalt.github.io/r/oblivion_mire.html>)
 

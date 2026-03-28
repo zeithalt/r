@@ -1,4 +1,4 @@
-## 🧬 BioMechanical Sanctuary
+# 🧬 BioMechanical Sanctuary
 
 `🖼️ Landmark` in [Cybertron Jungle](../public_lore/atlas/cybertron_jungle.html)
 

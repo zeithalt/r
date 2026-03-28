@@ -1,4 +1,4 @@
-## 😎 Cannabliss Camp
+# 😎 Cannabliss Camp
 
 `🖼️ Landmark` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>).
 

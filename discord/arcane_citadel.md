@@ -1,4 +1,4 @@
-## 🪄 Arcane Citadel
+# 🪄 Arcane Citadel
 
 `🖼️ Landmark` in [PEBKAC Peak](<https://zeithalt.github.io/r/pebkac_peak.html>)
 

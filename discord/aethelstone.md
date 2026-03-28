@@ -1,4 +1,4 @@
-## Aethelstone (sunstone)
+# Aethelstone (sunstone)
 
 `📜 Item`
 

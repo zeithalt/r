@@ -1,4 +1,4 @@
-## Timeless Waystone
+# Timeless Waystone
 
 `📜 Item`
 

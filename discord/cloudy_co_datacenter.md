@@ -1,4 +1,4 @@
-## ☁️ Cloudy Data Center
+# ☁️ Cloudy Data Center
 
 `🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
 

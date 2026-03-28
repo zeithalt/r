@@ -1,4 +1,4 @@
-## 💽 Central Nexus
+# 💽 Central Nexus
 
 `🖼️ Landmark` in [Admincity](<https://zeithalt.github.io/r/admincity.html>)
 

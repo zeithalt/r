@@ -1,4 +1,4 @@
-## ⚙️ Underwater Turbine Power Plant
+# ⚙️ Underwater Turbine Power Plant
 
 `🖼️ Landmark` in [Virtuara Outpost](<https://zeithalt.github.io/r/virtuara_outpost.html>)
 

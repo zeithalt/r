@@ -1,4 +1,4 @@
-## Virtuara Outpost
+# Virtuara Outpost
 
 `🖼️ Landmark`
 

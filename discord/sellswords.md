@@ -1,4 +1,4 @@
-## Sellswords
+# Sellswords
 
 **🪪 Group**
 

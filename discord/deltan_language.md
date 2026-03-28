@@ -1,4 +1,4 @@
-## Deltan language
+# Deltan language
 
 `📑 Term`
 

@@ -1,4 +1,4 @@
-## ⌛ Temporal Research Center
+# ⌛ Temporal Research Center
 
 `🖼️ Landmark` in [Virtuara Outpost](<https://zeithalt.github.io/r/virtuara_outpost.html>) 
 

@@ -1,4 +1,4 @@
-## Mt. Pickles
+# Mt. Pickles
 
 `🖼️ Landmark`
 

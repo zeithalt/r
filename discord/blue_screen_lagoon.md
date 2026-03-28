@@ -1,4 +1,4 @@
-## Blue Screen Lagoon
+# Blue Screen Lagoon
 
 `📃 To-do list`
 

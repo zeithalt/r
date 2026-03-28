@@ -1,4 +1,4 @@
-## 🌵 Sentient Cactus Reservation
+# 🌵 Sentient Cactus Reservation
 
 `🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
 

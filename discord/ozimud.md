@@ -1,4 +1,4 @@
-## Ozimud
+# Ozimud
 
 `🧙‍♂️ Character`
 

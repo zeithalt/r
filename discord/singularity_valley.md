@@ -1,4 +1,4 @@
-## Singularity Valley
+# Singularity Valley
 
 `🖼️ Landmark`
 

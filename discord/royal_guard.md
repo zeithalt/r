@@ -1,4 +1,4 @@
-## Royal Guard
+# Royal Guard
 
 `🪪 Faction`
 

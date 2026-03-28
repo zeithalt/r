@@ -1,4 +1,4 @@
-## GreenOtter
+# GreenOtter
 
 `🧙‍♂️ Character`
 

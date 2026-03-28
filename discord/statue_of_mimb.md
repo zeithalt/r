@@ -1,4 +1,4 @@
-## 🗽 Statue of Mimb
+# 🗽 Statue of Mimb
 
 `🖼️ Landmark` in [Cerene Vale](<https://zeithalt.github.io/r/cerene_vale.html>)
 

@@ -1,4 +1,4 @@
-## Cybernetics Inc
+# Cybernetics Inc
 
 `🪪 Faction`
 

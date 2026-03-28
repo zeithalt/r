@@ -1,4 +1,4 @@
-## Syncrax Road
+# Syncrax Road
 
 `🪧 Place`
 

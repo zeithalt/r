@@ -1,4 +1,4 @@
-## The Cut (area)
+# The Cut (area)
 
 `🪧 Place`
 

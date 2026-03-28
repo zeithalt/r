@@ -1,4 +1,4 @@
-## 🏢 Center for Anomaly Control
+# 🏢 Center for Anomaly Control
 
 `🖼️ Landmark` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
 

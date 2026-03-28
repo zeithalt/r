@@ -1,4 +1,4 @@
-## NAIRO
+# NAIRO
 
 `🧙‍♂️ Character`
 

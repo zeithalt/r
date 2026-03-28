@@ -1,4 +1,4 @@
-## Bank of Zeithalt
+# Bank of Zeithalt
 
 `🪪 Entity`
 

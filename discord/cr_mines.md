@@ -1,4 +1,4 @@
-## CR Mines
+# CR Mines
 
 `📜 Item`
 

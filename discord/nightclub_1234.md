@@ -1,4 +1,4 @@
-## 🪩 Nightclub "1234"
+# 🪩 Nightclub "1234"
 
 `🖼️ Landmark` in [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh>)
 

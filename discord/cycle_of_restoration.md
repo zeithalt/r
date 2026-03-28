@@ -1,4 +1,4 @@
-## Cycle of Restoration
+# Cycle of Restoration
 
 `📅 Event`
 

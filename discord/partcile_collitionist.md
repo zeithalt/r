@@ -1,4 +1,4 @@
-## 🎡 Particle Collitionist
+# 🎡 Particle Collitionist
 
 `🖼️ Landmark` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
 

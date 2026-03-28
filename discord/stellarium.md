@@ -1,4 +1,4 @@
-## 🌌 Stellarium
+# 🌌 Stellarium
 
 `🖼️ Landmark` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>)
 

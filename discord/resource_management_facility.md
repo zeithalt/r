@@ -1,4 +1,4 @@
-## 🏭 Resource Management Facility
+# 🏭 Resource Management Facility
 
 `🖼️ Landmark` in [Admincity](<https://zeithalt.github.io/r/admincity.html>)
 

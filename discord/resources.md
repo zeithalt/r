@@ -1,4 +1,4 @@
-## Resources (RES)
+# Resources (RES)
 
 `📑 Term`
 

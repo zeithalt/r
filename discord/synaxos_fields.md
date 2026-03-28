@@ -1,4 +1,4 @@
-## Synaxos Fields
+# Synaxos Fields
 
 `🖼️ Landmark`
 

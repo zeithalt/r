@@ -1,4 +1,4 @@
-## Temporal Resources
+# Temporal Resources
 
 `📑 Term`
 

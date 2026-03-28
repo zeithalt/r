@@ -1,4 +1,4 @@
-## 🎌️ Hill of 1000 flags
+# 🎌️ Hill of 1000 flags
 
 `🖼️ Landmark` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
 

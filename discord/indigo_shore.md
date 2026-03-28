@@ -1,4 +1,4 @@
-## Indigo Shore
+# Indigo Shore
 
 `🖼️ Landmark`
 

@@ -1,4 +1,4 @@
-## Cloudy Operatives
+# Cloudy Operatives
 
 `🪪 Faction`
 

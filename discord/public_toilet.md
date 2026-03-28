@@ -1,4 +1,4 @@
-## 🚽 Public Toilet
+# 🚽 Public Toilet
 
 `🖼️ Landmark` in [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh.html>)
 

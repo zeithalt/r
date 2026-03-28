@@ -1,4 +1,4 @@
-## 🪦 The Grand Memorial
+# 🪦 The Grand Memorial
 
 `🖼️ Landmark` in [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress>)
 

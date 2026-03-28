@@ -1,4 +1,4 @@
-## ⛽️ Pickled Ooblek Deli
+# ⛽️ Pickled Ooblek Deli
 
 `🖼️ Landmark` in [Mt. Pickles](<https://zeithalt.github.io/r/mt_pickles.html>)
 

@@ -1,4 +1,4 @@
-## First Capital Ruins
+# First Capital Ruins
 
 `🖼️ Landmark` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
 

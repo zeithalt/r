@@ -1,4 +1,4 @@
-## 🦖 Jurassic Park
+# 🦖 Jurassic Park
 
 `🖼️ Landmark` in [Peace Death Gorge](<https://zeithalt.github.io/r/peace_death_gorge.html>)
 

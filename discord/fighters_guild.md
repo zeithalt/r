@@ -1,4 +1,4 @@
-## Fighters Guild
+# Fighters Guild
 
 **🪪 Group**
 

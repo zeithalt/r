@@ -1,4 +1,4 @@
-## Delta Collective
+# Delta Collective
 
 `🪪 Faction`
 

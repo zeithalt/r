@@ -1,4 +1,4 @@
-## 🏢 Admincity's Land Control
+# 🏢 Admincity's Land Control
 
 `🖼️ Landmark` in [Admincity](<https://zeithalt.github.io/r/admincity>)
 

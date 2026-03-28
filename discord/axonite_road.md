@@ -1,4 +1,4 @@
-##  🛣️ Axonite Road
+#  🛣️ Axonite Road
 
 `🖼️ Landmark` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
 

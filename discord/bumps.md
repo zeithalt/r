@@ -1,4 +1,4 @@
-## Bumpus Mackamarus Arbum
+# Bumpus Mackamarus Arbum
 
 `🧙‍♂️ Character`
 

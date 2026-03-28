@@ -1,4 +1,4 @@
-## 📚️️️ Underground Accounting
+# 📚️️️ Underground Accounting
 
 `🖼️ Landmark` in [Admincity](<https://zeithalt.github.io/r/admincity>)
 

@@ -1,4 +1,4 @@
-## 🗼 Lime Tower
+# 🗼 Lime Tower
 
 `🖼️ Landmark` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields.html>)
 

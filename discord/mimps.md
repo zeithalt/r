@@ -1,4 +1,4 @@
-## Mimps Virus
+# Mimps Virus
 
 `📑 Term`
 

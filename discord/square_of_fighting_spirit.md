@@ -1,4 +1,4 @@
-## 👹 Square of Fighting Spirit
+# 👹 Square of Fighting Spirit
 
 `🖼️ Landmark` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
 

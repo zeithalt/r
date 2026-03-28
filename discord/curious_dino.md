@@ -1,4 +1,4 @@
-## Dino Saurex
+# Dino Saurex
 
 `🧙‍♂️ Character`
 

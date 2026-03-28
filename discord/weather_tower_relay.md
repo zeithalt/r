@@ -1,4 +1,4 @@
-## 🎏 Weather Tower Relay
+# 🎏 Weather Tower Relay
 
 `🖼️ Landmark` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields.html>)
 

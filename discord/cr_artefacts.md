@@ -1,4 +1,4 @@
-## Corrupted Artefacts
+# Corrupted Artefacts
 
 `📜 Item`
 

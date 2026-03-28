@@ -1,4 +1,4 @@
-## Corruption Restoration Project
+# Corruption Restoration Project
 
 `📑 Term`
 
