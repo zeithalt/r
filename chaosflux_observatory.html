@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Basic Title -->
-  <title>📊 Chaosflux Observatory | Mimbot Lore Index</title>
+  <title>📊 Chaosflux Observatory | Mimbot</title>
 
   <!-- ============================================== -->
   <!-- SOCIAL MEDIA PREVIEW TAGS (OPEN GRAPH)         -->
@@ -97,11 +97,32 @@
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   color: var(--text);
+  position: relative;
+}
+
+.mimbot-content .header-anchor {
+  display: inline-block;
+  margin-left: 0.4em;
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--border);
+  text-decoration: none;
+  border-bottom: none !important;
+  opacity: 0;
+  transition: opacity 0.15s;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.mimbot-content h1:hover .header-anchor,
+.mimbot-content h2:hover .header-anchor,
+.mimbot-content h3:hover .header-anchor,
+.mimbot-content h4:hover .header-anchor {
+  opacity: 1;
 }
 
 .mimbot-content h1 { font-size: 2.5rem; margin-top: 0; margin-bottom: 0.5rem; }
 .mimbot-content h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-.mimbot-content h2:first-child { font-size: 2.5rem; margin-top: 0; border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; }
 .mimbot-content p { margin-top: 0; margin-bottom: 1.5rem; }
 
 .mimbot-content a {
@@ -196,6 +217,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-left: auto;
 }
 .mimbot-content .footer-item {
   display: flex;
@@ -216,6 +238,7 @@
   gap: 0.35rem;
   font-weight: 400;
   font-size: 0.9rem;
+  line-height: 1;
   border: none !important;
   color: var(--text-muted);
   background: transparent;
@@ -223,6 +246,7 @@
   cursor: pointer;
   transition: color 0.2s;
   font-family: inherit;
+  vertical-align: middle;
 }
 .mimbot-content .footer-link:hover {
   color: var(--text);
@@ -281,14 +305,11 @@
 <!-- ============================================== -->
 <main class="container mimbot-content">
   <article>
-    <header>
-      <h2>📊 Chaosflux Observatory</h2>
-      <div class="metadata">
-        <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/chaotic_plains.html">Chaotic Plains</a></p>
-      </div>
-    </header>
+
 
     <div class="content">
+      <h2 id="chaosflux-observatory">📊 Chaosflux Observatory<a class="header-anchor" href="#chaosflux-observatory">#</a></h2>
+      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/chaotic_plains.html">Chaotic Plains</a></p>
       <p>Built on eon 1046 by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a>.</p>
       <p><em>Chaosflux Observatory</em> was built with the purpose of understanding nature's most unpredictable and volatile type of energy that is also the <a href="https://zeithalt.github.io/r/silvans.html">Silvan's</a> least understood natural phenomenon, Chaos.</p>
       <p>In nature, each type of energy follows specific rules that work in harmony to create balance. In contrast, Chaos disrupts this equilibrium. Even <a href="https://zeithalt.github.io/r/corruption.html">Corruption</a>, which is deemed unnatural and harmful by the Silvans, adheres to some basic principles, while Chaos operates without a restraint, existing in a constantly fluctuating state. Even then, this strange energy has frequently been harnessed by the <a href="https://zeithalt.github.io/r/deltans.html">Deltans</a>, raising questions about its nature and potential.</p>
@@ -300,8 +321,8 @@
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#17e0" class="footer-link">
-      Mimbot Index
-    </a>
+  Mimbot Index
+</a>
 
     <ul class="footer-right">
       <!-- PRE-UPLOAD SCRIPT TARGET: Inject this entire <li> ONLY if suggest edits is needed -->

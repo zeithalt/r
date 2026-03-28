@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Basic Title -->
-  <title>🦋 Azure Butterflies Continent | Mimbot Lore Index</title>
+  <title>🦋 Azure Butterflies Continent | Mimbot</title>
 
   <!-- ============================================== -->
   <!-- SOCIAL MEDIA PREVIEW TAGS (OPEN GRAPH)         -->
@@ -97,11 +97,32 @@
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   color: var(--text);
+  position: relative;
+}
+
+.mimbot-content .header-anchor {
+  display: inline-block;
+  margin-left: 0.4em;
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--border);
+  text-decoration: none;
+  border-bottom: none !important;
+  opacity: 0;
+  transition: opacity 0.15s;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.mimbot-content h1:hover .header-anchor,
+.mimbot-content h2:hover .header-anchor,
+.mimbot-content h3:hover .header-anchor,
+.mimbot-content h4:hover .header-anchor {
+  opacity: 1;
 }
 
 .mimbot-content h1 { font-size: 2.5rem; margin-top: 0; margin-bottom: 0.5rem; }
 .mimbot-content h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-.mimbot-content h2:first-child { font-size: 2.5rem; margin-top: 0; border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; }
 .mimbot-content p { margin-top: 0; margin-bottom: 1.5rem; }
 
 .mimbot-content a {
@@ -196,6 +217,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-left: auto;
 }
 .mimbot-content .footer-item {
   display: flex;
@@ -216,6 +238,7 @@
   gap: 0.35rem;
   font-weight: 400;
   font-size: 0.9rem;
+  line-height: 1;
   border: none !important;
   color: var(--text-muted);
   background: transparent;
@@ -223,6 +246,7 @@
   cursor: pointer;
   transition: color 0.2s;
   font-family: inherit;
+  vertical-align: middle;
 }
 .mimbot-content .footer-link:hover {
   color: var(--text);
@@ -281,14 +305,11 @@
 <!-- ============================================== -->
 <main class="container mimbot-content">
   <article>
-    <header>
-      <h2>🦋 Azure Butterflies Continent</h2>
-      <div class="metadata">
-        <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/indigo_shore">Indigo Shore</a></p>
-      </div>
-    </header>
+
 
     <div class="content">
+      <h2 id="azure-butterflies-continent">🦋 Azure Butterflies Continent<a class="header-anchor" href="#azure-butterflies-continent">#</a></h2>
+      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/indigo_shore">Indigo Shore</a></p>
       <p>Built on eon 1208 by <a href="https://zeithalt.github.io/r/band_of_brothers">Band of Brothers</a></p>
       <p><em>Azure Butterflies Continent</em> (also known as ABC Resort or simply ABC) is a seaside resort located on a small plateau among the peaks of <em>Indigo Shores</em>. It's open to the beautiful view of the ocean from one side while also shielded from the coastal winds from the other.</p>
       <p>The resort offers its visitors comfortable hotel rooms, an open-air restaurant near the shore, a spacious gymnasium with a variety of equipment, as well as a spa and a small shopping district. The main attraction, however, is its garden that doubles as a sanctuary for several species of butterflies with blue-colored wings, born this way thanks to the mysterious phenomenon behind the blue waters of the region. Rumor goes that such a butterfly touching you can bring good fortune or clarity of mind, however, the staff advises against attempting to catch one, as the insects are rare and fragile creatures.</p>
@@ -302,8 +323,8 @@
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#cfd0" class="footer-link">
-      Mimbot Index
-    </a>
+  Mimbot Index
+</a>
 
     <ul class="footer-right">
       <!-- PRE-UPLOAD SCRIPT TARGET: Inject this entire <li> ONLY if suggest edits is needed -->

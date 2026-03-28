@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Basic Title -->
-  <title>🎰 Dino's Gambling Den | Mimbot Lore Index</title>
+  <title>🎰 Dino's Gambling Den | Mimbot</title>
 
   <!-- ============================================== -->
   <!-- SOCIAL MEDIA PREVIEW TAGS (OPEN GRAPH)         -->
@@ -97,11 +97,32 @@
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   color: var(--text);
+  position: relative;
+}
+
+.mimbot-content .header-anchor {
+  display: inline-block;
+  margin-left: 0.4em;
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--border);
+  text-decoration: none;
+  border-bottom: none !important;
+  opacity: 0;
+  transition: opacity 0.15s;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.mimbot-content h1:hover .header-anchor,
+.mimbot-content h2:hover .header-anchor,
+.mimbot-content h3:hover .header-anchor,
+.mimbot-content h4:hover .header-anchor {
+  opacity: 1;
 }
 
 .mimbot-content h1 { font-size: 2.5rem; margin-top: 0; margin-bottom: 0.5rem; }
 .mimbot-content h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-.mimbot-content h2:first-child { font-size: 2.5rem; margin-top: 0; border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; }
 .mimbot-content p { margin-top: 0; margin-bottom: 1.5rem; }
 
 .mimbot-content a {
@@ -196,6 +217,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-left: auto;
 }
 .mimbot-content .footer-item {
   display: flex;
@@ -216,6 +238,7 @@
   gap: 0.35rem;
   font-weight: 400;
   font-size: 0.9rem;
+  line-height: 1;
   border: none !important;
   color: var(--text-muted);
   background: transparent;
@@ -223,6 +246,7 @@
   cursor: pointer;
   transition: color 0.2s;
   font-family: inherit;
+  vertical-align: middle;
 }
 .mimbot-content .footer-link:hover {
   color: var(--text);
@@ -281,14 +305,11 @@
 <!-- ============================================== -->
 <main class="container mimbot-content">
   <article>
-    <header>
-      <h2>🎰 Dino's Gambling Den</h2>
-      <div class="metadata">
-        <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/ares_gardens.html">Ares Gardens</a></p>
-      </div>
-    </header>
+
 
     <div class="content">
+      <h2 id="dinos-gambling-den">🎰 Dino's Gambling Den<a class="header-anchor" href="#dinos-gambling-den">#</a></h2>
+      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/ares_gardens.html">Ares Gardens</a></p>
       <p>The only place on Zeithalt where islanders can find an active bookie, bet on outcomes of the battles, attend cocktail parties in VIP Lounge and indulge in various gambling activities.</p>
       <p>Despite multiple allegations of illicit activities happening in the Den, the place operates openly and occasionally is being subjected to inspections by <a href="https://zeithalt.github.io/r/ptsd.html">PTSD</a> and other <a href="https://zeithalt.github.io/r/protectores_silva.html">PS</a> authorities.</p>
     </div>
@@ -296,8 +317,8 @@
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#ee20" class="footer-link">
-      Mimbot Index
-    </a>
+  Mimbot Index
+</a>
 
     <ul class="footer-right">
       <!-- PRE-UPLOAD SCRIPT TARGET: Inject this entire <li> ONLY if suggest edits is needed -->

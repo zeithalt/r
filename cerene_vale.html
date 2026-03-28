@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Basic Title -->
-  <title>Cerene Vale | Mimbot Lore Index</title>
+  <title>Cerene Vale | Mimbot</title>
 
   <!-- ============================================== -->
   <!-- SOCIAL MEDIA PREVIEW TAGS (OPEN GRAPH)         -->
@@ -97,11 +97,32 @@
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   color: var(--text);
+  position: relative;
+}
+
+.mimbot-content .header-anchor {
+  display: inline-block;
+  margin-left: 0.4em;
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--border);
+  text-decoration: none;
+  border-bottom: none !important;
+  opacity: 0;
+  transition: opacity 0.15s;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.mimbot-content h1:hover .header-anchor,
+.mimbot-content h2:hover .header-anchor,
+.mimbot-content h3:hover .header-anchor,
+.mimbot-content h4:hover .header-anchor {
+  opacity: 1;
 }
 
 .mimbot-content h1 { font-size: 2.5rem; margin-top: 0; margin-bottom: 0.5rem; }
 .mimbot-content h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-.mimbot-content h2:first-child { font-size: 2.5rem; margin-top: 0; border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; }
 .mimbot-content p { margin-top: 0; margin-bottom: 1.5rem; }
 
 .mimbot-content a {
@@ -196,6 +217,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-left: auto;
 }
 .mimbot-content .footer-item {
   display: flex;
@@ -216,6 +238,7 @@
   gap: 0.35rem;
   font-weight: 400;
   font-size: 0.9rem;
+  line-height: 1;
   border: none !important;
   color: var(--text-muted);
   background: transparent;
@@ -223,6 +246,7 @@
   cursor: pointer;
   transition: color 0.2s;
   font-family: inherit;
+  vertical-align: middle;
 }
 .mimbot-content .footer-link:hover {
   color: var(--text);
@@ -281,14 +305,11 @@
 <!-- ============================================== -->
 <main class="container mimbot-content">
   <article>
-    <header>
-      <h2>Cerene Vale</h2>
-      <div class="metadata">
-        <p><span class="tag">🖼️ Landmark</span></p>
-      </div>
-    </header>
+
 
     <div class="content">
+      <h2 id="cerene-vale">Cerene Vale<a class="header-anchor" href="#cerene-vale">#</a></h2>
+      <p><span class="tag">🖼️ Landmark</span></p>
       <p>Lush valleys in the east and southern regions, while mostly barren sands in the north. The region of Cerene Vale holds great beauty and elegance while keeping in touch with the newest of innovations. It is also the farthest region among the faction, placed at the south-west, and has many people plus a popularity for tourism.</p>
       <p>With most of its lands being fields of vegetables and grain productions, and its shores yielding many ocean bounties, people who live here make their living from agriculture and fisheries. The vegetables and grains farmed are either exported to the other regions in the faction or sold locally. While the caught fishes and shellfish are either sold in the markets, shipped to the neighboring coastal regions, or preserved using many preserving methods like drying.</p>
       <p>The region's capital, Silent Gulf, is famous for having its seasonal festivals each year which brings many tourist across the faction to come, like the Allevanos Festival which celebrates the bountiful gifts of autumn. They're also famed for having many night markets and bazaars that showers people who come with stalls and shops of different cuisine that attracts many for having many types of food in one place.</p>
@@ -298,8 +319,8 @@
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#3850" class="footer-link">
-      Mimbot Index
-    </a>
+  Mimbot Index
+</a>
 
     <ul class="footer-right">
       <!-- PRE-UPLOAD SCRIPT TARGET: Inject this entire <li> ONLY if suggest edits is needed -->

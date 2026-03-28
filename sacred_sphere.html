@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Basic Title -->
-  <title>🪩 The Sacred Sphere | Mimbot Lore Index</title>
+  <title>🪩 The Sacred Sphere | Mimbot</title>
 
   <!-- ============================================== -->
   <!-- SOCIAL MEDIA PREVIEW TAGS (OPEN GRAPH)         -->
@@ -97,11 +97,32 @@
   margin-top: 2.5rem;
   margin-bottom: 1rem;
   color: var(--text);
+  position: relative;
+}
+
+.mimbot-content .header-anchor {
+  display: inline-block;
+  margin-left: 0.4em;
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--border);
+  text-decoration: none;
+  border-bottom: none !important;
+  opacity: 0;
+  transition: opacity 0.15s;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.mimbot-content h1:hover .header-anchor,
+.mimbot-content h2:hover .header-anchor,
+.mimbot-content h3:hover .header-anchor,
+.mimbot-content h4:hover .header-anchor {
+  opacity: 1;
 }
 
 .mimbot-content h1 { font-size: 2.5rem; margin-top: 0; margin-bottom: 0.5rem; }
 .mimbot-content h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-.mimbot-content h2:first-child { font-size: 2.5rem; margin-top: 0; border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; }
 .mimbot-content p { margin-top: 0; margin-bottom: 1.5rem; }
 
 .mimbot-content a {
@@ -196,6 +217,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-left: auto;
 }
 .mimbot-content .footer-item {
   display: flex;
@@ -216,6 +238,7 @@
   gap: 0.35rem;
   font-weight: 400;
   font-size: 0.9rem;
+  line-height: 1;
   border: none !important;
   color: var(--text-muted);
   background: transparent;
@@ -223,6 +246,7 @@
   cursor: pointer;
   transition: color 0.2s;
   font-family: inherit;
+  vertical-align: middle;
 }
 .mimbot-content .footer-link:hover {
   color: var(--text);
@@ -281,14 +305,11 @@
 <!-- ============================================== -->
 <main class="container mimbot-content">
   <article>
-    <header>
-      <h2>🪩 The Sacred Sphere</h2>
-      <div class="metadata">
-        <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/indigo_shore.html">Indigo Shore</a></p>
-      </div>
-    </header>
+
 
     <div class="content">
+      <h2 id="the-sacred-sphere">🪩 The Sacred Sphere<a class="header-anchor" href="#the-sacred-sphere">#</a></h2>
+      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/indigo_shore.html">Indigo Shore</a></p>
       <p>Built on eon 538 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a></p>
       <p>A large sphere building made of thick tempered glass and reinforced steel, constructed as a place of worship for all religions, for people worshipping anybody, anything and everything. The Sphere is a big ball of prayer rooms with a rotating shell; The whole structure is made to roll at a barely noticeable slow pace, so it can move between locations and be accessible to all people.</p>
       <p>The Sacred Sphere is initially designed to be a universal mobile worshipping facility. With various clerics from all religions, they will provide the pilgrims with everything they need to conduct their respective rituals. Each religion gets its own prayer rooms and is isolated to prevent any disturbing senses (sound, smell, visuals) from going out.</p>
@@ -302,8 +323,8 @@
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#f840" class="footer-link">
-      Mimbot Index
-    </a>
+  Mimbot Index
+</a>
 
     <ul class="footer-right">
       <!-- PRE-UPLOAD SCRIPT TARGET: Inject this entire <li> ONLY if suggest edits is needed -->
