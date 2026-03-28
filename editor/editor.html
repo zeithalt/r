@@ -660,14 +660,15 @@
     /* Modal Styles (Help & Confirm) */
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.5); z-index: 1000;
+      background: rgba(15, 23, 42, 0.6); z-index: 1000;
       display: none; justify-content: center; align-items: center;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(3px);
     }
     .modal-content {
-      background: var(--bg); padding: 24px; border-radius: 8px;
+      background: var(--bg); padding: 28px 28px 24px;
+      border-radius: 10px;
       max-width: 500px; width: 90%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
       position: relative;
       color: var(--text);
       font-family: var(--font-sans);
@@ -675,24 +676,47 @@
     }
     .modal-close {
       position: absolute; top: 16px; right: 20px;
-      cursor: pointer; font-size: 24px; font-weight: bold; color: var(--text-muted);
-      line-height: 1; transition: color 0.2s;
+      cursor: pointer; font-size: 22px; font-weight: bold; color: var(--text-muted);
+      line-height: 1; transition: color 0.2s; user-select: none;
     }
     .modal-close:hover { color: var(--text); }
+    .modal-title {
+      margin: 0 0 8px 0;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      padding-right: 24px;
+    }
+    .modal-body {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .modal-body p { margin: 0 0 8px 0; }
+    .modal-body h3 { font-size: 14px; font-weight: 700; color: var(--text); margin: 16px 0 4px 0; }
+    .modal-body ul { margin: 4px 0 0 0; padding-left: 1.2em; }
+    .modal-body li { margin-bottom: 3px; }
+    .modal-body code { font-family: var(--font-mono); font-size: 0.85em; background: var(--meta-bg); padding: 0.1em 0.35em; border-radius: 3px; }
+    .modal-footer {
+      display: flex; gap: 10px; justify-content: flex-end;
+    }
     .modal-btn {
       border: none;
-      padding: 8px 16px;
-      border-radius: 4px;
+      padding: 8px 18px;
+      border-radius: 6px;
       cursor: pointer;
       font-family: var(--font-sans);
-      font-size: 14px;
-      font-weight: 500;
-      transition: background 0.2s;
+      font-size: 13px;
+      font-weight: 600;
+      transition: opacity 0.2s;
     }
-    .modal-btn.cancel { background: var(--border); color: var(--text); }
-    .modal-btn.cancel:hover { opacity: 0.8; }
+    .modal-btn.cancel { background: var(--meta-bg); color: var(--text-muted); border: 1px solid var(--border); }
+    .modal-btn.cancel:hover { color: var(--text); }
     .modal-btn.confirm { background: var(--link); color: white; }
-    .modal-btn.confirm:hover { opacity: 0.8; }
+    .modal-btn.confirm:hover { opacity: 0.85; }
+    .modal-btn.danger { background: #ef4444; color: white; }
+    .modal-btn.danger:hover { opacity: 0.85; }
 
     /* ========================================================= */
     /* RESPONSIVE DESIGN (MOBILE & SMALL SCREENS)                */
@@ -830,32 +854,54 @@
 <div id="help-modal" class="modal-overlay">
   <div class="modal-content">
     <span class="modal-close" id="btn-close-help">&times;</span>
-    <h2 style="margin-top: 0; color: #0f172a;">Editor Help</h2>
-    <p style="color: #334155; line-height: 1.5;">This editor supports standard Markdown format.</p>
-    <h3 style="color: #0f172a; margin-bottom: 8px;">Keyboard Shortcuts</h3>
-    <ul style="color: #334155; font-size: 14px; line-height: 1.6;">
-      <li><code>Ctrl+B</code> &rarr; <strong>Bold</strong></li>
-      <li><code>Ctrl+I</code> &rarr; <em>Italic</em></li>
-      <li><code>Ctrl+L</code> &rarr; Insert [Link]()</li>
-    </ul>
-    <h3 style="color: #0f172a; margin-bottom: 8px;">Quick Tags</h3>
-    <p style="color: #334155; margin-top: 0; font-size: 14px;">Type <code>[</code> followed by letters to autocomplete game terms. Use <strong>Enter</strong> or <strong>Tab</strong> to confirm.</p>
-    <ul style="color: #334155; font-size: 14px; line-height: 1.6;">
-      <li><code>[fg]</code> &rarr; Factions Game</li>
-      <li><code>[gm]</code> &rarr; Global Map</li>
-      <li><code>[faction]</code>, <code>[character]</code>, <code>[place]</code>, etc.</li>
-    </ul>
-    <h3 style="color: #0f172a; margin-bottom: 8px;">Link Autocomplete</h3>
-    <p style="color: #334155; margin-top: 0; font-size: 14px;">Type <code>[</code> to also find internal pages (e.g. <code>[Castle</code>, <code>[Eon 1024</code>).</p>
+    <h2 class="modal-title">💡 Editor Help</h2>
+    <div class="modal-body">
+      <p>This editor supports standard <strong>Markdown</strong> formatting with live preview on the right.</p>
+
+      <h3>Keyboard Shortcuts</h3>
+      <ul>
+        <li><code>Ctrl+B</code> &rarr; <strong>Bold</strong> — wraps selection in <code>**...**</code></li>
+        <li><code>Ctrl+I</code> &rarr; <em>Italic</em> — wraps selection in <code>*...*</code></li>
+        <li><code>Ctrl+L</code> &rarr; Insert link — wraps selection as <code>[text](url)</code></li>
+        <li><code>Ctrl+Z</code> / <code>Ctrl+Y</code> &rarr; Undo / Redo</li>
+        <li><code>Ctrl+F</code> &rarr; Search inside the editor</li>
+        <li><code>Tab</code> &rarr; Confirm autocomplete suggestion or jump to next link placeholder</li>
+      </ul>
+
+      <h3>Markdown Basics</h3>
+      <ul>
+        <li><code>## Heading</code> &rarr; Section heading</li>
+        <li><code>**bold**</code>, <code>*italic*</code></li>
+        <li><code>- item</code> &rarr; Bullet list</li>
+        <li><code>[text](url)</code> &rarr; Link</li>
+        <li><code>![alt](url)</code> &rarr; Embedded image</li>
+        <li><code>&gt; text</code> &rarr; Blockquote</li>
+        <li><code>---</code> &rarr; Horizontal divider</li>
+      </ul>
+
+      <h3>Quick Tags</h3>
+      <p>Type <code>[</code> followed by letters to autocomplete game terms. Use <strong>Enter</strong> or <strong>Tab</strong> to confirm.</p>
+      <ul>
+        <li><code>[fg]</code> &rarr; Factions Game</li>
+        <li><code>[gm]</code> &rarr; Global Map</li>
+        <li><code>[faction]</code>, <code>[character]</code>, <code>[place]</code>, and more</li>
+      </ul>
+
+      <h3>Link Autocomplete</h3>
+      <p>Type <code>[</code> to also search internal pages by name (e.g. <code>[Castle</code>, <code>[Eon 1024</code>). Selecting a suggestion inserts a full markdown link.</p>
+
+      <h3>Submitting Edits</h3>
+      <p>Write an optional edit message in the text field at the bottom, then click the <strong>send</strong> button (→) to submit. Your edit will be queued for review. Edits submitted within one minute replace one another.
+    </div>
   </div>
 </div>
 
 <!-- Confirm Modal -->
 <div id="confirm-modal" class="modal-overlay">
-  <div class="modal-content" style="max-width: 400px; text-align: center; padding: 30px;">
-    <h2 id="confirm-title" style="margin-top: 0; font-size: 18px; color: var(--text);"></h2>
-    <div id="confirm-body" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; font-size: 14px; text-align: left;"></div>
-    <div style="display: flex; gap: 12px; justify-content: center;">
+  <div class="modal-content" style="max-width: 420px;">
+    <h2 id="confirm-title" class="modal-title"></h2>
+    <div id="confirm-body" class="modal-body"></div>
+    <div class="modal-footer">
       <button id="btn-confirm-cancel" class="modal-btn cancel">Cancel</button>
       <button id="btn-confirm-ok" class="modal-btn confirm">Confirm</button>
     </div>
@@ -910,250 +956,571 @@
   // 1. DATA SOURCES
   // ==========================================
   const references = [
+    { name: 'Aas Forest', file: 'aas_forest.md' },
+    { name: 'Admincity', file: 'admincity.md' },
+    { name: '🏢 Admincity\'s Land Control', file: 'admincitys_land_control.md' },
+    { name: 'Aethelstone (sunstone)', file: 'aethelstone.md' },
+    { name: '⛏️ Aethelstone Mining Cave', file: 'aethelstone_mining_cave.md' },
+    { name: 'Age of Battles', file: 'age_of_battles.md' },
+    { name: 'Age of Conquest', file: 'age_of_conquest.md' },
+    { name: 'Age of Darkness', file: 'age_of_darkness.md' },
+    { name: 'Airmanon \'Air\' Driftwing', file: 'airmanon.md' },
+    { name: 'Alexx', file: 'alexx.md' },
+    { name: '⚗️ Bioengineered Algae Farm', file: 'algae_farm.md' },
+    { name: 'Alpickle Goats', file: 'alpickle_goats.md' },
+    { name: '🐙 Altar of Ctulhu', file: 'altar_of_ctulhu.md' },
+    { name: '🗡️ A-maze-ing Mindblade', file: 'amazeing_mindblade.md' },
+    { name: '🦁 Zeithalt Pet Zoo and Animal Shelter', file: 'animal_shelter.md' },
+    { name: '🪄 Arcane Citadel', file: 'arcane_citadel.md' },
+    { name: 'The Arcanum', file: 'arcanum.md' },
+    { name: '📚 Archives of Subconsciousness', file: 'archives_of_subcon.md' },
+    { name: 'Ares Gardens', file: 'ares_gardens.md' },
+    { name: '💉 Antibody Research Institute and Library', file: 'arial.md' },
+    { name: '🛣️ Axonite Road', file: 'axonite_road.md' },
+    { name: '🦋 Azure Butterflies Continent', file: 'azure_butterflies_continent.md' },
+    { name: '💃 The Bada Bing!', file: 'bada_bing.md' },
+    { name: '🍆 Baklazhan Park', file: 'baklazhan_park.md' },
+    { name: '🎋 Bamboo Grove', file: 'bamboo_grove.md' },
+    { name: 'Band of Brothers', file: 'band_of_brothers.md' },
+    { name: 'Bank of Zeithalt', file: 'bank_of_zeithalt.md' },
+    { name: '🏮 Beacon for Perseverance', file: 'beacon_for_perseverance.md' },
+    { name: '🕊️ Beacon for Prosperity', file: 'beacon_for_prosperity.md' },
+    { name: '🙏 Beacon of Hope', file: 'beacon_of_hope.md' },
+    { name: '🔱 Beacon for the Sight of Innovation', file: 'beacon_of_innovation.md' },
+    { name: '🕯️ Beacon for the Light of Reason', file: 'beacon_of_reason.md' },
+    { name: '🏠 Benastone', file: 'benastone.md' },
+    { name: '🦿 Big Mean Machine', file: 'big_mean_machine.md' },
+    { name: '🧬 BioMechanical Sanctuary', file: 'biomechanical_sanctuary.md' },
+    { name: 'Bloodvine', file: 'bloodvines.md' },
+    { name: 'Blue Screen Lagoon', file: 'blue_screen_lagoon.md' },
+    { name: 'Book of Balance', file: 'book_of_balance.md' },
+    { name: '🌺 Underground Botanical Garden', file: 'botanical_garden.md' },
+    { name: '🎳 Bowling Center', file: 'bowling_center.md' },
+    { name: '🏬 BoZ: Retailants and Supplitarium', file: 'boz_r_and_s.md' },
+    { name: 'BoZ: State of Emergency', file: 'boz_state_of_emergency.md' },
+    { name: '🍺 Brewery', file: 'brewery.md' },
+    { name: 'Brickland Fortress', file: 'brickland_fortress.md' },
+    { name: 'Brickspire Mountains', file: 'brickspire_mountains.md' },
+    { name: 'Brothers', file: 'brothers.md' },
+    { name: '🥩 Brother\'s Meat Market', file: 'brothers_meat_market.md' },
+    { name: 'Bumpus Mackamarus Arbum', file: 'bumps.md' },
+    { name: '👑 Cactus Crown', file: 'cactus_crown.md' },
+    { name: '🌵 Cactus Juice Factory', file: 'cactus_juice_factory.md' },
+    { name: '🧥 Cactus Mantle', file: 'cactus_mantle.md' },
+    { name: '😎 Cannabliss Camp', file: 'cannabliss_camp.md' },
+    { name: 'Capos of Mafia', file: 'capos_of_mafia.md' },
+    { name: '🧭 Cartographers Guild HQ', file: 'cartographers_guild_hq.md' },
+    { name: '🪞 Cave of Mirrors', file: 'cave_of_mirrors.md' },
+    { name: '🏢 Center for Anomaly Control', file: 'center_for_anomaly_control.md' },
+    { name: '💽 Central Nexus', file: 'central_nexus.md' },
+    { name: 'Cerene Vale', file: 'cerene_vale.md' },
+    { name: '📊 Chaosflux Observatory', file: 'chaosflux_observatory.md' },
+    { name: 'Chaotic Plains', file: 'chaotic_plains.md' },
+    { name: 'Chronoglass', file: 'chronoglass.md' },
+    { name: 'ChronoGlass™️', file: 'chronoglass_tm.md' },
+    { name: '🧭 Chrono-Compass Tower', file: 'chrono_compass_tower.md' },
+    { name: 'C.I.A.', file: 'cia.md' },
+    { name: '☁️ Cloudy Data Center', file: 'cloudy_co_datacenter.md' },
+    { name: 'Cloudy Operatives', file: 'cloudy_operatives.md' },
+    { name: 'Common language', file: 'common_language.md' },
+    { name: 'Corruption', file: 'corruption.md' },
+    { name: '📖 Cortexian Hall', file: 'cortexian_hall.md' },
+    { name: 'Council of Minds', file: 'council_of_minds.md' },
+    { name: 'CrAEX', file: 'craex.md' },
+    { name: 'Corrupted Artefacts', file: 'cr_artefacts.md' },
+    { name: 'CR Fallout', file: 'cr_fallout.md' },
+    { name: 'Corrupted Gemstone', file: 'cr_gemstone.md' },
+    { name: 'CR Mines', file: 'cr_mines.md' },
+    { name: 'Corruption Restoration Project', file: 'cr_restoration_project.md' },
+    { name: 'CR Shards', file: 'cr_shards.md' },
+    { name: 'Corruption Sickness', file: 'cr_sickness.md' },
+    { name: '🏥 CURE', file: 'cure.md' },
+    { name: '🛝 Curiosity Playground', file: 'curiosity_playground.md' },
+    { name: 'Dino Saurex', file: 'curious_dino.md' },
+    { name: 'Cybernetics Inc', file: 'cybernetics_inc.md' },
+    { name: 'Cybers', file: 'cybers.md' },
+    { name: 'Cybertron Jungle', file: 'cybertron_jungle.md' },
+    { name: 'Cycle of Restoration', file: 'cycle_of_restoration.md' },
+    { name: '🗡️ Dagger of Elemental Restoration', file: 'dagger_of_elemental_restoration.md' },
+    { name: 'Deltans', file: 'deltans.md' },
+    { name: 'Deltan language', file: 'deltan_language.md' },
+    { name: '💬 Deltan Language School', file: 'deltan_language_school.md' },
+    { name: '👁️‍🗨️ Deltan Watchtower', file: 'deltan_watchtower.md' },
+    { name: 'Delta Collective', file: 'delta_collective.md' },
+    { name: 'Dev Null Marsh', file: 'dev_null_marsh.md' },
+    { name: '🎰 Dino\'s Gambling Den', file: 'dinos_gambling_den.md' },
+    { name: '🤿 Diving School', file: 'diving_school.md' },
+    { name: 'Duckism', file: 'duckism.md' },
+    { name: '🦆 Duck Farm', file: 'duck_farm.md' },
+    { name: '🥚 Egg Festival', file: 'egg_festival.md' },
+    { name: 'Eldar', file: 'eldar.md' },
+    { name: '🌀 Entropy Harmonizer', file: 'entropy_harmonizer.md' },
+    { name: 'Eon', file: 'eon.md' },
+    { name: 'Fighters Guild', file: 'fighters_guild.md' },
+    { name: '⚔️ Fighters Guild, BB Branch', file: 'fighters_guild_bb_branch.md' },
+    { name: '🏢 Fighters Guild, CI Branch', file: 'fighters_guild_ci_branch.md' },
+    { name: '⚔️ Fighters Guild, CO Branch', file: 'fighters_guild_co_branch.md' },
+    { name: '⚔️ Fighters Guild, DC Branch', file: 'fighters_guild_dc_branch.md' },
+    { name: '⚔️ Fighters Guild, MT Branch', file: 'fighters_guild_mt_branch.md' },
+    { name: '⚔️ Fighters Guild, PS Branch', file: 'fighters_guild_ps_branch.md' },
+    { name: 'First Capital', file: 'first_capital.md' },
+    { name: 'First Capital Ruins', file: 'first_capital_ruins.md' },
+    { name: 'Fortifications', file: 'fortifications.md' },
+    { name: '🌀 Fractal Fields', file: 'fractal_fields.md' },
+    { name: '💿️ Gaia Knowledge Database', file: 'gaia_knowledge_db.md' },
+    { name: '🎮 G.A.M.E. Complex', file: 'game_complex.md' },
+    { name: 'Garrisons', file: 'garrisons.md' },
+    { name: '🏹 Giant Slingshot', file: 'giant_slingshot.md' },
+    { name: 'Gold Mines', file: 'gold_mines.md' },
+    { name: 'Great AI', file: 'great_ai.md' },
+    { name: '🔺 Great Pyramid of Tesselthorn', file: 'great_pyramid_of_tesselthorn.md' },
+    { name: 'GreenOtter', file: 'greenotter.md' },
+    { name: '--- Lore Guidebook ---', file: 'guidebook_link.md' },
+    { name: '🔦 Guidelight System', file: 'guidelight_system.md' },
+    { name: '🗽 Headmaster Dino Saurex Statue', file: 'headmaster_dino_saurex_statue.md' },
+    { name: '🍻 Helheim Bar', file: 'helheim_bar.md' },
+    { name: '📗 Herbarium Library', file: 'herbarium_library.md' },
+    { name: 'hexAgon', file: 'hexagon.md' },
+    { name: '🎌️ Hill of 1000 flags', file: 'hill_of_flags.md' },
+    { name: '🔫 Hooly Gun of the INKuisition', file: 'hooly_gun_of_ink.md' },
+    { name: '🛖 House of Craftsmanship', file: 'house_of_craftsmanship.md' },
+    { name: '🛖 Humble Abode', file: 'humble_abode.md' },
+    { name: 'Illusion Cliffs', file: 'illusion_cliffs.md' },
+    { name: 'Imperial Swamp', file: 'imperial_swamp.md' },
+    { name: 'Indigo Shore', file: 'indigo_shore.md' },
+    { name: 'MindTech Institute Fortress (inner walls)', file: 'institute_fortress_inner.md' },
+    { name: 'MindTech Institute Fortress (outer walls)', file: 'institute_fortress_outer.md' },
+    { name: '☯ Isle Of Solitude', file: 'isle_of_solitude.md' },
+    { name: '🎊 Jackbox Party Central', file: 'jackbox_party_central.md' },
+    { name: '🦖 Jurassic Park', file: 'jurassic_park.md' },
+    { name: '🕸️ K2 Fibers', file: 'k2_fibers.md' },
+    { name: 'King\'s Challenges', file: 'kings_challenges.md' },
+    { name: '🌳 Kingtree Sanctuary', file: 'kingtree_sanctuary.md' },
+    { name: 'King A\'as', file: 'king_aas.md' },
+    { name: '👑 King of Zeithalt', file: 'king_of_zeithalt.md' },
+    { name: '🌊 Kragg\'s Run Company', file: 'kraggs_run_company.md' },
+    { name: '🏕️️ Kragthar Nexus', file: 'kragthar_nexus.md' },
+    { name: 'Lake Corsair', file: 'lake_corsair.md' },
+    { name: '🧼 Laundry N°131691', file: 'laundry_131691.md' },
+    { name: '🐸 Leaf Frog Sanctuary', file: 'leaf_frog_sanctuary.md' },
+    { name: '🏛️ Library of Eternal Knowledge', file: 'library_of_eternal_knowledge.md' },
+    { name: '🗼 Lime Tower', file: 'lime_tower.md' },
+    { name: 'Loki', file: 'loki.md' },
+    { name: 'Lower Mire (area)', file: 'lower_mire_area.md' },
+    { name: 'Map Legend', file: 'map_legend.md' },
+    { name: '🪆 Matryoshka Idoll', file: 'matryoshka_idoll.md' },
+    { name: 'Mysterious Mazes', file: 'maze.md' },
+    { name: 'Meadowridge', file: 'meadowridge.md' },
+    { name: '🎨 Xiavente\'s Meme Workshop', file: 'meme_workshop.md' },
+    { name: '🔥 Midnight Oil Burner', file: 'midnight_oil_burner.md' },
+    { name: '🏯 Military Academy', file: 'military_academy.md' },
+    { name: '💥 Military Training Ground', file: 'military_training_ground.md' },
+    { name: '`🦅` Millennium Falcon', file: 'millennium_falcon.md' },
+    { name: 'Mimb', file: 'mimb.md' },
+    { name: 'Mimbot, the Lore Keeper', file: 'mimbot.md' },
+    { name: 'Mimps Virus', file: 'mimps.md' },
+    { name: 'Minds', file: 'minds.md' },
+    { name: '🪶 MindTech Culture Center', file: 'mindtech_culture_center.md' },
+    { name: 'MindTech Institute', file: 'mindtech_institute.md' },
+    { name: '💹 MMM, Money Making Machine', file: 'mmm.md' },
+    { name: '🔬 Modern CR Research Facility', file: 'modern_cr_research_facility.md' },
+    { name: '🏦 Money Factory', file: 'money_factory.md' },
+    { name: '🎲 Monument to Chaos', file: 'monument_to_chaos.md' },
+    { name: 'Morpheus Zvezda', file: 'morpheus_zvezda.md' },
+    { name: '🏞️ Mother\'s Tears', file: 'mothers_tears.md' },
+    { name: 'Mt. Pickles', file: 'mt_pickles.md' },
+    { name: 'MindTech Symbology', file: 'mt_symbology.md' },
+    { name: '💾 Museum of Archaic Technology', file: 'museum_of_archaic_tech.md' },
+    { name: '🏛️ Museum of the Old Capital', file: 'museum_of_old_capital.md' },
+    { name: 'NAIRO', file: 'nairo.md' },
+    { name: '⬡ Nanobot Hive', file: 'nanobot_hive.md' },
+    { name: 'Neuropolis', file: 'neuropolis.md' },
+    { name: '📰 News HQ', file: 'news_hq.md' },
+    { name: '🪩 Nightclub \"1234\"', file: 'nightclub_1234.md' },
+    { name: '🔇 No-Echo Chamber', file: 'noecho_chamber.md' },
+    { name: 'Oblivion Mire', file: 'oblivion_mire.md' },
+    { name: 'TITLE', file: 'obsidian_wolf.md' },
+    { name: '🐬 Oceanarium', file: 'oceanarium.md' },
+    { name: '🐟 Oceanic Discovery Center', file: 'oceanic_discovery_center.md' },
+    { name: 'Ogrodnik', file: 'ogrodnik.md' },
+    { name: 'Okeanida Zvezdnaya', file: 'okeanida.md' },
+    { name: '👁 Omnituens Eye', file: 'omnituens_eye.md' },
+    { name: 'Omnituens Lens', file: 'omnituens_lens.md' },
+    { name: '💤 Oneiric Chamber', file: 'oneiric_chamber.md' },
+    { name: 'Ozimud', file: 'ozimud.md' },
+    { name: '🏢 Palace of Bureaucracy', file: 'palace_of_bureaucracy.md' },
+    { name: 'Paradox Pass', file: 'paradox_pass.md' },
+    { name: '🎡 Particle Collitionist', file: 'partcile_collitionist.md' },
+    { name: 'Peace Death Gorge', file: 'peace_death_gorge.md' },
+    { name: 'PEBKAC Peak', file: 'pebkac_peak.md' },
+    { name: '🦴 Pet Sematary', file: 'pet_sematary.md' },
+    { name: '🔭 Photonic Observatory', file: 'photonic_observatory.md' },
+    { name: '🌿 Photosynthetic Power Station', file: 'photosynthetic_power_station.md' },
+    { name: '⛽️ Pickled Ooblek Deli', file: 'pickled_ooblek_deli.md' },
+    { name: 'Pickled Wind Farms', file: 'pickled_wind_farm.md' },
+    { name: 'Pineville', file: 'pineville.md' },
+    { name: '🏴‍☠️ Pirate Harbor', file: 'pirate_harbor.md' },
+    { name: '🍕 PIZZA', file: 'pizza.md' },
+    { name: 'Pierre\'s Porous Pickle Porch', file: 'pppp.md' },
+    { name: '🚷 Prefrenial Prefect (Prison)', file: 'prefrenial_prefect.md' },
+    { name: '🪓 Prehistoric Axe', file: 'prehistoric_axe.md' },
+    { name: '🏡 Presidential Dacha', file: 'presidential_dacha.md' },
+    { name: '🔸 Proprioceptic Gems', file: 'proprioceptic_gem.md' },
+    { name: '⚓ Proprioceptic Shipyard', file: 'proprioceptic_shipyard.md' },
+    { name: 'Protectores Silva', file: 'protectores_silva.md' },
+    { name: 'PTSD', file: 'ptsd.md' },
+    { name: '💰 PTSD Office', file: 'ptsd_office.md' },
+    { name: '🚽 Public Toilet', file: 'public_toilet.md' },
+    { name: 'Purple Deeps', file: 'purple_deeps.md' },
+    { name: '🔋 Quantum Generator', file: 'quantum_generator.md' },
+    { name: '🛰️ Quantum Nexus Laboratory', file: 'quantum_nexus_lab.md' },
+    { name: '🎒 The Queen\'s Companion', file: 'queens_companion.md' },
+    { name: '🏹 The Queen\'s Gambit', file: 'queens_gambit.md' },
+    { name: '🕷️️️ The Queen\'s Lair', file: 'queens_lair.md' },
+    { name: '🔭 Ranger Network', file: 'ranger_network.md' },
+    { name: 'Rebels', file: 'rebels.md' },
+    { name: '--- Mimbot\'s Index ---', file: 'refs_index.md' },
+    { name: '🧠 Resonance Chamber', file: 'resonance_chamber.md' },
+    { name: 'Resources (RES)', file: 'resources.md' },
+    { name: '🏭 Resource Management Facility', file: 'resource_management_facility.md' },
+    { name: 'Revalx', file: 'revalx.md' },
+    { name: 'Royal Guard', file: 'royal_guard.md' },
+    { name: 'Royal Guard Commander', file: 'royal_guard_commander.md' },
+    { name: 'Saboteur', file: 'saboteur.md' },
+    { name: '🪩 The Sacred Sphere', file: 'sacred_sphere.md' },
+    { name: 'Sazhra', file: 'sazhra.md' },
+    { name: '☄️ Sazhra\'s Space Spire', file: 'sazhras_space_spire.md' },
+    { name: '🏫 School of Spatial Magic', file: 'school_of_spatial_magic.md' },
+    { name: '🌱 Seed Sanctuaries', file: 'seed_sanctuaries.md' },
+    { name: 'Sellswords', file: 'sellswords.md' },
+    { name: '🌵 Sentient Cactus Reservation', file: 'sentient_cactus_reservation.md' },
+    { name: '🏄‍♂️ Serotonin Splash Park', file: 'serotonin_splash_park.md' },
+    { name: '🍺 Seven Roads Inn', file: 'seven_roads_inn.md' },
+    { name: '🗿 Shapeshifter Statue', file: 'shapeshifter_statue.md' },
+    { name: '🌯 Shawarmind Joint', file: 'shawarmind_joint.md' },
+    { name: 'Shaxx', file: 'shaxx.md' },
+    { name: 'Shimmering Sands (oasis)', file: 'shimmering_sands_oasis.md' },
+    { name: '🏟️ Showdown Arena', file: 'showdown_arena.md' },
+    { name: '⛩️ Shrine of Zeith', file: 'shrine_of_zeith.md' },
+    { name: '📌 Sign: T was here', file: 'sign_t_was_here.md' },
+    { name: 'Silvans', file: 'silvans.md' },
+    { name: 'Singularity Valley', file: 'singularity_valley.md' },
+    { name: '🧜‍♀️ Siren\'s Lighthouse', file: 'sirens_lighthouse.md' },
+    { name: '💡 SmartHome Tech', file: 'smarthome_tech.md' },
+    { name: '👤 SMURF', file: 'smurf.md' },
+    { name: 'Something Tacensis Rock', file: 'something.md' },
+    { name: 'Somnivale', file: 'somnivale.md' },
+    { name: 'Southern Sea', file: 'southern_sea.md' },
+    { name: '🛸 Spaceport', file: 'spaceport.md' },
+    { name: '👹 Square of Fighting Spirit', file: 'square_of_fighting_spirit.md' },
+    { name: '🗽 Statue of INK', file: 'statue_of_ink.md' },
+    { name: '🗽 Statue of Mimb', file: 'statue_of_mimb.md' },
+    { name: '🌌 Stellarium', file: 'stellarium.md' },
+    { name: 'Stonehavers (family)', file: 'stonehavers.md' },
+    { name: 'Support', file: 'support.md' },
+    { name: 'Synaxos Fields', file: 'synaxos_fields.md' },
+    { name: 'Syncrax Road', file: 'syncrax_road.md' },
+    { name: 'T, Cactus Patron', file: 't.md' },
+    { name: '🫖 Tea Emporium', file: 'tea_emporium.md' },
+    { name: 'Teleport', file: 'teleport.md' },
+    { name: '⌛ Temporal Research Center', file: 'temporal_research_center.md' },
+    { name: 'Temporal Resources', file: 'temporal_resources.md' },
+    { name: '🏜️ Teremok of Cactus Patron', file: 'teremok_of_cactus_patron.md' },
+    { name: 'The Cut (area)', file: 'the_cut_area.md' },
+    { name: '🪦 The Grand Memorial', file: 'the_grand_memorial.md' },
+    { name: '🎵 The JukeTower', file: 'the_juketower.md' },
+    { name: '⚗️ The Kitchen', file: 'the_kitchen.md' },
+    { name: '🪺 The Nest', file: 'the_nest.md' },
+    { name: '🔲 The Obelisk', file: 'the_obelisk.md' },
+    { name: '⚙️ The Sound of Gears Workshop', file: 'the_sound_of_gears_workshop.md' },
+    { name: '🌳 Stillwater Glade', file: 'the_stillwater_glade.md' },
+    { name: '🗺️ The Webeporter', file: 'the_webeporter.md' },
+    { name: '🍺 The Yarrow Beer Shop', file: 'the_yarrow_beer_shop.md' },
+    { name: '🗿 Tiki Bar', file: 'tiki_bar.md' },
+    { name: 'Timeless Desert', file: 'timeless_desert.md' },
+    { name: '🌇 Timeless Town', file: 'timeless_town.md' },
+    { name: 'Timeless Waystone', file: 'timeless_waystone.md' },
+    { name: 'Timeline', file: 'timeline.md' },
+    { name: 'To do \"a Bumps\"', file: 'to_do_a_bumps.md' },
+    { name: 'To do \"a Loki\"', file: 'to_do_a_loki.md' },
+    { name: '🌳 Tree of Many Inquiries', file: 'tree_of_many_inquiries.md' },
+    { name: '💈 Turing Tower', file: 'turing_tower.md' },
+    { name: '🌫️ Uncanny Valley', file: 'uncanny_valley.md' },
+    { name: '📚️️️ Underground Accounting', file: 'underground_accounting.md' },
+    { name: '⚙️ Underwater Turbine Power Plant', file: 'underwater_power_plant.md' },
+    { name: '🦄 UniCorn™️ Farmlands', file: 'unicorn_farmlands.md' },
+    { name: '🥡 Valhalla Bar', file: 'valhalla_bar.md' },
+    { name: 'Valkyrie Spec Ops', file: 'valkyrie_specops.md' },
+    { name: '👻 Valley of Lost Spirits', file: 'valley_of_lost_spirits.md' },
+    { name: '🛕 Veranda of Chaos', file: 'veranda_of_chaos.md' },
+    { name: 'Virtuara Outpost', file: 'virtuara_outpost.md' },
+    { name: '🦈 Void Shark Hatchery', file: 'void_shark_hatchery.md' },
+    { name: '♨️ Volcanic Jacuzzi', file: 'volcanic_jacuzzi.md' },
+    { name: '🌋 Volcano Influeno', file: 'volcano_influeno.md' },
+    { name: '🏯️️️ Wall of Unity', file: 'wall_of_unity.md' },
+    { name: '🛠️ Warehouse № 7', file: 'warehouse__7.md' },
+    { name: 'WAR items', file: 'war_items.md' },
+    { name: 'Watchtower Ruins', file: 'watchtower_ruins.md' },
+    { name: '🚰 Water Filtering Station', file: 'water_filtering_station.md' },
+    { name: '🎏 Weather Tower Relay', file: 'weather_tower_relay.md' },
+    { name: 'Webified Hills', file: 'webified_hills.md' },
+    { name: '📻 West Coast Research Station', file: 'west_coast_research_station.md' },
+    { name: '🐅 Wildlife Preservation', file: 'wildlife_preservation.md' },
+    { name: '🌱 World Seed Pendant', file: 'world_seed_pendant.md' },
+    { name: 'Xiavente', file: 'xiavente.md' },
+    { name: 'Xyrclaox Watch', file: 'xyrclaox_watch.md' },
+    { name: 'You', file: 'you.md' },
+    { name: 'Zeithalt Zeitgeist newspaper', file: 'zeithalt_zeitgeist.md' },
+    { name: '🛕 Ziggurat, Shrine of Loyalty', file: 'ziggurat_shrine_of_loyalty.md' },
+    { name: '🗼 Zikkurat', file: 'zikkurat.md' },
+    { name: '🌟 ZIPP Lines', file: 'zipp_lines.md' }
+  ];
 
+  const helpEntries = [
+    { name: 'Direct Play', file: 'direct_play.md' }
   ];
 
   const timelineEvents = [
-    { id: 'Eon 0', name: 'End of the Age of Darkness', file: 'eon0000.md' },
-    { id: 'Eon 1', name: 'Start of the Age of Conquest', file: 'eon0001.md' },
-    { id: 'Eon 246', name: 'Start of the recorded history', file: 'eon0246.md' },
-    { id: 'Eon 247', name: 'The Forgotten Battle', file: 'eon0247.md' },
-    { id: 'Eon 252', name: 'Battle of Timeless Desert', file: 'eon0252.md' },
-    { id: 'Eon 253', name: 'Start of the Age of Battles', file: 'eon0253.md' },
-    { id: 'Eon 257', name: 'Battle of Mt. Pickles', file: 'eon0257.md' },
-    { id: 'Eon 266', name: 'Battle of Dev Null Marsh', file: 'eon0266.md' },
-    { id: 'Eon 272', name: 'The 2nd Battle of Timeless Desert', file: 'eon0272.md' },
-    { id: 'Eon 273', name: 'Technological advancement', file: 'eon0273.md' },
-    { id: 'Eon 275', name: 'Uprising in the Delta Collective', file: 'eon0275.md' },
-    { id: 'Eon 280', name: 'Battle of Brickland Fortress', file: 'eon0280.md' },
-    { id: 'Eon 290', name: 'The 2nd Battle of Mt. Pickles', file: 'eon0290.md' },
-    { id: 'Eon 291', name: 'Delta Collective renames several of their lands', file: 'eon0291.md' },
-    { id: 'Eon 295', name: 'Technological advancement - Support and Sabotage', file: 'eon0295.md' },
-    { id: 'Eon 298', name: 'Battle of Synaxos Fields', file: 'eon0298.md' },
-    { id: 'Eon 301', name: 'DC give Synaxos Fields to CI', file: 'eon0301.md' },
-    { id: 'Eon 306', name: 'The Boring Battle', file: 'eon0306.md' },
-    { id: 'Eon 310', name: 'Unknown treat appears on the Island', file: 'eon0310.md' },
-    { id: 'Eon 314', name: 'The Battle of Corrupted Desert', file: 'eon0314.md' },
-    { id: 'Eon 321', name: 'The Long Battle of Dev Null Marsh', file: 'eon0321.md' },
-    { id: 'Eon 330', name: 'The Confusing Battle of Indigo Shore', file: 'eon0330.md' },
-    { id: 'Eon 338', name: 'The 3rd Battle of Mt. Pickles', file: 'eon0338.md' },
-    { id: 'Eon 339', name: 'CR Outburst is predicted to happen in Cybertron', file: 'eon0339.md' },
-    { id: 'Eon 341', name: 'MT gives Indigo Shore to CI', file: 'eon0341.md' },
-    { id: 'Eon 345', name: 'The Battle of Corrupted Jungle', file: 'eon0345.md' },
-    { id: 'Eon 347', name: 'CI calls for peace', file: 'eon0347.md' },
-    { id: 'Eon 349', name: 'MT support the effort for peace', file: 'eon0349.md' },
-    { id: 'Eon 351', name: 'CI and DC exchange lands', file: 'eon0351.md' },
-    { id: 'Eon 352', name: 'DC calls off an attack', file: 'eon0352.md' },
-    { id: 'Eon 353', name: 'Corruption research in full swing', file: 'eon0353.md' },
-    { id: 'Eon 359', name: 'The Battle of Corrupted Forest', file: 'eon0359.md' },
-    { id: 'Eon 367', name: 'The Fishy Battle of Imperial Swamp', file: 'eon0367.md' },
-    { id: 'Eon 368', name: 'CI gives Imperial Swamp back to DC', file: 'eon0368.md' },
-    { id: 'Eon 369', name: 'Protectores Silva is founded', file: 'eon0369.md' },
-    { id: 'Eon 370', name: 'CI gives Cybertron Jungle to PS', file: 'eon0370.md' },
-    { id: 'Eon 375', name: 'The 4h Battle of Mt. Pickles', file: 'eon0375.md' },
-    { id: 'Eon 384', name: 'The Siege of Neuropolis', file: 'eon0384.md' },
-    { id: 'Eon 386', name: 'DC and CI exchange lands 2 for 2', file: 'eon0386.md' },
-    { id: 'Eon 391', name: '2nd Battle of Corrupted Desert', file: 'eon0391.md' },
-    { id: 'Eon 402', name: 'The Night Battle of Paradox Pass', file: 'eon0402.md' },
-    { id: 'Eon 407', name: 'CI and MT exchange lands', file: 'eon0407.md' },
-    { id: 'Eon 413', name: 'The Battle of Legoland Fortress', file: 'eon0413.md' },
-    { id: 'Eon 418', name: 'CI and DC exchange lands', file: 'eon0418.md' },
-    { id: 'Eon 419', name: '3-way land exchange between CI, MT and PS', file: 'eon0419.md' },
-    { id: 'Eon 423', name: 'The Foolish Battle of Timeless Desert', file: 'eon0423.md' },
-    { id: 'Eon 425', name: 'PS passes their attack turn', file: 'eon0425.md' },
-    { id: 'Eon 432', name: 'The Battle of Corrupted Marshes', file: 'eon0432.md' },
-    { id: 'Eon 435', name: 'PS passes their attack turn', file: 'eon0435.md' },
-    { id: 'Eon 441', name: 'The Lakeside Battle of Webified Hills', file: 'eon0441.md' },
-    { id: 'Eon 451', name: 'The Blitz Battle of Peace Death Gorge', file: 'eon0451.md' },
-    { id: 'Eon 452', name: 'Technological advancement - Taxes and Land Income', file: 'eon0452.md' },
-    { id: 'Eon 462', name: 'The 2nd Siege of Neuropolis', file: 'eon0462.md' },
-    { id: 'Eon 463', name: 'DC gives Ares Gardens to PS', file: 'eon0463.md' },
-    { id: 'Eon 466', name: 'CI and PS prepare for CR Battle', file: 'eon0466.md' },
-    { id: 'Eon 469', name: 'The Corrupted Battle of PEBKAC Peak', file: 'eon0469.md' },
-    { id: 'Eon 479', name: 'The Crawling Battle of Xyrclaox Watch', file: 'eon0479.md' },
-    { id: 'Eon 480', name: 'CI gives Xyrclaox Watch back to MT', file: 'eon0480.md' },
-    { id: 'Eon 481', name: 'PS passes their attack turn', file: 'eon0481.md' },
-    { id: 'Eon 487', name: 'CI and MT exchange lands', file: 'eon0487.md' },
-    { id: 'Eon 491', name: 'The Oblivious Battle on the Mire', file: 'eon0491.md' },
-    { id: 'Eon 492', name: 'CI and MT exchange lands', file: 'eon0492.md' },
-    { id: 'Eon 501', name: 'The Failed Landing near Virtuara Outpost', file: 'eon0501.md' },
-    { id: 'Eon 502', name: 'The Island is getting ready for the next Corruption surge', file: 'eon0502.md' },
-    { id: 'Eon 505', name: 'Rebels take over Timeless Desert', file: 'eon0505.md' },
-    { id: 'Eon 506', name: 'Rebellion in the Desert', file: 'eon0506.md' },
-    { id: 'Eon 508', name: 'The Disaster of Synaxos Fields', file: 'eon0508.md' },
-    { id: 'Eon 515', name: 'The Sleepy Siege of Cerene Vale', file: 'eon0515.md' },
-    { id: 'Eon 517', name: 'PS passes their attack turn', file: 'eon0517.md' },
-    { id: 'Eon 518', name: 'Restoration of Synaxos Fields', file: 'eon0518.md' },
-    { id: 'Eon 519', name: 'CI and DC exchange lands', file: 'eon0519.md' },
-    { id: 'Eon 526', name: 'The Recapture of Synaxos Fields', file: 'eon0526.md' },
-    { id: 'Eon 527', name: 'CI and DC exchange lands', file: 'eon0527.md' },
-    { id: 'Eon 536', name: 'The Dark Night on the Mire', file: 'eon0536.md' },
-    { id: 'Eon 540', name: 'Restoration of Oblivion Mire', file: 'eon0540.md' },
-    { id: 'Eon 545', name: 'Military exercise in Cerene Vale', file: 'eon0545.md' },
-    { id: 'Eon 554', name: 'The Race for Oblivion Mire', file: 'eon0554.md' },
-    { id: 'Eon 560', name: 'CI gives Oblivion Mire to PS', file: 'eon0560.md' },
-    { id: 'Eon 563', name: 'The 5th Battle of Mt. Pickles', file: 'eon0563.md' },
-    { id: 'Eon 573', name: 'The Battle of Corrupted Valley', file: 'eon0573.md' },
-    { id: 'Eon 582', name: 'The Advance on Peace Death Gorge', file: 'eon0582.md' },
-    { id: 'Eon 596', name: 'The Fall of Imperial Swamp', file: 'eon0596.md' },
-    { id: 'Eon 611', name: 'A Picnic near The Purple Deeps', file: 'eon0611.md' },
-    { id: 'Eon 617', name: 'CI and DC exchange lands', file: 'eon0617.md' },
-    { id: 'Eon 619', name: 'The Reclamation of Imperial Swamp', file: 'eon0619.md' },
-    { id: 'Eon 626', name: 'The Enduring Defense of Webified Hills', file: 'eon0626.md' },
-    { id: 'Eon 636', name: 'The Peculiar Battle of Mt. Pickles', file: 'eon0636.md' },
-    { id: 'Eon 646', name: 'The Unstable Battle of Blue Screen Lagoon', file: 'eon0646.md' },
-    { id: 'Eon 656', name: 'The Sabotage in the Desert', file: 'eon0656.md' },
-    { id: 'Eon 666', name: 'The Spooky Battle of Chaotic Plains', file: 'eon0666.md' },
-    { id: 'Eon 679', name: 'The Defense of Dev Null Marsh', file: 'eon0679.md' },
-    { id: 'Eon 687', name: 'The Crash Landing on Indigo Shore', file: 'eon0687.md' },
-    { id: 'Eon 697', name: 'The Corruption Outbreak in Synaxos Fields', file: 'eon0697.md' },
-    { id: 'Eon 706', name: 'The Fall of Ares Garden', file: 'eon0706.md' },
-    { id: 'Eon 715', name: 'The Unfriendly Battle of Blue Screen Lagoon', file: 'eon0715.md' },
-    { id: 'Eon 723', name: '2nd Sabotage in the Desert', file: 'eon0723.md' },
-    { id: 'Eon 730', name: 'PS give Blue Screen Lagoon to CI', file: 'eon0730.md' },
-    { id: 'Eon 733', name: 'The Frantic Battle over A\'as Forest', file: 'eon0733.md' },
-    { id: 'Eon 740', name: 'The Battle Of Corrupted Mountain', file: 'eon0740.md' },
-    { id: 'Eon 749', name: 'The Burning of Cerene Vale', file: 'eon0749.md' },
-    { id: 'Eon 755', name: 'Council of Minds is restored in MT', file: 'eon0755.md' },
-    { id: 'Eon 759', name: 'The Festive Battle on the Marshes', file: 'eon0759.md' },
-    { id: 'Eon 761', name: 'MT and PS exchange lands', file: 'eon0761.md' },
-    { id: 'Eon 762', name: 'DC and PS exchange lands', file: 'eon0762.md' },
-    { id: 'Eon 766', name: 'PS rebuilds capital in Cerene Vale', file: 'eon0766.md' },
-    { id: 'Eon 768', name: 'Hesitant Battle of Peace Death Gorge', file: 'eon0768.md' },
-    { id: 'Eon 778', name: 'The 3rd Outbreak in Synaxos Fields', file: 'eon0778.md' },
-    { id: 'Eon 779', name: 'Cloudy Operative is founded', file: 'eon0779.md' },
-    { id: 'Eon 793', name: 'The Mourning of Peace Death Gorge', file: 'eon0793.md' },
-    { id: 'Eon 802', name: 'Military Exercise in the Dev Null Marsh', file: 'eon0802.md' },
-    { id: 'Eon 810', name: 'Grinding Battle of Peace Death Gorge', file: 'eon0810.md' },
-    { id: 'Eon 818', name: 'Blitz Battle of the A\'as Forest', file: 'eon0818.md' },
-    { id: 'Eon 825', name: 'A Near Miss at Paradox Pass', file: 'eon0825.md' },
-    { id: 'Eon 836', name: 'Successful Landing near Virtuara Outpost', file: 'eon0836.md' },
-    { id: 'Eon 842', name: 'MT and DC exchange lands', file: 'eon0842.md' },
-    { id: 'Eon 843', name: 'The Fall of Admincity', file: 'eon0843.md' },
-    { id: 'Eon 852', name: 'CI and MT exchange lands', file: 'eon0852.md' },
-    { id: 'Eon 856', name: 'The Foolish Battle of Chaotic Plains', file: 'eon0856.md' },
-    { id: 'Eon 864', name: 'The Victory of Peace Death Gorge', file: 'eon0864.md' },
-    { id: 'Eon 874', name: 'The Daring Battle of Chaotic Plains', file: 'eon0874.md' },
-    { id: 'Eon 884', name: 'The Rise of Admincity', file: 'eon0884.md' },
-    { id: 'Eon 889', name: 'CI and PS exchange lands', file: 'eon0889.md' },
-    { id: 'Eon 893', name: 'The Blunder on PEBKAC Peak', file: 'eon0893.md' },
-    { id: 'Eon 895', name: 'CI and PS exchange lands', file: 'eon0895.md' },
-    { id: 'Eon 903', name: 'The Corrupted Outpost', file: 'eon0903.md' },
-    { id: 'Eon 910', name: 'CI and PS exchange lands', file: 'eon0910.md' },
-    { id: 'Eon 914', name: 'Resourceful Battle over Peace Death Gorge', file: 'eon0914.md' },
-    { id: 'Eon 915', name: 'CI and PS exchange lands', file: 'eon0915.md' },
-    { id: 'Eon 924', name: 'Explosive Battle of Brickland Fortress', file: 'eon0924.md' },
-    { id: 'Eon 932', name: 'The 4th Outbreak in Synaxos Fields', file: 'eon0932.md' },
-    { id: 'Eon 933', name: 'MT and PS exchange lands', file: 'eon0933.md' },
-    { id: 'Eon 941', name: 'CI and PS exchange lands', file: 'eon0941.md' },
-    { id: 'Eon 946', name: 'Expensive Battle of Ares Gardens', file: 'eon0946.md' },
-    { id: 'Eon 955', name: 'Frustrating Battle of Mt. Pickles', file: 'eon0955.md' },
-    { id: 'Eon 959', name: 'Band of Brothers is founded', file: 'eon0959.md' },
-    { id: 'Eon 962', name: 'Hijacking of the Brickland Fortress', file: 'eon0962.md' },
-    { id: 'Eon 963', name: 'DC and BB exchange lands', file: 'eon0963.md' },
-    { id: 'Eon 964', name: 'CI and PS exchange lands', file: 'eon0964.md' },
-    { id: 'Eon 965', name: 'BB establish a capital in the Imperial Swamp', file: 'eon0965.md' },
-    { id: 'Eon 969', name: 'Loss of the Illusion Cliffs', file: 'eon0969.md' },
-    { id: 'Eon 977', name: 'Anti-CR Training in the Blue Screen Lagoon', file: 'eon0977.md' },
-    { id: 'Eon 980', name: 'Restoration of Illusion Cliffs is complete', file: 'eon0980.md' },
-    { id: 'Eon 988', name: 'Recapture of Illusion Cliffs', file: 'eon0988.md' },
-    { id: 'Eon 997', name: 'Failed Siege of Purple Deeps', file: 'eon0997.md' },
-    { id: 'Eon 999', name: 'CI and PS exchange lands', file: 'eon0999.md' },
-    { id: 'Eon 1000', name: 'Millennium Falcon is spotted', file: 'eon1000.md' },
-    { id: 'Eon 1007', name: 'Futile Battle at Peace Death Gorge', file: 'eon1007.md' },
-    { id: 'Eon 1015', name: 'Divine Battle of Ares Gardens', file: 'eon1015.md' },
-    { id: 'Eon 1023', name: 'The Explosive Battle of Chaotic Plains', file: 'eon1023.md' },
-    { id: 'Eon 1030', name: 'Collaborative Battle at Dev Null Marsh', file: 'eon1030.md' },
-    { id: 'Eon 1044', name: 'The Influential Battle of Chaotic Plains', file: 'eon1044.md' },
-    { id: 'Eon 1052', name: 'Silvan Siege of Purple Deeps', file: 'eon1052.md' },
-    { id: 'Eon 1063', name: 'Retaliation on Peace Death Gorge', file: 'eon1063.md' },
-    { id: 'Eon 1072', name: 'The 2nd Battle of Corrupted Valley', file: 'eon1072.md' },
-    { id: 'Eon 1080', name: 'Defeat at Peace Death Gorge', file: 'eon1080.md' },
-    { id: 'Eon 1097', name: 'The Battle of Corrupted Mind', file: 'eon1097.md' },
-    { id: 'Eon 1111', name: 'Desperate Battle of Peace Death Gorge', file: 'eon1111.md' },
-    { id: 'Eon 1123', name: 'Another Failed Landing Near Virtuara Outpost', file: 'eon1123.md' },
-    { id: 'Eon 1131', name: 'A Close Call in Xyrclaox Watch', file: 'eon1131.md' },
-    { id: 'Eon 1139', name: 'The 4th Failed Siege of Purple Deeps', file: 'eon1139.md' },
-    { id: 'Eon 1147', name: 'The Hard-earned Return of Peace Death Gorge', file: 'eon1147.md' },
-    { id: 'Eon 1158', name: 'Uphill Battle of Cybertron Jungle', file: 'eon1158.md' },
-    { id: 'Eon 1167', name: 'The Strained Defense of Peace Death Gorge', file: 'eon1167.md' },
-    { id: 'Eon 1176', name: 'The Burning of Admincity', file: 'eon1176.md' },
-    { id: 'Eon 1186', name: 'Retreat from Cybertron Jungle', file: 'eon1186.md' },
-    { id: 'Eon 1193', name: 'The Strong Battle of Chaotic Plains', file: 'eon1193.md' },
-    { id: 'Eon 1200', name: 'Masterful Defence of Webified Hills', file: 'eon1200.md' },
-    { id: 'Eon 1209', name: 'A Dumb Battle of Cerene Vale', file: 'eon1209.md' },
-    { id: 'Eon 1218', name: 'Toothless Battle of Chaotic Plains', file: 'eon1218.md' },
-    { id: 'Eon 1221', name: 'NAIRO Declares Cybernetics Imperium', file: 'eon1221.md' },
-    { id: 'Eon 1227', name: 'Lucrative Battle of Xyrclaox Watch', file: 'eon1227.md' },
-    { id: 'Eon 1236', name: 'Fake Liberation of Admincity', file: 'eon1236.md' },
-    { id: 'Eon 1244', name: 'Loss of Blue Screen Lagoon', file: 'eon1244.md' },
-    { id: 'Eon 1251', name: 'Another Dark Night on the Mire', file: 'eon1251.md' },
-    { id: 'Eon 1262', name: 'Invasion of Synaxos Fields', file: 'eon1262.md' },
-    { id: 'Eon 1266', name: 'BB gives back control over Admincity to CI', file: 'eon1266.md' },
-    { id: 'Eon 1268', name: 'BB gives control over Blue Screen Lagoon to CI', file: 'eon1268.md' },
-    { id: 'Eon 1272', name: 'Fruitless Attempt at Chaotic Plains', file: 'eon1272.md' },
-    { id: 'Eon 1280', name: 'Deltans Strike Back in Brickland Fortress', file: 'eon1280.md' },
-    { id: 'Eon 1286', name: 'Fierce Defense of Paradox Pass', file: 'eon1286.md' },
-    { id: 'Eon 1293', name: 'The 3rd Defense of Webified Hills', file: 'eon1293.md' },
-    { id: 'Eon 1306', name: 'Stoic Defense of A\'as Forest', file: 'eon1306.md' },
-    { id: 'Eon 1313', name: 'The 3rd Siege of Neuropolis', file: 'eon1313.md' },
-    { id: 'Eon 1320', name: 'The Fall of Timeless Desert', file: 'eon1320.md' },
-    { id: 'Eon 1327', name: 'Effortless Recapture of Neuropolis', file: 'eon1327.md' },
-    { id: 'Eon 1334', name: 'Calculated Defense of Cybertron Jungle', file: 'eon1334.md' },
-    { id: 'Eon 1341', name: 'CI transfers control over Paradox Pass to MT', file: 'eon1341.md' },
-    { id: 'Eon 1343', name: 'Sneezing Battle of Synaxos Fields', file: 'eon1343.md' },
-    { id: 'Eon 1354', name: 'An Oopsie in Ares Garden', file: 'eon1354.md' },
-    { id: 'Eon 1365', name: 'Backfired Battle of Brickland Fortress', file: 'eon1365.md' },
-    { id: 'Eon 1374', name: 'Colorful Battle Of Timeless Desert', file: 'eon1374.md' },
-    { id: 'Eon 1381', name: 'Hesitant Battle of Imperial Swamp', file: 'eon1381.md' },
-    { id: 'Eon 1389', name: 'Grave Mistake in Webified Hills', file: 'eon1389.md' },
-    { id: 'Eon 1393', name: 'BB transfers control over their lands in Paradox Pass to MT', file: 'eon1393.md' },
-    { id: 'Eon 1396', name: 'Failed Cleanup of Ares Garden', file: 'eon1396.md' },
-    { id: 'Eon 1405', name: 'Methodical Cleanup of Xyrclaox Watch', file: 'eon1405.md' },
-    { id: 'Eon 1412', name: 'Harmonious Cleanup of Cybertron Jungle', file: 'eon1412.md' },
-    { id: 'Eon 1420', name: 'Controversy in Oblivion Mire', file: 'eon1420.md' },
-    { id: 'Eon 1427', name: 'Calm Defence of Blue Screen Lagoon', file: 'eon1427.md' },
-    { id: 'Eon 1436', name: 'Divisive Battle in Chaotic Plains', file: 'eon1436.md' },
-    { id: 'Eon 1444', name: 'The Push Back at Webified Hills', file: 'eon1444.md' },
-    { id: 'Eon 1452', name: 'Misguided Battle of Brickland Fortress', file: 'eon1452.md' },
-    { id: 'Eon 1460', name: 'Unification of Timeless Desert', file: 'eon1460.md' },
-    { id: 'Eon 1468', name: 'Reconquering of Ares Garden', file: 'eon1468.md' },
-    { id: 'Eon 1475', name: 'Clean-up of Peace Death Gorge', file: 'eon1475.md' },
-    { id: 'Eon 1485', name: 'Almost Festive Battle in Chaotic Plains', file: 'eon1485.md' },
-    { id: 'Eon 1494', name: 'Actually Festive Battle in Brickland Fortress', file: 'eon1494.md' },
-    { id: 'Eon 1504', name: 'Ordinary Battle in Imperial Swamp', file: 'eon1504.md' },
-    { id: 'Eon 1512', name: 'Tomfoolery in Synaxos Fields', file: 'eon1512.md' },
-    { id: 'Eon 1522', name: 'Hard Siege of Cerene Vale', file: 'eon1522.md' },
-    { id: 'Eon 1530', name: 'Final Clean-Up of Webified Hills', file: 'eon1530.md' },
-    { id: 'Eon 1538', name: 'Corruption Outburst in Ares Gardens', file: 'eon1538.md' },
-    { id: 'Eon 1546', name: 'DC transfer control over Brickland Fortress to BB', file: 'eon1546.md' },
-    { id: 'Eon 1547', name: 'The Bombing of Oblivion Mire', file: 'eon1547.md' },
-    { id: 'Eon 1557', name: 'The Proxy Battle of Brickland Fortress', file: 'eon1557.md' },
-    { id: 'Eon 1566', name: 'Uneventful Battle of Mt. Pickles', file: 'eon1566.md' },
-    { id: 'Eon 1572', name: '🛑 Forest Fire in Brickland Fortress', file: 'eon1572.md' },
-    { id: 'Eon 1574', name: 'Royal Guard is founded', file: 'eon1574.md' },
-    { id: 'Eon 1576', name: 'Another Backfire in Brickland Fortress', file: 'eon1576.md' },
-    { id: 'Eon 1577', name: 'Royal Guard rebels in the Illusion Cliffs', file: 'eon1577.md' }
+    { name: 'Eon 0 - End of the Age of Darkness', file: 'eon0000.md' },
+    { name: 'Eon 1 - Start of the Age of Conquest', file: 'eon0001.md' },
+    { name: 'Eon 246 - Start of the recorded history', file: 'eon0246.md' },
+    { name: 'Eon 247 - The Forgotten Battle', file: 'eon0247.md' },
+    { name: 'Eon 252 - Battle of Timeless Desert', file: 'eon0252.md' },
+    { name: 'Eon 253 - Start of the Age of Battles', file: 'eon0253.md' },
+    { name: 'Eon 257 - Battle of Mt. Pickles', file: 'eon0257.md' },
+    { name: 'Eon 266 - Battle of Dev Null Marsh', file: 'eon0266.md' },
+    { name: 'Eon 272 - The 2nd Battle of Timeless Desert', file: 'eon0272.md' },
+    { name: 'Eon 273 - Technological advancement', file: 'eon0273.md' },
+    { name: 'Eon 275 - Uprising in the Delta Collective', file: 'eon0275.md' },
+    { name: 'Eon 280 - Battle of Brickland Fortress', file: 'eon0280.md' },
+    { name: 'Eon 290 - The 2nd Battle of Mt. Pickles', file: 'eon0290.md' },
+    { name: 'Eon 291 - Delta Collective renames several of their lands', file: 'eon0291.md' },
+    { name: 'Eon 295 - Technological advancement - Support and Sabotage', file: 'eon0295.md' },
+    { name: 'Eon 298 - Battle of Synaxos Fields', file: 'eon0298.md' },
+    { name: 'Eon 301 - DC give Synaxos Fields to CI', file: 'eon0301.md' },
+    { name: 'Eon 306 - The Boring Battle', file: 'eon0306.md' },
+    { name: 'Eon 310 - Unknown treat appears on the Island', file: 'eon0310.md' },
+    { name: 'Eon 314 - The Battle of Corrupted Desert', file: 'eon0314.md' },
+    { name: 'Eon 321 - The Long Battle of Dev Null Marsh', file: 'eon0321.md' },
+    { name: 'Eon 330 - The Confusing Battle of Indigo Shore', file: 'eon0330.md' },
+    { name: 'Eon 338 - The 3rd Battle of Mt. Pickles', file: 'eon0338.md' },
+    { name: 'Eon 339 - CR Outburst is predicted to happen in Cybertron', file: 'eon0339.md' },
+    { name: 'Eon 341 - MT gives Indigo Shore to CI', file: 'eon0341.md' },
+    { name: 'Eon 345 - The Battle of Corrupted Jungle', file: 'eon0345.md' },
+    { name: 'Eon 347 - CI calls for peace', file: 'eon0347.md' },
+    { name: 'Eon 349 - MT support the effort for peace', file: 'eon0349.md' },
+    { name: 'Eon 351 - CI and DC exchange lands', file: 'eon0351.md' },
+    { name: 'Eon 352 - DC calls off an attack', file: 'eon0352.md' },
+    { name: 'Eon 353 - Corruption research in full swing', file: 'eon0353.md' },
+    { name: 'Eon 359 - The Battle of Corrupted Forest', file: 'eon0359.md' },
+    { name: 'Eon 367 - The Fishy Battle of Imperial Swamp', file: 'eon0367.md' },
+    { name: 'Eon 368 - CI gives Imperial Swamp back to DC', file: 'eon0368.md' },
+    { name: 'Eon 369 - Protectores Silva is founded', file: 'eon0369.md' },
+    { name: 'Eon 370 - CI gives Cybertron Jungle to PS', file: 'eon0370.md' },
+    { name: 'Eon 375 - The 4h Battle of Mt. Pickles', file: 'eon0375.md' },
+    { name: 'Eon 384 - The Siege of Neuropolis', file: 'eon0384.md' },
+    { name: 'Eon 386 - DC and CI exchange lands 2 for 2', file: 'eon0386.md' },
+    { name: 'Eon 391 - 2nd Battle of Corrupted Desert', file: 'eon0391.md' },
+    { name: 'Eon 402 - The Night Battle of Paradox Pass', file: 'eon0402.md' },
+    { name: 'Eon 407 - CI and MT exchange lands', file: 'eon0407.md' },
+    { name: 'Eon 413 - The Battle of Legoland Fortress', file: 'eon0413.md' },
+    { name: 'Eon 418 - CI and DC exchange lands', file: 'eon0418.md' },
+    { name: 'Eon 419 - 3-way land exchange between CI, MT and PS', file: 'eon0419.md' },
+    { name: 'Eon 423 - The Foolish Battle of Timeless Desert', file: 'eon0423.md' },
+    { name: 'Eon 425 - PS passes their attack turn', file: 'eon0425.md' },
+    { name: 'Eon 432 - The Battle of Corrupted Marshes', file: 'eon0432.md' },
+    { name: 'Eon 435 - PS passes their attack turn', file: 'eon0435.md' },
+    { name: 'Eon 441 - The Lakeside Battle of Webified Hills', file: 'eon0441.md' },
+    { name: 'Eon 451 - The Blitz Battle of Peace Death Gorge', file: 'eon0451.md' },
+    { name: 'Eon 452 - Technological advancement - Taxes and Land Income', file: 'eon0452.md' },
+    { name: 'Eon 462 - The 2nd Siege of Neuropolis', file: 'eon0462.md' },
+    { name: 'Eon 463 - DC gives Ares Gardens to PS', file: 'eon0463.md' },
+    { name: 'Eon 466 - CI and PS prepare for CR Battle', file: 'eon0466.md' },
+    { name: 'Eon 469 - The Corrupted Battle of PEBKAC Peak', file: 'eon0469.md' },
+    { name: 'Eon 479 - The Crawling Battle of Xyrclaox Watch', file: 'eon0479.md' },
+    { name: 'Eon 480 - CI gives Xyrclaox Watch back to MT', file: 'eon0480.md' },
+    { name: 'Eon 481 - PS passes their attack turn', file: 'eon0481.md' },
+    { name: 'Eon 487 - CI and MT exchange lands', file: 'eon0487.md' },
+    { name: 'Eon 491 - The Oblivious Battle on the Mire', file: 'eon0491.md' },
+    { name: 'Eon 492 - CI and MT exchange lands', file: 'eon0492.md' },
+    { name: 'Eon 501 - The Failed Landing near Virtuara Outpost', file: 'eon0501.md' },
+    { name: 'Eon 502 - The Island is getting ready for the next Corruption surge', file: 'eon0502.md' },
+    { name: 'Eon 505 - Rebels take over Timeless Desert', file: 'eon0505.md' },
+    { name: 'Eon 506 - Rebellion in the Desert', file: 'eon0506.md' },
+    { name: 'Eon 508 - The Disaster of Synaxos Fields', file: 'eon0508.md' },
+    { name: 'Eon 515 - The Sleepy Siege of Cerene Vale', file: 'eon0515.md' },
+    { name: 'Eon 517 - PS passes their attack turn', file: 'eon0517.md' },
+    { name: 'Eon 518 - Restoration of Synaxos Fields', file: 'eon0518.md' },
+    { name: 'Eon 519 - CI and DC exchange lands', file: 'eon0519.md' },
+    { name: 'Eon 526 - The Recapture of Synaxos Fields', file: 'eon0526.md' },
+    { name: 'Eon 527 - CI and DC exchange lands', file: 'eon0527.md' },
+    { name: 'Eon 536 - The Dark Night on the Mire', file: 'eon0536.md' },
+    { name: 'Eon 540 - Restoration of Oblivion Mire', file: 'eon0540.md' },
+    { name: 'Eon 545 - Military exercise in Cerene Vale', file: 'eon0545.md' },
+    { name: 'Eon 554 - The Race for Oblivion Mire', file: 'eon0554.md' },
+    { name: 'Eon 560 - CI gives Oblivion Mire to PS', file: 'eon0560.md' },
+    { name: 'Eon 563 - The 5th Battle of Mt. Pickles', file: 'eon0563.md' },
+    { name: 'Eon 573 - The Battle of Corrupted Valley', file: 'eon0573.md' },
+    { name: 'Eon 582 - The Advance on Peace Death Gorge', file: 'eon0582.md' },
+    { name: 'Eon 596 - The Fall of Imperial Swamp', file: 'eon0596.md' },
+    { name: 'Eon 611 - A Picnic near The Purple Deeps', file: 'eon0611.md' },
+    { name: 'Eon 617 - CI and DC exchange lands', file: 'eon0617.md' },
+    { name: 'Eon 619 - The Reclamation of Imperial Swamp', file: 'eon0619.md' },
+    { name: 'Eon 626 - The Enduring Defense of Webified Hills', file: 'eon0626.md' },
+    { name: 'Eon 636 - The Peculiar Battle of Mt. Pickles', file: 'eon0636.md' },
+    { name: 'Eon 646 - The Unstable Battle of Blue Screen Lagoon', file: 'eon0646.md' },
+    { name: 'Eon 656 - The Sabotage in the Desert', file: 'eon0656.md' },
+    { name: 'Eon 666 - The Spooky Battle of Chaotic Plains', file: 'eon0666.md' },
+    { name: 'Eon 679 - The Defense of Dev Null Marsh', file: 'eon0679.md' },
+    { name: 'Eon 687 - The Crash Landing on Indigo Shore', file: 'eon0687.md' },
+    { name: 'Eon 697 - The Corruption Outbreak in Synaxos Fields', file: 'eon0697.md' },
+    { name: 'Eon 706 - The Fall of Ares Garden', file: 'eon0706.md' },
+    { name: 'Eon 715 - The Unfriendly Battle of Blue Screen Lagoon', file: 'eon0715.md' },
+    { name: 'Eon 723 - 2nd Sabotage in the Desert', file: 'eon0723.md' },
+    { name: 'Eon 730 - PS give Blue Screen Lagoon to CI', file: 'eon0730.md' },
+    { name: 'Eon 733 - The Frantic Battle over A\'as Forest', file: 'eon0733.md' },
+    { name: 'Eon 740 - The Battle Of Corrupted Mountain', file: 'eon0740.md' },
+    { name: 'Eon 749 - The Burning of Cerene Vale', file: 'eon0749.md' },
+    { name: 'Eon 755 - Council of Minds is restored in MT', file: 'eon0755.md' },
+    { name: 'Eon 759 - The Festive Battle on the Marshes', file: 'eon0759.md' },
+    { name: 'Eon 761 - MT and PS exchange lands', file: 'eon0761.md' },
+    { name: 'Eon 762 - DC and PS exchange lands', file: 'eon0762.md' },
+    { name: 'Eon 766 - PS rebuilds capital in Cerene Vale', file: 'eon0766.md' },
+    { name: 'Eon 768 - Hesitant Battle of Peace Death Gorge', file: 'eon0768.md' },
+    { name: 'Eon 778 - The 3rd Outbreak in Synaxos Fields', file: 'eon0778.md' },
+    { name: 'Eon 779 - Cloudy Operative is founded', file: 'eon0779.md' },
+    { name: 'Eon 793 - The Mourning of Peace Death Gorge', file: 'eon0793.md' },
+    { name: 'Eon 802 - Military Exercise in the Dev Null Marsh', file: 'eon0802.md' },
+    { name: 'Eon 810 - Grinding Battle of Peace Death Gorge', file: 'eon0810.md' },
+    { name: 'Eon 818 - Blitz Battle of the A\'as Forest', file: 'eon0818.md' },
+    { name: 'Eon 825 - A Near Miss at Paradox Pass', file: 'eon0825.md' },
+    { name: 'Eon 836 - Successful Landing near Virtuara Outpost', file: 'eon0836.md' },
+    { name: 'Eon 842 - MT and DC exchange lands', file: 'eon0842.md' },
+    { name: 'Eon 843 - The Fall of Admincity', file: 'eon0843.md' },
+    { name: 'Eon 852 - CI and MT exchange lands', file: 'eon0852.md' },
+    { name: 'Eon 856 - The Foolish Battle of Chaotic Plains', file: 'eon0856.md' },
+    { name: 'Eon 864 - The Victory of Peace Death Gorge', file: 'eon0864.md' },
+    { name: 'Eon 874 - The Daring Battle of Chaotic Plains', file: 'eon0874.md' },
+    { name: 'Eon 884 - The Rise of Admincity', file: 'eon0884.md' },
+    { name: 'Eon 889 - CI and PS exchange lands', file: 'eon0889.md' },
+    { name: 'Eon 893 - The Blunder on PEBKAC Peak', file: 'eon0893.md' },
+    { name: 'Eon 895 - CI and PS exchange lands', file: 'eon0895.md' },
+    { name: 'Eon 903 - The Corrupted Outpost', file: 'eon0903.md' },
+    { name: 'Eon 910 - CI and PS exchange lands', file: 'eon0910.md' },
+    { name: 'Eon 914 - Resourceful Battle over Peace Death Gorge', file: 'eon0914.md' },
+    { name: 'Eon 915 - CI and PS exchange lands', file: 'eon0915.md' },
+    { name: 'Eon 924 - Explosive Battle of Brickland Fortress', file: 'eon0924.md' },
+    { name: 'Eon 932 - The 4th Outbreak in Synaxos Fields', file: 'eon0932.md' },
+    { name: 'Eon 933 - MT and PS exchange lands', file: 'eon0933.md' },
+    { name: 'Eon 941 - CI and PS exchange lands', file: 'eon0941.md' },
+    { name: 'Eon 946 - Expensive Battle of Ares Gardens', file: 'eon0946.md' },
+    { name: 'Eon 955 - Frustrating Battle of Mt. Pickles', file: 'eon0955.md' },
+    { name: 'Eon 959 - Band of Brothers is founded', file: 'eon0959.md' },
+    { name: 'Eon 962 - Hijacking of the Brickland Fortress', file: 'eon0962.md' },
+    { name: 'Eon 963 - DC and BB exchange lands', file: 'eon0963.md' },
+    { name: 'Eon 964 - CI and PS exchange lands', file: 'eon0964.md' },
+    { name: 'Eon 965 - BB establish a capital in the Imperial Swamp', file: 'eon0965.md' },
+    { name: 'Eon 969 - Loss of the Illusion Cliffs', file: 'eon0969.md' },
+    { name: 'Eon 977 - Anti-CR Training in the Blue Screen Lagoon', file: 'eon0977.md' },
+    { name: 'Eon 980 - Restoration of Illusion Cliffs is complete', file: 'eon0980.md' },
+    { name: 'Eon 988 - Recapture of Illusion Cliffs', file: 'eon0988.md' },
+    { name: 'Eon 997 - Failed Siege of Purple Deeps', file: 'eon0997.md' },
+    { name: 'Eon 999 - CI and PS exchange lands', file: 'eon0999.md' },
+    { name: 'Eon 1000 - Millennium Falcon is spotted', file: 'eon1000.md' },
+    { name: 'Eon 1007 - Futile Battle at Peace Death Gorge', file: 'eon1007.md' },
+    { name: 'Eon 1015 - Divine Battle of Ares Gardens', file: 'eon1015.md' },
+    { name: 'Eon 1023 - The Explosive Battle of Chaotic Plains', file: 'eon1023.md' },
+    { name: 'Eon 1030 - Collaborative Battle at Dev Null Marsh', file: 'eon1030.md' },
+    { name: 'Eon 1044 - The Influential Battle of Chaotic Plains', file: 'eon1044.md' },
+    { name: 'Eon 1052 - Silvan Siege of Purple Deeps', file: 'eon1052.md' },
+    { name: 'Eon 1063 - Retaliation on Peace Death Gorge', file: 'eon1063.md' },
+    { name: 'Eon 1072 - The 2nd Battle of Corrupted Valley', file: 'eon1072.md' },
+    { name: 'Eon 1080 - Defeat at Peace Death Gorge', file: 'eon1080.md' },
+    { name: 'Eon 1097 - The Battle of Corrupted Mind', file: 'eon1097.md' },
+    { name: 'Eon 1111 - Desperate Battle of Peace Death Gorge', file: 'eon1111.md' },
+    { name: 'Eon 1123 - Another Failed Landing Near Virtuara Outpost', file: 'eon1123.md' },
+    { name: 'Eon 1131 - A Close Call in Xyrclaox Watch', file: 'eon1131.md' },
+    { name: 'Eon 1139 - The 4th Failed Siege of Purple Deeps', file: 'eon1139.md' },
+    { name: 'Eon 1147 - The Hard-earned Return of Peace Death Gorge', file: 'eon1147.md' },
+    { name: 'Eon 1158 - Uphill Battle of Cybertron Jungle', file: 'eon1158.md' },
+    { name: 'Eon 1167 - The Strained Defense of Peace Death Gorge', file: 'eon1167.md' },
+    { name: 'Eon 1176 - The Burning of Admincity', file: 'eon1176.md' },
+    { name: 'Eon 1186 - Retreat from Cybertron Jungle', file: 'eon1186.md' },
+    { name: 'Eon 1193 - The Strong Battle of Chaotic Plains', file: 'eon1193.md' },
+    { name: 'Eon 1200 - Masterful Defence of Webified Hills', file: 'eon1200.md' },
+    { name: 'Eon 1209 - A Dumb Battle of Cerene Vale', file: 'eon1209.md' },
+    { name: 'Eon 1218 - Toothless Battle of Chaotic Plains', file: 'eon1218.md' },
+    { name: 'Eon 1221 - NAIRO Declares Cybernetics Imperium', file: 'eon1221.md' },
+    { name: 'Eon 1227 - Lucrative Battle of Xyrclaox Watch', file: 'eon1227.md' },
+    { name: 'Eon 1236 - Fake Liberation of Admincity', file: 'eon1236.md' },
+    { name: 'Eon 1244 - Loss of Blue Screen Lagoon', file: 'eon1244.md' },
+    { name: 'Eon 1251 - Another Dark Night on the Mire', file: 'eon1251.md' },
+    { name: 'Eon 1262 - Invasion of Synaxos Fields', file: 'eon1262.md' },
+    { name: 'Eon 1266 - BB gives back control over Admincity to CI', file: 'eon1266.md' },
+    { name: 'Eon 1268 - BB gives control over Blue Screen Lagoon to CI', file: 'eon1268.md' },
+    { name: 'Eon 1272 - Fruitless Attempt at Chaotic Plains', file: 'eon1272.md' },
+    { name: 'Eon 1280 - Deltans Strike Back in Brickland Fortress', file: 'eon1280.md' },
+    { name: 'Eon 1286 - Fierce Defense of Paradox Pass', file: 'eon1286.md' },
+    { name: 'Eon 1293 - The 3rd Defense of Webified Hills', file: 'eon1293.md' },
+    { name: 'Eon 1306 - Stoic Defense of A\'as Forest', file: 'eon1306.md' },
+    { name: 'Eon 1313 - The 3rd Siege of Neuropolis', file: 'eon1313.md' },
+    { name: 'Eon 1320 - The Fall of Timeless Desert', file: 'eon1320.md' },
+    { name: 'Eon 1327 - Effortless Recapture of Neuropolis', file: 'eon1327.md' },
+    { name: 'Eon 1334 - Calculated Defense of Cybertron Jungle', file: 'eon1334.md' },
+    { name: 'Eon 1341 - CI transfers control over Paradox Pass to MT', file: 'eon1341.md' },
+    { name: 'Eon 1343 - Sneezing Battle of Synaxos Fields', file: 'eon1343.md' },
+    { name: 'Eon 1354 - An Oopsie in Ares Garden', file: 'eon1354.md' },
+    { name: 'Eon 1365 - Backfired Battle of Brickland Fortress', file: 'eon1365.md' },
+    { name: 'Eon 1374 - Colorful Battle Of Timeless Desert', file: 'eon1374.md' },
+    { name: 'Eon 1381 - Hesitant Battle of Imperial Swamp', file: 'eon1381.md' },
+    { name: 'Eon 1389 - Grave Mistake in Webified Hills', file: 'eon1389.md' },
+    { name: 'Eon 1393 - BB transfers control over their lands in Paradox Pass to MT', file: 'eon1393.md' },
+    { name: 'Eon 1396 - Failed Cleanup of Ares Garden', file: 'eon1396.md' },
+    { name: 'Eon 1405 - Methodical Cleanup of Xyrclaox Watch', file: 'eon1405.md' },
+    { name: 'Eon 1412 - Harmonious Cleanup of Cybertron Jungle', file: 'eon1412.md' },
+    { name: 'Eon 1420 - Controversy in Oblivion Mire', file: 'eon1420.md' },
+    { name: 'Eon 1427 - Calm Defence of Blue Screen Lagoon', file: 'eon1427.md' },
+    { name: 'Eon 1436 - Divisive Battle in Chaotic Plains', file: 'eon1436.md' },
+    { name: 'Eon 1444 - The Push Back at Webified Hills', file: 'eon1444.md' },
+    { name: 'Eon 1452 - Misguided Battle of Brickland Fortress', file: 'eon1452.md' },
+    { name: 'Eon 1460 - Unification of Timeless Desert', file: 'eon1460.md' },
+    { name: 'Eon 1468 - Reconquering of Ares Garden', file: 'eon1468.md' },
+    { name: 'Eon 1475 - Clean-up of Peace Death Gorge', file: 'eon1475.md' },
+    { name: 'Eon 1485 - Almost Festive Battle in Chaotic Plains', file: 'eon1485.md' },
+    { name: 'Eon 1494 - Actually Festive Battle in Brickland Fortress', file: 'eon1494.md' },
+    { name: 'Eon 1504 - Ordinary Battle in Imperial Swamp', file: 'eon1504.md' },
+    { name: 'Eon 1512 - Tomfoolery in Synaxos Fields', file: 'eon1512.md' },
+    { name: 'Eon 1522 - Hard Siege of Cerene Vale', file: 'eon1522.md' },
+    { name: 'Eon 1530 - Final Clean-Up of Webified Hills', file: 'eon1530.md' },
+    { name: 'Eon 1538 - Corruption Outburst in Ares Gardens', file: 'eon1538.md' },
+    { name: 'Eon 1546 - DC transfer control over Brickland Fortress to BB', file: 'eon1546.md' },
+    { name: 'Eon 1547 - The Bombing of Oblivion Mire', file: 'eon1547.md' },
+    { name: 'Eon 1557 - The Proxy Battle of Brickland Fortress', file: 'eon1557.md' },
+    { name: 'Eon 1566 - Uneventful Battle of Mt. Pickles', file: 'eon1566.md' },
+    { name: 'Eon 1572 - 🛑 Forest Fire in Brickland Fortress', file: 'eon1572.md' },
+    { name: 'Eon 1574 - Royal Guard is founded', file: 'eon1574.md' },
+    { name: 'Eon 1576 - Another Backfire in Brickland Fortress', file: 'eon1576.md' },
+    { name: 'Eon 1577 - Royal Guard rebels in the Illusion Cliffs', file: 'eon1577.md' }
   ];
 
   // ==========================================
   // 2. PRE-PROCESSOR & TAGS LOGIC
   // ==========================================
   const customTags = {
-    '[fg]': '`🏰 Factions Game`',
-    '[gm]': '`⚔️ Global Map`',
-    '[ip]': '`🔹 IP`',
-    '[influence]': '`🔹 Influence`',
-    '[term]': '`📑 Term`',
-    '[faction]': '`🪪 Faction`',
-    '[character]': '`🧙‍♂️ Character`',
-    '[battle]': '`⚔️ Battle`',
-    '[event]': '`⌛ Event`',
-    '[place]': '`🪧 Place`',
-    '[entity]': '`🪪 Entity`',
-    '[item]': '`📜 Item`',
-    '[landmark]': '`🖼️ Landmark`',
-    '[period]': '`📅 Time period`'
+    { name: '[fg]', file: '`🏰 Factions Game`' },
+    { name: '[gm]', file: '`⚔️ Global Map`' },
+    { name: '[ip]', file: '`🔹 IP`' },
+    { name: '[influence]', file: '`🔹 Influence`' },
+    { name: '[term]', file: '`📑 Term`' },
+    { name: '[faction]', file: '`🪪 Faction`' },
+    { name: '[character]', file: '`🧙‍♂️ Character`' },
+    { name: '[battle]', file: '`⚔️ Battle`' },
+    { name: '[event]', file: '`⌛ Event`' },
+    { name: '[place]', file: '`🪧 Place`' },
+    { name: '[entity]', file: '`🪪 Entity`' },
+    { name: '[item]', file: '`📜 Item`' },
+    { name: '[landmark]', file: '`🖼️ Landmark`' },
+    { name: '[period]', file: '`📅 Time period`' }
   };
 
   function tagAutocomplete(context) {
@@ -1232,7 +1599,11 @@
     });
 
     timelineEvents.forEach(ev => {
-      options.push(createLinkOption(ev.name, `${ev.id} - ${ev.name}`, `../timeline/${ev.file}`, 'Timeline', 70));
+      options.push(createLinkOption(ev.name, ev.name, `../timeline/${ev.file}`, 'Timeline', 70));
+    });
+
+    helpEntries.forEach(hp => {
+      options.push(createLinkOption(hp.name, hp.name, `../rules/help/${hp.file}`, 'Help Entry', 60));
     });
 
     return { from: word.from, options: options };
@@ -1444,12 +1815,12 @@
       lineNumbers(),
       history(),
       keymap.of([
-        ...defaultKeymap,
-        ...historyKeymap,
-        ...searchKeymap,
         { key: "Mod-b", run: toggleBold },
         { key: "Mod-i", run: toggleItalic },
         { key: "Mod-l", run: insertLink },
+        ...defaultKeymap,
+        ...historyKeymap,
+        ...searchKeymap,
         { key: "Tab", run: acceptCompletion },
         { key: "Tab", run: navigateNextLink },
         { key: "Tab", run: () => true }
@@ -1489,7 +1860,7 @@
   document.getElementById('btn-approve').addEventListener('click', () => {
       showConfirm(
          "Approve this edit?",
-         "earlier edits than this one will be discarded, this edit will be scheduled for publshing",
+         "Earlier edits than this one will be discarded. This edit will be scheduled for publishing.",
          async () => {
              const fileParam = urlParams.get('file') || "";
              try {
@@ -1501,14 +1872,15 @@
              } catch (e) {
                 showToast("Network error.", "warning");
              }
-         }
+         },
+         false
       );
   });
 
   document.getElementById('btn-discard').addEventListener('click', () => {
       showConfirm(
          "Discard this edit?",
-         "this edit will be permanently deleted, other edits won't be affected",
+         "This edit will be permanently deleted. Other edits won't be affected.",
          async () => {
              const fileParam = urlParams.get('file') || "";
              try {
@@ -1520,7 +1892,8 @@
              } catch (e) {
                 showToast("Network error.", "warning");
              }
-         }
+         },
+         true
       );
   });
 
@@ -1534,20 +1907,39 @@
 
   // Revert button listener
   document.getElementById('btn-revert').addEventListener('click', () => {
-      if (confirm("Are you sure you want to discard your draft changes?")) {
+      showConfirm(
+        "Discard draft changes?",
+        "Your unsaved changes will be lost. The file will revert to the last loaded revision.",
+        () => {
           view.dispatch({
             changes: { from: 0, to: view.state.doc.length, insert: activeRevisionCleanText }
           });
-      }
+        },
+        true
+      );
   });
 
   selectEl.addEventListener('change', (e) => {
       const currentText = view.state.doc.toString();
       if (currentText.trim() !== activeRevisionCleanText.trim()) {
-          if (!confirm("You have unsaved draft changes. Discard them to load this revision?")) {
-              e.target.value = activeRevisionId;
-              return;
-          }
+      showConfirm(
+        "Discard draft changes?",
+        "You have unsaved draft changes. They will be lost if you switch to this revision.",
+        () => {
+          const revId = e.target.value;
+          const rev = revisionsData.find(r => r.id === revId);
+          if (!rev) return;
+          activeRevisionId = rev.id;
+          activeRevisionCleanText = rev.text || "";
+          lastSubmittedText = activeRevisionCleanText;
+          view.dispatch({
+            changes: { from: 0, to: view.state.doc.length, insert: activeRevisionCleanText }
+          });
+        },
+        true,
+        () => { e.target.value = activeRevisionId; }
+      );
+      return;
       }
       
       const revId = e.target.value;
@@ -1613,18 +2005,31 @@
   const btnConfirmCancel = document.getElementById('btn-confirm-cancel');
 
   let activeConfirmAction = null;
+  let activeCancelAction = null;
 
-  function showConfirm(title, htmlBody, onConfirm) {
+  // isDanger: true = red destructive button, false = default link-color button
+  function showConfirm(title, bodyText, onConfirm, isDanger = false, onCancel = null) {
     confirmTitle.textContent = title;
-    confirmBody.innerHTML = htmlBody;
+    confirmBody.textContent = bodyText;
     activeConfirmAction = onConfirm;
+    activeCancelAction = onCancel;
+    btnConfirmOk.className = 'modal-btn ' + (isDanger ? 'danger' : 'confirm');
     confirmModal.style.display = 'flex';
   }
 
-  btnConfirmCancel.addEventListener('click', () => confirmModal.style.display = 'none');
+  btnConfirmCancel.addEventListener('click', () => {
+    confirmModal.style.display = 'none';
+    if (activeCancelAction) activeCancelAction();
+  });
   btnConfirmOk.addEventListener('click', () => {
     confirmModal.style.display = 'none';
     if (activeConfirmAction) activeConfirmAction();
+  });
+  confirmModal.addEventListener('click', (e) => {
+    if (e.target === confirmModal) {
+      confirmModal.style.display = 'none';
+      if (activeCancelAction) activeCancelAction();
+    }
   });
 
   document.getElementById('btn-submit-edits').addEventListener('click', (e) => {
