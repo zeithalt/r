@@ -845,6 +845,11 @@
 
           <ul class="footer-right">
             <li class="footer-item">
+              <button id="btn-discordify" class="footer-link" aria-label="Discordify" title="Discordify: format and copy for Discord">
+                Discordify
+              </button>
+            </li>
+            <li class="footer-item">
               <button id="preview-theme-toggle" class="footer-link" aria-label="Toggle Theme" title="Switch to Dark Mode">
                 Dark mode
               </button>
@@ -1978,6 +1983,30 @@
     currentTheme = currentTheme === 'parchment' ? 'midnight' : 'parchment';
     previewContainer.setAttribute('data-theme', currentTheme);
     previewThemeBtn.textContent = currentTheme === 'midnight' ? 'Light' : 'Dark';
+  });
+
+  // ==========================================
+  // DISCORDIFY LOGIC
+  // ==========================================
+  document.getElementById('btn-discordify').addEventListener('click', async (e) => {
+    e.preventDefault();
+    const rawText = view.state.doc.toString();
+    showToast('Discordifying…', 'warning');
+    try {
+      const res = await fetch('https://alexxdev.eu/discordify', {
+        method: 'POST',
+        body: rawText
+      });
+      if (res.ok) {
+        const responseText = await res.text();
+        await navigator.clipboard.writeText(responseText);
+        showToast('Copied to clipboard!', 'success');
+      } else {
+        showToast('Discordify failed.', 'warning');
+      }
+    } catch (err) {
+      showToast('Network error.', 'warning');
+    }
   });
 
   // ==========================================
