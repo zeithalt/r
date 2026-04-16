@@ -302,6 +302,22 @@
   cursor: grabbing;
 }
 
+/* ========================================================= */
+/* MISSING LINK — internal links pointing to non-existent    */
+/* pages are styled distinctly so they're easy to spot       */
+/* ========================================================= */
+.mimbot-content a.missing-link {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.mimbot-content a.missing-link:hover {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+}
+
   </style>
 </head>
 <body class="mimbot-theme">
@@ -316,7 +332,7 @@
     <div class="content">
       <h1 id="proprioceptic-gems">🔸 Proprioceptic Gems<a class="header-anchor" href="#proprioceptic-gems">#</a></h1>
       <p><span class="tag">📜 Item</span></p>
-      <p>Pairs of fine-tuned gems crafted from <a href="timeless_waystone.html">Timeless Waystones</a> and used by <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> in their <a href="https://zeithalt.github.io/r/proprioceptic_shipyard.html">ship construction</a>.</p>
+      <p>Pairs of fine-tuned gems crafted from <a href="timeless_waystone.md">Timeless Waystones</a> and used by <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> in their <a href="https://zeithalt.github.io/r/proprioceptic_shipyard.html">ship construction</a>.</p>
       <p>The ships equipped with these gems give the sea captains ability to know the precise location of their own ship on the island, as well as relative positions of other Proprioceptic Ships in the area.</p>
     </div>
   </article>
@@ -519,6 +535,18 @@
       }
     });
   }
+  // --- Missing Link: Hidden Editor Access (Ctrl+click or Alt+click) ---
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a.missing-link');
+    if (!link) return;
+    e.preventDefault();
+    if (e.ctrlKey || e.altKey) {
+      const file = link.dataset.missingFile;
+      if (file) {
+        window.open(`https://alexxdev.eu/md_editor?file=${encodeURIComponent(file)}`, '_blank');
+      }
+    }
+  });
 </script>
 </body>
 </html>

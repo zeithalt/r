@@ -302,6 +302,22 @@
   cursor: grabbing;
 }
 
+/* ========================================================= */
+/* MISSING LINK — internal links pointing to non-existent    */
+/* pages are styled distinctly so they're easy to spot       */
+/* ========================================================= */
+.mimbot-content a.missing-link {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.mimbot-content a.missing-link:hover {
+  color: var(--text-muted);
+  border-bottom: 1px dashed var(--text-muted);
+}
+
   </style>
 </head>
 <body class="mimbot-theme">
@@ -320,7 +336,7 @@
       <p>A small sign stuck into the ground near the shore of <em>Blue Screen Lagoon</em> and surrounded by a rope fence... The sign says, "<a href="https://zeithalt.github.io/r/t.html">T</a> was here" and underneath it, in small print, is written, "Reality is unreal." What did the author mean? It's not clear.</p>
       <p>This sign is one of the must-see tourist spots. The sign itself is one of the monuments that testify to the great achievements of Band of Brothers. And the meaning of the text on the sign is the subject of debate and even fights, because everyone thinks that they know exactly what it means.</p>
       <p>No one could have imagined that the influence of the Mafia would ever reach this side of Zeithalt, but now it has become a reality...</p>
-      <p><em>Somewhere in <a href="https://zeithalt.github.io/r/peace_death_gorge.html">Peace Death Gorge</a>: one of the <a href="capos_of_mafia.html">Capo of Mafia</a>, calling himself the most honest and decent citizen, sits on his Cactus Throne and giggles.</em></p>
+      <p><em>Somewhere in <a href="https://zeithalt.github.io/r/peace_death_gorge.html">Peace Death Gorge</a>: one of the <a href="capos_of_mafia.md">Capo of Mafia</a>, calling himself the most honest and decent citizen, sits on his Cactus Throne and giggles.</em></p>
     </div>
   </article>
 
@@ -522,6 +538,18 @@
       }
     });
   }
+  // --- Missing Link: Hidden Editor Access (Ctrl+click or Alt+click) ---
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a.missing-link');
+    if (!link) return;
+    e.preventDefault();
+    if (e.ctrlKey || e.altKey) {
+      const file = link.dataset.missingFile;
+      if (file) {
+        window.open(`https://alexxdev.eu/md_editor?file=${encodeURIComponent(file)}`, '_blank');
+      }
+    }
+  });
 </script>
 </body>
 </html>
