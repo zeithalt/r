@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="center-for-anomaly-control">🏢 Center for Anomaly Control<a class="header-anchor" href="#center-for-anomaly-control">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/neuropolis.html">Neuropolis</a></p>
-      <p>Center for Anomaly Control (CAC) was built on eon 511 by <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> under supervision of <a href="https://zeithalt.github.io/r/xiavente.html">Xiavente</a>, shortly after the <a href="https://zeithalt.github.io/t/#eon0508">Disaster of Synaxos Fields</a>.</p>
-      <p>With the access to the lands of <a href="https://zeithalt.github.io/r/synaxos_fields.html">Synaxos</a> being extremely dangerous, the Center had to be constructed as close to it as possible, while maintaining the direct connection to <a href="https://zeithalt.github.io/r/neuropolis.html">Neuropolis</a> for better supply lines in the emergency situation.</p>
-      <p>The Center for Anomaly Control served as a hub of operations during the <a href="https://zeithalt.github.io/r/cr_restoration_project.html">CR Restoration Research</a> and the <em>Synaxos Restoration Project</em> soon after.</p>
-      <p>However, CAC did not escape its fair share of controversy, as the first weapon-grade <a href="https://zeithalt.github.io/r/cr_artefacts.html">CR Artifacts</a> are believed to have been developed and tested on its grounds.</p>
-      <p>Later, the resources of the Center were used in Restoration Projects in other lands, including the ones held by other factions and to this day the CAC remains a crucial point of CR Research.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#0330" class="footer-link">
@@ -371,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🏢 Center for Anomaly Control
+
+\`🖼️ Landmark\` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>)
+
+Center for Anomaly Control (CAC) was built on eon 511 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) under supervision of [Xiavente](<https://zeithalt.github.io/r/xiavente.html>), shortly after the [Disaster of Synaxos Fields](<https://zeithalt.github.io/t/#eon0508>).
+
+With the access to the lands of [Synaxos](<https://zeithalt.github.io/r/synaxos_fields.html>) being extremely dangerous, the Center had to be constructed as close to it as possible, while maintaining the direct connection to [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>) for better supply lines in the emergency situation.
+
+The Center for Anomaly Control served as a hub of operations during the [CR Restoration Research](<https://zeithalt.github.io/r/cr_restoration_project.html>) and the _Synaxos Restoration Project_ soon after.
+
+However, CAC did not escape its fair share of controversy, as the first weapon-grade [CR Artifacts](<https://zeithalt.github.io/r/cr_artefacts.html>) are believed to have been developed and tested on its grounds.
+
+Later, the resources of the Center were used in Restoration Projects in other lands, including the ones held by other factions and to this day the CAC remains a crucial point of CR Research.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

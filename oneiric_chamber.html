@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,20 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="oneiric-chamber">💤 Oneiric Chamber<a class="header-anchor" href="#oneiric-chamber">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/aas_forest.html">A'as Forest</a></p>
-      <p>Built on eon 1045 by <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a>.</p>
-      <p>Oneiric Chamber is used to induce <em>Scripted Dreams</em> and works as a kind of interpreter for scrolls written using Shaushka scripture - a now lost form of mindful rune-writing. This essentially allows the person sleeping in the chamber to live out the memories of others, recorded in these ancient scrolls.</p>
-      <p>The Chamber itself is a narrow natural room inside a cave system, located under the <a href="https://zeithalt.github.io/r/library_of_eternal_knowledge.html">Library of Eternal Knowledge</a> and connected to it via an artificial passage. The walls of the chamber are decorated by the intricate runic pattern, carved personally by the <a href="https://zeithalt.github.io/r/curious_dino.html">Headmaster Dino</a>.</p>
-      <p>The Chamber has just two pieces of stone "furniture" (if it even can be called so) - a bed-like stone cutout near one of the walls, and a pedestal with a scroll holder next to the other.</p>
-      <p>Oneiric Chamber is a personal project of <em>Headmaster Dino</em> and part of his studies of Shaushka runes found in the <a href="https://zeithalt.github.io/r/first_capital_ruins.html">First Capital Ruins</a>, conducted with the goal to restore this ancient form of rune-writing.</p>
-      <p>The access to the chamber is restricted only to <em>Headmaster Dino</em>, but upon its completion he started letting his best students to use it to aid in the studies of Shaushka rune-writing.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/oneiric_chamber.png" alt="Oneiric Chamber" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#6250" class="footer-link">
@@ -375,7 +368,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 💤 Oneiric Chamber
+
+\`🖼️ Landmark\` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
+
+Built on eon 1045 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>).
+
+Oneiric Chamber is used to induce *Scripted Dreams* and works as a kind of interpreter for scrolls written using Shaushka scripture - a now lost form of mindful rune-writing. This essentially allows the person sleeping in the chamber to live out the memories of others, recorded in these ancient scrolls.
+
+The Chamber itself is a narrow natural room inside a cave system, located under the [Library of Eternal Knowledge](<https://zeithalt.github.io/r/library_of_eternal_knowledge.html>) and connected to it via an artificial passage. The walls of the chamber are decorated by the intricate runic pattern, carved personally by the [Headmaster Dino](<https://zeithalt.github.io/r/curious_dino.html>).
+
+The Chamber has just two pieces of stone "furniture" (if it even can be called so) - a bed-like stone cutout near one of the walls, and a pedestal with a scroll holder next to the other.
+
+Oneiric Chamber is a personal project of _Headmaster Dino_ and part of his studies of Shaushka runes found in the [First Capital Ruins](<https://zeithalt.github.io/r/first_capital_ruins.html>), conducted with the goal to restore this ancient form of rune-writing.
+
+The access to the chamber is restricted only to _Headmaster Dino_, but upon its completion he started letting his best students to use it to aid in the studies of Shaushka rune-writing.
+
+![Oneiric Chamber](https://zeithalt.github.io/r/i/oneiric_chamber.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -19,7 +19,7 @@
   <meta property="og:title" content="🏟️ Showdown Arena">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 905 by Delta Collective">
+  <meta property="og:description" content="A big stadium built for battles.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/showdown_arena.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🏟️ Showdown Arena">
-  <meta name="twitter:description" content="Built on eon 905 by Delta Collective">
+  <meta name="twitter:description" content="A big stadium built for battles.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/showdown_arena.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="showdown-arena">🏟️ Showdown Arena<a class="header-anchor" href="#showdown-arena">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/ares_gardens.html">Ares Gardens</a></p>
-      <p>Built on eon 905 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a></p>
-      <p>A big stadium built for battles. Engineered for structural endurance, the field may be altered as the venue demands it. Audience safety is of utmost priority, ensuring the best experience without compromising enjoyment. High quality broadcast system ensures that the battle can be viewed anywhere from the island, regardless of distance.</p>
-      <p>This arena can be used for many purposes, from military exercises to stakeful battlegrounds, friendly show matches to competitive tournaments. The Showdown Arena will cover everything you need to host a battle event, no matter the scale.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/showdown_arena.png" alt="Showdown Arena" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#dde0" class="footer-link">
@@ -372,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🏟️ Showdown Arena
+
+\`🖼️ Landmark\` in [Ares Gardens](<https://zeithalt.github.io/r/ares_gardens.html>)
+
+Built on eon 905 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
+
+A big stadium built for battles. Engineered for structural endurance, the field may be altered as the venue demands it. Audience safety is of utmost priority, ensuring the best experience without compromising enjoyment. High quality broadcast system ensures that the battle can be viewed anywhere from the island, regardless of distance.
+
+This arena can be used for many purposes, from military exercises to stakeful battlegrounds, friendly show matches to competitive tournaments. The Showdown Arena will cover everything you need to host a battle event, no matter the scale.
+
+![Showdown Arena](https://zeithalt.github.io/r/i/showdown_arena.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

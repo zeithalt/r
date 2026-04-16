@@ -19,7 +19,7 @@
   <meta property="og:title" content="Okeanida Zvezdnaya">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Okeanida Zvezdnaya (Океанида Звездная, /oh-kay-ah-NEE-dah zvezd-NAH-yah/) is an amnesiac girl with a great fascination for the stars.">
+  <meta property="og:description" content="_Okeanida Zvezdnaya_ (Океанида Звездная, _/oh-kay-ah-NEE-dah zvezd-NAH-yah/_) is an amnesiac girl with a great fascination for the stars.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Okeanida Zvezdnaya">
-  <meta name="twitter:description" content="Okeanida Zvezdnaya (Океанида Звездная, /oh-kay-ah-NEE-dah zvezd-NAH-yah/) is an amnesiac girl with a great fascination for the stars.">
+  <meta name="twitter:description" content="_Okeanida Zvezdnaya_ (Океанида Звездная, _/oh-kay-ah-NEE-dah zvezd-NAH-yah/_) is an amnesiac girl with a great fascination for the stars.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,14 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="okeanida-zvezdnaya">Okeanida Zvezdnaya<a class="header-anchor" href="#okeanida-zvezdnaya">#</a></h1>
-      <p><span class="tag">🧙‍♂️ Character</span></p>
-      <p><em>Okeanida Zvezdnaya</em> (Океанида Звездная, <em>/oh-kay-ah-NEE-dah zvezd-NAH-yah/</em>) is an amnesiac girl with a great fascination for the stars. The people know her as a kind, gentle, and helpful person. Her physical beauty and graceful movement are simply a cherry on top of her already excellent manners, making it her primary method of communication.</p>
-      <p>She suffers from a speech disorder, that prevents her from speaking. To compensate, she is proficient in other aspects of language, such as listening, writing, and reading. Thus, writing becomes her alternative method to deliver a message formally. She could "speak" to others <em>if</em> specific conditions are met, but even then it is temporary.</p>
-      <p>Her past and origin are mostly unknown. Not even she can remember anything beyond the day she was saved by the locals in Indigo Shore. And to her, she is fine not knowing the past, because she is content with the present life she has now.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#1750" class="footer-link">
@@ -369,7 +368,53 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Okeanida Zvezdnaya
+
+\`🧙‍♂️ Character\`
+
+_Okeanida Zvezdnaya_ (Океанида Звездная, _/oh-kay-ah-NEE-dah zvezd-NAH-yah/_) is an amnesiac girl with a great fascination for the stars. The people know her as a kind, gentle, and helpful person. Her physical beauty and graceful movement are simply a cherry on top of her already excellent manners, making it her primary method of communication.
+
+She suffers from a speech disorder, that prevents her from speaking. To compensate, she is proficient in other aspects of language, such as listening, writing, and reading. Thus, writing becomes her alternative method to deliver a message formally. She could "speak" to others _if_ specific conditions are met, but even then it is temporary.
+
+Her past and origin are mostly unknown. Not even she can remember anything beyond the day she was saved by the locals in Indigo Shore. And to her, she is fine not knowing the past, because she is content with the present life she has now.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

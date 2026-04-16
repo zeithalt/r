@@ -19,7 +19,7 @@
   <meta property="og:title" content="Aethelstone (sunstone)">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Aethelstone is a previously unknown earth mineral discovered within the Aethelstone Mining Cave in Xyrclaox Watch.">
+  <meta property="og:description" content="_Aethelstone_ is a previously unknown earth mineral discovered within the Aethelstone Mining Cave in Xyrclaox Watch.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/aethelstone.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Aethelstone (sunstone)">
-  <meta name="twitter:description" content="Aethelstone is a previously unknown earth mineral discovered within the Aethelstone Mining Cave in Xyrclaox Watch.">
+  <meta name="twitter:description" content="_Aethelstone_ is a previously unknown earth mineral discovered within the Aethelstone Mining Cave in Xyrclaox Watch.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/aethelstone.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,20 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="aethelstone-sunstone">Aethelstone (sunstone)<a class="header-anchor" href="#aethelstone-sunstone">#</a></h1>
-      <p><span class="tag">📜 Item</span></p>
-      <p><em>Aethelstone</em> is a previously unknown earth mineral discovered within the <a href="https://zeithalt.github.io/r/aethelstone_mining_cave.html">Aethelstone Mining Cave</a> in <a href="https://zeithalt.github.io/r/xyrclaox_watch.html">Xyrclaox Watch</a>. It is believed that the mineral's unique properties are a result of its interaction with the CR buildup beneath the ground that preceeded <a href="https://zeithalt.github.io/t/#eon1131">eon 1131 CR outburst</a>.</p>
-      <p>In its raw form, <em>Aethelstone</em> is dark charcoal in color with a rough, matte texture that appears dusty, yet feels surprisingly smooth to the touch. Despite not radiating noticeable heat in darkness, direct contact with unprotected skin causes a long-lasting, sunburn-like irritation, earning it the common nickname "Sunstone." Interestingly, individuals working in proximity to <em>Aethelstone</em> often develop a tan similar to that caused by sunlight despite feeling no heat from it.</p>
-      <p>The large chunks of <em>Aethelstone</em> slowly heat up when exposed to the sunlight or candlelight, steadily getting hotter and eventually splitting into smaller parts. These smaller chunks hear up even faster, with the smallest of particles of <em>Aethelstone</em> decaying almost explosively.</p>
-      <p>The primary use of <em>Aethelstone</em> is in specialized power generation facilities. Within these complex stations, the mineral is carefully burned in a controlled process using intricate light systems to release its energy. Due to the complexity of these power generation stations, raw <em>Aethelstone</em> requires careful and secure transportation to other regions outside <em>Xyrclaox Watch</em>.</p>
-      <p>Due to its highly reactive nature to light, especially in powdered form, <em>Aethelstone</em> must be kept in complete darkness. Specialized, sturdy containers are used for its storage and transport to prevent accidental ignition. Even trace amounts of <em>Aethelstone</em> dust are extremely reactive and can cause intense burns when exposed to light. As a result, miners working in the <em>Aethelstone</em> caves undergo a strict cleaning procedure before exiting into daylight to ensure no particles are carried out.</p>
-      <p><em>Aethelstone</em> is a relatively recent discovery in the Zeithalt world and remains the subject of intense study by the MindTech Institute and other researchers. Its full potential and any other unique properties beyond power generation are still being investigated.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/aethelstone.png" alt="Aethelstone" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#e280" class="footer-link">
@@ -375,7 +368,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Aethelstone (sunstone)
+
+\`📜 Item\`
+
+_Aethelstone_ is a previously unknown earth mineral discovered within the [Aethelstone Mining Cave](<https://zeithalt.github.io/r/aethelstone_mining_cave.html>) in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>). It is believed that the mineral's unique properties are a result of its interaction with the CR buildup beneath the ground that preceeded [eon 1131 CR outburst](<https://zeithalt.github.io/t/#eon1131>).
+
+In its raw form, _Aethelstone_ is dark charcoal in color with a rough, matte texture that appears dusty, yet feels surprisingly smooth to the touch. Despite not radiating noticeable heat in darkness, direct contact with unprotected skin causes a long-lasting, sunburn-like irritation, earning it the common nickname "Sunstone." Interestingly, individuals working in proximity to _Aethelstone_ often develop a tan similar to that caused by sunlight despite feeling no heat from it.
+
+The large chunks of _Aethelstone_ slowly heat up when exposed to the sunlight or candlelight, steadily getting hotter and eventually splitting into smaller parts. These smaller chunks hear up even faster, with the smallest of particles of _Aethelstone_ decaying almost explosively.
+
+The primary use of _Aethelstone_ is in specialized power generation facilities. Within these complex stations, the mineral is carefully burned in a controlled process using intricate light systems to release its energy. Due to the complexity of these power generation stations, raw _Aethelstone_ requires careful and secure transportation to other regions outside _Xyrclaox Watch_.
+
+Due to its highly reactive nature to light, especially in powdered form, _Aethelstone_ must be kept in complete darkness. Specialized, sturdy containers are used for its storage and transport to prevent accidental ignition. Even trace amounts of _Aethelstone_ dust are extremely reactive and can cause intense burns when exposed to light. As a result, miners working in the _Aethelstone_ caves undergo a strict cleaning procedure before exiting into daylight to ensure no particles are carried out.
+
+_Aethelstone_ is a relatively recent discovery in the Zeithalt world and remains the subject of intense study by the MindTech Institute and other researchers. Its full potential and any other unique properties beyond power generation are still being investigated.
+
+![Aethelstone](https://zeithalt.github.io/r/i/aethelstone.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

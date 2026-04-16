@@ -19,7 +19,7 @@
   <meta property="og:title" content="🦈 Void Shark Hatchery">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 554 by Delta Collective">
+  <meta property="og:description" content="Essentially, an abandoned building on the seashore in Dev Null Marsh.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🦈 Void Shark Hatchery">
-  <meta name="twitter:description" content="Built on eon 554 by Delta Collective">
+  <meta name="twitter:description" content="Essentially, an abandoned building on the seashore in Dev Null Marsh.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="void-shark-hatchery">🦈 Void Shark Hatchery<a class="header-anchor" href="#void-shark-hatchery">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/dev_null_marsh.html">Dev Null Marsh</a></p>
-      <p>Built on eon 554 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a></p>
-      <p>Essentially, an abandoned building on the seashore in Dev Null Marsh.</p>
-      <p>According to rumors, it was planned to breed Void Sharks here, which were then supposed to receive internal cybernetic implants.</p>
-      <p>However, for unknown reasons, the creators did not get around to the final implementation of this idea, and the project was abandoned, and all the equipment was taken away.</p>
-      <p>At the moment, this building is a reminder to all residents of Zeithalt, and especially those in power, that they must be more responsible in their projects.</p>
-      <p>Especially such expensive ones, and not throw huge amounts of money down the drain for the sake of not entirely clear ideas that will ultimately not be fully implemented.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#3e80" class="footer-link">
@@ -372,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🦈 Void Shark Hatchery
+
+\`🖼️ Landmark\` in [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh.html>)
+
+Built on eon 554 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
+
+Essentially, an abandoned building on the seashore in Dev Null Marsh.
+
+According to rumors, it was planned to breed Void Sharks here, which were then supposed to receive internal cybernetic implants. 
+
+However, for unknown reasons, the creators did not get around to the final implementation of this idea, and the project was abandoned, and all the equipment was taken away.
+
+At the moment, this building is a reminder to all residents of Zeithalt, and especially those in power, that they must be more responsible in their projects. 
+
+Especially such expensive ones, and not throw huge amounts of money down the drain for the sake of not entirely clear ideas that will ultimately not be fully implemented.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

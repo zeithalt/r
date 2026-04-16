@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,21 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="altar-of-ctulhu">🐙 Altar of Ctulhu<a class="header-anchor" href="#altar-of-ctulhu">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/imperial_swamp.html">Imperial Swamp</a></p>
-      <p>Build on eon 506 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a>.</p>
-      <p>Destroyed on eon 596 during <a href="https://zeithalt.github.io/t/#eon0596">The Fall of Imperial Swamp</a> on eon 596.</p>
-      <p>Rebuild on eon 790 by Delta Collective.</p>
-      <p>This place is used to worship HIM. True servants of HIS name yearn for HIS coming into this world.</p>
-      <p>They do everything possible to awaken HIS power. Unlimited power, beyond human comprehension. And when HE comes, this world will change forever.</p>
-      <p>Altar Ctulhu is located in the heart of the Imperial Swamp, in the middle of impassable swamps. You will have to try very hard to find this place. But the closer you get, the less desire you have to continue searching.</p>
-      <p>You will not want to go here if your willpower is not enough. You will not be able to look at the Altar if you are not stress-resistant enough. This is the place where HE tests your faith in him with his aura of inhuman fear and horror.</p>
-      <p>HE will reward you with great power if you pass all the tests. Or, which is much more likely, you will fail the test and be cruelly punished for your insolence and excessive self-confidence.</p>
-      <p>People who have been here and passed all the tests become HIS servants. There is no way back. They do not tell anyone what the Altar of Cthulhu looks like, nor the content of the tests, nor what they saw after receiving a piece of HIS power. Because it is so terrible and cruel for the psyche that no one wants to remember it...</p>
-      <p>As for the people who failed the test. Well, it's a pity for them. No one ever saw them again.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#8270" class="footer-link">
@@ -376,7 +368,66 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🐙 Altar of Ctulhu
+
+\`🖼️ Landmark\` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
+
+Build on eon 506 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>).
+
+Destroyed on eon 596 during [The Fall of Imperial Swamp](<https://zeithalt.github.io/t/#eon0596>) on eon 596.
+
+Rebuild on eon 790 by Delta Collective.
+
+This place is used to worship HIM. True servants of HIS name yearn for HIS coming into this world.
+They do everything possible to awaken HIS power. Unlimited power, beyond human comprehension. And when HE comes, this world will change forever.
+
+Altar Ctulhu is located in the heart of the Imperial Swamp, in the middle of impassable swamps. You will have to try very hard to find this place. But the closer you get, the less desire you have to continue searching.
+
+You will not want to go here if your willpower is not enough. You will not be able to look at the Altar if you are not stress-resistant enough. This is the place where HE tests your faith in him with his aura of inhuman fear and horror.
+
+HE will reward you with great power if you pass all the tests. Or, which is much more likely, you will fail the test and be cruelly punished for your insolence and excessive self-confidence.
+
+People who have been here and passed all the tests become HIS servants. There is no way back. They do not tell anyone what the Altar of Cthulhu looks like, nor the content of the tests, nor what they saw after receiving a piece of HIS power. Because it is so terrible and cruel for the psyche that no one wants to remember it...
+
+As for the people who failed the test. Well, it's a pity for them. No one ever saw them again.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -19,7 +19,7 @@
   <meta property="og:title" content="Fighters Guild">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="🪪 Group">
+  <meta property="og:description" content="A self-organised military group founded by 4 prominent sellswords: AlexxDev, Eldar, Revalx and Dino on Eon 690.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fighters Guild">
-  <meta name="twitter:description" content="🪪 Group">
+  <meta name="twitter:description" content="A self-organised military group founded by 4 prominent sellswords: AlexxDev, Eldar, Revalx and Dino on Eon 690.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="fighters-guild">Fighters Guild<a class="header-anchor" href="#fighters-guild">#</a></h1>
-      <p><strong>🪪 Group</strong></p>
-      <p>A self-organised military group founded by 4 prominent sellswords: AlexxDev, Eldar, Revalx and Dino on Eon 690.</p>
-      <p>Synopsis:</p>
-      <blockquote>
-        <p><em>Fighters Guild sees its goal in allowing sellswords of all kinds get support both on and out of the battlefield, while at the same time maximizing profits for the Guild members by selling their services to warring factions.</em></p>
-      </blockquote>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#ee30" class="footer-link">
@@ -371,7 +368,52 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Fighters Guild
+
+**🪪 Group**
+
+A self-organised military group founded by 4 prominent sellswords: AlexxDev, Eldar, Revalx and Dino on Eon 690.
+
+Synopsis:
+> _Fighters Guild sees its goal in allowing sellswords of all kinds get support both on and out of the battlefield, while at the same time maximizing profits for the Guild members by selling their services to warring factions._
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

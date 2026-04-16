@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="mindtech-institute-fortress-outer-walls">MindTech Institute Fortress (outer walls)<a class="header-anchor" href="#mindtech-institute-fortress-outer-walls">#</a></h1>
-      <p><span class="tag">🪧 Place</span></p>
-      <p>Building located in the heart of Neuropolis, consists of two structures: an external perimeter in which the walls made up of 50 meter high obsidian blocks are interspersed with eight towers.</p>
-      <p>The two eastern walls overlook the sea: they were built on the rocks of the Gulf of Neuropolis and are perpetually hit by the violent waves of the sea.</p>
-      <p>On the sea side there are three towers: the <em>Seagull Tower</em> to the south-east, the <em>Medusa Tower</em> to the north-east and, in the center of the eastern side, the <em>Shark Tower</em>.</p>
-      <p>Two other walls, those on the innermost side, were built on the crest of <em>Mount Delirium</em> (an extinct volcano): on the top stands the western tower, <em>Eagle Tower</em>.</p>
-      <p>Inside the perimeter walls are located the stables, the garage, the structures reserved for the soldiers (the dormitories, the hospital, the canteen, the training rooms, the leisure areas).</p>
-      <p>Each perimeter tower contains officers' quarters, transmission rooms and observation points. Towers and walls are heavily armed.</p>
-      <p>Inside the perimeter there is the <em>Forest of Bitter Regrets</em>, where mainly willows grow, and the <em>Lake of Doubts</em>, surrounded by a perpetual fog due to the underground thermal springs that feed it.</p>
-      <p>Trees and fog hide the view of the structure built in the center of the perimeter, the actual Fortress.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#8a90" class="footer-link">
@@ -374,7 +368,63 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# MindTech Institute Fortress (outer walls)
+
+\`🪧 Place\`
+
+Building located in the heart of Neuropolis, consists of two structures: an external perimeter in which the walls made up of 50 meter high obsidian blocks are interspersed with eight towers.
+
+The two eastern walls overlook the sea: they were built on the rocks of the Gulf of Neuropolis and are perpetually hit by the violent waves of the sea.
+
+On the sea side there are three towers: the *Seagull Tower* to the south-east, the *Medusa Tower* to the north-east and, in the center of the eastern side, the *Shark Tower*.
+
+Two other walls, those on the innermost side, were built on the crest of *Mount Delirium* (an extinct volcano): on the top stands the western tower, *Eagle Tower*.
+
+Inside the perimeter walls are located the stables, the garage, the structures reserved for the soldiers (the dormitories, the hospital, the canteen, the training rooms, the leisure areas).
+
+Each perimeter tower contains officers' quarters, transmission rooms and observation points. Towers and walls are heavily armed.
+
+Inside the perimeter there is the *Forest of Bitter Regrets*, where mainly willows grow, and the *Lake of Doubts*, surrounded by a perpetual fog due to the underground thermal springs that feed it.
+
+Trees and fog hide the view of the structure built in the center of the perimeter, the actual Fortress.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

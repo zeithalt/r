@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="chaosflux-observatory">📊 Chaosflux Observatory<a class="header-anchor" href="#chaosflux-observatory">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/chaotic_plains.html">Chaotic Plains</a></p>
-      <p>Built on eon 1046 by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a>.</p>
-      <p><em>Chaosflux Observatory</em> was built with the purpose of understanding nature's most unpredictable and volatile type of energy that is also the <a href="https://zeithalt.github.io/r/silvans.html">Silvan's</a> least understood natural phenomenon, Chaos.</p>
-      <p>In nature, each type of energy follows specific rules that work in harmony to create balance. In contrast, Chaos disrupts this equilibrium. Even <a href="https://zeithalt.github.io/r/corruption.html">Corruption</a>, which is deemed unnatural and harmful by the Silvans, adheres to some basic principles, while Chaos operates without a restraint, existing in a constantly fluctuating state. Even then, this strange energy has frequently been harnessed by the <a href="https://zeithalt.github.io/r/deltans.html">Deltans</a>, raising questions about its nature and potential.</p>
-      <p>So to understand how Chaos works better, this observatory was established in a place that contains high amounts of this Chaotic energy, <a href="https://zeithalt.github.io/r/chaotic_plains.html">Chaotic Plains</a>, after being captured by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a>.</p>
-      <p>Here, the Chaos is safely harvested from the environment with the help of locals that have experience with the said energy and put into observing chambers where they are carefully tested on. Due to the lack of understanding, this energy by Silvans, though, the local population has been recruited into various jobs in the observatory which causes occasional communication problems because of the language barrier.</p>
-      <p>The officials at Protectores Silva state that the findings from the Observatory will help our understanding of Zeithalt as a whole, advancing science and promote harmony with nature. But it is also speculated that one of the unofficial reasons for this observatory is making countermeasures against Deltans, whom at the time the Observatory was built, was in constant conflict with Silvans.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#17e0" class="footer-link">
@@ -372,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 📊 Chaosflux Observatory
+
+\`🖼️ Landmark\` in [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>)
+
+Built on eon 1046 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>).
+
+_Chaosflux Observatory_ was built with the purpose of understanding nature's most unpredictable and volatile type of energy that is also the [Silvan's](<https://zeithalt.github.io/r/silvans.html>) least understood natural phenomenon, Chaos.
+
+In nature, each type of energy follows specific rules that work in harmony to create balance. In contrast, Chaos disrupts this equilibrium. Even [Corruption](<https://zeithalt.github.io/r/corruption.html>), which is deemed unnatural and harmful by the Silvans, adheres to some basic principles, while Chaos operates without a restraint, existing in a constantly fluctuating state. Even then, this strange energy has frequently been harnessed by the [Deltans](<https://zeithalt.github.io/r/deltans.html>), raising questions about its nature and potential.
+
+So to understand how Chaos works better, this observatory was established in a place that contains high amounts of this Chaotic energy, [Chaotic Plains](<https://zeithalt.github.io/r/chaotic_plains.html>), after being captured by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>). 
+
+Here, the Chaos is safely harvested from the environment with the help of locals that have experience with the said energy and put into observing chambers where they are carefully tested on. Due to the lack of understanding, this energy by Silvans, though, the local population has been recruited into various jobs in the observatory which causes occasional communication problems because of the language barrier.
+
+The officials at Protectores Silva state that the findings from the Observatory will help our understanding of Zeithalt as a whole, advancing science and promote harmony with nature. But it is also speculated that one of the unofficial reasons for this observatory is making countermeasures against Deltans, whom at the time the Observatory was built, was in constant conflict with Silvans.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

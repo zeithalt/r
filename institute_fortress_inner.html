@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,25 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="mindtech-institute-fortress-inner-walls">MindTech Institute Fortress (inner walls)<a class="header-anchor" href="#mindtech-institute-fortress-inner-walls">#</a></h1>
-      <p><span class="tag">🪧 Place</span></p>
-      <p>It is a thirty-storey building with a vaguely triangular plan, surrounded by the <a href="https://zeithalt.github.io/r/institute_fortress_outer.html">outer walls</a>. At each corner stands a tower, different from the others in shape and size.</p>
-      <p>The building houses the seat of government: the <a href="https://zeithalt.github.io/r/council_of_minds.html">Council of Minds</a>. Many rooms are not open to the public and their use is unknown.</p>
-      <p>The Towers, distinguished by a colour, are:</p>
-      <ul>
-        <li>the <em>Orange Tower</em>, which hosts the students, candidates to be part of the Institute.</li>
-        <li>the <em>Blue Tower</em> is reserved for members of the Institute who study the culture of the southwestern faction, <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a>.</li>
-        <li>finally, the <em>Green Tower</em> hosts the members who deal with everything related to the northern faction, <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc</a>.</li>
-      </ul>
-      <ul>
-        <li>Lessons relating to the faction being studied take place in the Blue and Green Towers.</li>
-      </ul>
-      <p>The classrooms for ordinary subjects (Philosophy, Medicine, Psychology, etc.) are located in the Orange Tower.</p>
-      <p>Some claim that, especially at the end of the day when the sun's rays are very low, it is possible to see a fourth Tower, called by these witnesses "<em>Red Tower</em>" probably due to the color of the sunset.</p>
-      <p>There is no evidence that it actually exists.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#ea90" class="footer-link">
@@ -380,7 +368,64 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# MindTech Institute Fortress (inner walls)
+
+\`🪧 Place\`
+
+It is a thirty-storey building with a vaguely triangular plan, surrounded by the [outer walls](<https://zeithalt.github.io/r/institute_fortress_outer.html>). At each corner stands a tower, different from the others in shape and size.
+
+The building houses the seat of government: the [Council of Minds](<https://zeithalt.github.io/r/council_of_minds.html>). Many rooms are not open to the public and their use is unknown.
+
+The Towers, distinguished by a colour, are: 
+- the *Orange Tower*, which hosts the students, candidates to be part of the Institute.
+- the *Blue Tower* is reserved for members of the Institute who study the culture of the southwestern faction, [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>).
+- finally, the *Green Tower* hosts the members who deal with everything related to the northern faction, [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>).
+
+- Lessons relating to the faction being studied take place in the Blue and Green Towers.
+
+The classrooms for ordinary subjects (Philosophy, Medicine, Psychology, etc.) are located in the Orange Tower.
+
+Some claim that, especially at the end of the day when the sun's rays are very low, it is possible to see a fourth Tower, called by these witnesses "*Red Tower*" probably due to the color of the sunset.
+
+There is no evidence that it actually exists.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

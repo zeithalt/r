@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="hill-of-1000-flags">🎌️ Hill of 1000 flags<a class="header-anchor" href="#hill-of-1000-flags">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/paradox_pass.html">Paradox Pass</a></p>
-      <p>Opened to the public on eon 770, this memorial is primarily dedicated to the <a href="https://zeithalt.github.io/r/mt_symbology.html">MindTech Institute symbology</a> and culture, but also serves as an archive for symbols and signs used anywhere on the Island.</p>
-      <p>The main features of the Hill are the 100m flagpole of the <a href="https://zeithalt.github.io/r/i/mt_peace_flag.png">Official MT Flag</a>, and a smaller - 3/4 of that height - <a href="https://zeithalt.github.io/r/i/mt_war_flag.png">Wartime MT flag</a>.</p>
-      <p>What surround the main exposition, are rows and rows of flags and crests and banners for different departments of <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a>, MT regions, towns, villages, families, and even specific people.</p>
-      <p>At the foot of the Hill, there are several buildings belonging to the <em>Symbology Archives</em> - these are dedicated to storing and categorizing the symbology of the whole Zeithalt Island.</p>
-      <p>From the symbols of the other factions, to the replica of the welcome sign of the famous <a href="https://zeithalt.github.io/r/valhalla_bar.html">Valhalla Bar</a>, and to the corporate brand books of the <a href="https://zeithalt.github.io/r/cloudy_co_datacenter.html">Cloudy Corporation</a> - the Archives are rumored to host truly <em>all</em> known symbols and signs of the Island.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#ef90" class="footer-link">
@@ -371,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🎌️ Hill of 1000 flags
+
+\`🖼️ Landmark\` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
+
+Opened to the public on eon 770, this memorial is primarily dedicated to the [MindTech Institute symbology](<https://zeithalt.github.io/r/mt_symbology.html>) and culture, but also serves as an archive for symbols and signs used anywhere on the Island.
+
+The main features of the Hill are the 100m flagpole of the [Official MT Flag](https://zeithalt.github.io/r/i/mt_peace_flag.png), and a smaller - 3/4 of that height - [Wartime MT flag](https://zeithalt.github.io/r/i/mt_war_flag.png).
+
+What surround the main exposition, are rows and rows of flags and crests and banners for different departments of [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>), MT regions, towns, villages, families, and even specific people.
+
+At the foot of the Hill, there are several buildings belonging to the *Symbology Archives* - these are dedicated to storing and categorizing the symbology of the whole Zeithalt Island. 
+
+From the symbols of the other factions, to the replica of the welcome sign of the famous [Valhalla Bar](<https://zeithalt.github.io/r/valhalla_bar.html>), and to the corporate brand books of the [Cloudy Corporation](<https://zeithalt.github.io/r/cloudy_co_datacenter.html>) - the Archives are rumored to host truly *all* known symbols and signs of the Island.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

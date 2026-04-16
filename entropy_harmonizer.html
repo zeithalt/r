@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="entropy-harmonizer">🌀 Entropy Harmonizer<a class="header-anchor" href="#entropy-harmonizer">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/purple_deeps.html">Purple Deeps</a></p>
-      <p>Built on eon 1145 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a>.</p>
-      <p>A powerful device installed in the underground tunnels of <a href="https://zeithalt.github.io/r/purple_deeps.html">Purple Deeps</a> to control the city's entropy and chaos levels for defensive purposes.</p>
-      <p>It's been rumored to exist ever since the <a href="https://zeithalt.github.io/t/#eon0611">first siege of the Deltan capital</a> where it supposedly caused interruptions in battles, but was largely considered a city myth or part of a disinformation campaign.</p>
-      <p>Its existence was finally confirmed during the <a href="https://zeithalt.github.io/t/#eon1139">4th Siege of Purple Deeps</a>, where it was used openly and extensively to protect the inner city.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/entropy_harmonizer.png" alt="Entropy Harmonizer" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#da50" class="footer-link">
@@ -373,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🌀 Entropy Harmonizer
+
+\`🖼️ Landmark\` in [Purple Deeps](<https://zeithalt.github.io/r/purple_deeps.html>)
+
+Built on eon 1145 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>).
+
+A powerful device installed in the underground tunnels of [Purple Deeps](<https://zeithalt.github.io/r/purple_deeps.html>) to control the city's entropy and chaos levels for defensive purposes.
+
+It's been rumored to exist ever since the [first siege of the Deltan capital](<https://zeithalt.github.io/t/#eon0611>) where it supposedly caused interruptions in battles, but was largely considered a city myth or part of a disinformation campaign.
+
+Its existence was finally confirmed during the [4th Siege of Purple Deeps](<https://zeithalt.github.io/t/#eon1139>), where it was used openly and extensively to protect the inner city.
+
+![Entropy Harmonizer](https://zeithalt.github.io/r/i/entropy_harmonizer.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

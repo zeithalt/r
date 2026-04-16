@@ -19,7 +19,7 @@
   <meta property="og:title" content="👁 Omnituens Eye">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1168 by Cybernetics Inc">
+  <meta property="og:description" content="After the loss of Cybertron Jungle and its vital research facilities, _Cybernetics Inc_ resolved to construct a far more advanced observatory, drawing upon knowledge accumulated over a thousand eons.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/omnituens_eye.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="👁 Omnituens Eye">
-  <meta name="twitter:description" content="Built on eon 1168 by Cybernetics Inc">
+  <meta name="twitter:description" content="After the loss of Cybertron Jungle and its vital research facilities, _Cybernetics Inc_ resolved to construct a far more advanced observatory, drawing upon knowledge accumulated over a thousand eons.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/omnituens_eye.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="omnituens-eye">👁 Omnituens Eye<a class="header-anchor" href="#omnituens-eye">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/webified_hills.html">Webified Hills</a></p>
-      <p>Built on eon 1168 by <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc</a></p>
-      <p>After the <a href="https://zeithalt.github.io/t/#eon1158">loss of Cybertron Jungle</a> and its vital research facilities, <em>Cybernetics Inc</em> resolved to construct a far more advanced observatory, drawing upon knowledge accumulated over a thousand eons.</p>
-      <p>At its core lies the <a href="https://zeithalt.github.io/r/omnituens_lens.html">Omnituens Lens</a> — a powerful artifact forged from countless rare and invaluable resources. This lens serves as it's key, allowing one to peer into distant galaxies and even across the boundaries of different universes.</p>
-      <p>Due to the immense power it holds, the <em>Omnituens Lens</em> remains in <a href="https://zeithalt.github.io/r/nairo.html">NAIRO</a>’s possession, while all records detailing its creation have been systematically erased—burned and deleted to ensure its secrets never fall into the wrong hands.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/omnituens_eye.png" alt="Omnituens Eye" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#2870" class="footer-link">
@@ -373,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 👁 Omnituens Eye 
+
+\`🖼️ Landmark\` in [Webified Hills](<https://zeithalt.github.io/r/webified_hills.html>)
+
+Built on eon 1168 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
+
+After the [loss of Cybertron Jungle](<https://zeithalt.github.io/t/#eon1158>) and its vital research facilities, _Cybernetics Inc_ resolved to construct a far more advanced observatory, drawing upon knowledge accumulated over a thousand eons. 
+
+At its core lies the [Omnituens Lens](<https://zeithalt.github.io/r/omnituens_lens.html>) — a powerful artifact forged from countless rare and invaluable resources. This lens serves as it's key, allowing one to peer into distant galaxies and even across the boundaries of different universes.
+
+Due to the immense power it holds, the _Omnituens Lens_ remains in [NAIRO](<https://zeithalt.github.io/r/nairo.html>)’s possession, while all records detailing its creation have been systematically erased—burned and deleted to ensure its secrets never fall into the wrong hands.
+
+![Omnituens Eye](https://zeithalt.github.io/r/i/omnituens_eye.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

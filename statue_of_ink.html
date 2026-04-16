@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,21 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="statue-of-ink">🗽 Statue of INK<a class="header-anchor" href="#statue-of-ink">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/dev_null_marsh.html">Dev Null Marsh</a></p>
-      <p>Built on eon 1137 by <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a>.</p>
-      <p>Statue of INK - Built in Dev Null Marsh, on a huge clearing in the middle of a swampy area. This place is sacred to all Brothers and Deltans.</p>
-      <p>You are unlikely to find this place without a guide, but local residents, for a modest fee of several hundred gold, will take you along secret paths.</p>
-      <p>Already on the approach to this place, you will see a blue-red fog spreading across the swamps, and soon, you will see this greatest architectural structure - a huge statue of INK.</p>
-      <p>If you do not know the content of the tablet placed on the pedestal, you will see a red-blue haze surrounding the silhouette of the statue and will not be able to examine in detail the figure carved from a very unusual stone.</p>
-      <p>But as soon as you read the content of the tablet, on which in Deltan is carved: "<em>Великий ИНК</em>", INK himself will appear before you.</p>
-      <p>There will be an image of a strong and brave warrior, or a leader and the greatest commander, or a wise teacher and mentor, but in detail, everyone will see the image of this person in their own way, the way you imagined him, rather than another person standing next to you.</p>
-      <p>This mystery is because INK usually does not show himself in public and few people know what he really looks like. And only true followers of Chaos, or initiated into the Brotherhood, and also knowing Deltan, will be able to see his true image. And they, of course, will not tell you anything...</p>
-      <p>P.S.: The most attentive will be able to find an inscription on a tree near the exit from the path to the clearing: "<em>Здесь был T)) </em>"</p>
-      <p>P.P.S.: Near the statue hangs a shabby and hard to read notice: "<em>For sale A-maze-ing...(illegible)... Price ...(illegible)... gold.</em>"</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#0331" class="footer-link">
@@ -376,7 +368,67 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🗽 Statue of INK
+
+\`🖼️ Landmark\` in [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh.html>)
+
+Built on eon 1137 by [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>).
+
+Statue of INK - Built in Dev Null Marsh, on a huge clearing in the middle of a swampy area. This place is sacred to all Brothers and Deltans.
+
+You are unlikely to find this place without a guide, but local residents, for a modest fee of several hundred gold, will take you along secret paths. 
+
+Already on the approach to this place, you will see a blue-red fog spreading across the swamps, and soon, you will see this greatest architectural structure - a huge statue of INK. 
+
+If you do not know the content of the tablet placed on the pedestal, you will see a red-blue haze surrounding the silhouette of the statue and will not be able to examine in detail the figure carved from a very unusual stone. 
+
+But as soon as you read the content of the tablet, on which in Deltan is carved: "_Великий ИНК_", INK himself will appear before you.
+
+There will be an image of a strong and brave warrior, or a leader and the greatest commander, or a wise teacher and mentor, but in detail, everyone will see the image of this person in their own way, the way you imagined him, rather than another person standing next to you. 
+
+This mystery is because INK usually does not show himself in public and few people know what he really looks like. And only true followers of Chaos, or initiated into the Brotherhood, and also knowing Deltan, will be able to see his true image. And they, of course, will not tell you anything...
+
+P.S.: The most attentive will be able to find an inscription on a tree near the exit from the path to the clearing: "_Здесь был T)) _"
+
+P.P.S.: Near the statue hangs a shabby and hard to read notice: "*For sale A-maze-ing...(illegible)... Price ...(illegible)... gold.*"
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

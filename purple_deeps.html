@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,15 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="purple-deeps">Purple Deeps<a class="header-anchor" href="#purple-deeps">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span></p>
-      <p>This city is the embodiment of chaos, there is no clear division into social classes and types. Surprisingly, the city of chaos is quite harmonious, because the <strong>Security Department</strong> monitors compliance with the norms, and violators are punished very strictly.</p>
-      <p>Chaos is quite an interesting thing, its representatives alone are not very dangerous, except that they can cause problems with their unpredictability.</p>
-      <p>But everything changes when  <strong>Chaos Coordinator</strong>s appear among them, they are able to direct uncontrolled power in the right direction for the <strong>Council</strong>. Coordinators are quite rare and very rarely leave the territory of their country. The capital is very changeable, and can meet a casual traveler both very good-naturedly and reject him without even letting him into its borders.</p>
-      <p>The ruling structure is <strong>The Chaos Council</strong> consists of people marked by <strong>Chaos</strong> itself and who are very unusual in a combat situation.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#3911" class="footer-link">
@@ -370,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Purple Deeps
+
+\`🖼️ Landmark\`
+
+This city is the embodiment of chaos, there is no clear division into social classes and types. Surprisingly, the city of chaos is quite harmonious, because the **Security Department** monitors compliance with the norms, and violators are punished very strictly.
+
+Chaos is quite an interesting thing, its representatives alone are not very dangerous, except that they can cause problems with their unpredictability.
+
+But everything changes when  **Chaos Coordinator**s appear among them, they are able to direct uncontrolled power in the right direction for the **Council**. Coordinators are quite rare and very rarely leave the territory of their country. The capital is very changeable, and can meet a casual traveler both very good-naturedly and reject him without even letting him into its borders.
+
+The ruling structure is **The Chaos Council** consists of people marked by **Chaos** itself and who are very unusual in a combat situation.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

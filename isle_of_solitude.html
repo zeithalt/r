@@ -19,7 +19,7 @@
   <meta property="og:title" content="☯ Isle Of Solitude">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1298 by MindTech Institute">
+  <meta property="og:description" content="In a peaceful, secluded bay within the _Illusion Cliffs_ lies a small, wooded island known to local fishers as the _Isle of Solitude_.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/isle_of_solitude.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="☯ Isle Of Solitude">
-  <meta name="twitter:description" content="Built on eon 1298 by MindTech Institute">
+  <meta name="twitter:description" content="In a peaceful, secluded bay within the _Illusion Cliffs_ lies a small, wooded island known to local fishers as the _Isle of Solitude_.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/isle_of_solitude.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,20 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="isle-of-solitude">☯ Isle Of Solitude<a class="header-anchor" href="#isle-of-solitude">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/illusion_cliffs">Illusion Cliffs</a></p>
-      <p>Built on eon 1298 by <a href="https://zeithalt.github.io/r/mindtech_institute">MindTech Institute</a></p>
-      <p>In a peaceful, secluded bay within the <em>Illusion Cliffs</em> lies a small, wooded island known to local fishers as the <em>Isle of Solitude</em>.</p>
-      <p>Though an island can be accessed by a wooden bridge, a visitor is greeted by a simple, hand-drawn wooden sign that reads: "Visitors are loved and respected, but not really welcome."  This gentle request for privacy is honored by the few locals who know of the place.</p>
-      <p>The inhabitant is the former Headmaster of the <em>MindTech Institute</em>, <a href="https://zeithalt.github.io/r/curious_dino.html">Dino Saurex</a>.  Weary from the betrayals, heartbroken after the <em>MindTech</em> <em>Era of Peace</em> was brutally ended and disheartened by the decline of the <em>Institute</em> over the last hundred eons, <em>Dino</em> retreated to this island, taking a vow of silence.</p>
-      <p>From the shore, one can see a tidy path leading into the trees and glimpses of well-tended fruit trees, but the old Master's dwelling and private garden are deliberately hidden from view. His days are spent in quiet reflection and grounding, mundane tasks. He tends his garden, carves intricate figures from driftwood, and spends long hours watching the unique, colorful tides of the <em>Cliffs</em>.</p>
-      <p>Though he is isolated, he is not entirely cut off. Official <em>MindTech</em> couriers are sometimes spotted traveling in the bay, reportedly carrying supplies and correspondence to and from the secluded island.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/isle_of_solitude.png" alt="Isle of Solitude" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#5d80" class="footer-link">
@@ -375,7 +368,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# ☯ Isle Of Solitude
+
+\`🖼️ Landmark\` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs>)
+
+Built on eon 1298 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute>)
+
+In a peaceful, secluded bay within the _Illusion Cliffs_ lies a small, wooded island known to local fishers as the _Isle of Solitude_.
+
+Though an island can be accessed by a wooden bridge, a visitor is greeted by a simple, hand-drawn wooden sign that reads: "Visitors are loved and respected, but not really welcome."  This gentle request for privacy is honored by the few locals who know of the place.
+
+The inhabitant is the former Headmaster of the _MindTech Institute_, [Dino Saurex](<https://zeithalt.github.io/r/curious_dino.html>).  Weary from the betrayals, heartbroken after the _MindTech_ _Era of Peace_ was brutally ended and disheartened by the decline of the _Institute_ over the last hundred eons, _Dino_ retreated to this island, taking a vow of silence.
+
+From the shore, one can see a tidy path leading into the trees and glimpses of well-tended fruit trees, but the old Master's dwelling and private garden are deliberately hidden from view. His days are spent in quiet reflection and grounding, mundane tasks. He tends his garden, carves intricate figures from driftwood, and spends long hours watching the unique, colorful tides of the _Cliffs_.
+
+Though he is isolated, he is not entirely cut off. Official _MindTech_ couriers are sometimes spotted traveling in the bay, reportedly carrying supplies and correspondence to and from the secluded island.
+
+![Isle of Solitude](https://zeithalt.github.io/r/i/isle_of_solitude.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,27 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="council-of-minds">Council of Minds<a class="header-anchor" href="#council-of-minds">#</a></h1>
-      <p><span class="tag">📑 Term</span></p>
-      <p>A governing body of <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> that resides in <a href="https://zeithalt.github.io/r/cortexian_hall.html">Cortexian Hall</a>.</p>
-      <p>The members of the Council are called <em>Masters</em> and serve for life, unless they resign or are removed from the Council by vote of the other members.</p>
-      <p>There are no set criteria for becoming a Master of the Council, but usually these are recognized citizens, skilled warriors and prominent scholars of the faction. Any existing Master of the Council can vouch for new candidates for the Council.</p>
-      <p>The leader of the Council is called the <em>Headmaster</em>, who also acts as a Headmaster of the Institute. Headmaster is elected among the Masters of the Council by the common vote of MindTech Institute followers (not limited to Masters).</p>
-      <p>Each Master is responsible for one branch of the Institute's operations. These positions are not set in stone and can be created or cancelled by Headmaster's decree when needed. However, the most commonly known positions are:</p>
-      <ul>
-        <li><code>🛡️ Master of War</code>  - oversees the military operations of the faction;</li>
-        <li><code>🌍 Master of Diplomacy</code> - responsible for contacts with other factions;</li>
-        <li><code>💰 Master of Gold</code> - acts as the faction's treasurer;</li>
-        <li><code>🎭 Master of Memes</code> - manages the informational and PR campaigns for the faction.</li>
-      </ul>
-      <p>The Council is as old as the faction itself, and its history ranges from the ultimate power on the island during the times it was led by <a href="https://zeithalt.github.io/r/hexagon.html">hexAgon</a> to the complete dissolution during the times of <a href="https://zeithalt.github.io/r/loki.html">Loki</a>'s dictatorship.</p>
-      <p>The Council was restored on <a href="https://zeithalt.github.io/t/#eon0755">Eon 755</a> following the fall of the ruthless dictator.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/council_of_minds.png" alt="Council of Minds, interpretation by an unknown artist." loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#7c90" class="footer-link">
@@ -382,7 +368,67 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Council of Minds
+
+\`📑 Term\`
+
+A governing body of [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) that resides in [Cortexian Hall](<https://zeithalt.github.io/r/cortexian_hall.html>).
+
+The members of the Council are called _Masters_ and serve for life, unless they resign or are removed from the Council by vote of the other members.
+
+There are no set criteria for becoming a Master of the Council, but usually these are recognized citizens, skilled warriors and prominent scholars of the faction. Any existing Master of the Council can vouch for new candidates for the Council.
+
+The leader of the Council is called the _Headmaster_, who also acts as a Headmaster of the Institute. Headmaster is elected among the Masters of the Council by the common vote of MindTech Institute followers (not limited to Masters).
+
+Each Master is responsible for one branch of the Institute's operations. These positions are not set in stone and can be created or cancelled by Headmaster's decree when needed. However, the most commonly known positions are:
+- \`🛡️ Master of War\`  - oversees the military operations of the faction;
+- \`🌍 Master of Diplomacy\` - responsible for contacts with other factions;
+- \`💰 Master of Gold\` - acts as the faction's treasurer;
+- \`🎭 Master of Memes\` - manages the informational and PR campaigns for the faction.
+
+The Council is as old as the faction itself, and its history ranges from the ultimate power on the island during the times it was led by [hexAgon](<https://zeithalt.github.io/r/hexagon.html>) to the complete dissolution during the times of [Loki](<https://zeithalt.github.io/r/loki.html>)'s dictatorship.
+
+The Council was restored on [Eon 755](<https://zeithalt.github.io/t/#eon0755>) following the fall of the ruthless dictator.
+
+![Council of Minds, interpretation by an unknown artist.](https://zeithalt.github.io/r/i/council_of_minds.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

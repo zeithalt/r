@@ -19,7 +19,7 @@
   <meta property="og:title" content="👻 Valley of Lost Spirits">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 859 by Delta Collective">
+  <meta property="og:description" content="The Valley of Lost Spirits is a mysterious place, hidden from prying eyes behind the impassable swamps in Dev Null Marsh.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="👻 Valley of Lost Spirits">
-  <meta name="twitter:description" content="Built on eon 859 by Delta Collective">
+  <meta name="twitter:description" content="The Valley of Lost Spirits is a mysterious place, hidden from prying eyes behind the impassable swamps in Dev Null Marsh.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="valley-of-lost-spirits">👻 Valley of Lost Spirits<a class="header-anchor" href="#valley-of-lost-spirits">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/dev_null_marsh.html">Dev Null Marsh</a></p>
-      <p>Built on eon 859 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a></p>
-      <p>The Valley of Lost Spirits is a mysterious place, hidden from prying eyes behind the impassable swamps in Dev Null Marsh. However, a very well-tested and trampled path leads here.</p>
-      <p>For some reason, in this place, the connection between this world and the world of spirits is especially strong and spirits have the opportunity to appear in this world in their true form. Therefore, this place is famous for the fact that here you can touch the secrets of the afterlife, as well as meet and personally communicate with spirits without performing secret summoning rituals.</p>
-      <p>Spirits gather here to discuss their plans for immortal life, as well as communicate with those who want to touch the mysteries of the afterlife.</p>
-      <p>However, spirits rarely answer interesting questions, and usually the entire dialogue comes down to the spirits expelling uninvited guests from their valley. But every time new seekers come to find out the secrets of the past and learn the wisdom of great ancestors ...</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#2ea0" class="footer-link">
@@ -371,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 👻 Valley of Lost Spirits
+
+\`🖼️ Landmark\` in [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh.html>)
+
+Built on eon 859 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
+
+The Valley of Lost Spirits is a mysterious place, hidden from prying eyes behind the impassable swamps in Dev Null Marsh. However, a very well-tested and trampled path leads here.
+
+For some reason, in this place, the connection between this world and the world of spirits is especially strong and spirits have the opportunity to appear in this world in their true form. Therefore, this place is famous for the fact that here you can touch the secrets of the afterlife, as well as meet and personally communicate with spirits without performing secret summoning rituals.
+
+Spirits gather here to discuss their plans for immortal life, as well as communicate with those who want to touch the mysteries of the afterlife.
+
+However, spirits rarely answer interesting questions, and usually the entire dialogue comes down to the spirits expelling uninvited guests from their valley. But every time new seekers come to find out the secrets of the past and learn the wisdom of great ancestors ...
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

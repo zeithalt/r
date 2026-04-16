@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,21 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="burning-treasury-monument">🔥 Burning Treasury Monument<a class="header-anchor" href="#burning-treasury-monument">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/brickland_fortress.html">Brickland Fortress</a></p>
-      <p>Built on Eon 1548 by <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a>.</p>
-      <p>In the center of a low stone platform rises a monument shaped like a giant bonfire. The logs are massive, roughly cast gold bars and enormous stacks of coins, skillfully carved from stone and coated with gold plating.</p>
-      <p>The gold is stacked in a rough pyramid, like real firewood: large bars at the bottom, smaller ones at the top, with coins sticking out between them, simulating rims melting in the heat. At the base of the bonfire are a few solitary coins, rolled to the side.</p>
-      <p>From the very heart of this golden pile, real flames shoot skyward. The fire licks the golden surfaces, flickering between the coins, and it seems as if the wealth itself is ablaze with a bright orange-red light.</p>
-      <p>The flames reflect off the gold edges, creating the illusion that the coins are white-hot and about to flow down as molten metal, but they remain frozen in this eternal flame.</p>
-      <p>This monument symbolizes the merciless truth of war: for the sake of victory, factions are willing to throw their own treasures into the fire like fuel, and the brighter the flames of triumph, the more wealth was sacrificed.</p>
-      <p>The gold frozen in stone shows that glory may shine forever, but its light is born from the ashes of lost fortunes, reminding posterity at what cost this fire was kindled.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/burning_treasury_monument.png" alt="Burning Treasury Monument" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#5520" class="footer-link">
@@ -376,7 +368,63 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🔥 Burning Treasury Monument
+
+\`🖼️ Landmark\` in [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress.html>)
+
+Built on Eon 1548 by [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>).
+
+In the center of a low stone platform rises a monument shaped like a giant bonfire. The logs are massive, roughly cast gold bars and enormous stacks of coins, skillfully carved from stone and coated with gold plating. 
+
+The gold is stacked in a rough pyramid, like real firewood: large bars at the bottom, smaller ones at the top, with coins sticking out between them, simulating rims melting in the heat. At the base of the bonfire are a few solitary coins, rolled to the side.
+
+From the very heart of this golden pile, real flames shoot skyward. The fire licks the golden surfaces, flickering between the coins, and it seems as if the wealth itself is ablaze with a bright orange-red light. 
+
+The flames reflect off the gold edges, creating the illusion that the coins are white-hot and about to flow down as molten metal, but they remain frozen in this eternal flame.
+
+This monument symbolizes the merciless truth of war: for the sake of victory, factions are willing to throw their own treasures into the fire like fuel, and the brighter the flames of triumph, the more wealth was sacrificed. 
+
+The gold frozen in stone shows that glory may shine forever, but its light is born from the ashes of lost fortunes, reminding posterity at what cost this fire was kindled.
+
+![Burning Treasury Monument](https://zeithalt.github.io/r/i/burning_treasury_monument.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -19,7 +19,7 @@
   <meta property="og:title" content="🛕 Veranda of Chaos">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1264 by Band of Brothers">
+  <meta property="og:description" content="A dacha with a veranda, built in the impassable _Cybertron Jungle_ by order of _Macmep, Sniper from Chaos_.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🛕 Veranda of Chaos">
-  <meta name="twitter:description" content="Built on eon 1264 by Band of Brothers">
+  <meta name="twitter:description" content="A dacha with a veranda, built in the impassable _Cybertron Jungle_ by order of _Macmep, Sniper from Chaos_.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="veranda-of-chaos">🛕 Veranda of Chaos<a class="header-anchor" href="#veranda-of-chaos">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/cybertron_jungle">Cybertron Jungle</a></p>
-      <p>Built on eon 1264 by <a href="https://zeithalt.github.io/r/band_of_brothers">Band of Brothers</a></p>
-      <p>A dacha with a veranda, built in the impassable <em>Cybertron Jungle</em> by order of <em>Macmep, Sniper from Chaos</em>. It is used by its owner as a base for recreation, planning operations, as well as for hunting and conducting active combat operations.</p>
-      <p>The house itself is not interesting or remarkable from the outside, and you are unlikely to go inside without a gun pointed at your head. However, the veranda adjacent to this house is an artifact, a real work of technomagic art.</p>
-      <p>The veranda has several comfortable sniper positions. A soft mattress for shooting from a prone position. A comfortable chair and a stand for shooting while sitting.</p>
-      <p>There are boxes of cartridges lying around, and garlands of spent cartridges decorate the house and veranda.</p>
-      <p>But the most important property of this veranda is that it can move to any point of Zeithalt at the owner's will, while remaining invisible to an outside observer thanks to the impeccable camouflage created with the help of Chaos energy.</p>
-      <p>The capabilities of the veranda speak for themselves. An invisible sniper, "flying" around the battlefield and shooting enemies from the most unexpected places. Isn't that terrible? When the first enemy unexpectedly falls dead, the rest scatter to the corners. But the great <em>Macmep</em> knows how to wait. And when the enemy relaxes, the sniper will continue his hunt...</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#2df0" class="footer-link">
@@ -373,7 +368,60 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🛕 Veranda of Chaos
+
+\`🖼️ Landmark\` in [Cybertron Jungle](<https://zeithalt.github.io/r/cybertron_jungle>)
+
+Built on eon 1264 by [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers>)
+
+A dacha with a veranda, built in the impassable _Cybertron Jungle_ by order of _Macmep, Sniper from Chaos_. It is used by its owner as a base for recreation, planning operations, as well as for hunting and conducting active combat operations.
+
+The house itself is not interesting or remarkable from the outside, and you are unlikely to go inside without a gun pointed at your head. However, the veranda adjacent to this house is an artifact, a real work of technomagic art.
+
+The veranda has several comfortable sniper positions. A soft mattress for shooting from a prone position. A comfortable chair and a stand for shooting while sitting.
+There are boxes of cartridges lying around, and garlands of spent cartridges decorate the house and veranda.
+
+But the most important property of this veranda is that it can move to any point of Zeithalt at the owner's will, while remaining invisible to an outside observer thanks to the impeccable camouflage created with the help of Chaos energy.
+
+The capabilities of the veranda speak for themselves. An invisible sniper, "flying" around the battlefield and shooting enemies from the most unexpected places. Isn't that terrible? When the first enemy unexpectedly falls dead, the rest scatter to the corners. But the great _Macmep_ knows how to wait. And when the enemy relaxes, the sniper will continue his hunt...
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -19,7 +19,7 @@
   <meta property="og:title" content="⚗️ The Kitchen">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1404 by Band of Brothers">
+  <meta property="og:description" content="The alchemy laboratory, located in the impenetrable part of Cybertron Jungle, is a multi-level underground complex divided into workshops by product type.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="⚗️ The Kitchen">
-  <meta name="twitter:description" content="Built on eon 1404 by Band of Brothers">
+  <meta name="twitter:description" content="The alchemy laboratory, located in the impenetrable part of Cybertron Jungle, is a multi-level underground complex divided into workshops by product type.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="the-kitchen">⚗️ The Kitchen<a class="header-anchor" href="#the-kitchen">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/cybertron_jungle.html">Cybertron Jungle</a></p>
-      <p>Built on eon 1404 by <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a></p>
-      <p>The alchemy laboratory, located in the impenetrable part of <a href="https://zeithalt.github.io/r/cybertron_jungle.html">Cybertron Jungle</a>, is a multi-level underground complex divided into workshops by product type. All specialists and laborers reside here, on the upper floors of the bunker.</p>
-      <p>In the psychoactive substances workshop, mushroom cultures mature on shelves in bioreactors, designed to produce powerful hallucinogens. Nearby, essential oils from toxic plants are distilled, serving as the basis for a whole range of drugs — from relaxing smoking mixtures to powerful injectable stimulants that induce euphoria and provide a temporary feeling of superpower.</p>
-      <p>In the combat alchemy workshop, caustic and volatile compounds are brewed that ignite or explode upon contact with air. Other formulas encase unstable magical energy in glass spheres, creating grenades that, when detonated, produce a blinding flash or a cloud of corrosive fog.</p>
-      <p>Combat stimulants are produced separately, suppressing fear and pain, dramatically accelerating reflexes, temporarily increasing physical and magical strength, but leading to complete exhaustion after their effect wears off.</p>
-      <p>The Healing Alchemy Workshop works with concentrated extracts of medical herbs and the tissues of magical creatures. Potions are produced here that accelerate blood clotting and wound healing, neutralize common poisons, and mend broken bones.</p>
-      <p>The laboratory's most sought-after and dangerous products are fast-acting, traceless poisons, manufactured in a sealed chamber. Some paralyze the nervous system, others cause cardiac arrest, and still others mimic the symptoms of a fatal disease. Antidotes for most of these are developed right there in the next room.</p>
-      <p>The delivery of raw materials for production and the shipment of finished products are facilitated by a sophisticated warehouse system that sources basic ingredients from across Zeithalt and utilizes proxy warehouses and an expensive portal system for secrecy. Once in the warehouses, the products are distributed throughout Zeithalt through a network of couriers and hiding places.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#a090" class="footer-link">
@@ -374,7 +368,63 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# ⚗️ The Kitchen
+
+\`🖼️ Landmark\` in [Cybertron Jungle](<https://zeithalt.github.io/r/cybertron_jungle.html>)
+
+Built on eon 1404 by [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>)
+
+The alchemy laboratory, located in the impenetrable part of [Cybertron Jungle](<https://zeithalt.github.io/r/cybertron_jungle.html>), is a multi-level underground complex divided into workshops by product type. All specialists and laborers reside here, on the upper floors of the bunker.
+
+In the psychoactive substances workshop, mushroom cultures mature on shelves in bioreactors, designed to produce powerful hallucinogens. Nearby, essential oils from toxic plants are distilled, serving as the basis for a whole range of drugs — from relaxing smoking mixtures to powerful injectable stimulants that induce euphoria and provide a temporary feeling of superpower.
+
+In the combat alchemy workshop, caustic and volatile compounds are brewed that ignite or explode upon contact with air. Other formulas encase unstable magical energy in glass spheres, creating grenades that, when detonated, produce a blinding flash or a cloud of corrosive fog.
+
+Combat stimulants are produced separately, suppressing fear and pain, dramatically accelerating reflexes, temporarily increasing physical and magical strength, but leading to complete exhaustion after their effect wears off.
+
+The Healing Alchemy Workshop works with concentrated extracts of medical herbs and the tissues of magical creatures. Potions are produced here that accelerate blood clotting and wound healing, neutralize common poisons, and mend broken bones.
+
+The laboratory's most sought-after and dangerous products are fast-acting, traceless poisons, manufactured in a sealed chamber. Some paralyze the nervous system, others cause cardiac arrest, and still others mimic the symptoms of a fatal disease. Antidotes for most of these are developed right there in the next room.
+
+The delivery of raw materials for production and the shipment of finished products are facilitated by a sophisticated warehouse system that sources basic ingredients from across Zeithalt and utilizes proxy warehouses and an expensive portal system for secrecy. Once in the warehouses, the products are distributed throughout Zeithalt through a network of couriers and hiding places.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

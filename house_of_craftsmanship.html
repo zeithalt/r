@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,15 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="house-of-craftsmanship">🛖 House of Craftsmanship<a class="header-anchor" href="#house-of-craftsmanship">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/synaxos_fields.html">Synaxos Fields</a>.</p>
-      <p>Commonly known as the <em>Artifice School of Crafts</em>, the House of Craftsmanship is situated at <a href="https://zeithalt.github.io/r/somnivale.html">Somnivale</a>, <a href="https://zeithalt.github.io/r/synaxos_fields.html">Synaxos Fields</a>. It is famed for creating weapons and tools nigh-impossible to scratch nor break with forging practices dating back to the <a href="https://zeithalt.github.io/r/mindtech_institute.html">MT</a>'s Age of Enlightenment.</p>
-      <p>The weapons created are not the highlight of this place but the students that study here. It is the third ranking school in the lands of MT and first in the field of craftsmanship. With their motto <em>"With the burning heat of our will, we forge our mind the path to zenith."</em></p>
-      <p>Its most priced artifact, the <em>Dreamforge</em> (or the <em>Litunera-lleumeo</em>), said to have been created for the purpose of crafting high-grade weapons by infusing the mind of the crafter with the item forged. The weapon or tool crafted said to scale power depending on how willful its forger's mind is, and is too powerful to be held by any other than the crafter itself.</p>
-      <p>The forge is traditionally used for students graduating from the school, with their forged weapons being a sign of completion in the academe.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#1b90" class="footer-link">
@@ -370,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🛖 House of Craftsmanship
+
+\`🖼️ Landmark\` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields.html>).
+
+Commonly known as the *Artifice School of Crafts*, the House of Craftsmanship is situated at [Somnivale](<https://zeithalt.github.io/r/somnivale.html>), [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields.html>). It is famed for creating weapons and tools nigh-impossible to scratch nor break with forging practices dating back to the [MT](<https://zeithalt.github.io/r/mindtech_institute.html>)'s Age of Enlightenment.
+
+The weapons created are not the highlight of this place but the students that study here. It is the third ranking school in the lands of MT and first in the field of craftsmanship. With their motto *"With the burning heat of our will, we forge our mind the path to zenith."*
+
+Its most priced artifact, the *Dreamforge* (or the *Litunera-lleumeo*), said to have been created for the purpose of crafting high-grade weapons by infusing the mind of the crafter with the item forged. The weapon or tool crafted said to scale power depending on how willful its forger's mind is, and is too powerful to be held by any other than the crafter itself.
+
+The forge is traditionally used for students graduating from the school, with their forged weapons being a sign of completion in the academe.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

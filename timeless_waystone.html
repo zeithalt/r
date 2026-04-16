@@ -19,7 +19,7 @@
   <meta property="og:title" content="Timeless Waystone">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="(Scientific Name: Isynthillicus Cyrciniae)">
+  <meta property="og:description" content="Also known as the "Pathfinder Stone", this ancient gemstone is created at the center-point of the lands of Zeithalt by the continuous pressure given by the physical and mystical force above and below the land.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/timeless_waystone.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Timeless Waystone">
-  <meta name="twitter:description" content="(Scientific Name: Isynthillicus Cyrciniae)">
+  <meta name="twitter:description" content="Also known as the "Pathfinder Stone", this ancient gemstone is created at the center-point of the lands of Zeithalt by the continuous pressure given by the physical and mystical force above and below the land.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/timeless_waystone.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,20 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="timeless-waystone">Timeless Waystone<a class="header-anchor" href="#timeless-waystone">#</a></h1>
-      <p><span class="tag">📜 Item</span></p>
-      <blockquote>
-        <p>(Scientific Name: <em>Isynthillicus Cyrciniae</em>)</p>
-      </blockquote>
-      <p>Also known as the "Pathfinder Stone", this ancient gemstone is created at the <a href="https://zeithalt.github.io/r/timeless_desert.html">center-point</a> of the lands of Zeithalt by the continuous pressure given by the physical and mystical force above and below the land.</p>
-      <p>The stone emanates a bright white light when first seen that will make the beholder temporarily immune or lengthen any illusionary and temporal effects, depending on the will of the holder. Although the quality of the stone may affect how strong the effectivity would be.</p>
-      <p>These stones, though, are very rare due to it taking hundreds of years to form and being very difficult to find as the <a href="https://zeithalt.github.io/r/timeless_desert.html">Desert</a> where they are made are famous for being a place where you can easily get lost or lose your way, leading to many adventurers never coming back.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/timeless_waystone.png" alt="Timeless Waystone" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#22a0" class="footer-link">
@@ -375,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Timeless Waystone
+
+\`📜 Item\`
+
+> (Scientific Name: *Isynthillicus Cyrciniae*)
+
+Also known as the "Pathfinder Stone", this ancient gemstone is created at the [center-point](<https://zeithalt.github.io/r/timeless_desert.html>) of the lands of Zeithalt by the continuous pressure given by the physical and mystical force above and below the land.
+
+The stone emanates a bright white light when first seen that will make the beholder temporarily immune or lengthen any illusionary and temporal effects, depending on the will of the holder. Although the quality of the stone may affect how strong the effectivity would be.
+
+These stones, though, are very rare due to it taking hundreds of years to form and being very difficult to find as the [Desert](<https://zeithalt.github.io/r/timeless_desert.html>) where they are made are famous for being a place where you can easily get lost or lose your way, leading to many adventurers never coming back.
+
+![Timeless Waystone](https://zeithalt.github.io/r/i/timeless_waystone.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

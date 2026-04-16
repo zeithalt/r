@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,15 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="kingtree-sanctuary">🌳 Kingtree Sanctuary<a class="header-anchor" href="#kingtree-sanctuary">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/aas_forest.html">A'as Forest</a></p>
-      <p>The Kingtree Sanctuary is a conservatory built at the south-eastern parts of A'as Forest and is meant for conservation, protection, and research of Kingtrees. It currently houses four grown Kingtrees with few in-observation to see if they grow fully into one.</p>
-      <p>In ancient texts, it is said that the waters collected at the cradles of the Kingtrees were used at ceremonials and births, and was used to clean A'as when Queen Theciana, his mother, gave birth to the prince long ago.</p>
-      <p>The tree centered by the sanctuary is said to have been one of the trees King A'as personally tended after the tree used for his birth was used for crafting the table of the Brotherhood's Round.</p>
-      <p>Kingtrees are made by a rare natural phenomenon when two trees near each other conjunct their branches and create a cradle-like branch knot that houses natural water collected by the trees from rainwater. This fragile process makes it difficult to be replicated and found mostly to grow in unique, natural conditions unaffected by foreign influences. They are classified as an endangered specie of trees and was mandated by the institute to be preserved and made illegal to cut down.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#8810" class="footer-link">
@@ -370,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🌳 Kingtree Sanctuary
+
+\`🖼️ Landmark\` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
+
+The Kingtree Sanctuary is a conservatory built at the south-eastern parts of A'as Forest and is meant for conservation, protection, and research of Kingtrees. It currently houses four grown Kingtrees with few in-observation to see if they grow fully into one.
+
+In ancient texts, it is said that the waters collected at the cradles of the Kingtrees were used at ceremonials and births, and was used to clean A'as when Queen Theciana, his mother, gave birth to the prince long ago.
+
+The tree centered by the sanctuary is said to have been one of the trees King A'as personally tended after the tree used for his birth was used for crafting the table of the Brotherhood's Round.
+
+Kingtrees are made by a rare natural phenomenon when two trees near each other conjunct their branches and create a cradle-like branch knot that houses natural water collected by the trees from rainwater. This fragile process makes it difficult to be replicated and found mostly to grow in unique, natural conditions unaffected by foreign influences. They are classified as an endangered specie of trees and was mandated by the institute to be preserved and made illegal to cut down.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

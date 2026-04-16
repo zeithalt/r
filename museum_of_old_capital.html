@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,14 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="museum-of-the-old-capital">🏛️ Museum of the Old Capital<a class="header-anchor" href="#museum-of-the-old-capital">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span></p>
-      <p>Constructed on eon 761, the Museum contains the ancient <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> artifacts retrieved from the place of its first capital - <a href="https://zeithalt.github.io/r/aas_forest.html">A'as Forest</a>, such as scrolls, archives, book, art and much more.</p>
-      <p>This museum is believed to host the greatest collection of historical artifacts and knowledge on the whole Zeithalt Island, as it presents the results of meticulous work done by generations of MindTech scholars.</p>
-      <p>From the Shaushka runes describing the foundation of the <a href="https://zeithalt.github.io/r/first_capital.html">First Capital</a>, to the detailed maps of the old ruins of <a href="https://zeithalt.github.io/r/aas_forest.html">A'as Forest</a> created ceonturies after its fall - the museum hosts it all, while the work to restore and rediscover the secrets of the <em>First Capital</em> continues within its walls.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#6c20" class="footer-link">
@@ -369,7 +368,53 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🏛️ Museum of the Old Capital
+
+\`🖼️ Landmark\`
+
+Constructed on eon 761, the Museum contains the ancient [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) artifacts retrieved from the place of its first capital - [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>), such as scrolls, archives, book, art and much more.
+
+This museum is believed to host the greatest collection of historical artifacts and knowledge on the whole Zeithalt Island, as it presents the results of meticulous work done by generations of MindTech scholars.
+
+From the Shaushka runes describing the foundation of the [First Capital](<https://zeithalt.github.io/r/first_capital.html>), to the detailed maps of the old ruins of [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>) created ceonturies after its fall - the museum hosts it all, while the work to restore and rediscover the secrets of the _First Capital_ continues within its walls.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

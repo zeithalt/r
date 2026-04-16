@@ -19,7 +19,7 @@
   <meta property="og:title" content="🧜‍♀️ Siren's Lighthouse">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 509 by Delta Collective">
+  <meta property="og:description" content="A tall tower-like structure with a strong light source on top.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🧜‍♀️ Siren's Lighthouse">
-  <meta name="twitter:description" content="Built on eon 509 by Delta Collective">
+  <meta name="twitter:description" content="A tall tower-like structure with a strong light source on top.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="sirens-lighthouse">🧜‍♀️ Siren's Lighthouse<a class="header-anchor" href="#sirens-lighthouse">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/dev_null_marsh.html">Dev Null Marsh</a></p>
-      <p>Built on eon 509 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a></p>
-      <p>A tall tower-like structure with a strong light source on top. Situated on a cliff, on the shore of a bay in <em>Dev Null Marsh</em>. A place that is the stuff of legends. Half of them are obvious nonsense, but the other half make sense.</p>
-      <p>This lighthouse was originally built for its obvious purpose - to help captains determine the location of their ships. However, over time, the Sirens have taken a liking to this bay and are using it for their own purposes.</p>
-      <p>The legend says that no sailor who has heard the angelic singing of a Siren and seen her dazzling beauty can cope with the emotions that overwhelm him. When hypnotized, the sailor jumps into the arms of the Siren, who then drags the poor fellow to the bottom of the sea.</p>
-      <p>Presumably, with the help of this lighthouse, the Sirens lure ships into the bay, and then, after some time, other sailors find these ships drifting without a crew in the open sea. If the legend is to be believed, one thing is certain: before their disappearance, the sailors were very happy to be near this lighthouse.</p>
-      <p>Rumor has it that with the arrival of <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a> in these lands, the winds of fortune for the Sirens changed. After a very convincing conversation with the Mafia representatives, the Sirens, not wanting to become one of the exotic goods in Brother's Meat Market, promised not to touch the ships of the Mafia-loyal smugglers, who now use this bay as a very secure port for the sea delivery of illegal goods to Zeithalt.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#c210" class="footer-link">
@@ -372,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🧜‍♀️ Siren's Lighthouse
+
+\`🖼️ Landmark\` in [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh.html>)
+
+Built on eon 509 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
+
+A tall tower-like structure with a strong light source on top. Situated on a cliff, on the shore of a bay in _Dev Null Marsh_. A place that is the stuff of legends. Half of them are obvious nonsense, but the other half make sense.
+
+This lighthouse was originally built for its obvious purpose - to help captains determine the location of their ships. However, over time, the Sirens have taken a liking to this bay and are using it for their own purposes.
+
+The legend says that no sailor who has heard the angelic singing of a Siren and seen her dazzling beauty can cope with the emotions that overwhelm him. When hypnotized, the sailor jumps into the arms of the Siren, who then drags the poor fellow to the bottom of the sea.
+
+Presumably, with the help of this lighthouse, the Sirens lure ships into the bay, and then, after some time, other sailors find these ships drifting without a crew in the open sea. If the legend is to be believed, one thing is certain: before their disappearance, the sailors were very happy to be near this lighthouse.
+
+Rumor has it that with the arrival of [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>) in these lands, the winds of fortune for the Sirens changed. After a very convincing conversation with the Mafia representatives, the Sirens, not wanting to become one of the exotic goods in Brother's Meat Market, promised not to touch the ships of the Mafia-loyal smugglers, who now use this bay as a very secure port for the sea delivery of illegal goods to Zeithalt.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

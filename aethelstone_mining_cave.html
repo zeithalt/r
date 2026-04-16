@@ -19,7 +19,7 @@
   <meta property="og:title" content="⛏️ Aethelstone Mining Cave">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1212 by MindTech Institute">
+  <meta property="og:description" content="Located north of the Prefrenial Prefect in the Xyrclaox Watch region.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/aethelstone_mining_cave.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="⛏️ Aethelstone Mining Cave">
-  <meta name="twitter:description" content="Built on eon 1212 by MindTech Institute">
+  <meta name="twitter:description" content="Located north of the Prefrenial Prefect in the Xyrclaox Watch region.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/aethelstone_mining_cave.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,21 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="aethelstone-mining-cave">⛏️ Aethelstone Mining Cave<a class="header-anchor" href="#aethelstone-mining-cave">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/xyrclaox_watch">Xyrclaox Watch</a></p>
-      <p>Built on eon 1212 by <a href="https://zeithalt.github.io/r/mindtech_institute">MindTech Institute</a></p>
-      <p>Located north of the <a href="https://zeithalt.github.io/r/prefrenial_prefect.html">Prefrenial Prefect</a> in the <a href="https://zeithalt.github.io/r/xyrclaox_watch.html">Xyrclaox Watch</a> region.</p>
-      <p>The <em>Aethelstone Mining Cave</em> is a recently discovered cave system that became accessible following a significant <a href="https://zeithalt.github.io/r/corruption.html">CR outburst</a>. The <em>MindTech Institute</em> oversees operations within this cave network, which serves as a site for the extraction of <a href="https://zeithalt.github.io/r/aethelstone.html">Aethelstone</a>, also known as <em>Sunstone</em>.</p>
-      <p>The cave system's entrance is a notable geological feature resulting from the <a href="https://zeithalt.github.io/t/#eon1131">CR Outburst on eon 1131</a> in this location. The route from the <em>Prefrenial Prefect</em> to the mine is characterized by a challenging winter climate.</p>
-      <p>Within the cave system, prisoners are tasked with mining <em>Aethelstone</em>. These individuals operate under a quota system, where successful extraction contributes to a reduction of their assigned terms.</p>
-      <p>Mining operations are conducted with specific protocols due to the unstable nature of <em>Aethelstone</em>, which exhibits <a href="https://zeithalt.github.io/r/aethelstone.html">reactivity to light sources</a>, necessitating the use of specialized "cold-light" illumination technologies. The material's properties require careful handling to ensure the safety of personnel.</p>
-      <p>The <em>Aethelstone Mining Cave</em> is a significant resource acquisition point for the <em>MindTech Institute</em> and the <em>Xyrclaox Watch</em> region. It is believed that the formation of <em>Aethelstone</em> may be linked to the geological processes leading up to CR outbursts, and the cave system itself is a subject of ongoing study in relation to these phenomena.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/aethelstone_mining_cave.png" alt="Aethelstone Mining Cave" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#3330" class="footer-link">
@@ -376,7 +368,63 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# ⛏️ Aethelstone Mining Cave
+
+\`🖼️ Landmark\` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch>)
+
+Built on eon 1212 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute>)
+
+Located north of the [Prefrenial Prefect](<https://zeithalt.github.io/r/prefrenial_prefect.html>) in the [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>) region.
+
+The _Aethelstone Mining Cave_ is a recently discovered cave system that became accessible following a significant [CR outburst](<https://zeithalt.github.io/r/corruption.html>). The _MindTech Institute_ oversees operations within this cave network, which serves as a site for the extraction of [Aethelstone](<https://zeithalt.github.io/r/aethelstone.html>), also known as _Sunstone_.
+
+The cave system's entrance is a notable geological feature resulting from the [CR Outburst on eon 1131](<https://zeithalt.github.io/t/#eon1131>) in this location. The route from the _Prefrenial Prefect_ to the mine is characterized by a challenging winter climate.
+
+Within the cave system, prisoners are tasked with mining _Aethelstone_. These individuals operate under a quota system, where successful extraction contributes to a reduction of their assigned terms.
+
+Mining operations are conducted with specific protocols due to the unstable nature of _Aethelstone_, which exhibits [reactivity to light sources](<https://zeithalt.github.io/r/aethelstone.html>), necessitating the use of specialized "cold-light" illumination technologies. The material's properties require careful handling to ensure the safety of personnel.
+
+The _Aethelstone Mining Cave_ is a significant resource acquisition point for the _MindTech Institute_ and the _Xyrclaox Watch_ region. It is believed that the formation of _Aethelstone_ may be linked to the geological processes leading up to CR outbursts, and the cave system itself is a subject of ongoing study in relation to these phenomena.
+
+![Aethelstone Mining Cave](https://zeithalt.github.io/r/i/aethelstone_mining_cave.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

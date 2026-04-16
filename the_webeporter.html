@@ -19,7 +19,7 @@
   <meta property="og:title" content="🗺️ The Webeporter">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 894 by Cybernetics Inc">
+  <meta property="og:description" content="An advanced device placed on top of the hill at the heart of Webified hills.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/the_webeporter.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🗺️ The Webeporter">
-  <meta name="twitter:description" content="Built on eon 894 by Cybernetics Inc">
+  <meta name="twitter:description" content="An advanced device placed on top of the hill at the heart of Webified hills.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/the_webeporter.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="the-webeporter">🗺️ The Webeporter<a class="header-anchor" href="#the-webeporter">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/webified_hills.html">Webified Hills</a></p>
-      <p>Built on eon 894 by <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc</a></p>
-      <p>An advanced device placed on top of the hill at the heart of Webified hills.</p>
-      <p>This device uses the "natural connection" of these lands to connect every territory together more efficiently.</p>
-      <p>Features of the Webeporter include enhancing the range and speed of all communication devices and teleporters across Zeithalt and taking surveys of surrounding lands to detect the early signs of potential <a href="https://zeithalt.github.io/r/cr_fallout.html">Corruption Outbursts</a>.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/the_webeporter.png" alt="The Webeporter" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#1b80" class="footer-link">
@@ -373,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🗺️ The Webeporter
+
+\`🖼️ Landmark\` in [Webified Hills](<https://zeithalt.github.io/r/webified_hills.html>)
+
+Built on eon 894 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)
+
+An advanced device placed on top of the hill at the heart of Webified hills. 
+
+This device uses the "natural connection" of these lands to connect every territory together more efficiently.
+
+Features of the Webeporter include enhancing the range and speed of all communication devices and teleporters across Zeithalt and taking surveys of surrounding lands to detect the early signs of potential [Corruption Outbursts](<https://zeithalt.github.io/r/cr_fallout.html>).
+
+![The Webeporter](https://zeithalt.github.io/r/i/the_webeporter.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

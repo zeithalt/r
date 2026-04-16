@@ -19,7 +19,7 @@
   <meta property="og:title" content="🎋 Bamboo Grove">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Build on eon 494 by Protectores Silva">
+  <meta property="og:description" content="A huge bamboo grove, which includes about 140 species of this interesting plant.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🎋 Bamboo Grove">
-  <meta name="twitter:description" content="Build on eon 494 by Protectores Silva">
+  <meta name="twitter:description" content="A huge bamboo grove, which includes about 140 species of this interesting plant.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="bamboo-grove">🎋 Bamboo Grove<a class="header-anchor" href="#bamboo-grove">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/cybertron_jungle.html">Cybertron Jungle</a></p>
-      <p>Build on eon 494 by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a></p>
-      <p>A huge bamboo grove, which includes about 140 species of this interesting plant. It is actively used by local residents as a building material due to its availability, high growth rate, and ease of processing.</p>
-      <p>The bamboo grove is also home to rare species of various animal families, such as bears, hares, canines, birds, snakes, ungulates, and others that live only in this type of woodland.</p>
-      <p>The bamboo grove is an excellent supplier of rare meats for <a href="https://zeithalt.github.io/r/brothers_meat_market.html">Brother's Meat Market</a>. Hunters from all over Zeithalt flock here to get another rare trophy and surprise the market's management and their customers with another curiosity.</p>
-      <p>Environmentalists and animal rights activists are concerned about such a large influx of poachers, so the authorities are taking the toughest methods to combat illegal hunting.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#9640" class="footer-link">
@@ -371,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🎋 Bamboo Grove
+
+\`🖼️ Landmark\` in [Cybertron Jungle](<https://zeithalt.github.io/r/cybertron_jungle.html>)
+
+Build on eon 494 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>)
+
+A huge bamboo grove, which includes about 140 species of this interesting plant. It is actively used by local residents as a building material due to its availability, high growth rate, and ease of processing.
+
+The bamboo grove is also home to rare species of various animal families, such as bears, hares, canines, birds, snakes, ungulates, and others that live only in this type of woodland.
+
+The bamboo grove is an excellent supplier of rare meats for [Brother's Meat Market](<https://zeithalt.github.io/r/brothers_meat_market.html>). Hunters from all over Zeithalt flock here to get another rare trophy and surprise the market's management and their customers with another curiosity.
+
+Environmentalists and animal rights activists are concerned about such a large influx of poachers, so the authorities are taking the toughest methods to combat illegal hunting.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

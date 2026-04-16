@@ -19,7 +19,7 @@
   <meta property="og:title" content="🛝 Curiosity Playground">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1247 by MindTech Institute">
+  <meta property="og:description" content="Curiosity Playground is an open-air park subsidised by MindTech Institute.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/curiosity_playground.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🛝 Curiosity Playground">
-  <meta name="twitter:description" content="Built on eon 1247 by MindTech Institute">
+  <meta name="twitter:description" content="Curiosity Playground is an open-air park subsidised by MindTech Institute.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/curiosity_playground.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,22 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="curiosity-playground">🛝 Curiosity Playground<a class="header-anchor" href="#curiosity-playground">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/synaxos_fields">Synaxos Fields</a></p>
-      <p>Built on eon 1247 by <a href="https://zeithalt.github.io/r/mindtech_institute">MindTech Institute</a></p>
-      <p>Curiosity Playground is an open-air park subsidised by MindTech Institute. It serves as a place where children of all ages can engage with the principles of physics through interactive play, guided by Institute teachers. The environment is designed to make learning intuitive and enjoyable, integrating discovery into the act of play itself.</p>
-      <p>The playground is thoughtfully divided into four main zones:</p>
-      <p><strong>Physics & Power:</strong> This section allows exploration of nature's fundamental forces. Exhibits include gravity slides of varying angles, miniature windmills demonstrating how wind can perform simple work, and water wheels that illustrate concepts of energy transfer and fluid motion.</p>
-      <p><strong>Perception & Illusions:</strong> Here, the principles governing senses are explored. Large periscopes provide unique vantage points, echo tubes demonstrate acoustic properties, and various displays manipulate light and perspective to create intriguing visual effects.</p>
-      <p><strong>Nature & Growth:</strong> This area focuses on the patterns and structures found in the natural world. It features mazes designed with fractal geometry inspired by the nearby <a href="https://zeithalt.github.io/r/fractal_fields.html">Fractal Fields</a>, materials for building stable structures, and exhibits are highlighting growth patterns observed in nature.</p>
-      <p><strong>Mind & Technology:</strong> This zone demonstrates the practical application of physical principles. Large, interactive mechanisms like gears and levers illustrate mechanical advantage, while models show how concepts from other zones translate into useful tools and technologies, sometimes referencing local Synaxos craftsmanship like that seen at the <a href="https://zeithalt.github.io/r/house_of_craftsmanship.html">House of Craftsmanship</a>.</p>
-      <p>Overall, Curiosity Playground is designed to nurture innate curiosity. It provides a stimulating environment where experimentation, asking questions, and understanding the workings of the world happen organically through engaging, hands-on activities.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/curiosity_playground.png" alt="Curiosity Playground" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#ef70" class="footer-link">
@@ -377,7 +368,65 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🛝 Curiosity Playground
+
+\`🖼️ Landmark\` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields>)
+
+Built on eon 1247 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute>)
+
+Curiosity Playground is an open-air park subsidised by MindTech Institute. It serves as a place where children of all ages can engage with the principles of physics through interactive play, guided by Institute teachers. The environment is designed to make learning intuitive and enjoyable, integrating discovery into the act of play itself.
+
+The playground is thoughtfully divided into four main zones:
+
+**Physics & Power:** This section allows exploration of nature's fundamental forces. Exhibits include gravity slides of varying angles, miniature windmills demonstrating how wind can perform simple work, and water wheels that illustrate concepts of energy transfer and fluid motion.
+
+**Perception & Illusions:** Here, the principles governing senses are explored. Large periscopes provide unique vantage points, echo tubes demonstrate acoustic properties, and various displays manipulate light and perspective to create intriguing visual effects.
+
+**Nature & Growth:** This area focuses on the patterns and structures found in the natural world. It features mazes designed with fractal geometry inspired by the nearby [Fractal Fields](<https://zeithalt.github.io/r/fractal_fields.html>), materials for building stable structures, and exhibits are highlighting growth patterns observed in nature.
+
+**Mind & Technology:** This zone demonstrates the practical application of physical principles. Large, interactive mechanisms like gears and levers illustrate mechanical advantage, while models show how concepts from other zones translate into useful tools and technologies, sometimes referencing local Synaxos craftsmanship like that seen at the [House of Craftsmanship](<https://zeithalt.github.io/r/house_of_craftsmanship.html>).
+
+Overall, Curiosity Playground is designed to nurture innate curiosity. It provides a stimulating environment where experimentation, asking questions, and understanding the workings of the world happen organically through engaging, hands-on activities.
+
+![Curiosity Playground](https://zeithalt.github.io/r/i/curiosity_playground.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

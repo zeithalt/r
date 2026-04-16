@@ -19,7 +19,7 @@
   <meta property="og:title" content="🧭 Chrono-Compass Tower">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1208 by MindTech Institute">
+  <meta property="og:description" content="The Chrono-Compass Tower is a monumental structure made of intricately layered stonework.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/chrono_compass_tower.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🧭 Chrono-Compass Tower">
-  <meta name="twitter:description" content="Built on eon 1208 by MindTech Institute">
+  <meta name="twitter:description" content="The Chrono-Compass Tower is a monumental structure made of intricately layered stonework.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/chrono_compass_tower.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,20 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="chrono-compass-tower">🧭 Chrono-Compass Tower<a class="header-anchor" href="#chrono-compass-tower">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/paradox_pass.html">Paradox Pass</a></p>
-      <p>Built on eon 1208 by <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a></p>
-      <p>The Chrono-Compass Tower is a monumental structure made of intricately layered stonework. It serves as a hub for navigation and trade within Paradox Pass and the surrounding regions.</p>
-      <p>It houses a sophisticated device that uses a vast archive of chronoglass tablets for orientation and route planning. By analyzing these tablets, navigators can chart the most efficient paths for travelers and traders across <em>MindTech Institute</em> lands, ensuring the swiftest possible journeys.</p>
-      <p>Several big ornate dials are set into the <em>Tower</em>'s facade on each of the sides, their surfaces etched with complex symbols and moving components.</p>
-      <p>One dial on each side is used to keep track of time, while the others feature unfamiliar arrangements of gears, lenses, and calibrated rings with each side of the tower serving its own purpose. The true function of these elaborate mechanisms is understood only by the skilled navigators who operate within.</p>
-      <p>The presence of the <em>Chrono-Compass Tower</em> significantly enhances trade and travel not only within <em>Paradox Pass</em> but throughout the neighboring regions, making it a crucial nexus for commerce and passage.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/chrono_compass_tower.png" alt="Chrono-Compass Tower" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#0950" class="footer-link">
@@ -375,7 +368,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🧭 Chrono-Compass Tower
+
+\`🖼️ Landmark\` in [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>)
+
+Built on eon 1208 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
+
+The Chrono-Compass Tower is a monumental structure made of intricately layered stonework. It serves as a hub for navigation and trade within Paradox Pass and the surrounding regions.
+
+It houses a sophisticated device that uses a vast archive of chronoglass tablets for orientation and route planning. By analyzing these tablets, navigators can chart the most efficient paths for travelers and traders across _MindTech Institute_ lands, ensuring the swiftest possible journeys.
+
+Several big ornate dials are set into the _Tower_'s facade on each of the sides, their surfaces etched with complex symbols and moving components.
+
+One dial on each side is used to keep track of time, while the others feature unfamiliar arrangements of gears, lenses, and calibrated rings with each side of the tower serving its own purpose. The true function of these elaborate mechanisms is understood only by the skilled navigators who operate within.
+
+The presence of the _Chrono-Compass Tower_ significantly enhances trade and travel not only within _Paradox Pass_ but throughout the neighboring regions, making it a crucial nexus for commerce and passage.
+
+![Chrono-Compass Tower](https://zeithalt.github.io/r/i/chrono_compass_tower.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

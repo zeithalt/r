@@ -19,7 +19,7 @@
   <meta property="og:title" content="Pickled Wind Farms">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 867 by Protectores Silva">
+  <meta property="og:description" content="Pickled Wind Farms is a series of 10 wind farms build atop 10 high altitude mountains of Mt.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/pickled_wind_farm.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Pickled Wind Farms">
-  <meta name="twitter:description" content="Built on eon 867 by Protectores Silva">
+  <meta name="twitter:description" content="Pickled Wind Farms is a series of 10 wind farms build atop 10 high altitude mountains of Mt.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/pickled_wind_farm.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="pickled-wind-farms">Pickled Wind Farms<a class="header-anchor" href="#pickled-wind-farms">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/mt_pickles.html">Mt. Pickles</a></p>
-      <p>Built on eon 867 by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a></p>
-      <p>Pickled Wind Farms is a series of 10 wind farms build atop 10 high altitude mountains of Mt. Pickles that are close to eachother and the Energy Hub thats located at the base of the most middle mountain. These farms aim to solve a faction's energy problems via clean and environment friendly methods.</p>
-      <p>The farms are heavily sponsored by the owner of the local business <a href="https://zeithalt.github.io/r/pppp.html">Pierre's Porous Pickle Porch</a> (4P), Pierre Porph Pickleson who made this project viable by budget in the first place. It is unknown what deal he got to make this generous sponsorship.</p>
-      <p>Each farm consists of around 20 large wind turbines which harness clean and renewable energy by converting the kinetic energy of the high speed winds that often occur at these altitudes into electrical energy and a Distribution Hub which are basically small scale Energy Hub's responsible of collecting an individual wind farm's power. The energy is then sent from these Distribution Hubs into the Energy Hub itself, which consists of a control center of the entire operation and storage units, and it is where the energy gets distributed to both into the region and the rest of the faction itself.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/pickled_wind_farm.png" alt="Pickled Wind Farm" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#e0f0" class="footer-link">
@@ -373,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Pickled Wind Farms
+
+\`🖼️ Landmark\` in [Mt. Pickles](<https://zeithalt.github.io/r/mt_pickles.html>)
+
+Built on eon 867 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>)
+
+Pickled Wind Farms is a series of 10 wind farms build atop 10 high altitude mountains of Mt. Pickles that are close to eachother and the Energy Hub thats located at the base of the most middle mountain. These farms aim to solve a faction's energy problems via clean and environment friendly methods.
+
+The farms are heavily sponsored by the owner of the local business [Pierre's Porous Pickle Porch](<https://zeithalt.github.io/r/pppp.html>) (4P), Pierre Porph Pickleson who made this project viable by budget in the first place. It is unknown what deal he got to make this generous sponsorship.
+
+Each farm consists of around 20 large wind turbines which harness clean and renewable energy by converting the kinetic energy of the high speed winds that often occur at these altitudes into electrical energy and a Distribution Hub which are basically small scale Energy Hub's responsible of collecting an individual wind farm's power. The energy is then sent from these Distribution Hubs into the Energy Hub itself, which consists of a control center of the entire operation and storage units, and it is where the energy gets distributed to both into the region and the rest of the faction itself.
+
+![Pickled Wind Farm](https://zeithalt.github.io/r/i/pickled_wind_farm.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

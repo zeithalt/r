@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,14 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="particle-collitionist">🎡 Particle Collitionist<a class="header-anchor" href="#particle-collitionist">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless Desert</a></p>
-      <p>The Particle Collider Of Little Light Items To Include Occupation Nonsense In Sands of Time (Particle COLLITIONIST) is the island's largest and only high-energy particle collider.</p>
-      <p>It was built by the Arcology Building for Operators of Desert Experiments (ABODE)  under supervision of <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> and with the help of other factions. Construction took place between E454 and E463.</p>
-      <p>It lies in a tunnel 34 kilometres (which in miles is 21) in circumference and as deep as 150 metres (which in inches is a different number) beneath the Timeless-Pickles border.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#3910" class="footer-link">
@@ -369,7 +368,53 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🎡 Particle Collitionist
+
+\`🖼️ Landmark\` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
+
+The Particle Collider Of Little Light Items To Include Occupation Nonsense In Sands of Time (Particle COLLITIONIST) is the island's largest and only high-energy particle collider.
+
+It was built by the Arcology Building for Operators of Desert Experiments (ABODE)  under supervision of [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) and with the help of other factions. Construction took place between E454 and E463.
+
+It lies in a tunnel 34 kilometres (which in miles is 21) in circumference and as deep as 150 metres (which in inches is a different number) beneath the Timeless-Pickles border.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

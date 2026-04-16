@@ -19,7 +19,7 @@
   <meta property="og:title" content="🏜️ Teremok of Cactus Patron">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 888 by Delta Collective">
+  <meta property="og:description" content="It is a modest palace complex of more than ten thousand square meters in size.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🏜️ Teremok of Cactus Patron">
-  <meta name="twitter:description" content="Built on eon 888 by Delta Collective">
+  <meta name="twitter:description" content="It is a modest palace complex of more than ten thousand square meters in size.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="teremok-of-cactus-patron">🏜️ Teremok of Cactus Patron<a class="header-anchor" href="#teremok-of-cactus-patron">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/peace_death_gorge.html">Peace Death Gorge</a></p>
-      <p>Built on eon 888 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a></p>
-      <p>It is a modest palace complex of more than ten thousand square meters in size. It is built from an unknown wood material with thorns. Who and where brought the materials for construction, as well as the type of tree itself, is a secret guarded by the <a href="sentient_cactus_reservation.md">cactus race</a>.</p>
-      <p>It is used as a permanent residence of <a href="https://zeithalt.github.io/r/t.html">T, the Cactus Patron (Patriarch, Tsar)</a>. The palace complex provides rooms for all representatives of the cactus race.</p>
-      <p>This is achieved through the use of spatial magic, distorting and increasing the size of the room.</p>
-      <p>Representatives of any, NOT cactus race, are strictly prohibited from entering because being inside the complex is dangerous to their lives.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#9db0" class="footer-link">
@@ -371,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🏜️ Teremok of Cactus Patron
+
+\`🖼️ Landmark\` in [Peace Death Gorge](<https://zeithalt.github.io/r/peace_death_gorge.html>)
+
+Built on eon 888 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
+
+It is a modest palace complex of more than ten thousand square meters in size. It is built from an unknown wood material with thorns. Who and where brought the materials for construction, as well as the type of tree itself, is a secret guarded by the [cactus race](sentient_cactus_reservation.md).
+
+It is used as a permanent residence of [T, the Cactus Patron (Patriarch, Tsar)](<https://zeithalt.github.io/r/t.html>). The palace complex provides rooms for all representatives of the cactus race. 
+
+This is achieved through the use of spatial magic, distorting and increasing the size of the room.
+
+Representatives of any, NOT cactus race, are strictly prohibited from entering because being inside the complex is dangerous to their lives.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

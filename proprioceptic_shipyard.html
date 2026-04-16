@@ -19,7 +19,7 @@
   <meta property="og:title" content="⚓ Proprioceptic Shipyard">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 961 by MindTech Institute">
+  <meta property="og:description" content="During the research on combining and enhancing the effects of Timeless Waystones, scientists of the Institute discovered a way to synthesize Proprioceptic Gems.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/proprioceptic_shipyard.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="⚓ Proprioceptic Shipyard">
-  <meta name="twitter:description" content="Built on eon 961 by MindTech Institute">
+  <meta name="twitter:description" content="During the research on combining and enhancing the effects of Timeless Waystones, scientists of the Institute discovered a way to synthesize Proprioceptic Gems.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/proprioceptic_shipyard.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="proprioceptic-shipyard">⚓ Proprioceptic Shipyard<a class="header-anchor" href="#proprioceptic-shipyard">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/xyrclaox_watch.html">Xyrclaox Watch</a></p>
-      <p>Built on eon 961 by <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a></p>
-      <p>During the research on combining and enhancing the effects of <a href="https://zeithalt.github.io/r/timeless_waystone.html">Timeless Waystones</a>, scientists of the Institute discovered a way to synthesize <em>Proprioceptic Gems</em>.</p>
-      <p>These gems need to be paired together via resonating frequencies. One gem is installed in the ship's hull, while the other is installed in the captain's compass.</p>
-      <p>The ships equipped with these gems give the sea captains ability to know the precise location of their own ship on the island, as well as relative positions of other <em>Proprioceptic Ships</em> in the area. This allows for effortless navigation in long voyages and the perfect coordination in naval battles.</p>
-      <p>The shipyard itself is a rather unremarkable set of buildings, hidden away in a harsh winter bay somewhere in <a href="https://zeithalt.github.io/r/xyrclaox_watch.html">Xyrclaox Watch</a>. It relies heavily on the wood materials produced in the nearby <a href="https://zeithalt.github.io/r/synaxos_fields.html">Synaxos Fields</a> and even more so on the steady supply of Proprioceptic Gems coming from <a href="https://zeithalt.github.io/r/neuropolis.html">Neuropolis</a> laboratories.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/proprioceptic_shipyard.png" alt="Proprioceptic Shipyard" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#5fa0" class="footer-link">
@@ -374,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# ⚓ Proprioceptic Shipyard
+
+\`🖼️ Landmark\` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>)
+
+Built on eon 961 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)
+
+During the research on combining and enhancing the effects of [Timeless Waystones](<https://zeithalt.github.io/r/timeless_waystone.html>), scientists of the Institute discovered a way to synthesize *Proprioceptic Gems*.
+
+These gems need to be paired together via resonating frequencies. One gem is installed in the ship's hull, while the other is installed in the captain's compass.
+
+The ships equipped with these gems give the sea captains ability to know the precise location of their own ship on the island, as well as relative positions of other _Proprioceptic Ships_ in the area. This allows for effortless navigation in long voyages and the perfect coordination in naval battles.
+
+The shipyard itself is a rather unremarkable set of buildings, hidden away in a harsh winter bay somewhere in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch.html>). It relies heavily on the wood materials produced in the nearby [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields.html>) and even more so on the steady supply of Proprioceptic Gems coming from [Neuropolis](<https://zeithalt.github.io/r/neuropolis.html>) laboratories.
+
+![Proprioceptic Shipyard](https://zeithalt.github.io/r/i/proprioceptic_shipyard.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

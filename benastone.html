@@ -19,7 +19,7 @@
   <meta property="og:title" content="🏠 Benastone">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 998 by Cloudy Operatives">
+  <meta property="og:description" content="Benastone (Formerly Bumpstown) is a heavily defended border town in the Southeastern Sector of the Timeless Desert, with a population of 14,000 to 16,000 inhabitants, known as _Benastarians_.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🏠 Benastone">
-  <meta name="twitter:description" content="Built on eon 998 by Cloudy Operatives">
+  <meta name="twitter:description" content="Benastone (Formerly Bumpstown) is a heavily defended border town in the Southeastern Sector of the Timeless Desert, with a population of 14,000 to 16,000 inhabitants, known as _Benastarians_.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="benastone">🏠 Benastone<a class="header-anchor" href="#benastone">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless Desert</a></p>
-      <p>Built on eon 998 by <a href="https://zeithalt.github.io/r/cloudy_operatives.html">Cloudy Operatives</a></p>
-      <p>Benastone (Formerly <a href="https://zeithalt.github.io/r/bumps.html">Bumpstown</a>) is a heavily defended border town in the Southeastern Sector of the <a href="timeless_desert.md">Timeless Desert</a>, with a population of 14,000 to 16,000 inhabitants, known as <em>Benastarians</em>. The city was originally established on eon 312 by inhabitants of <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech</a> origin. Due to the desert's time dilation, the city remained shrouded and hidden from public view, even considered an urban legend by those who attempted to venture into the timeless sands.</p>
-      <p>Benastone was officially oriented to Zeithaltian Time on eon 998, thanks to the scientific efforts of the Humble <a href="https://zeithalt.github.io/r/humble_abode.html">Abode</a> ChronoLogic (HACL) team.</p>
-      <p>The name change from <em>Bumpstown</em> occurred after the declaration of independence on eon 915 was peacefully resolved with the new name originating from the town's production of <em>Benas™️</em>, a modified bean product initially developed with the assistance of Cloudy Company, which continues to play a central role in the town's economy today.</p>
-      <p>The town contains its own districts, jurisdiction, and government, acting as one of the many autonomous entities in the <em>Timeless Desert</em>. However, it remains under the protection of the <a href="https://zeithalt.github.io/r/cloudy_operatives.html">Corporatives</a>, maintaining occasional relations through the delivery of gold, credits, and resources as tributes or contributions to the desert's scientific endeavors.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#a270" class="footer-link">
@@ -371,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🏠 Benastone
+
+\`🖼️ Landmark\` in [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>)
+
+Built on eon 998 by [Cloudy Operatives](<https://zeithalt.github.io/r/cloudy_operatives.html>) 
+
+Benastone (Formerly [Bumpstown](<https://zeithalt.github.io/r/bumps.html>)) is a heavily defended border town in the Southeastern Sector of the [Timeless Desert](timeless_desert.md), with a population of 14,000 to 16,000 inhabitants, known as _Benastarians_. The city was originally established on eon 312 by inhabitants of [MindTech](<https://zeithalt.github.io/r/mindtech_institute.html>) origin. Due to the desert's time dilation, the city remained shrouded and hidden from public view, even considered an urban legend by those who attempted to venture into the timeless sands.
+
+Benastone was officially oriented to Zeithaltian Time on eon 998, thanks to the scientific efforts of the Humble [Abode](<https://zeithalt.github.io/r/humble_abode.html>) ChronoLogic (HACL) team. 
+
+The name change from _Bumpstown_ occurred after the declaration of independence on eon 915 was peacefully resolved with the new name originating from the town's production of _Benas™️_, a modified bean product initially developed with the assistance of Cloudy Company, which continues to play a central role in the town's economy today.
+
+The town contains its own districts, jurisdiction, and government, acting as one of the many autonomous entities in the _Timeless Desert_. However, it remains under the protection of the [Corporatives](<https://zeithalt.github.io/r/cloudy_operatives.html>), maintaining occasional relations through the delivery of gold, credits, and resources as tributes or contributions to the desert's scientific endeavors.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

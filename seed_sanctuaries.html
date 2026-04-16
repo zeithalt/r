@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="seed-sanctuaries">🌱 Seed Sanctuaries<a class="header-anchor" href="#seed-sanctuaries">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/mt_pickles.html">Mt. Pickles</a></p>
-      <p>Built on eon 956 by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a>.</p>
-      <p>Seed Sanctuaries are a series of medium-scale cold-temperature vaults hidden and spread across the entirety of the region of Mt. Pickles.</p>
-      <p>These vaults are located in the most desolate parts of several uninhabited mountains in the region. Each vault is equipped with a sturdy metal door specially designed to protect its contents from even the most severe <a href="https://zeithalt.github.io/r/corruption.html">Corruption Outbreaks</a>.</p>
-      <p>Inside these vaults are various seeds of plants from all across Zeithalt Island, collected by the agents of <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a> and carefully stored in each of them. These vaults are regularly updated with new seeds whenever the agents of Protectores Silva discover new plant species they can add. These seeds then undergo several steps to ensure they don't go bad before they are stored in one of these cold-temperature vaults.</p>
-      <p>With these, it is aimed to protect both the individual plants from going extinct and even protect the entire biodiversity of Zeithalt from going extinct even in the worst case scenario of Corruption taking over the majority of the Island.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/seed_sanctuaries.png" alt="Seed Sanctuaries" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#39a0" class="footer-link">
@@ -374,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🌱 Seed Sanctuaries
+
+\`🖼️ Landmark\` in [Mt. Pickles](<https://zeithalt.github.io/r/mt_pickles.html>)
+
+Built on eon 956 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>).
+
+Seed Sanctuaries are a series of medium-scale cold-temperature vaults hidden and spread across the entirety of the region of Mt. Pickles.
+
+These vaults are located in the most desolate parts of several uninhabited mountains in the region. Each vault is equipped with a sturdy metal door specially designed to protect its contents from even the most severe [Corruption Outbreaks](<https://zeithalt.github.io/r/corruption.html>).
+
+Inside these vaults are various seeds of plants from all across Zeithalt Island, collected by the agents of [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>) and carefully stored in each of them. These vaults are regularly updated with new seeds whenever the agents of Protectores Silva discover new plant species they can add. These seeds then undergo several steps to ensure they don't go bad before they are stored in one of these cold-temperature vaults.
+
+With these, it is aimed to protect both the individual plants from going extinct and even protect the entire biodiversity of Zeithalt from going extinct even in the worst case scenario of Corruption taking over the majority of the Island.
+
+![Seed Sanctuaries](https://zeithalt.github.io/r/i/seed_sanctuaries.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

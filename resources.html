@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,20 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="resources-res">Resources (RES)<a class="header-anchor" href="#resources-res">#</a></h1>
-      <p><span class="tag">📑 Term</span></p>
-      <p>All lands of Zeithalt Island are rich in resources.</p>
-      <p>They're divided into 3 broad categories:</p>
-      <ul>
-        <li><strong>Science</strong> Resources (SCI)</li>
-        <li><strong>Mineral</strong> Resources (MIN)</li>
-        <li><strong>Energy</strong> Resources (ERG)</li>
-      </ul>
-      <p>Factions have learned to use these resources to their advantage in battles in Special Operations.</p>
-      <p>There's also a fourth category of resources - <a href="https://zeithalt.github.io/r/temporal_resources.html">Temporal Resources</a> or (TMP), exclusively found in the <a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless Desert</a>.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#74f0" class="footer-link">
@@ -375,7 +368,58 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Resources (RES)
+
+\`📑 Term\`
+
+All lands of Zeithalt Island are rich in resources.
+
+They're divided into 3 broad categories:
+- **Science** Resources (SCI)
+- **Mineral** Resources (MIN)
+- **Energy** Resources (ERG)
+
+Factions have learned to use these resources to their advantage in battles in Special Operations.
+
+There's also a fourth category of resources - [Temporal Resources](<https://zeithalt.github.io/r/temporal_resources.html>) or (TMP), exclusively found in the [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>).
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

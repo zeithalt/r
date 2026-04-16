@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,13 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="pierres-porous-pickle-porch">Pierre's Porous Pickle Porch<a class="header-anchor" href="#pierres-porous-pickle-porch">#</a></h1>
-      <p><span class="tag">📑 Term</span></p>
-      <p>Pierre's Porous Pickle Porch (also known as PPPP or 4P) is a business formerly owned by Cloudy Co. made to exploit and sell pickle-related products from <a href="https://zeithalt.github.io/r/mt_pickles.html">Mt. Pickles</a> ranging from fun merchandise and gifts, but the majority of the income comes from pickle-related culinary products, this includes the famous Pierre's Fried Pickles and the Emergent Picklette, a pickle-mixed omelette made during the Peculiar Battle on Mt. Pickles</p>
-      <p>Pierre Porph Pickleson, the owner of 4P has been running 4P for the majority of his life with his now-late wife Pamela Pickleson, throughout his life he was always fond of pickles and to be able to find land that is named after Pickle was his dream come true, he now resides on Mt. Pickles where he runs his business.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#fc70" class="footer-link">
@@ -368,7 +368,51 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Pierre's Porous Pickle Porch
+
+\`📑 Term\`
+
+Pierre's Porous Pickle Porch (also known as PPPP or 4P) is a business formerly owned by Cloudy Co. made to exploit and sell pickle-related products from [Mt. Pickles](<https://zeithalt.github.io/r/mt_pickles.html>) ranging from fun merchandise and gifts, but the majority of the income comes from pickle-related culinary products, this includes the famous Pierre's Fried Pickles and the Emergent Picklette, a pickle-mixed omelette made during the Peculiar Battle on Mt. Pickles
+
+Pierre Porph Pickleson, the owner of 4P has been running 4P for the majority of his life with his now-late wife Pamela Pickleson, throughout his life he was always fond of pickles and to be able to find land that is named after Pickle was his dream come true, he now resides on Mt. Pickles where he runs his business.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

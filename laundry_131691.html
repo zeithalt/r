@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="laundry-n131691">🧼 Laundry N°131691<a class="header-anchor" href="#laundry-n131691">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/indigo_shore.html">Indigo Shore</a></p>
-      <p>Built on eon 1027 by <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a>.</p>
-      <p>The best laundry on Zeithalt Island according to unbiased reviews of willing and unwilling customers.</p>
-      <p>The Laundry boasts to use the best technology and materials for cleaning with the quality guarantee. 100% cleaning of any stains, except magical blood (this cannot be washed out).</p>
-      <p><a href="https://zeithalt.github.io/r/t.html">T</a> called it "The most useless investment of money", before that he <del>killed</del> fired several employees because they could not wash his Noble Emerald Cactus Mantle from the blood of his enemies.</p>
-      <p>Rumor has it that the laundry room number means something, but no one knows for sure.</p>
-      <p>Other rumors are that this building is one of the many mafia headquarters, but there is no exact confirmation of this, any attempts to find out have probably ended with the investigators disappearing without a trace.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#2871" class="footer-link">
@@ -372,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🧼 Laundry N°131691
+
+\`🖼️ Landmark\` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>)
+
+Built on eon 1027 by [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>).
+
+The best laundry on Zeithalt Island according to unbiased reviews of willing and unwilling customers. 
+
+The Laundry boasts to use the best technology and materials for cleaning with the quality guarantee. 100% cleaning of any stains, except magical blood (this cannot be washed out).
+
+[T](<https://zeithalt.github.io/r/t.html>) called it "The most useless investment of money", before that he ~~killed~~ fired several employees because they could not wash his Noble Emerald Cactus Mantle from the blood of his enemies.
+
+Rumor has it that the laundry room number means something, but no one knows for sure.
+
+Other rumors are that this building is one of the many mafia headquarters, but there is no exact confirmation of this, any attempts to find out have probably ended with the investigators disappearing without a trace.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

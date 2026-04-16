@@ -19,7 +19,7 @@
   <meta property="og:title" content="🧠 Resonance Chamber">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1301 by MindTech Institute">
+  <meta property="og:description" content="Located directly beneath Cortexian Hall, the construction of _Resonance Chamber_ began in secrecy during the early days of the current war, its foundations laid in what was once a Council meditation crypt.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/resonance_chamber.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🧠 Resonance Chamber">
-  <meta name="twitter:description" content="Built on eon 1301 by MindTech Institute">
+  <meta name="twitter:description" content="Located directly beneath Cortexian Hall, the construction of _Resonance Chamber_ began in secrecy during the early days of the current war, its foundations laid in what was once a Council meditation crypt.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/resonance_chamber.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,27 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="resonance-chamber">🧠 Resonance Chamber<a class="header-anchor" href="#resonance-chamber">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/neuropolis">Neuropolis</a></p>
-      <p>Built on eon 1301 by <a href="https://zeithalt.github.io/r/mindtech_institute">MindTech Institute</a></p>
-      <p>Located directly beneath <a href="https://zeithalt.github.io/r/cortexian_hall.html">Cortexian Hall</a>, the construction of <em>Resonance Chamber</em> began in secrecy during the early days of the <a href="https://zeithalt.github.io/t/#eon1227">current war</a>, its foundations laid in what was once a <a href="https://zeithalt.github.io/r/council_of_minds.html">Council</a> meditation crypt.</p>
-      <p>Upon opening access to a wider public, it became an instrument of internal realignment — a sanctuary to remind <em>MindTech</em> of its values and enduring identity.</p>
-      <p>The chamber is shaped like a perfect hemispheric dome, supported by 31 columns, all made of pale marble stone. Visitors enter in silence, removing shoes and devices, and are seated in an evenly spaced circle around a shimmering central disk known as the <em>Harmonic Plate</em>.</p>
-      <p><em>Harmonic Plate</em> itself is made from porous stone known as <em>neuroglassite</em>. Harvested from rare deposits near the edge of the <a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless Desert</a>, this material needed to be transported though the occupied territory of <a href="https://zeithalt.github.io/r/paradox_pass.html">Paradox Pass</a> until it reached the capital.</p>
-      <p>Here, guided by senior harmonists, participants engage in synchronized meditation sequences where they speak nothing aloud — but focus on visualized phrases, memories, and values. The chamber’s architecture responds to these psychic patterns, subtly altering light, temperature, and ambient frequency in tune with the group’s mental state.</p>
-      <p>The goal is simple: to <em>resonate</em>. Emotionally, intellectually, collectively.</p>
-      <p>Sessions often start and end with a silent recitation of the verse:</p>
-      <blockquote>
-        <p>*“The minds will stand, the minds will rise,</p>
-        <p>From dust and flame, from steel and lies.”*</p>
-      </blockquote>
-      <p>While the <em>Chamber</em> does not grant any combat abilities nor reveal any new knowledge, its effect is undeniable. In the weeks following its use, reports of deserter panic dropped. <em>Masters of the Council</em> spoke with renewed clarity. Some soldiers claimed they no longer dreamt of defeat.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/resonance_chamber.png" alt="Resonance Chamber" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#86b0" class="footer-link">
@@ -382,7 +368,69 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🧠 Resonance Chamber
+
+\`🖼️ Landmark\` in [Neuropolis](<https://zeithalt.github.io/r/neuropolis>)
+
+Built on eon 1301 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute>)
+
+Located directly beneath [Cortexian Hall](<https://zeithalt.github.io/r/cortexian_hall.html>), the construction of _Resonance Chamber_ began in secrecy during the early days of the [current war](<https://zeithalt.github.io/t/#eon1227>), its foundations laid in what was once a [Council](<https://zeithalt.github.io/r/council_of_minds.html>) meditation crypt.
+
+Upon opening access to a wider public, it became an instrument of internal realignment — a sanctuary to remind _MindTech_ of its values and enduring identity.
+
+The chamber is shaped like a perfect hemispheric dome, supported by 31 columns, all made of pale marble stone. Visitors enter in silence, removing shoes and devices, and are seated in an evenly spaced circle around a shimmering central disk known as the _Harmonic Plate_.
+
+*Harmonic Plate* itself is made from porous stone known as *neuroglassite*. Harvested from rare deposits near the edge of the [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>), this material needed to be transported though the occupied territory of [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>) until it reached the capital.
+
+Here, guided by senior harmonists, participants engage in synchronized meditation sequences where they speak nothing aloud — but focus on visualized phrases, memories, and values. The chamber’s architecture responds to these psychic patterns, subtly altering light, temperature, and ambient frequency in tune with the group’s mental state.
+
+The goal is simple: to *resonate*. Emotionally, intellectually, collectively.
+
+Sessions often start and end with a silent recitation of the verse:
+> *“The minds will stand, the minds will rise,  
+> From dust and flame, from steel and lies.”*
+
+While the _Chamber_ does not grant any combat abilities nor reveal any new knowledge, its effect is undeniable. In the weeks following its use, reports of deserter panic dropped. _Masters of the Council_ spoke with renewed clarity. Some soldiers claimed they no longer dreamt of defeat.
+
+![Resonance Chamber](https://zeithalt.github.io/r/i/resonance_chamber.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

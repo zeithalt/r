@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,20 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="pebkac-peak">PEBKAC Peak<a class="header-anchor" href="#pebkac-peak">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span></p>
-      <p>PEBKAC Peak is a region of unparalleled beauty and technological wonder nestled in the southern reaches of Cybernetics Inc territory. Named in jest for the common tech troubleshooting acronym, PEBKAC (Problem Exists Between Keyboard And Chair), this area embodies the resilience and adaptability of both nature and technology.</p>
-      <p>PEBKAC Peak rises majestically above the surrounding landscape, its towering spires adorned with cascading streams of neon code that shimmer in the sunlight. Glitch storms rage across the horizon, their tempestuous winds carrying with them the whispers of a thousand errors and bugs.</p>
-      <p>At the foot of PEBKAC Peak lies Glitch Town, a small settlement with a turbulent reputation within Cybernetics Inc territory. Glitch Town is a haven for the disenfranchised, housing the slums of cyborgs and outlaws who exist on the outskirts of the CI-controlled world.</p>
-      <p>As you venture deeper into PEBKAC Peak, you'll discover a landscape teeming with life and energy. Binary rivers meander through lush valleys, their currents whispering tales of data and dreams. Gigantic data trees stretch towards the sky, their branches intertwining to form a canopy that filters the neon glow of the sun.</p>
-      <p>Venture even higher, you'll encounter obstacles that mirror common computing woes: treacherous switchbacks named "404 Alley", winding caverns dubbed "Encryption Caves", and precarious bridges spanning chasms of "Glitchy Gorge" and many more.</p>
-      <p>Yet amidst the chaos, there is beauty to be found. From the shimmering auroras that dance across the sky to the breathtaking vistas that stretch to the horizon, PEBKAC Peak is a region of wonder and discovery.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/pebkac_peak.png" alt="PEBKAC Peak" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#f6f0" class="footer-link">
@@ -375,7 +368,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# PEBKAC Peak
+
+\`🖼️ Landmark\`
+
+PEBKAC Peak is a region of unparalleled beauty and technological wonder nestled in the southern reaches of Cybernetics Inc territory. Named in jest for the common tech troubleshooting acronym, PEBKAC (Problem Exists Between Keyboard And Chair), this area embodies the resilience and adaptability of both nature and technology.
+
+PEBKAC Peak rises majestically above the surrounding landscape, its towering spires adorned with cascading streams of neon code that shimmer in the sunlight. Glitch storms rage across the horizon, their tempestuous winds carrying with them the whispers of a thousand errors and bugs.
+
+At the foot of PEBKAC Peak lies Glitch Town, a small settlement with a turbulent reputation within Cybernetics Inc territory. Glitch Town is a haven for the disenfranchised, housing the slums of cyborgs and outlaws who exist on the outskirts of the CI-controlled world.
+
+As you venture deeper into PEBKAC Peak, you'll discover a landscape teeming with life and energy. Binary rivers meander through lush valleys, their currents whispering tales of data and dreams. Gigantic data trees stretch towards the sky, their branches intertwining to form a canopy that filters the neon glow of the sun.
+
+Venture even higher, you'll encounter obstacles that mirror common computing woes: treacherous switchbacks named "404 Alley", winding caverns dubbed "Encryption Caves", and precarious bridges spanning chasms of "Glitchy Gorge" and many more.
+
+Yet amidst the chaos, there is beauty to be found. From the shimmering auroras that dance across the sky to the breathtaking vistas that stretch to the horizon, PEBKAC Peak is a region of wonder and discovery.
+
+![PEBKAC Peak](https://zeithalt.github.io/r/i/pebkac_peak.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

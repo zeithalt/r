@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="hexagon">hexAgon<a class="header-anchor" href="#hexagon">#</a></h1>
-      <p><span class="tag">🧙‍♂️ Character</span></p>
-      <p>He is a member of the Council of Minds, founder of the <em>Interfactional Poetry Contest</em> as well as one of the top fighters under the orange flag but not much is known about him.</p>
-      <p>His date and place of birth are unknown and very little is known about his actual residence: it is rumored that he lives in an invisible tower in the Institute's Fortress in Neuropolis and that he has a non-human creature as a servant and confidant.</p>
-      <p>Opinions about him are conflicting: for some he is the spiritual guide of the Institute, for others he is just a troublemaker.</p>
-      <p>Those who studied in the Fortress describe him as the headmaster of the Institute as well as a teacher of Ancient Runes. His lessons are judged by everyone to be "<em>extremely boring</em>".</p>
-      <p>It seems that he is in possession of <a href="https://zeithalt.github.io/r/cr_gemstone.html">a rare artifact</a> found in the dunes of the <a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless Desert</a> after the first battle against Corruption (eon 272): there is not much information about it.</p>
-      <p>They say he has a weakness for chocolate cookies.</p>
-      <p>At some point <a href="https://zeithalt.github.io/r/zeithalt_zeitgeist.html">Double-Z</a> was hyping rumours that hexAgon might be addicted to drinking baby unicorn blood, however that story remains unconfirmed and is believed to be a newspaper hoax</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#f910" class="footer-link">
@@ -373,7 +368,62 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# hexAgon
+
+\`🧙‍♂️ Character\`
+
+He is a member of the Council of Minds, founder of the *Interfactional Poetry Contest* as well as one of the top fighters under the orange flag but not much is known about him.
+
+
+His date and place of birth are unknown and very little is known about his actual residence: it is rumored that he lives in an invisible tower in the Institute's Fortress in Neuropolis and that he has a non-human creature as a servant and confidant.
+
+Opinions about him are conflicting: for some he is the spiritual guide of the Institute, for others he is just a troublemaker.
+
+Those who studied in the Fortress describe him as the headmaster of the Institute as well as a teacher of Ancient Runes. His lessons are judged by everyone to be "*extremely boring*".
+
+It seems that he is in possession of [a rare artifact](<https://zeithalt.github.io/r/cr_gemstone.html>) found in the dunes of the [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>) after the first battle against Corruption (eon 272): there is not much information about it.
+
+They say he has a weakness for chocolate cookies.
+
+At some point [Double-Z](<https://zeithalt.github.io/r/zeithalt_zeitgeist.html>) was hyping rumours that hexAgon might be addicted to drinking baby unicorn blood, however that story remains unconfirmed and is believed to be a newspaper hoax
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

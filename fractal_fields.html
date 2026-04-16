@@ -19,7 +19,7 @@
   <meta property="og:title" content="🌀 Fractal Fields">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1199 by MindTech Institute">
+  <meta property="og:description" content="The _Fractal Fields_ are one of the features that gave the _Synaxos Fields_ region its name.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/fractal_fields.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🌀 Fractal Fields">
-  <meta name="twitter:description" content="Built on eon 1199 by MindTech Institute">
+  <meta name="twitter:description" content="The _Fractal Fields_ are one of the features that gave the _Synaxos Fields_ region its name.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/fractal_fields.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="fractal-fields">🌀 Fractal Fields<a class="header-anchor" href="#fractal-fields">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/synaxos_fields">Synaxos Fields</a></p>
-      <p>Built on eon 1199 by <a href="https://zeithalt.github.io/r/mindtech_institute">MindTech Institute</a></p>
-      <p>The <em>Fractal Fields</em> are one of the features that gave the <em>Synaxos Fields</em> region its name.</p>
-      <p>These fields grow in an intricate, self-repeating pattern that depends on how the rainfall affects the underlying aquifer each year. One can easily get lost in this complex maze of unusually large wheat and corn crops, which are known for their size and yield.</p>
-      <p>Ever since the <a href="https://zeithalt.github.io/t/#eon0298">first battle of Synaxos Fields on eon 298</a>, the <em>MindTech Institute</em> has been training their scholars to study the fields and orient themselves within them as a means to guerilla warfare in the region. Scholars use their math skills, statistical data, and practical probes from the ground to determine and calculate patterns in their location.</p>
-      <p>Interestingly, these plans were never put to use, as the region has only seen <a href="https://zeithalt.github.io/r/corruption.html">Corruption</a> outbreaks and the subsequent <a href="https://zeithalt.github.io/r/cr_restoration_project.html">Corruption Restoration</a> efforts ever since the <a href="https://zeithalt.github.io/t/#eon0508">Disaster of Synaxos Fields</a>.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/fractal_fields.png" alt="Fractal Fields" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#5320" class="footer-link">
@@ -374,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🌀 Fractal Fields
+
+\`🖼️ Landmark\` in [Synaxos Fields](<https://zeithalt.github.io/r/synaxos_fields>)
+
+Built on eon 1199 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute>)
+
+The _Fractal Fields_ are one of the features that gave the _Synaxos Fields_ region its name. 
+
+These fields grow in an intricate, self-repeating pattern that depends on how the rainfall affects the underlying aquifer each year. One can easily get lost in this complex maze of unusually large wheat and corn crops, which are known for their size and yield.
+
+Ever since the [first battle of Synaxos Fields on eon 298](<https://zeithalt.github.io/t/#eon0298>), the _MindTech Institute_ has been training their scholars to study the fields and orient themselves within them as a means to guerilla warfare in the region. Scholars use their math skills, statistical data, and practical probes from the ground to determine and calculate patterns in their location.
+
+Interestingly, these plans were never put to use, as the region has only seen [Corruption](<https://zeithalt.github.io/r/corruption.html>) outbreaks and the subsequent [Corruption Restoration](<https://zeithalt.github.io/r/cr_restoration_project.html>) efforts ever since the [Disaster of Synaxos Fields](<https://zeithalt.github.io/t/#eon0508>).
+
+![Fractal Fields](https://zeithalt.github.io/r/i/fractal_fields.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

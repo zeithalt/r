@@ -19,7 +19,7 @@
   <meta property="og:title" content="🔦 Guidelight System">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Completed on eon 805 by MindTech Institute, this system provides guidance to travelers through the treacherous swamps of Oblivion Mire.">
+  <meta property="og:description" content="Completed on eon 805 by MindTech Institute, this system provides guidance to travelers through the treacherous swamps of _Oblivion Mire_.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/guidelight_system.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🔦 Guidelight System">
-  <meta name="twitter:description" content="Completed on eon 805 by MindTech Institute, this system provides guidance to travelers through the treacherous swamps of Oblivion Mire.">
+  <meta name="twitter:description" content="Completed on eon 805 by MindTech Institute, this system provides guidance to travelers through the treacherous swamps of _Oblivion Mire_.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/guidelight_system.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,22 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="guidelight-system">🔦 Guidelight System<a class="header-anchor" href="#guidelight-system">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/oblivion_mire.html">Oblivion Mire</a></p>
-      <p>Completed on eon 805 by <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a>, this system provides guidance to travelers through the treacherous swamps of <em>Oblivion Mire</em>.</p>
-      <p>The system consists of lights set up in such a way that a traveler only ever sees the next guiding light on their path, and walking directly towards it allows for a safe passage.</p>
-      <p>The Guidelight System consists of two main routes:</p>
-      <ul>
-        <li>The Primary Path goes from west to east, connecting <a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless Desert</a> to <a href="https://zeithalt.github.io/r/aas_forest.html">A'as Forest</a>, with a separate branch going towards Paradox Pass, connecting directly to <a href="https://zeithalt.github.io/r/axonite_road.html">Axonite Road</a>.</li>
-        <li>The Secondary Path going from north to south, connecting <a href="https://zeithalt.github.io/r/blue_screen_lagoon.html">Blue Screen Lagoon</a> to <a href="https://zeithalt.github.io/r/cerene_vale.html">Cerene Vale</a>.</li>
-      </ul>
-      <p>These paths mostly go along the same routes Mire's inhabitants use for ceonturies. However, the Guidelight System provides a reliable and relatively safe way to navigate these routes much quicker and without the need to employ local villagers as guides.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/guidelight_system.png" alt="Guidelight System" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#9840" class="footer-link">
@@ -377,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🔦 Guidelight System
+
+\`🖼️ Landmark\` in [Oblivion Mire](<https://zeithalt.github.io/r/oblivion_mire.html>)
+
+Completed on eon 805 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>), this system provides guidance to travelers through the treacherous swamps of _Oblivion Mire_.
+
+The system consists of lights set up in such a way that a traveler only ever sees the next guiding light on their path, and walking directly towards it allows for a safe passage.
+
+The Guidelight System consists of two main routes:
+- The Primary Path goes from west to east, connecting [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>) to [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>), with a separate branch going towards Paradox Pass, connecting directly to [Axonite Road](<https://zeithalt.github.io/r/axonite_road.html>).
+- The Secondary Path going from north to south, connecting [Blue Screen Lagoon](<https://zeithalt.github.io/r/blue_screen_lagoon.html>) to [Cerene Vale](<https://zeithalt.github.io/r/cerene_vale.html>).
+
+These paths mostly go along the same routes Mire's inhabitants use for ceonturies. However, the Guidelight System provides a reliable and relatively safe way to navigate these routes much quicker and without the need to employ local villagers as guides.
+
+![Guidelight System](https://zeithalt.github.io/r/i/guidelight_system.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="water-filtering-station">🚰 Water Filtering Station<a class="header-anchor" href="#water-filtering-station">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/imperial_swamp.html">Imperial Swamp</a></p>
-      <p>Built on eon 745 by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a>.</p>
-      <p>A complex installation of water filters, separating muddy waters of Imperial Swamp into various minerals and chemicals used in industry, and clean drinking water.</p>
-      <p>It is a part of an ecological project, aimed to replace traditional methods of collecting resources for industry and market with eco-friendly alternatives, all over Zeithalt.</p>
-      <p>Initially, it was an ordinary water filtration station. However, over time, an unknown inventor modified it and now the station works on equipment that he assembled from some junk, old washing machines, a microwave oven, refrigerators and parts of space rockets.</p>
-      <p>The station has a team of two employees: A drunker-engineer who is responsible for the technical part of the station. He is sure that water gets offended if it is filtered too much. And a cat who sleeps on the main control panel. He is the only one who knows how everything works here. He is also responsible for quality control, testing the water with his paw.</p>
-      <p>The filtration system here is so complicated that while physics, chemistry, dirt and bacteria are trying to figure out what's going on here, the output is absolutely clean water, while the bacteria and dirt give up and leave themselves, and physics and chemistry says: "Well, in the end it's clear, all that's left is to figure out what's in the middle..." And goes on a drinking binge with the engineer.</p>
-      <p>They say that if you throw a gold coin into the main reservoir, you can make a wish. However, the engineer then takes out the coins and spends them on beer.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#1390" class="footer-link">
@@ -373,7 +368,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🚰 Water Filtering Station
+
+\`🖼️ Landmark\` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
+
+Built on eon 745 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>).
+
+A complex installation of water filters, separating muddy waters of Imperial Swamp into various minerals and chemicals used in industry, and clean drinking water.
+
+It is a part of an ecological project, aimed to replace traditional methods of collecting resources for industry and market with eco-friendly alternatives, all over Zeithalt.
+
+Initially, it was an ordinary water filtration station. However, over time, an unknown inventor modified it and now the station works on equipment that he assembled from some junk, old washing machines, a microwave oven, refrigerators and parts of space rockets.
+
+The station has a team of two employees: A drunker-engineer who is responsible for the technical part of the station. He is sure that water gets offended if it is filtered too much. And a cat who sleeps on the main control panel. He is the only one who knows how everything works here. He is also responsible for quality control, testing the water with his paw.
+
+The filtration system here is so complicated that while physics, chemistry, dirt and bacteria are trying to figure out what's going on here, the output is absolutely clean water, while the bacteria and dirt give up and leave themselves, and physics and chemistry says: "Well, in the end it's clear, all that's left is to figure out what's in the middle..." And goes on a drinking binge with the engineer.
+
+They say that if you throw a gold coin into the main reservoir, you can make a wish. However, the engineer then takes out the coins and spends them on beer.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

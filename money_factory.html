@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="money-factory">🏦 Money Factory<a class="header-anchor" href="#money-factory">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/imperial_swamp.html">Imperial Swamp</a></p>
-      <p>Built on eon 465 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a>.</p>
-      <p>Destroyed during <a href="https://zeithalt.github.io/t/#eon0596">The Fall of Imperial Swamp on eon 596</a> and rebuilt during restoration process on eon 780.</p>
-      <p>Money Factory is a mysterious place, surrounded by a high fence and various systems of protection from outside intrusion.</p>
-      <p>Inconspicuous, quiet and withdrawn people work here. They never talk about their work, so no one knows for sure what happens inside the walls of the factory and how exactly the production is arranged.</p>
-      <p>There are rumors that with the arrival of <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a>, the mafia took over this factory and actively uses it to finance their dark deeds. However, anyone who tries to find out about this mysteriously disappears under unknown circumstances.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#18c0" class="footer-link">
@@ -371,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🏦 Money Factory
+
+\`🖼️ Landmark\` in [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>)
+
+Built on eon 465 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>).
+
+Destroyed during [The Fall of Imperial Swamp on eon 596](<https://zeithalt.github.io/t/#eon0596>) and rebuilt during restoration process on eon 780.
+
+Money Factory is a mysterious place, surrounded by a high fence and various systems of protection from outside intrusion. 
+
+Inconspicuous, quiet and withdrawn people work here. They never talk about their work, so no one knows for sure what happens inside the walls of the factory and how exactly the production is arranged.
+
+There are rumors that with the arrival of [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>), the mafia took over this factory and actively uses it to finance their dark deeds. However, anyone who tries to find out about this mysteriously disappears under unknown circumstances.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,21 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="shrine-of-zeith">⛩️ Shrine of Zeith<a class="header-anchor" href="#shrine-of-zeith">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/aas_forest">A'as Forest</a></p>
-      <p>Rediscovered on eon 1237 by <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a>.</p>
-      <p>Hidden deep within a secluded grove in the ancient <em>A'as Forest</em>, the Shrine of Zeith stands as a recently rediscovered relic from the time of the <a href="https://zeithalt.github.io/r/first_capital_ruins.html">First Capital</a>.</p>
-      <p>Miraculously preserved, this small, chapel-like structure appears crafted from wood that has hardened like stone over countless eons, now partially embraced by moss and creeping vines. Intricate, ancient runic symbols adorn its surface, hinting at its forgotten purpose.</p>
-      <p>The interior offers space for only one person, a place designed for solitary contemplation. According to fragmented texts translated from scrolls found within the <a href="https://zeithalt.github.io/r/library_of_eternal_knowledge.html">Library of Eternal Knowledge</a> – texts which ultimately led to the shrine's rediscovery – this site was dedicated to 'Zeith'.</p>
-      <p>This is a deity or principle representing Time or Being itself, central to a long-lost religion that believed the island was created by it and took its name from this entity.</p>
-      <p>Early investigations and the ancient texts suggest that meditating within the shrine induces a profound state of temporal stillness. It's said that the flow of time diverges significantly from the outside world, mirroring effects observed in the <a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless Desert</a>, although believed to be of a different origin. The ancient worshippers may have referred to this experience as "being one with Zeith," achieving a state where one momentarily transcends the experience <em>of</em> time to <em>become</em> time.</p>
-      <p>Now under careful study by MindTech Institute scholars, the Shrine of Zeith represents a potentially invaluable link to the island's earliest history and the fundamental nature of the temporal phenomena that define Zeithalt. Its discovery opens new avenues for research into ancient philosophies, lost languages, and maybe even the fabric of time itself.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/shrine_of_zeith.jpg" alt="Shrine of Zeith" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#5bf0" class="footer-link">
@@ -376,7 +368,63 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# ⛩️ Shrine of Zeith
+
+\`🖼️ Landmark\` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest>)
+
+Rediscovered on eon 1237 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>).
+
+Hidden deep within a secluded grove in the ancient _A'as Forest_, the Shrine of Zeith stands as a recently rediscovered relic from the time of the [First Capital](<https://zeithalt.github.io/r/first_capital_ruins.html>). 
+
+Miraculously preserved, this small, chapel-like structure appears crafted from wood that has hardened like stone over countless eons, now partially embraced by moss and creeping vines. Intricate, ancient runic symbols adorn its surface, hinting at its forgotten purpose.
+
+The interior offers space for only one person, a place designed for solitary contemplation. According to fragmented texts translated from scrolls found within the [Library of Eternal Knowledge](<https://zeithalt.github.io/r/library_of_eternal_knowledge.html>) – texts which ultimately led to the shrine's rediscovery – this site was dedicated to 'Zeith'. 
+
+This is a deity or principle representing Time or Being itself, central to a long-lost religion that believed the island was created by it and took its name from this entity.
+
+Early investigations and the ancient texts suggest that meditating within the shrine induces a profound state of temporal stillness. It's said that the flow of time diverges significantly from the outside world, mirroring effects observed in the [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>), although believed to be of a different origin. The ancient worshippers may have referred to this experience as "being one with Zeith," achieving a state where one momentarily transcends the experience *of* time to *become* time.
+
+Now under careful study by MindTech Institute scholars, the Shrine of Zeith represents a potentially invaluable link to the island's earliest history and the fundamental nature of the temporal phenomena that define Zeithalt. Its discovery opens new avenues for research into ancient philosophies, lost languages, and maybe even the fabric of time itself.
+
+![Shrine of Zeith](<https://zeithalt.github.io/r/i/shrine_of_zeith.jpg>)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

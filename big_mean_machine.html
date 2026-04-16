@@ -19,7 +19,7 @@
   <meta property="og:title" content="🦿 Big Mean Machine">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1222 by MindTech Institute">
+  <meta property="og:description" content="Big Mean Machine (colloquially referred to as "bee-em-em") is an automated military training facility located in the less mountainous area of _Xyrclaox Watch_, near the Synaxos and Paradox Pass tri-border.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/bmm.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🦿 Big Mean Machine">
-  <meta name="twitter:description" content="Built on eon 1222 by MindTech Institute">
+  <meta name="twitter:description" content="Big Mean Machine (colloquially referred to as "bee-em-em") is an automated military training facility located in the less mountainous area of _Xyrclaox Watch_, near the Synaxos and Paradox Pass tri-border.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/bmm.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="big-mean-machine">🦿 Big Mean Machine<a class="header-anchor" href="#big-mean-machine">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/xyrclaox_watch">Xyrclaox Watch</a></p>
-      <p>Built on eon 1222 by <a href="https://zeithalt.github.io/r/mindtech_institute">MindTech Institute</a></p>
-      <p>Big Mean Machine (colloquially referred to as "bee-em-em") is an automated military training facility located in the less mountainous area of <em>Xyrclaox Watch</em>, near the <a href="https://zeithalt.github.io/r/synaxos_fields.html">Synaxos</a> and <a href="https://zeithalt.github.io/r/paradox_pass.html">Paradox Pass</a> tri-border. It was established after the severance of diplomatic relations by <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc.</a> to prepare <em>MindTech</em> soldiers for potential conflict.</p>
-      <p>The facility features a dynamic, open-air training arena with self-configurable walls and obstacles, simulating various combat scenarios. It also houses a sophisticated underground network of machinery that operates the facility. Theory rooms and auditoriums are also provided when scholars training on <em>Cybernetics Inc</em>.'s tactics and technology, and learn to see past <em>Cybers</em> diplomatic strategies.</p>
-      <p>The <em>BMM</em> offers highly realistic training experiences, utilizing mechanized opponents to simulate diverse combat scenarios. It is continuously updated with new scenarios designed by the <em>MindTech</em> military branch, ensuring a constant stream of challenges for the trainees.</p>
-      <p>The <em>BMM</em> is a crucial part of <em>MindTech</em>'s defensive efforts to prepare for any potential conflicts with <em>Cybernetics Inc.</em>, providing essential training and experience to its soldiers in the face of an increasingly unpredictable and hostile neighbor.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/bmm.png" alt="Big Mean Machine" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#85f0" class="footer-link">
@@ -374,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🦿 Big Mean Machine
+
+\`🖼️ Landmark\` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch>)
+
+Built on eon 1222 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute>)
+
+Big Mean Machine (colloquially referred to as "bee-em-em") is an automated military training facility located in the less mountainous area of _Xyrclaox Watch_, near the [Synaxos](<https://zeithalt.github.io/r/synaxos_fields.html>) and [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>) tri-border. It was established after the severance of diplomatic relations by [Cybernetics Inc.](<https://zeithalt.github.io/r/cybernetics_inc.html>) to prepare _MindTech_ soldiers for potential conflict.
+
+The facility features a dynamic, open-air training arena with self-configurable walls and obstacles, simulating various combat scenarios. It also houses a sophisticated underground network of machinery that operates the facility. Theory rooms and auditoriums are also provided when scholars training on _Cybernetics Inc_.'s tactics and technology, and learn to see past _Cybers_ diplomatic strategies.
+
+The _BMM_ offers highly realistic training experiences, utilizing mechanized opponents to simulate diverse combat scenarios. It is continuously updated with new scenarios designed by the _MindTech_ military branch, ensuring a constant stream of challenges for the trainees.
+
+The _BMM_ is a crucial part of _MindTech_'s defensive efforts to prepare for any potential conflicts with _Cybernetics Inc._, providing essential training and experience to its soldiers in the face of an increasingly unpredictable and hostile neighbor.
+
+![Big Mean Machine](https://zeithalt.github.io/r/i/bmm.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

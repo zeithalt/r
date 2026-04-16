@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="eldar">Eldar<a class="header-anchor" href="#eldar">#</a></h1>
-      <p><span class="tag">🧙‍♂️ Character</span></p>
-      <p>A person who has been around since anyone would remember. Just a human like any other.</p>
-      <p>Used to be part of <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc</a> before deciding to retire from the faction due to the pressure of battles.</p>
-      <p>Eventually had the idea to become a neutral reckoning force; a sellsword that defends and attacks as they will.</p>
-      <p>Became part of the <a href="https://zeithalt.github.io/r/fighters_guild.html">Fighters Guild</a> as one of its founders; a place to bond with sellswords and make a profit of the heated situations that the factions have inevitably found themselves in.</p>
-      <p>Was part of the rebel team that invaded <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> <a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless Desert</a> as a first example of a rebellion brewing in a faction.</p>
-      <p>Became a one-man mighty force that ruined <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a>'s plans, rivaled <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a>'s performance and feared by many personnel.</p>
-      <p>Was one of the founders of <a href="https://zeithalt.github.io/r/cloudy_operatives.html">Cloudy Operatives</a>.</p>
-      <p>Set to retire after achieving #1 in the Hall of Fame being a veteran of 99 battles.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#88d0" class="footer-link">
@@ -374,7 +368,63 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Eldar
+
+\`🧙‍♂️ Character\`
+
+A person who has been around since anyone would remember. Just a human like any other.
+
+Used to be part of [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) before deciding to retire from the faction due to the pressure of battles.
+
+Eventually had the idea to become a neutral reckoning force; a sellsword that defends and attacks as they will.
+
+Became part of the [Fighters Guild](<https://zeithalt.github.io/r/fighters_guild.html>) as one of its founders; a place to bond with sellswords and make a profit of the heated situations that the factions have inevitably found themselves in.
+
+Was part of the rebel team that invaded [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) [Timeless Desert](<https://zeithalt.github.io/r/timeless_desert.html>) as a first example of a rebellion brewing in a faction.
+
+Became a one-man mighty force that ruined [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)'s plans, rivaled [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)'s performance and feared by many personnel.
+
+Was one of the founders of [Cloudy Operatives](<https://zeithalt.github.io/r/cloudy_operatives.html>).
+
+Set to retire after achieving #1 in the Hall of Fame being a veteran of 99 battles.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

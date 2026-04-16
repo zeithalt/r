@@ -19,7 +19,7 @@
   <meta property="og:title" content="🙏 Beacon of Hope">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1296 by MindTech Institute">
+  <meta property="og:description" content="Constructed during a time of great turmoil after the loss of Paradox Pass, the _Beacon of Hope_ stands on the shores of the _Illusion Cliffs_.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/beacon_of_hope.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🙏 Beacon of Hope">
-  <meta name="twitter:description" content="Built on eon 1296 by MindTech Institute">
+  <meta name="twitter:description" content="Constructed during a time of great turmoil after the loss of Paradox Pass, the _Beacon of Hope_ stands on the shores of the _Illusion Cliffs_.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/beacon_of_hope.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,29 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="beacon-of-hope">🙏 Beacon of Hope<a class="header-anchor" href="#beacon-of-hope">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/illusion_cliffs">Illusion Cliffs</a></p>
-      <p>Built on eon 1296 by <a href="https://zeithalt.github.io/r/mindtech_institute">MindTech Institute</a></p>
-      <p>Constructed during a time of great turmoil after the <a href="https://zeithalt.github.io/t/#eon1286">loss of Paradox Pass</a>, the <em>Beacon of Hope</em> stands on the shores of the <em>Illusion Cliffs</em>. It serves as a defiant symbol of the <em>MindTech Institute's</em> enduring spirit.</p>
-      <p>While more modest than other grand <a href="https://zeithalt.github.io/r/beacon_of_reason.html">MT Beacons</a>, this structure is built from precious marble mined from the local cliffs. At its top sits a device crafted from the crystals of the <a href="https://zeithalt.github.io/r/cave_of_mirrors.html">Cave of Mirrors</a>, which reflect and refract light. This apparatus gathers ambient light, casting a single, unwavering beam westwards towards the occupied territory.</p>
-      <p>Visible from <a href="https://zeithalt.github.io/r/paradox_pass.html">Paradox Pass</a> on a clear day during the sunrise, the beacon's light is a silent message to the citizens there, a promise that they are not forgotten.</p>
-      <p>A poem is inscribed at the beacon's base, as a testament to the faction's resilience:</p>
-      <blockquote>
-        <p>*When despair reigns,</p>
-        <p>And darkness comes,</p>
-        <p>Walls may be gone,</p>
-        <p>Stones turn to dust,</p>
-        <p>While thought remains,</p>
-        <p>Hope shines the light,</p>
-        <p>The minds will stand,</p>
-        <p>And end the night.*</p>
-      </blockquote>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/beacon_of_hope.png" alt="Beacon of Hope" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#97f0" class="footer-link">
@@ -384,7 +368,68 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🙏 Beacon of Hope
+
+\`🖼️ Landmark\` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs>)
+
+Built on eon 1296 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute>)
+
+Constructed during a time of great turmoil after the [loss of Paradox Pass](<https://zeithalt.github.io/t/#eon1286>), the _Beacon of Hope_ stands on the shores of the _Illusion Cliffs_. It serves as a defiant symbol of the _MindTech Institute's_ enduring spirit.
+
+While more modest than other grand [MT Beacons](<https://zeithalt.github.io/r/beacon_of_reason.html>), this structure is built from precious marble mined from the local cliffs. At its top sits a device crafted from the crystals of the [Cave of Mirrors](<https://zeithalt.github.io/r/cave_of_mirrors.html>), which reflect and refract light. This apparatus gathers ambient light, casting a single, unwavering beam westwards towards the occupied territory.
+
+Visible from [Paradox Pass](<https://zeithalt.github.io/r/paradox_pass.html>) on a clear day during the sunrise, the beacon's light is a silent message to the citizens there, a promise that they are not forgotten.
+
+A poem is inscribed at the beacon's base, as a testament to the faction's resilience:
+
+> *When despair reigns,  
+> And darkness comes,   
+> Walls may be gone,  
+> Stones turn to dust,  
+> While thought remains,  
+> Hope shines the light,  
+> The minds will stand,  
+> And end the night.*
+
+![Beacon of Hope](https://zeithalt.github.io/r/i/beacon_of_hope.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

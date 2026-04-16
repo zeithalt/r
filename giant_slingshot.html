@@ -19,7 +19,7 @@
   <meta property="og:title" content="🏹 Giant Slingshot">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 587 by Delta Collective">
+  <meta property="og:description" content="A giant slingshot with an automatic loading mechanism.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🏹 Giant Slingshot">
-  <meta name="twitter:description" content="Built on eon 587 by Delta Collective">
+  <meta name="twitter:description" content="A giant slingshot with an automatic loading mechanism.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="giant-slingshot">🏹 Giant Slingshot<a class="header-anchor" href="#giant-slingshot">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/indigo_shore.html">Indigo Shore</a></p>
-      <p>Built on eon 587 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a></p>
-      <p>A giant slingshot with an automatic loading mechanism. Used by <a href="https://zeithalt.github.io/r/deltans.html">Deltans</a> to throw bombs on the battlefield.</p>
-      <p>It has an automatic guidance system that uses magical energy, choosing a target for the shelling in accordance with the flows of chaotic energy during Deltan combat operations.</p>
-      <p>The firing range depends on the size of the slingshot, which changes up or down under the influence of magical forces, which allows you to shell any land where the Deltans are currently fighting.</p>
-      <p>The speed of the projectile's flight exceeds any laws of physics, and the bombs fly to their destination almost instantly. Reloading under intense shelling usually takes about 10 seconds. It Does not require repair or maintenance.</p>
-      <p>Many of the <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a>, as former members of the Delta Collective, also have access to the controls and all the functions of the slingshot, which allows both factions to effectively use this weapon at the same time.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#ce70" class="footer-link">
@@ -372,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🏹 Giant Slingshot
+
+\`🖼️ Landmark\` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>)
+
+Built on eon 587 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)
+
+A giant slingshot with an automatic loading mechanism. Used by [Deltans](<https://zeithalt.github.io/r/deltans.html>) to throw bombs on the battlefield.
+
+It has an automatic guidance system that uses magical energy, choosing a target for the shelling in accordance with the flows of chaotic energy during Deltan combat operations.
+
+The firing range depends on the size of the slingshot, which changes up or down under the influence of magical forces, which allows you to shell any land where the Deltans are currently fighting. 
+
+The speed of the projectile's flight exceeds any laws of physics, and the bombs fly to their destination almost instantly. Reloading under intense shelling usually takes about 10 seconds. It Does not require repair or maintenance.
+
+Many of the [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>), as former members of the Delta Collective, also have access to the controls and all the functions of the slingshot, which allows both factions to effectively use this weapon at the same time.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

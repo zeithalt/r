@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="paradox-pass">Paradox Pass<a class="header-anchor" href="#paradox-pass">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span></p>
-      <p>The land which ties the all of Mindtech Institute together, found at the middle of the faction, Paradox Pass is famous for being the "Backbone of the Mindtech Institute" with all of its roads that connects the regions with each other.</p>
-      <p>Despite not being the most populous, the amount of carriage and people going through this region is what's keeping it alive, making it the busiest region across the faction.</p>
-      <p>Businesses here typically include stalls that sell food that could be eaten on the road, places where you could buy materials to fix your carriage, places where you could stay and rest for the night, and stores that sells products such as horse feed and other souvenirs.</p>
-      <p>But these are not the only economic structures in the region. There are also hotels and parks that is visited by people who would want to take a break and relax, as not only the beautiful view of the mountainous region but also the fresh air and clean water that comes with it helps clear the mind and make the body at ease.</p>
-      <p>The main and busiest road, Axonite Road, is also the biggest out of all the 7 main roads. It stretches from Axhillock to Spinal Foothills, which connects the eastern-most part of the faction, to the western-most part. And the Syncrax Road and R'etenet Road follows the Axonite Road for being the second biggest and busiest roads. These two roads connects the northern-most part of the faction, to the southern part of it.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#cb50" class="footer-link">
@@ -371,7 +368,56 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Paradox Pass
+
+\`🖼️ Landmark\`
+
+The land which ties the all of Mindtech Institute together, found at the middle of the faction, Paradox Pass is famous for being the "Backbone of the Mindtech Institute" with all of its roads that connects the regions with each other.
+
+Despite not being the most populous, the amount of carriage and people going through this region is what's keeping it alive, making it the busiest region across the faction.
+
+Businesses here typically include stalls that sell food that could be eaten on the road, places where you could buy materials to fix your carriage, places where you could stay and rest for the night, and stores that sells products such as horse feed and other souvenirs.
+But these are not the only economic structures in the region. There are also hotels and parks that is visited by people who would want to take a break and relax, as not only the beautiful view of the mountainous region but also the fresh air and clean water that comes with it helps clear the mind and make the body at ease.
+
+The main and busiest road, Axonite Road, is also the biggest out of all the 7 main roads. It stretches from Axhillock to Spinal Foothills, which connects the eastern-most part of the faction, to the western-most part. And the Syncrax Road and R'etenet Road follows the Axonite Road for being the second biggest and busiest roads. These two roads connects the northern-most part of the faction, to the southern part of it.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

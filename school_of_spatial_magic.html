@@ -19,7 +19,7 @@
   <meta property="og:title" content="🏫 School of Spatial Magic">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1193 by Band of Brothers">
+  <meta property="og:description" content="The School of Spatial Magic is located somewhere in the rocky area of Indigo Shore.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🏫 School of Spatial Magic">
-  <meta name="twitter:description" content="Built on eon 1193 by Band of Brothers">
+  <meta name="twitter:description" content="The School of Spatial Magic is located somewhere in the rocky area of Indigo Shore.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="school-of-spatial-magic">🏫 School of Spatial Magic<a class="header-anchor" href="#school-of-spatial-magic">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/indigo_shore.html">Indigo Shore</a></p>
-      <p>Built on eon 1193 by <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a></p>
-      <p>The School of Spatial Magic is located somewhere in the rocky area of Indigo Shore. Getting here is a challenging task, because no roads or even paths lead here.</p>
-      <p>The founder and director of the school, who is also the only teacher, is <a href="https://zeithalt.github.io/r/t.html">T</a>, the greatest specialist in Spatial Magic, according to T himself, as well as those unfortunates among whom T conducted a survey. It is also worth considering that the interworld community of magicians has appreciated T's abilities in this very complex art. However, we only know this from T's words, and there is a suspicion that the survey was conducted using the same methods as the survey in Zeithalt.</p>
-      <p>Education at the school is free, but those wishing to enroll must pass difficult entrance exams, because T believes that: "The chance to learn this great art must be earned with sweat and blood."</p>
-      <p>At the moment, only a few people have been able to enroll, and the remaining hundreds of people who wanted to study ran away from there saying: "I won't study here, he's crazy!", which greatly amused the school director.</p>
-      <p>The school administration does not name any terms of study or the content of the curriculum. "This is not a comprehensive school, it cannot be unified. First, I need to understand what the student is capable of in general, and then I will create an individual training program for him." — The school director explains with a predatory smile.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#87f0" class="footer-link">
@@ -372,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🏫 School of Spatial Magic
+
+\`🖼️ Landmark\` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>)
+
+Built on eon 1193 by [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>)
+
+The School of Spatial Magic is located somewhere in the rocky area of Indigo Shore. Getting here is a challenging task, because no roads or even paths lead here.
+
+The founder and director of the school, who is also the only teacher, is [T](<https://zeithalt.github.io/r/t.html>), the greatest specialist in Spatial Magic, according to T himself, as well as those unfortunates among whom T conducted a survey. It is also worth considering that the interworld community of magicians has appreciated T's abilities in this very complex art. However, we only know this from T's words, and there is a suspicion that the survey was conducted using the same methods as the survey in Zeithalt.
+
+Education at the school is free, but those wishing to enroll must pass difficult entrance exams, because T believes that: "The chance to learn this great art must be earned with sweat and blood."
+
+At the moment, only a few people have been able to enroll, and the remaining hundreds of people who wanted to study ran away from there saying: "I won't study here, he's crazy!", which greatly amused the school director.
+
+The school administration does not name any terms of study or the content of the curriculum. "This is not a comprehensive school, it cannot be unified. First, I need to understand what the student is capable of in general, and then I will create an individual training program for him." — The school director explains with a predatory smile.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

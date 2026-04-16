@@ -19,7 +19,7 @@
   <meta property="og:title" content="⚙️ The Sound of Gears Workshop">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1400 by Band of Brothers">
+  <meta property="og:description" content="A criminal counterfeiting operation, operating under the guise of a chronometer and optical instrument repair shop, is located in Indigo Shore.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="⚙️ The Sound of Gears Workshop">
-  <meta name="twitter:description" content="Built on eon 1400 by Band of Brothers">
+  <meta name="twitter:description" content="A criminal counterfeiting operation, operating under the guise of a chronometer and optical instrument repair shop, is located in Indigo Shore.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="the-sound-of-gears-workshop">⚙️ The Sound of Gears Workshop<a class="header-anchor" href="#the-sound-of-gears-workshop">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/indigo_shore.html">Indigo Shore</a></p>
-      <p>Built on eon 1400 by <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a></p>
-      <p>A criminal counterfeiting operation, operating under the guise of a chronometer and optical instrument repair shop, is located in <a href="https://zeithalt.github.io/r/indigo_shore.html">Indigo Shore</a>. Its primary activity is the mass production of counterfeit documents and items to satisfy the mass demand of criminals.</p>
-      <p>The production process is focused on speed and cost, not high quality. Stolen or unregistered official forms are used to produce documents such as basic ID cards, passes, and identification cards. The documents are filled out using a mechanical calligraphy machine, standardizing handwriting and eliminating recognizable features.</p>
-      <p>Simple holograms and magical hologram seals are imitated using stamps with reflective paint and engraved metal plates, which, upon quick inspection, create the appearance of authenticity.</p>
-      <p>In addition to documents, the workshop produces duplicate keys and mechanical master keys, which are made using wax casting. A small-scale production of imitations of minor magical artifacts or technological gadgets has also been established.</p>
-      <p>These counterfeits, such as "magical" amulets or technical devices, are assembled from cheap components and intended for one-time fraud. The finished products are distributed through a network of couriers, ensuring a constant, stable cash flow from a large number of small transactions.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#3780" class="footer-link">
@@ -372,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# ⚙️ The Sound of Gears Workshop
+
+\`🖼️ Landmark\` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>)
+
+Built on eon 1400 by [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>)
+
+A criminal counterfeiting operation, operating under the guise of a chronometer and optical instrument repair shop, is located in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>). Its primary activity is the mass production of counterfeit documents and items to satisfy the mass demand of criminals.
+
+The production process is focused on speed and cost, not high quality. Stolen or unregistered official forms are used to produce documents such as basic ID cards, passes, and identification cards. The documents are filled out using a mechanical calligraphy machine, standardizing handwriting and eliminating recognizable features. 
+
+Simple holograms and magical hologram seals are imitated using stamps with reflective paint and engraved metal plates, which, upon quick inspection, create the appearance of authenticity.
+
+In addition to documents, the workshop produces duplicate keys and mechanical master keys, which are made using wax casting. A small-scale production of imitations of minor magical artifacts or technological gadgets has also been established. 
+
+These counterfeits, such as "magical" amulets or technical devices, are assembled from cheap components and intended for one-time fraud. The finished products are distributed through a network of couriers, ensuring a constant, stable cash flow from a large number of small transactions.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

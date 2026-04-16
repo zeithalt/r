@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="game-complex">🎮 G.A.M.E. Complex<a class="header-anchor" href="#game-complex">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/pebkac_peak.html">PEBKAC Peak</a></p>
-      <p>The great minds at <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc</a> have come up with a new way to improve future human digital enhancement – video games.</p>
-      <p>Humans are notoriously inept at objectivity and have a remarkable ability to ignore or discard information that is inconvenient. Removing bias and enhancing information intake and processing capabilities is a key component of human improvement.</p>
-      <p>G.A.M.E. (Great AI-human Machine Enhancement) is a new gaming complex that will be constructed in <em>PEBKAC Peak</em> that will be freely available to anyone. As people interact with it, a central server will log every action and feed the data into a learning algorithm. The algorithm will learn the decision-making process of humans and use machine learning to improve upon that process.</p>
-      <p>Planned future improvements include additional installations all over CI territories, better games, and improved data logging and processing. Eventually, the AI will have the ability to scrape data from other sources such as phones, computers, any connected device, and even publicly installed cameras.</p>
-      <p>The data will be used to imbue future humans with efficient, optimized pruning and sorting capabilities, reducing the number of problems between keyboards and computers.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#6ee0" class="footer-link">
@@ -371,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🎮 G.A.M.E. Complex
+
+\`🖼️ Landmark\` in [PEBKAC Peak](<https://zeithalt.github.io/r/pebkac_peak.html>)
+
+The great minds at [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) have come up with a new way to improve future human digital enhancement – video games.
+
+Humans are notoriously inept at objectivity and have a remarkable ability to ignore or discard information that is inconvenient. Removing bias and enhancing information intake and processing capabilities is a key component of human improvement.
+
+G.A.M.E. (Great AI-human Machine Enhancement) is a new gaming complex that will be constructed in _PEBKAC Peak_ that will be freely available to anyone. As people interact with it, a central server will log every action and feed the data into a learning algorithm. The algorithm will learn the decision-making process of humans and use machine learning to improve upon that process.
+
+Planned future improvements include additional installations all over CI territories, better games, and improved data logging and processing. Eventually, the AI will have the ability to scrape data from other sources such as phones, computers, any connected device, and even publicly installed cameras.
+
+The data will be used to imbue future humans with efficient, optimized pruning and sorting capabilities, reducing the number of problems between keyboards and computers.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

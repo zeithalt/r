@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="cave-of-mirrors">🪞 Cave of Mirrors<a class="header-anchor" href="#cave-of-mirrors">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/illusion_cliffs.html">Illusion Cliffs</a></p>
-      <p>Discovered on Eon 837 by the explorers of <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a>.</p>
-      <p>The Cave of Mirrors is located on the east coast of the island and can only be reached by boat, as its entrance lies on the sea-side of a colossal cliff.</p>
-      <p>Once inside, visitors are greeted by a breathtaking sight: towering crystals adorned with mirror-like surfaces. These magnificent formations reflect and refract light, creating a mesmerizing display of colors and illusions. Each step deeper into the cave reveals a new spectacle, as the interplay of light and crystal transforms the surroundings into a realm of ethereal beauty.</p>
-      <p>The depth and length of the Cave are not yet known since the exploration party was already short on supplies when they found the Cave, and they did not investigate it further than a safe distance.</p>
-      <p>The Cave of Mirrors stands as a testament to the extraordinary beauty that can be found in the most unexpected corners of our world. It beckons those with a thirst for adventure and a yearning for the extraordinary to embark on a journey into its mystical depths.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/cave_of_mirrors.png" alt="Cave of Mirrors" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#96c0" class="footer-link">
@@ -374,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🪞 Cave of Mirrors
+
+\`🖼️ Landmark\` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>)
+
+Discovered on Eon 837 by the explorers of [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>).
+
+The Cave of Mirrors is located on the east coast of the island and can only be reached by boat, as its entrance lies on the sea-side of a colossal cliff.
+
+Once inside, visitors are greeted by a breathtaking sight: towering crystals adorned with mirror-like surfaces. These magnificent formations reflect and refract light, creating a mesmerizing display of colors and illusions. Each step deeper into the cave reveals a new spectacle, as the interplay of light and crystal transforms the surroundings into a realm of ethereal beauty.
+
+The depth and length of the Cave are not yet known since the exploration party was already short on supplies when they found the Cave, and they did not investigate it further than a safe distance.
+
+The Cave of Mirrors stands as a testament to the extraordinary beauty that can be found in the most unexpected corners of our world. It beckons those with a thirst for adventure and a yearning for the extraordinary to embark on a journey into its mystical depths.
+
+![Cave of Mirrors](https://zeithalt.github.io/r/i/cave_of_mirrors.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

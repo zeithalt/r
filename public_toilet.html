@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="public-toilet">🚽 Public Toilet<a class="header-anchor" href="#public-toilet">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/dev_null_marsh.html">Dev Null Marsh</a></p>
-      <p>Built on eon 866 by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a>.</p>
-      <p>This building is the pinnacle of architectural art.</p>
-      <p>Built from the most expensive materials in Zeithalt this toilet features marble statues, columns, bas-reliefs.</p>
-      <p>Inside, everything is also made from the rarest and most expensive materials. For example, all plumbing is made of pure gold of the highest standard, decorated with expensive stones.</p>
-      <p>With the arrival of <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a>, to ensure cleanliness and order, friendly guys of two meters in height with cute clubs in their hands were placed at the entrance so that every visitor could feel safe.</p>
-      <p>Rumors have it that half of the treasury was spent on the construction of this building. The second half of the treasury was spent when they celebrated the successful completion of the construction.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#50e1" class="footer-link">
@@ -372,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🚽 Public Toilet
+
+\`🖼️ Landmark\` in [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh.html>)
+
+Built on eon 866 by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>).
+
+This building is the pinnacle of architectural art. 
+
+Built from the most expensive materials in Zeithalt this toilet features marble statues, columns, bas-reliefs. 
+
+Inside, everything is also made from the rarest and most expensive materials. For example, all plumbing is made of pure gold of the highest standard, decorated with expensive stones.
+
+With the arrival of [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>), to ensure cleanliness and order, friendly guys of two meters in height with cute clubs in their hands were placed at the entrance so that every visitor could feel safe.
+
+Rumors have it that half of the treasury was spent on the construction of this building. The second half of the treasury was spent when they celebrated the successful completion of the construction.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

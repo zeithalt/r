@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,27 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="midass-hold">Midas's Hold<a class="header-anchor" href="#midass-hold">#</a></h1>
-      <p><span class="tag">🪧 Place</span></p>
-      <p>On the floating mass of <a href="https://zeithalt.github.io/r/obsidian_island.html">Obsidian Island</a>, carved into the <a href="https://zeithalt.github.io/r/obsidian_wolf.html">ancient wolf</a>’s obsidian mane, rises the <em>Midas's Hold</em>, a neutral stronghold managed by <a href="https://zeithalt.github.io/r/fighters_guild.html">Fighters Guild</a> members.</p>
-      <p>The Stronghold serves as the headquarters of <em>NECRO</em> (reference needed) and as a symbol of temporary cooperation between rivals. Each faction has constructed its own branch on the island, resulting in an unusual blend of architecture, culture, and function.</p>
-      <h2 id="branches-of-midass-hold">Branches of Midas's Hold<a class="header-anchor" href="#branches-of-midass-hold">#</a></h2>
-      <h3 id="cybernetics-inc-branch-the-nanoforge-spire">Cybernetics Inc Branch – The Nanoforge Spire<a class="header-anchor" href="#cybernetics-inc-branch-the-nanoforge-spire">#</a></h3>
-      <p>A sleek, metallic structure wrapped in emerald-lit conduits. Inside, <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc</a> maintains a nanobot manufacturing lab, capable of producing repair swarms, construction microbots, and experimental programmable particles. Green holograms hover throughout the facility, projecting schematics and active swarm paths.</p>
-      <h3 id="mindtech-institute-branch-the-orange-archive">MindTech Institute Branch – The Orange Archive<a class="header-anchor" href="#mindtech-institute-branch-the-orange-archive">#</a></h3>
-      <p>A quiet, two-story library built in warm sandstone and accented in <a href="https://zeithalt.github.io/r/mt_symbology.html">MindTech orange</a>. Its shelves contain research logs, neural studies, memory graft experiments, and pre-<a href="https://zeithalt.github.io/r/corruption.html">Corruption</a> anomaly records. The second floor houses a “shared thinking chamber,” where scholars collaborate and share their knowledge.</p>
-      <h3 id="delta-collective-branch-the-yggdrasil-experiment">Delta Collective Branch – The Yggdrasil Experiment<a class="header-anchor" href="#delta-collective-branch-the-yggdrasil-experiment">#</a></h3>
-      <p>The <a href="https://zeithalt.github.io/r/deltans.html">Deltans</a> planted a tree they call <em>Yggdrasil</em>, but the name is misleading – this tree shifts shape daily, sometimes even hourly. Branches rearrange themselves, leaves change colour or texture, and roots occasionally lift off the ground. It is chaotic, unpredictable, and somehow alive in a way no one can explain. <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a> claims it is “behaving normally.”</p>
-      <h3 id="band-of-brothers-branch-the-casino">Band of Brothers Branch – The "Casino"<a class="header-anchor" href="#band-of-brothers-branch-the-casino">#</a></h3>
-      <p>A high-ceilinged hall glowing in stylish magenta lights. The <a href="https://zeithalt.github.io/r/brothers.html">Brothers</a>’ branch contains a compact "casino". Though officially neutral territory, the place has that unmistakable <a href="https://zeithalt.github.io/r/band_of_brothers.html">Band of Brothers</a> flair: velvet curtains, quiet music, and dealers who always seem to know a little too much.</p>
-      <h3 id="protectores-silva-branch-the-verdant-haven">Protectores Silva Branch – The Verdant Haven<a class="header-anchor" href="#protectores-silva-branch-the-verdant-haven">#</a></h3>
-      <p>A lush garden spreading across a large terrace. <a href="https://zeithalt.github.io/r/silvans.html">Silvans</a> planted native flowers, high-canopy trees, medical herbs, and calm water channels. It is the only peaceful corner of the Stronghold, often used by diplomats and tired fighters. Small stone statues of woodland spirits dot the paths, offering quiet blessings.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/midas_hold.png" alt="Midas's Hold" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#e2c0" class="footer-link">
@@ -382,7 +368,68 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Midas's Hold
+\`🪧 Place\`
+
+On the floating mass of [Obsidian Island](<https://zeithalt.github.io/r/obsidian_island.html>), carved into the [ancient wolf](<https://zeithalt.github.io/r/obsidian_wolf.html>)’s obsidian mane, rises the *Midas's Hold*, a neutral stronghold managed by [Fighters Guild](<https://zeithalt.github.io/r/fighters_guild.html>) members. 
+
+The Stronghold serves as the headquarters of *NECRO* (reference needed) and as a symbol of temporary cooperation between rivals. Each faction has constructed its own branch on the island, resulting in an unusual blend of architecture, culture, and function.
+
+## Branches of Midas's Hold
+### Cybernetics Inc Branch – The Nanoforge Spire
+A sleek, metallic structure wrapped in emerald-lit conduits. Inside, [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) maintains a nanobot manufacturing lab, capable of producing repair swarms, construction microbots, and experimental programmable particles. Green holograms hover throughout the facility, projecting schematics and active swarm paths.
+
+### MindTech Institute Branch – The Orange Archive
+A quiet, two-story library built in warm sandstone and accented in [MindTech orange](<https://zeithalt.github.io/r/mt_symbology.html>). Its shelves contain research logs, neural studies, memory graft experiments, and pre-[Corruption](<https://zeithalt.github.io/r/corruption.html>) anomaly records. The second floor houses a “shared thinking chamber,” where scholars collaborate and share their knowledge.
+
+### Delta Collective Branch – The Yggdrasil Experiment
+The [Deltans](<https://zeithalt.github.io/r/deltans.html>) planted a tree they call *Yggdrasil*, but the name is misleading – this tree shifts shape daily, sometimes even hourly. Branches rearrange themselves, leaves change colour or texture, and roots occasionally lift off the ground. It is chaotic, unpredictable, and somehow alive in a way no one can explain. [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>) claims it is “behaving normally.”
+
+### Band of Brothers Branch – The "Casino"
+A high-ceilinged hall glowing in stylish magenta lights. The [Brothers](<https://zeithalt.github.io/r/brothers.html>)’ branch contains a compact "casino". Though officially neutral territory, the place has that unmistakable [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers.html>) flair: velvet curtains, quiet music, and dealers who always seem to know a little too much.
+
+### Protectores Silva Branch – The Verdant Haven
+A lush garden spreading across a large terrace. [Silvans](<https://zeithalt.github.io/r/silvans.html>) planted native flowers, high-canopy trees, medical herbs, and calm water channels. It is the only peaceful corner of the Stronghold, often used by diplomats and tired fighters. Small stone statues of woodland spirits dot the paths, offering quiet blessings.
+
+![Midas's Hold](https://zeithalt.github.io/r/i/midas_hold.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

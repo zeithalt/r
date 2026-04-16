@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="synaxos-fields">Synaxos Fields<a class="header-anchor" href="#synaxos-fields">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span></p>
-      <p>The beautiful lands of the north-east, with many hills, fields, and windmills that brings a fresh feel to anyone who visits.</p>
-      <p>Synaxos Fields holds huge and bountiful farmlands up north that makes up most of the faction's agricultural and domestication sectors, and many places of production and manufacturing that makes up most of its southern parts.</p>
-      <p>With most of its lands being for farming and tending animals, it's one of the most important region of the faction. It exports 76% of the products it produces with more than 50% of those being food that provides 36% of all the food the whole faction consumes.</p>
-      <p>Most of the vegetables they farm are those that are easy to grow even on the harshest conditions, like Axean Potatoes, Ribean Rye, and Arrotian Roots.</p>
-      <p>There are also animals domesticated here that are easy to care in tough conditions, like the Synaxean Ram and the Hemispherean Chickens.</p>
-      <p>The other half of the region are filled with places meant for production and manufacturing, lead by craftsmen and artisans who have refined and mastered their works on the arts of producing materials like leather, silk, paper, and many more.</p>
-      <p>The people who come here are either businessmen or merchants who came to buy their products and sell it across the faction, or people who wish to learn the ways of the artisans and master their own craft.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#7cc0" class="footer-link">
@@ -373,7 +368,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Synaxos Fields
+
+\`🖼️ Landmark\`
+
+The beautiful lands of the north-east, with many hills, fields, and windmills that brings a fresh feel to anyone who visits.
+
+Synaxos Fields holds huge and bountiful farmlands up north that makes up most of the faction's agricultural and domestication sectors, and many places of production and manufacturing that makes up most of its southern parts.
+
+With most of its lands being for farming and tending animals, it's one of the most important region of the faction. It exports 76% of the products it produces with more than 50% of those being food that provides 36% of all the food the whole faction consumes. 
+
+Most of the vegetables they farm are those that are easy to grow even on the harshest conditions, like Axean Potatoes, Ribean Rye, and Arrotian Roots. 
+
+There are also animals domesticated here that are easy to care in tough conditions, like the Synaxean Ram and the Hemispherean Chickens.
+
+The other half of the region are filled with places meant for production and manufacturing, lead by craftsmen and artisans who have refined and mastered their works on the arts of producing materials like leather, silk, paper, and many more. 
+
+The people who come here are either businessmen or merchants who came to buy their products and sell it across the faction, or people who wish to learn the ways of the artisans and master their own craft.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

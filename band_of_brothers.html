@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,25 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="band-of-brothers">Band of Brothers<a class="header-anchor" href="#band-of-brothers">#</a></h1>
-      <p><span class="tag">🪪 Faction</span></p>
-      <p>Founded on <a href="https://zeithalt.github.io/t/#eon0959">eon 959</a>, the Band of Brothers is comprised primary from people of Deltan heritage and occupies several formerly Deltan lands in the west part of the Island.</p>
-      <p>Synopsis:</p>
-      <blockquote>
-        <p><em>We are NOT affiliated with the criminal part of life on Zeithalt. If someone did something illegal somewhere, it does NOT mean that Band of Brothers is involved.</em></p>
-      </blockquote>
-      <p>The Band of Brothers initially was a group of former Deltans who seized control of the <a href="https://zeithalt.github.io/r/brickland_fortress.html">Brickland Fortress</a> region - then occupied by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a> - and declared independence there.</p>
-      <p>However, in the <a href="https://zeithalt.github.io/t/#eon0962">Battle of Brickland Fortress</a>, the <em>Brothers</em> were driven out of the region when <a href="https://zeithalt.github.io/r/silvans.html">Silvans</a> recaptured the region.</p>
-      <p>The faction then reached a deal with <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a>, which effectively separated the Deltan faction into two parts, with <em>Band of Brothers</em> taking under control the western regions of <a href="https://zeithalt.github.io/r/indigo_shore.html">Indigo Shore</a>, <a href="https://zeithalt.github.io/r/dev_null_marsh.html">Dev Null Marsh</a> and <a href="https://zeithalt.github.io/r/imperial_swamp.html">Imperial Swamp</a>. The latter subsequently became the new faction's capital.</p>
-      <blockquote>
-        <p>Привет! Ты сейчас читаешь Дельтанский язык. На Дельтанском тут говорят в Band of Brothers и Delta Collective. Все остальные фракции говорят на международном языке. Если ты хочешь понимать что у нас здесь происходит, тогда заходи в наш дискорд сервер.</p>
-      </blockquote>
-      <blockquote>
-        <p>Фракция Band of Brothers была образована путём мирного отсоединения от Delta Collective. Мы - Мафия. Крышуем весь нелегал в Цайтхальте. Ни одно нелегальное дело здесь не проходит мимо нас.</p>
-      </blockquote>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#e500" class="footer-link">
@@ -380,7 +368,62 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Band of Brothers
+
+\`🪪 Faction\`
+
+Founded on [eon 959](<https://zeithalt.github.io/t/#eon0959>), the Band of Brothers is comprised primary from people of Deltan heritage and occupies several formerly Deltan lands in the west part of the Island.
+
+Synopsis:
+> _We are NOT affiliated with the criminal part of life on Zeithalt. If someone did something illegal somewhere, it does NOT mean that Band of Brothers is involved._
+
+The Band of Brothers initially was a group of former Deltans who seized control of the [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress.html>) region - then occupied by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>) - and declared independence there.
+
+However, in the [Battle of Brickland Fortress](<https://zeithalt.github.io/t/#eon0962>), the _Brothers_ were driven out of the region when [Silvans](<https://zeithalt.github.io/r/silvans.html>) recaptured the region.
+
+The faction then reached a deal with [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>), which effectively separated the Deltan faction into two parts, with _Band of Brothers_ taking under control the western regions of [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore.html>), [Dev Null Marsh](<https://zeithalt.github.io/r/dev_null_marsh.html>) and [Imperial Swamp](<https://zeithalt.github.io/r/imperial_swamp.html>). The latter subsequently became the new faction's capital.
+
+> Привет! Ты сейчас читаешь Дельтанский язык. На Дельтанском тут говорят в Band of Brothers и Delta Collective. Все остальные фракции говорят на международном языке. Если ты хочешь понимать что у нас здесь происходит, тогда заходи в наш дискорд сервер.
+
+> Фракция Band of Brothers была образована путём мирного отсоединения от Delta Collective. Мы - Мафия. Крышуем весь нелегал в Цайтхальте. Ни одно нелегальное дело здесь не проходит мимо нас.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="cactus-mantle">🧥 Cactus Mantle<a class="header-anchor" href="#cactus-mantle">#</a></h1>
-      <p><span class="tag">📜 Item</span></p>
-      <p>This artifact grants its owner excellent protection from both physical and magical attacks by bonding to their soul. Ownership cannot be taken by force; any would-be usurper will be eliminated by the mantle's own power.</p>
-      <p>It is made from an unusual fabric of unknown origin. From a distance, it appears to be ordinary cloth, but up close, one can see rows of sharp, strong spikes that are constantly in motion, like the legs of a spider.</p>
-      <p>These small, powerful spikes are its main defense, creating an invisible shield around the wearer that no ordinary weapon can penetrate.</p>
-      <p>It's believed that only representatives of the <em>Cactus Race</em> can wear this artifact.</p>
-      <p>Two such mantles are known to exist in Zeithalt. The first belongs to <a href="https://zeithalt.github.io/r/t.html">T</a>; it is now stained red with the blood of his enemies—a stain that, to his great regret, will not wash out. He is driven into a rage whenever reminded of this fact. The second mantle, <em>T</em> gifted to an individual named <em>Picky</em>. This one retains its original, noble emerald color.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/cactus_mantle.png" alt="Cactus Mantle" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#56e0" class="footer-link">
@@ -374,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🧥 Cactus Mantle
+
+\`📜 Item\`
+
+This artifact grants its owner excellent protection from both physical and magical attacks by bonding to their soul. Ownership cannot be taken by force; any would-be usurper will be eliminated by the mantle's own power.
+
+It is made from an unusual fabric of unknown origin. From a distance, it appears to be ordinary cloth, but up close, one can see rows of sharp, strong spikes that are constantly in motion, like the legs of a spider.
+
+These small, powerful spikes are its main defense, creating an invisible shield around the wearer that no ordinary weapon can penetrate.
+
+It's believed that only representatives of the _Cactus Race_ can wear this artifact.
+
+Two such mantles are known to exist in Zeithalt. The first belongs to [T](<https://zeithalt.github.io/r/t.html>); it is now stained red with the blood of his enemies—a stain that, to his great regret, will not wash out. He is driven into a rage whenever reminded of this fact. The second mantle, _T_ gifted to an individual named _Picky_. This one retains its original, noble emerald color.
+
+![Cactus Mantle](https://zeithalt.github.io/r/i/cactus_mantle.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

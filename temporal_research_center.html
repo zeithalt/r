@@ -19,7 +19,7 @@
   <meta property="og:title" content="⌛ Temporal Research Center">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1109 by Cybernetics Inc">
+  <meta property="og:description" content="The Temporal Research Center is a cutting-edge center dedicated to unlocking the mysteries of time manipulation using Temporal Resources.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="⌛ Temporal Research Center">
-  <meta name="twitter:description" content="Built on eon 1109 by Cybernetics Inc">
+  <meta name="twitter:description" content="The Temporal Research Center is a cutting-edge center dedicated to unlocking the mysteries of time manipulation using Temporal Resources.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,15 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="temporal-research-center">⌛ Temporal Research Center<a class="header-anchor" href="#temporal-research-center">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/virtuara_outpost.html">Virtuara Outpost</a></p>
-      <p>Built on eon 1109 by <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc</a></p>
-      <p>The Temporal Research Center is a cutting-edge center dedicated to unlocking the mysteries of time manipulation using <a href="https://zeithalt.github.io/r/temporal_resources.html">Temporal Resources</a>.</p>
-      <p>Located within Cybernetics Inc territory, this advanced complex serves as the foundation for developing faster-than-light communication, predictive modeling, and modern encryption methods.</p>
-      <p>Equipped with state-of-the-art laboratories and quantum AI systems, the facility symbolizes CI’s ambition to delve deeper into the untouched potential of temporal powers.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#50e2" class="footer-link">
@@ -370,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# ⌛ Temporal Research Center
+
+\`🖼️ Landmark\` in [Virtuara Outpost](<https://zeithalt.github.io/r/virtuara_outpost.html>) 
+
+Built on eon 1109 by [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) 
+
+The Temporal Research Center is a cutting-edge center dedicated to unlocking the mysteries of time manipulation using [Temporal Resources](<https://zeithalt.github.io/r/temporal_resources.html>). 
+
+Located within Cybernetics Inc territory, this advanced complex serves as the foundation for developing faster-than-light communication, predictive modeling, and modern encryption methods. 
+
+Equipped with state-of-the-art laboratories and quantum AI systems, the facility symbolizes CI’s ambition to delve deeper into the untouched potential of temporal powers.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

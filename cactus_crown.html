@@ -19,7 +19,7 @@
   <meta property="og:title" content="👑 Cactus Crown">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="The Cactus Crown is skillfully forged from an ancient alloy, the recipe for which has long been lost.">
+  <meta property="og:description" content="_The Cactus Crown_ is skillfully forged from an ancient alloy, the recipe for which has long been lost.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/cactus_mantle.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="👑 Cactus Crown">
-  <meta name="twitter:description" content="The Cactus Crown is skillfully forged from an ancient alloy, the recipe for which has long been lost.">
+  <meta name="twitter:description" content="_The Cactus Crown_ is skillfully forged from an ancient alloy, the recipe for which has long been lost.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/cactus_mantle.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="cactus-crown">👑 Cactus Crown<a class="header-anchor" href="#cactus-crown">#</a></h1>
-      <p><span class="tag">📜 Item</span></p>
-      <p><em>The Cactus Crown</em> is skillfully forged from an ancient alloy, the recipe for which has long been lost. It is decorated with many sharp spikes, precious stones, and magical crystals.</p>
-      <p>The spikes protrude not only outward, threatening anyone who dares to approach, but also inward, as if to pierce the wearer's very essence. However, the spikes cause no inconvenience to their rightful owner.</p>
-      <p>The true owner of this crown is <a href="https://zeithalt.github.io/r/t.html">T</a>, but how or under what circumstances he acquired it remains unknown.</p>
-      <p>This crown is a symbol of the power of the <em>Cactus Tsar</em>, and it chooses its bearer. Anyone unworthy who tries to don it will be unable to bear its power—their mind will be shattered, their body will buckle under its weight, and the inner spikes will mercilessly pierce their flesh.</p>
-      <p>The crown is a powerful ancient artifact and a vast source of magical power. Its full properties are known only to its owner, who closely guards its secrets.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/cactus_mantle.png" alt="Cactus Mantle" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#8640" class="footer-link">
@@ -374,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 👑 Cactus Crown
+
+\`📜 Item\`
+
+_The Cactus Crown_ is skillfully forged from an ancient alloy, the recipe for which has long been lost. It is decorated with many sharp spikes, precious stones, and magical crystals.
+
+The spikes protrude not only outward, threatening anyone who dares to approach, but also inward, as if to pierce the wearer's very essence. However, the spikes cause no inconvenience to their rightful owner.
+
+The true owner of this crown is [T](<https://zeithalt.github.io/r/t.html>), but how or under what circumstances he acquired it remains unknown.
+
+This crown is a symbol of the power of the _Cactus Tsar_, and it chooses its bearer. Anyone unworthy who tries to don it will be unable to bear its power—their mind will be shattered, their body will buckle under its weight, and the inner spikes will mercilessly pierce their flesh.
+
+The crown is a powerful ancient artifact and a vast source of magical power. Its full properties are known only to its owner, who closely guards its secrets.
+
+![Cactus Mantle](https://zeithalt.github.io/r/i/cactus_mantle.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

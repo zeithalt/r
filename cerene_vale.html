@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,15 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="cerene-vale">Cerene Vale<a class="header-anchor" href="#cerene-vale">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span></p>
-      <p>Lush valleys in the east and southern regions, while mostly barren sands in the north. The region of Cerene Vale holds great beauty and elegance while keeping in touch with the newest of innovations. It is also the farthest region among the faction, placed at the south-west, and has many people plus a popularity for tourism.</p>
-      <p>With most of its lands being fields of vegetables and grain productions, and its shores yielding many ocean bounties, people who live here make their living from agriculture and fisheries. The vegetables and grains farmed are either exported to the other regions in the faction or sold locally. While the caught fishes and shellfish are either sold in the markets, shipped to the neighboring coastal regions, or preserved using many preserving methods like drying.</p>
-      <p>The region's capital, Silent Gulf, is famous for having its seasonal festivals each year which brings many tourist across the faction to come, like the Allevanos Festival which celebrates the bountiful gifts of autumn. They're also famed for having many night markets and bazaars that showers people who come with stalls and shops of different cuisine that attracts many for having many types of food in one place.</p>
-      <p><em>(Allevanos - The Valley's Blessings) (Autumn is when the crops are usually harvested)</em></p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#3850" class="footer-link">
@@ -370,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Cerene Vale
+
+\`🖼️ Landmark\`
+
+Lush valleys in the east and southern regions, while mostly barren sands in the north. The region of Cerene Vale holds great beauty and elegance while keeping in touch with the newest of innovations. It is also the farthest region among the faction, placed at the south-west, and has many people plus a popularity for tourism.
+
+With most of its lands being fields of vegetables and grain productions, and its shores yielding many ocean bounties, people who live here make their living from agriculture and fisheries. The vegetables and grains farmed are either exported to the other regions in the faction or sold locally. While the caught fishes and shellfish are either sold in the markets, shipped to the neighboring coastal regions, or preserved using many preserving methods like drying.
+
+The region's capital, Silent Gulf, is famous for having its seasonal festivals each year which brings many tourist across the faction to come, like the Allevanos Festival which celebrates the bountiful gifts of autumn. They're also famed for having many night markets and bazaars that showers people who come with stalls and shops of different cuisine that attracts many for having many types of food in one place.
+
+*(Allevanos - The Valley's Blessings) (Autumn is when the crops are usually harvested)*
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -19,7 +19,7 @@
   <meta property="og:title" content="📗 Herbarium Library">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1000 by Protectores Silva">
+  <meta property="og:description" content="Herbarium Library is a giant library created to gather all the information Protectores Silva has gathered and keeps gathering about various plant species all across Zeithalt in a single, organized place.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="img/herbarium_library.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="📗 Herbarium Library">
-  <meta name="twitter:description" content="Built on eon 1000 by Protectores Silva">
+  <meta name="twitter:description" content="Herbarium Library is a giant library created to gather all the information Protectores Silva has gathered and keeps gathering about various plant species all across Zeithalt in a single, organized place.">
   <meta name="twitter:image" content="img/herbarium_library.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="herbarium-library">📗 Herbarium Library<a class="header-anchor" href="#herbarium-library">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/cerene_vale.html">Cerene Vale</a></p>
-      <p>Built on eon 1000 by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a></p>
-      <p>Herbarium Library is a giant library created to gather all the information <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a> has gathered and keeps gathering about various plant species all across Zeithalt in a single, organized place.</p>
-      <p>The ground floor, 1st floor and 2nd floor of it simply act as a giant library that allows scholars, students or just people who are simply curious to easily access information about various plant species while its basement floor is restricted to only certain individuals where backup documents are kept, so the information is not lost in such cases where every information gathered about a species disappears.</p>
-      <figure>
-        <img src="img/herbarium_library.png" alt="img.png" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#9010" class="footer-link">
@@ -372,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 📗 Herbarium Library
+
+\`🖼️ Landmark\` in [Cerene Vale](<https://zeithalt.github.io/r/cerene_vale.html>)
+
+Built on eon 1000 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>)
+
+Herbarium Library is a giant library created to gather all the information [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>) has gathered and keeps gathering about various plant species all across Zeithalt in a single, organized place.
+
+The ground floor, 1st floor and 2nd floor of it simply act as a giant library that allows scholars, students or just people who are simply curious to easily access information about various plant species while its basement floor is restricted to only certain individuals where backup documents are kept, so the information is not lost in such cases where every information gathered about a species disappears.
+
+![img.png](img/herbarium_library.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -19,7 +19,7 @@
   <meta property="og:title" content="🗽 Statue of Mimb">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 727 by Protectores Silva">
+  <meta property="og:description" content="The _Statue of Mimb_ is a memorial statue created to honor Mimb, one of the most important people in the history of _Protectores_.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🗽 Statue of Mimb">
-  <meta name="twitter:description" content="Built on eon 727 by Protectores Silva">
+  <meta name="twitter:description" content="The _Statue of Mimb_ is a memorial statue created to honor Mimb, one of the most important people in the history of _Protectores_.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,23 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="statue-of-mimb">🗽 Statue of Mimb<a class="header-anchor" href="#statue-of-mimb">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/cerene_vale.html">Cerene Vale</a></p>
-      <p>Built on eon 727 by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a></p>
-      <p>The <em>Statue of Mimb</em> is a memorial statue created to honor <a href="https://zeithalt.github.io/r/mimb.html">Mimb</a>, one of the most important people in the history of <em>Protectores</em>.</p>
-      <p>One of founders of this faction, great warrior, researcher and politician, her hard work was invaluable in leading <a href="https://zeithalt.github.io/r/silvans.html">Silvans</a> through their early eons and in their rise to becoming the fourth great force in Zeithalt, on par with three <em>Old Factions</em>.</p>
-      <p>She had fallen comatose due to overexposure to <a href="https://zeithalt.github.io/r/mimps.html">Mimps virus</a> on eon 561.</p>
-      <p>Even though hundreds of eons have passed since, it is believed that she is to this day kept alive by <em>Silvan</em> life support technology.</p>
-      <p>There is an inscription on base of the statue:</p>
-      <blockquote>
-        <p>Mimb</p>
-        <p>CCCXLI -</p>
-        <p>*Etsi mimps eam a nobis abstulit, in cordibus nostris in aeternum vivet. In his spem tenemus ut aliquando evigilet.</p>
-        <p>~ Protectores Silva*</p>
-      </blockquote>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#25b0" class="footer-link">
@@ -378,7 +368,64 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🗽 Statue of Mimb
+
+\`🖼️ Landmark\` in [Cerene Vale](<https://zeithalt.github.io/r/cerene_vale.html>)
+
+Built on eon 727 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>)
+
+The _Statue of Mimb_ is a memorial statue created to honor [Mimb](<https://zeithalt.github.io/r/mimb.html>), one of the most important people in the history of _Protectores_.
+
+One of founders of this faction, great warrior, researcher and politician, her hard work was invaluable in leading [Silvans](<https://zeithalt.github.io/r/silvans.html>) through their early eons and in their rise to becoming the fourth great force in Zeithalt, on par with three _Old Factions_.
+
+She had fallen comatose due to overexposure to [Mimps virus](<https://zeithalt.github.io/r/mimps.html>) on eon 561.
+
+Even though hundreds of eons have passed since, it is believed that she is to this day kept alive by _Silvan_ life support technology.
+
+There is an inscription on base of the statue:
+
+> Mimb  
+> CCCXLI -  
+> *Etsi mimps eam a nobis abstulit, in cordibus nostris in aeternum vivet. In his spem tenemus ut aliquando evigilet.  
+> ~ Protectores Silva*
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

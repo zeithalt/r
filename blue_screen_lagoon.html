@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,16 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="blue-screen-lagoon">Blue Screen Lagoon<a class="header-anchor" href="#blue-screen-lagoon">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span></p>
-      <p><em>Blue Screen Lagoon</em> is a serene and enigmatic sanctuary within <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc</a> territory, distinguished by its steadfast resistance to the infiltration of technology. Here, the natural world reigns supreme, untouched by the digital hustle and bustle that defines the nearby regions. As travelers approach the lagoon, they are met with an atmosphere of tranquility and calm, where the air is filled with the soothing sounds of nature and the gentle rustle of wind through the trees.</p>
-      <p>However, the peaceful facade of <em>Blue Screen Lagoon</em> belies its hidden perils. Most basic technologies, accustomed to functioning seamlessly elsewhere, face unexpected malfunctions upon entering the territory. Holographic displays flicker and fade, communication devices emit static-laden signals, and even the most advanced gadgets succumb to glitches and errors. It is as if the very essence of the lagoon resists the intrusion of technology, preserving its pristine beauty and untouched splendor.</p>
-      <p>Despite these challenges, brave adventurers are drawn to <em>Blue Screen Lagoon</em> in search of its elusive secrets and untamed wilderness. Hidden within its depths are pristine beaches, lush forests, and hidden caves waiting to be explored. But travelers beware: navigating the territory requires resourcefulness and ingenuity, as reliance on technology proves futile in the face of the lagoon's enigmatic resistance.</p>
-      <p><em>Blue Screen Lagoon</em> is a place of wonder and mystery, where the forces of nature and technology clash in a mesmerizing dance of opposition. Whether you're seeking solace from the chaos of the digital world or embarking on a quest for adventure, this extraordinary sanctuary promises to captivate your imagination and leave you forever changed.</p>
-      <p>Welcome to <em>Blue Screen Lagoon</em> – where the call of the wild echoes louder than the hum of machines, and nature reigns supreme.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#8f30" class="footer-link">
@@ -371,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Blue Screen Lagoon
+
+\`🖼️ Landmark\`
+
+*Blue Screen Lagoon* is a serene and enigmatic sanctuary within [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>) territory, distinguished by its steadfast resistance to the infiltration of technology. Here, the natural world reigns supreme, untouched by the digital hustle and bustle that defines the nearby regions. As travelers approach the lagoon, they are met with an atmosphere of tranquility and calm, where the air is filled with the soothing sounds of nature and the gentle rustle of wind through the trees.
+
+However, the peaceful facade of *Blue Screen Lagoon* belies its hidden perils. Most basic technologies, accustomed to functioning seamlessly elsewhere, face unexpected malfunctions upon entering the territory. Holographic displays flicker and fade, communication devices emit static-laden signals, and even the most advanced gadgets succumb to glitches and errors. It is as if the very essence of the lagoon resists the intrusion of technology, preserving its pristine beauty and untouched splendor.
+
+Despite these challenges, brave adventurers are drawn to *Blue Screen Lagoon* in search of its elusive secrets and untamed wilderness. Hidden within its depths are pristine beaches, lush forests, and hidden caves waiting to be explored. But travelers beware: navigating the territory requires resourcefulness and ingenuity, as reliance on technology proves futile in the face of the lagoon's enigmatic resistance.
+
+*Blue Screen Lagoon* is a place of wonder and mystery, where the forces of nature and technology clash in a mesmerizing dance of opposition. Whether you're seeking solace from the chaos of the digital world or embarking on a quest for adventure, this extraordinary sanctuary promises to captivate your imagination and leave you forever changed. 
+
+Welcome to *Blue Screen Lagoon* – where the call of the wild echoes louder than the hum of machines, and nature reigns supreme.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

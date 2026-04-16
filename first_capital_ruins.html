@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="first-capital-ruins">First Capital Ruins<a class="header-anchor" href="#first-capital-ruins">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/aas_forest.html">A'as Forest</a></p>
-      <p>Reopened on Eon 829, shortly after the <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> retook the <a href="https://zeithalt.github.io/r/aas_forest.html">A'as Forest</a> back <a href="https://zeithalt.github.io/t/#eon0825">under control</a>.</p>
-      <p>This place is the biggest archaeological site in MindTech lands, and it's a popular destination for tourists and researchers alike.</p>
-      <p>Although the ruins are mostly destroyed or lay buried under the forest, part of the excavation site is open to the public. It contains a museum and a working ancient auditorium that hosts open lectures on the life and legacy of <a href="https://zeithalt.github.io/r/king_aas.html">King A'as</a>, the <a href="https://zeithalt.github.io/r/first_capital.html">First Capital</a> and the science of archaeology in general.</p>
-      <p>Beneath the open part of the ruins are catacombs, which are still being excavated. The catacombs are believed to contain the remains of the ancient city's inhabitants, as well as the King A'as burial chambers. The latter, however, is yet to be found.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/first_capital_ruins.png" alt="First Capital Ruins" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#5590" class="footer-link">
@@ -373,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# First Capital Ruins
+
+\`🖼️ Landmark\` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>)
+
+Reopened on Eon 829, shortly after the [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) retook the [A'as Forest](<https://zeithalt.github.io/r/aas_forest.html>) back [under control](<https://zeithalt.github.io/t/#eon0825>).
+
+This place is the biggest archaeological site in MindTech lands, and it's a popular destination for tourists and researchers alike.
+
+Although the ruins are mostly destroyed or lay buried under the forest, part of the excavation site is open to the public. It contains a museum and a working ancient auditorium that hosts open lectures on the life and legacy of [King A'as](<https://zeithalt.github.io/r/king_aas.html>), the [First Capital](<https://zeithalt.github.io/r/first_capital.html>) and the science of archaeology in general.
+
+Beneath the open part of the ruins are catacombs, which are still being excavated. The catacombs are believed to contain the remains of the ancient city's inhabitants, as well as the King A'as burial chambers. The latter, however, is yet to be found.
+
+![First Capital Ruins](https://zeithalt.github.io/r/i/first_capital_ruins.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

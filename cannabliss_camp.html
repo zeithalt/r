@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="cannabliss-camp">😎 Cannabliss Camp<a class="header-anchor" href="#cannabliss-camp">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/illusion_cliffs.html">Illusion Cliffs</a>.</p>
-      <p>Build on eon 946 by <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> as a part of their recreational projects initiative.</p>
-      <p>Officially marketed as a "recreational research facility" and "a place for relaxation and meditation", it is widely known as a place where the faction's members can enjoy their free time and relax in a peaceful environment.</p>
-      <p>The camp is located in a secluded area of the island, surrounded by lush vegetation and offering a stunning view of the <a href="https://zeithalt.github.io/r/illusion_cliffs.html">Illusion Cliffs</a>.</p>
-      <p>The "research assignments and materials" are provided to the members by the camp leader, a dark-skinned silvan herb specialist that goes by the name of <em>Spoondogg</em>.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/cannabliss_camp.png" alt="Cannabliss Camp" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#ce71" class="footer-link">
@@ -373,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 😎 Cannabliss Camp
+
+\`🖼️ Landmark\` in [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>).
+
+Build on eon 946 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) as a part of their recreational projects initiative.
+
+Officially marketed as a "recreational research facility" and "a place for relaxation and meditation", it is widely known as a place where the faction's members can enjoy their free time and relax in a peaceful environment.
+
+The camp is located in a secluded area of the island, surrounded by lush vegetation and offering a stunning view of the [Illusion Cliffs](<https://zeithalt.github.io/r/illusion_cliffs.html>).
+
+The "research assignments and materials" are provided to the members by the camp leader, a dark-skinned silvan herb specialist that goes by the name of _Spoondogg_.
+
+![Cannabliss Camp](https://zeithalt.github.io/r/i/cannabliss_camp.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

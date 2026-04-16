@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="indigo-shore">Indigo Shore<a class="header-anchor" href="#indigo-shore">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span></p>
-      <p>Indigo Shore is located on the western coastline of Zeithalt Island. There are monolithic, rocky shorelines that become popular sightseeing holiday spots. The strange blue tint of the waters along them is what gives the region its name.</p>
-      <p>There are several biomes within Indigo Shore. Most shores are grasslands or rocky beaches. Meanwhile, the sandy beach is only a tiny portion of the shoreline, and it is a coveted secret hideaway.</p>
-      <p>The salty mists off of the west Zeithalt ocean make it difficult to grow vegetation, as most crops need constant sun and fresh water. Therefore, locals rely on fish as their primary food source, and export for income.</p>
-      <p>The official religion of Indigo Shore is <a href="https://zeithalt.github.io/r/duckism.html">Duckism</a>, where the followers worship the Holy Duck. <a href="https://zeithalt.github.io/r/duckism.html">Temple of the Holy Duck</a> is located at the centre of the region's capital, a fishing village named Ducktopia. The locals depend on their trained diving ducks raised on the <a href="https://zeithalt.github.io/r/duck_farm.html">Duck Farm</a> for fishing rather than using the slower method of poles and bait.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/indigo_shore.png" alt="Indigo Shore" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#7a70" class="footer-link">
@@ -373,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Indigo Shore
+
+\`🖼️ Landmark\`
+
+Indigo Shore is located on the western coastline of Zeithalt Island. There are monolithic, rocky shorelines that become popular sightseeing holiday spots. The strange blue tint of the waters along them is what gives the region its name.
+
+There are several biomes within Indigo Shore. Most shores are grasslands or rocky beaches. Meanwhile, the sandy beach is only a tiny portion of the shoreline, and it is a coveted secret hideaway.
+
+The salty mists off of the west Zeithalt ocean make it difficult to grow vegetation, as most crops need constant sun and fresh water. Therefore, locals rely on fish as their primary food source, and export for income.
+
+The official religion of Indigo Shore is [Duckism](<https://zeithalt.github.io/r/duckism.html>), where the followers worship the Holy Duck. [Temple of the Holy Duck](<https://zeithalt.github.io/r/duckism.html>) is located at the centre of the region's capital, a fishing village named Ducktopia. The locals depend on their trained diving ducks raised on the [Duck Farm](<https://zeithalt.github.io/r/duck_farm.html>) for fishing rather than using the slower method of poles and bait.
+
+![Indigo Shore](https://zeithalt.github.io/r/i/indigo_shore.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

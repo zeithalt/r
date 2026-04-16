@@ -19,7 +19,7 @@
   <meta property="og:title" content="🔲 The Obelisk">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1317 by MindTech Institute">
+  <meta property="og:description" content="The Obelisk is a colossal monolith of unknown origin that appeared above a remote valley in the _Xyrclaox Watch_ shortly after the fall of Neuropolis.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/the_obelisk.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🔲 The Obelisk">
-  <meta name="twitter:description" content="Built on eon 1317 by MindTech Institute">
+  <meta name="twitter:description" content="The Obelisk is a colossal monolith of unknown origin that appeared above a remote valley in the _Xyrclaox Watch_ shortly after the fall of Neuropolis.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/the_obelisk.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,23 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="the-obelisk">🔲 The Obelisk<a class="header-anchor" href="#the-obelisk">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/xyrclaox_watch">Xyrclaox Watch</a></p>
-      <p>Built on eon 1317 by <a href="https://zeithalt.github.io/r/mindtech_institute">MindTech Institute</a></p>
-      <p>The Obelisk is a colossal monolith of unknown origin that appeared above a remote valley in the <em>Xyrclaox Watch</em> shortly after the <a href="https://zeithalt.github.io/t/#eon1313">fall of Neuropolis</a>.</p>
-      <p>It hovers silently above the valley, the height of the <em>Obelisk</em> is estimated to be between 600 and 800 meters, with the base being 50 meters wide.</p>
-      <p>Several times a day, at random intervals the gigantic structure rotates exactly forty-five degrees clockwise at random intervals.</p>
-      <p>As if the <em>Obelisk</em> has no mass, it turns and stops with no inertia.</p>
-      <p>Due to its perfectly smooth, mirror-like surface, the <em>Obelisk</em> becomes almost invisible on clear days.</p>
-      <p>It does not cast any shadow, as if direct sunlight bends around it, however it does reflect the surround landscape and the sky above it.</p>
-      <p>Clarity of the reflection is so pristine that its top edge has never been observed and the height of the Obelisk can only be estimated.</p>
-      <p>Known only to locals, there's path leading to the place directly beneath The <em>Obelisk</em>, however nothing unusual have been found there yet.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/the_obelisk.png" alt="The Obelisk" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#ca90" class="footer-link">
@@ -378,7 +368,69 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🔲 The Obelisk
+
+\`🖼️ Landmark\` in [Xyrclaox Watch](<https://zeithalt.github.io/r/xyrclaox_watch>)
+
+Built on eon 1317 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute>)
+
+The Obelisk is a colossal monolith of unknown origin that appeared above a remote valley in the _Xyrclaox Watch_ shortly after the [fall of Neuropolis](<https://zeithalt.github.io/t/#eon1313>).
+
+It hovers silently above the valley, the height of the _Obelisk_ is estimated to be between 600 and 800 meters, with the base being 50 meters wide.
+
+Several times a day, at random intervals the gigantic structure rotates exactly forty-five degrees clockwise at random intervals.
+
+As if the _Obelisk_ has no mass, it turns and stops with no inertia.
+
+Due to its perfectly smooth, mirror-like surface, the _Obelisk_ becomes almost invisible on clear days.
+
+It does not cast any shadow, as if direct sunlight bends around it, however it does reflect the surround landscape and the sky above it.
+
+
+Clarity of the reflection is so pristine that its top edge has never been observed and the height of the Obelisk can only be estimated.
+
+Known only to locals, there's path leading to the place directly beneath The _Obelisk_, however nothing unusual have been found there yet.
+
+
+![The Obelisk](https://zeithalt.github.io/r/i/the_obelisk.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

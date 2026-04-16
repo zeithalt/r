@@ -22,13 +22,13 @@
   <meta property="og:description" content="The Arcanum, also known as "The Secret Book" and "The Book of Secrets" is rumored to be the most important book in MindTech Institute's teachings.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
-  <meta property="og:image" content="">
+  <meta property="og:image" content="https://zeithalt.github.io/r/i/arcanum.png">
 
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Arcanum">
   <meta name="twitter:description" content="The Arcanum, also known as "The Secret Book" and "The Book of Secrets" is rumored to be the most important book in MindTech Institute's teachings.">
-  <meta name="twitter:image" content="">
+  <meta name="twitter:image" content="https://zeithalt.github.io/r/i/arcanum.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
   <meta name="theme-color" content="#933c24">
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,20 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="the-arcanum">The Arcanum<a class="header-anchor" href="#the-arcanum">#</a></h1>
-      <p><span class="tag">📑 Term</span></p>
-      <p><strong>The Arcanum</strong>, also known as "The Secret Book" and "The Book of Secrets" is rumored to be the most important book in <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a>'s teachings.</p>
-      <p>It is associated first and foremost with the <a href="https://zeithalt.github.io/r/council_of_minds.html">Masters of the Council</a>.</p>
-      <p>The common understanding is that each of the Masters has their own unique version of the book. This is indirectly proven by the lectures given in the Institute: even when Masters speak of the same topics, theirs readings of the book are vastly different.</p>
-      <p>The Arcanum cannot be read by anyone but the Masters of the Council, and the exact contents of it remain a closely guarded secret.</p>
-      <p>This paves the way for many conspiracy theories ranging from relatively modest - Masters starting to write their own version of the Arcanum when accepted into the Council; and to the obscure ones as the book being <em><a href="https://zeithalt.github.io/r/timeless_desert.html">Timeless</a></em> with each of the Masters reading literally different versions of it.</p>
-      <p>However, the most prevalent theory is actually a running joke that the book is in fact empty, and Masters are making up their lectures on the spot.</p>
-      <blockquote>
-        <p><img src="https://zeithalt.github.io/r/i/arcanum.png" alt="The Arcanum" loading="lazy"></p>
-      </blockquote>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#5480" class="footer-link">
@@ -375,7 +368,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# The Arcanum
+
+\`📑 Term\`
+
+**The Arcanum**, also known as "The Secret Book" and "The Book of Secrets" is rumored to be the most important book in [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>)'s teachings.
+
+It is associated first and foremost with the [Masters of the Council](<https://zeithalt.github.io/r/council_of_minds.html>).
+
+The common understanding is that each of the Masters has their own unique version of the book. This is indirectly proven by the lectures given in the Institute: even when Masters speak of the same topics, theirs readings of the book are vastly different.
+
+The Arcanum cannot be read by anyone but the Masters of the Council, and the exact contents of it remain a closely guarded secret.
+
+This paves the way for many conspiracy theories ranging from relatively modest - Masters starting to write their own version of the Arcanum when accepted into the Council; and to the obscure ones as the book being *[Timeless](<https://zeithalt.github.io/r/timeless_desert.html>)* with each of the Masters reading literally different versions of it.
+
+However, the most prevalent theory is actually a running joke that the book is in fact empty, and Masters are making up their lectures on the spot.
+
+> ![The Arcanum](https://zeithalt.github.io/r/i/arcanum.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

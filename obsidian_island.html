@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,21 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="obsidian-island">Obsidian Island<a class="header-anchor" href="#obsidian-island">#</a></h1>
-      <p>After <a href="https://zeithalt.github.io/r/valkyrie_specops.html">Valkyrie Spec Ops</a>’s HQ <a href="https://zeithalt.github.io/r/the_nest.html">🪺 The Nest</a> was destroyed, The <em>Obsidian Island</em> became the mobile heart of the <a href="https://zeithalt.github.io/r/fighters_guild.html">Fighters Guild</a>.</p>
-      <p>Neither bound by land nor faction, it drifts—or vanishes entirely—appearing wherever conflict brews, carried by a blend of technology and arcane might borrowed from every corner of <em>Zeithalt</em>.</p>
-      <p>At first glance, the <em>Obsidian Island</em> is a floating island of jagged obsidian rock. Carved into its face looms the colossal head of a wolf, its maw open in a permanent snarl.</p>
-      <p>The gaping mouth serves as the entrance, leading challengers and contractors alike into a labyrinthine cave system. Yet this is no ordinary cave—beneath the surface lies an advanced subterranean stronghold named <a href="https://zeithalt.github.io/r/obsidian_wolf.html">Obsidian Wolf</a>, forged with <a href="https://zeithalt.github.io/r/cybernetics_inc.html">Cybernetics Inc</a>’s mastery of technology, powered by the temporal enchantments of <a href="https://zeithalt.github.io/r/cloudy_operatives.html">Cloudy Operatives</a>, and guarded by ever-shifting corridors inspired by <a href="https://zeithalt.github.io/r/delta_collective.html">Delta Collective</a>’s chaos.</p>
-      <p>The maze itself reshapes periodically, ensuring only those guided by <a href="https://zeithalt.github.io/r/fighters_guild.html">Guild</a> members can find their way to the command halls.</p>
-      <p>The <em>Obsidian Island</em> phases in and out of existence through temporal manipulation, making it untouchable when the <a href="https://zeithalt.github.io/r/fighters_guild.html">Guild</a> wills it. Whispers claim that the very island is alive, its wolf-shaped visage watching those who dare approach.</p>
-      <p>The underground halls are adorned with runes of <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a>, woven into steel supports and verdant roots gifted by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a>, symbolizing the <a href="https://zeithalt.github.io/r/fighters_guild.html">Guild</a>’s neutrality and its unity of all powers.</p>
-      <p>Though rebuilt from loss, the <em>Obsidian Island</em> has become more than a fortress—it is a symbol of the <a href="https://zeithalt.github.io/r/fighters_guild.html">Guild</a>’s resilience. Some see it as a beacon of reliability, while others whisper of its phantom presence that turns battles before vanishing into the mist of legend.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/obsidian_island.png" alt="Obsidian Island" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#3fc0" class="footer-link">
@@ -376,7 +368,63 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Obsidian Island
+
+After [Valkyrie Spec Ops](<https://zeithalt.github.io/r/valkyrie_specops.html>)’s HQ [🪺 The Nest](<https://zeithalt.github.io/r/the_nest.html>) was destroyed, The *Obsidian Island* became the mobile heart of the [Fighters Guild](<https://zeithalt.github.io/r/fighters_guild.html>). 
+
+Neither bound by land nor faction, it drifts—or vanishes entirely—appearing wherever conflict brews, carried by a blend of technology and arcane might borrowed from every corner of *Zeithalt*.
+
+At first glance, the *Obsidian Island* is a floating island of jagged obsidian rock. Carved into its face looms the colossal head of a wolf, its maw open in a permanent snarl. 
+
+The gaping mouth serves as the entrance, leading challengers and contractors alike into a labyrinthine cave system. Yet this is no ordinary cave—beneath the surface lies an advanced subterranean stronghold named [Obsidian Wolf](<https://zeithalt.github.io/r/obsidian_wolf.html>), forged with [Cybernetics Inc](<https://zeithalt.github.io/r/cybernetics_inc.html>)’s mastery of technology, powered by the temporal enchantments of [Cloudy Operatives](<https://zeithalt.github.io/r/cloudy_operatives.html>), and guarded by ever-shifting corridors inspired by [Delta Collective](<https://zeithalt.github.io/r/delta_collective.html>)’s chaos. 
+
+The maze itself reshapes periodically, ensuring only those guided by [Guild](<https://zeithalt.github.io/r/fighters_guild.html>) members can find their way to the command halls.
+
+The *Obsidian Island* phases in and out of existence through temporal manipulation, making it untouchable when the [Guild](<https://zeithalt.github.io/r/fighters_guild.html>) wills it. Whispers claim that the very island is alive, its wolf-shaped visage watching those who dare approach. 
+
+The underground halls are adorned with runes of [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>), woven into steel supports and verdant roots gifted by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>), symbolizing the [Guild](<https://zeithalt.github.io/r/fighters_guild.html>)’s neutrality and its unity of all powers.
+
+Though rebuilt from loss, the *Obsidian Island* has become more than a fortress—it is a symbol of the [Guild](<https://zeithalt.github.io/r/fighters_guild.html>)’s resilience. Some see it as a beacon of reliability, while others whisper of its phantom presence that turns battles before vanishing into the mist of legend.
+
+![Obsidian Island](https://zeithalt.github.io/r/i/obsidian_island.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

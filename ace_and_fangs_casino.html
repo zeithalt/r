@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="ace-and-fangs-casino">Ace and Fangs Casino<a class="header-anchor" href="#ace-and-fangs-casino">#</a></h1>
-      <p><span class="tag">🪧 Place</span></p>
-      <p>Tucked within the <a href="https://zeithalt.github.io/r/obsidian_wolf.html">Obsidian Wolf</a>, the <a href="https://zeithalt.github.io/r/fighters_guild.html">Fighters Guild</a> operates <em>the Ace & Fangs Casino</em> – a den of chance and cunning where mercenaries and wanderers gather to test their luck.</p>
-      <p>While many games are available, the house is best known for its signature tables of Blackjack.</p>
-      <p>The <em>Casino</em>’s atmosphere balances grit and elegance: stone walls carved into the <a href="https://zeithalt.github.io/r/obsidian_wolf.html">Wolf</a>’s cavernous interior, lit by enchanted lanterns that shimmer like a shuffled deck of cards. Laughter, the clatter of coins, and the hushed tension of high-stakes play fill the air.</p>
-      <p><em>Ace & Fangs</em> is more than a pastime—it’s a proving ground. The <a href="https://zeithalt.github.io/r/fighters_guild.html">Guild</a> enforces strict fairness, ensuring that every hand and every toss is a chance alone.</p>
-      <p>For warriors and rogues alike, the casino stands as a reminder: on the battlefield or at the table, the sharpest mind and the steadiest hand claim the prize.</p>
-      <figure>
-        <img src="img/ace_and_fangs_casino.png" alt="Ace and Fang Casino" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#a720" class="footer-link">
@@ -374,7 +368,58 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Ace and Fangs Casino
+\`🪧 Place\`
+
+Tucked within the [Obsidian Wolf](<https://zeithalt.github.io/r/obsidian_wolf.html>), the [Fighters Guild](<https://zeithalt.github.io/r/fighters_guild.html>) operates *the Ace & Fangs Casino* – a den of chance and cunning where mercenaries and wanderers gather to test their luck. 
+
+While many games are available, the house is best known for its signature tables of Blackjack.
+
+The *Casino*’s atmosphere balances grit and elegance: stone walls carved into the [Wolf](<https://zeithalt.github.io/r/obsidian_wolf.html>)’s cavernous interior, lit by enchanted lanterns that shimmer like a shuffled deck of cards. Laughter, the clatter of coins, and the hushed tension of high-stakes play fill the air.
+
+*Ace & Fangs* is more than a pastime—it’s a proving ground. The [Guild](<https://zeithalt.github.io/r/fighters_guild.html>) enforces strict fairness, ensuring that every hand and every toss is a chance alone. 
+
+For warriors and rogues alike, the casino stands as a reminder: on the battlefield or at the table, the sharpest mind and the steadiest hand claim the prize.
+
+![Ace and Fang Casino](img/ace_and_fangs_casino.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

@@ -19,7 +19,7 @@
   <meta property="og:title" content="Alpickle Goats">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Alpickle Goats are a type of mountain goats that are endemic to the region of Mt.">
+  <meta property="og:description" content="_Alpickle Goats_ are a type of mountain goats that are endemic to the region of Mt.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Alpickle Goats">
-  <meta name="twitter:description" content="Alpickle Goats are a type of mountain goats that are endemic to the region of Mt.">
+  <meta name="twitter:description" content="_Alpickle Goats_ are a type of mountain goats that are endemic to the region of Mt.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,15 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="alpickle-goats">Alpickle Goats<a class="header-anchor" href="#alpickle-goats">#</a></h1>
-      <p><span class="tag">📃 Term</span></p>
-      <p><em>Alpickle Goats</em> are a type of mountain goats that are endemic to the region of <a href="https://zeithalt.github.io/r/mt_pickles.html">Mt. Pickles</a> as they only live in the harsh mountains located there, mainly in the east side of <em>Mt. Pickles</em> due to the geography of it.</p>
-      <p>To live comfortably in these mountains, they have evolved to have thicker fur than most goats, which helps when people harvest their furs to make thick winter clothing. They also have sizably longer horns than average goats, which truly starts to differentiate them from other goats.</p>
-      <p>They use these horns in a bit of a unique way, every 2 to 3 months these goats would wait for a thundersnow (a thunderstorm but snow falls instead of rain). When they find such weather, they climb the highest mountain they can find, hold their horns high above which are also very electrically conductive and wait for a lightning to fall on them. Their horns then absorb said lightning, and they direct some energy the strike to make their furs "poof" while the rest gets stored on their body near their horns. It is also stated that their milk would occasionally zap people a bit when they undergo this process.</p>
-      <p>They then use this stored electricity as a defence mechanism as when they want to ram something or somebody, they can also shock their opponent like a tazer on top of the usual ramming.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#1540" class="footer-link">
@@ -370,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Alpickle Goats
+
+\`📃 Term\`
+
+_Alpickle Goats_ are a type of mountain goats that are endemic to the region of [Mt. Pickles](<https://zeithalt.github.io/r/mt_pickles.html>) as they only live in the harsh mountains located there, mainly in the east side of _Mt. Pickles_ due to the geography of it.
+
+To live comfortably in these mountains, they have evolved to have thicker fur than most goats, which helps when people harvest their furs to make thick winter clothing. They also have sizably longer horns than average goats, which truly starts to differentiate them from other goats.
+
+They use these horns in a bit of a unique way, every 2 to 3 months these goats would wait for a thundersnow (a thunderstorm but snow falls instead of rain). When they find such weather, they climb the highest mountain they can find, hold their horns high above which are also very electrically conductive and wait for a lightning to fall on them. Their horns then absorb said lightning, and they direct some energy the strike to make their furs "poof" while the rest gets stored on their body near their horns. It is also stated that their milk would occasionally zap people a bit when they undergo this process.
+
+They then use this stored electricity as a defence mechanism as when they want to ram something or somebody, they can also shock their opponent like a tazer on top of the usual ramming.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

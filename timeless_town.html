@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,14 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="timeless-town">🌇 Timeless Town<a class="header-anchor" href="#timeless-town">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/brickland_fortress.html">Brickland Fortress</a></p>
-      <p>Timeless Town is a Town constructed in the northwestern part of Brickland Fortress to house the people that lived in the oasis that <a href="https://zeithalt.github.io/r/airmanon.html">Airmanon Driftwing</a> came from. Tired of the <a href="https://zeithalt.github.io/r/loki.html">dictatorship of MT</a>, the people of Timeless Town decided that it was best to pack up and leave the desert for lands where they feel safer.</p>
-      <p>Anyone unfamiliar with the place could be forgiven for thinking they walked into a Western upon entering Timeless Town, as the architecture is very reminiscent of such. One of the most notable places in Timeless Town is the Sandy Saloon, a restaurant/bar that has served customers of all ages.</p>
-      <p>The schools and colleges in town do their best to accommodate different learning styles, but the school board has admitted that there are some things that they need to improve upon in terms of curriculum. Due to the inhabitants' prior history of keeping to themselves in the Timeless Desert, they never had the Deltan Language as something  to learn. Nowadays, due to moving closer to borders with DC, the schools are trying to incorporate learning Deltan into curriculum as quickly as possible to make it easier for future generations to communicate with DC should the time arise.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#2e90" class="footer-link">
@@ -369,7 +368,53 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🌇 Timeless Town
+
+\`🖼️ Landmark\` in [Brickland Fortress](<https://zeithalt.github.io/r/brickland_fortress.html>)
+
+Timeless Town is a Town constructed in the northwestern part of Brickland Fortress to house the people that lived in the oasis that [Airmanon Driftwing](<https://zeithalt.github.io/r/airmanon.html>) came from. Tired of the [dictatorship of MT](<https://zeithalt.github.io/r/loki.html>), the people of Timeless Town decided that it was best to pack up and leave the desert for lands where they feel safer. 
+
+Anyone unfamiliar with the place could be forgiven for thinking they walked into a Western upon entering Timeless Town, as the architecture is very reminiscent of such. One of the most notable places in Timeless Town is the Sandy Saloon, a restaurant/bar that has served customers of all ages.
+
+The schools and colleges in town do their best to accommodate different learning styles, but the school board has admitted that there are some things that they need to improve upon in terms of curriculum. Due to the inhabitants' prior history of keeping to themselves in the Timeless Desert, they never had the Deltan Language as something  to learn. Nowadays, due to moving closer to borders with DC, the schools are trying to incorporate learning Deltan into curriculum as quickly as possible to make it easier for future generations to communicate with DC should the time arise.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

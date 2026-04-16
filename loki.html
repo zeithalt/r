@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,15 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="loki">Loki<a class="header-anchor" href="#loki">#</a></h1>
-      <p><span class="tag">🧙‍♂️ Character</span></p>
-      <p>Loki is a famous (or some may say infamous) MT member that quickly rose through the ranks to the position of Defense Minister and eventually became a <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> dictator.</p>
-      <p>His story includes a range of diverse moments: from being a humble owner of the <a href="https://zeithalt.github.io/r/valhalla_bar.html">Valhalla Bar</a> to dark allegations of killing the preceding Defense Minister of MindTech.</p>
-      <p>But it's the <a href="https://zeithalt.github.io/t/#eon0749">Burning of Cerene Vale</a> that will forever be associated with his name, as a brutal outburst of unnecessary violence, event for which the full responsibility was taken by Loki himself.</p>
-      <p>This very same event is quoted to be the sole reason for his downfall and the <a href="https://zeithalt.github.io/t/#eon0755">restoration of the Council of Minds in MT on eon 755</a>.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#5850" class="footer-link">
@@ -370,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Loki
+
+\`🧙‍♂️ Character\`
+
+Loki is a famous (or some may say infamous) MT member that quickly rose through the ranks to the position of Defense Minister and eventually became a [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) dictator.
+
+His story includes a range of diverse moments: from being a humble owner of the [Valhalla Bar](<https://zeithalt.github.io/r/valhalla_bar.html>) to dark allegations of killing the preceding Defense Minister of MindTech.
+
+But it's the [Burning of Cerene Vale](<https://zeithalt.github.io/t/#eon0749>) that will forever be associated with his name, as a brutal outburst of unnecessary violence, event for which the full responsibility was taken by Loki himself.
+
+This very same event is quoted to be the sole reason for his downfall and the [restoration of the Council of Minds in MT on eon 755](<https://zeithalt.github.io/t/#eon0755>).
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

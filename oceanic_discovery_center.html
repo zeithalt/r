@@ -19,7 +19,7 @@
   <meta property="og:title" content="🐟 Oceanic Discovery Center">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 880 by Protectores Silva">
+  <meta property="og:description" content="Oceanic Discovery Center is a place dedicated to the exploration and research of the oceans surrounding the Zeithalt Island which have been ignored for too long and the unique ecosystem thriving under these oceans.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🐟 Oceanic Discovery Center">
-  <meta name="twitter:description" content="Built on eon 880 by Protectores Silva">
+  <meta name="twitter:description" content="Oceanic Discovery Center is a place dedicated to the exploration and research of the oceans surrounding the Zeithalt Island which have been ignored for too long and the unique ecosystem thriving under these oceans.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,15 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="oceanic-discovery-center">🐟 Oceanic Discovery Center<a class="header-anchor" href="#oceanic-discovery-center">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/cerene_vale.html">Cerene Vale</a></p>
-      <p>Built on eon 880 by <a href="https://zeithalt.github.io/r/protectores_silva.html">Protectores Silva</a></p>
-      <p>Oceanic Discovery Center is a place dedicated to the exploration and research of the oceans surrounding the Zeithalt Island which have been ignored for too long and the unique ecosystem thriving under these oceans. Its aims are to explore and map all parts of the uncharted parts of the oceans in an organized fashion and discovery, research and protection of new species living under the sea.</p>
-      <p>Its a building complex located at the most southern reaches of Cerene Vale right next to the southern sea. The buildings inside divide into 2 main parts for the departments 2 main objectives, a part dedicated to exploration and mapping of the oceans and the other part dedicated to discovery, research and protection of the species living under the sea. Uniting both of these parts is the Center Building located at the middle of the complex, tasked with the management of Oceanic Discovery Center's entire operations.</p>
-      <p>Outside of these, there are also 4 naval dockyards at the complex to house its ships along with necessary buildings to support those ships to actually be able do the operations itself.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#f6d1" class="footer-link">
@@ -370,7 +368,55 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🐟 Oceanic Discovery Center
+
+\`🖼️ Landmark\` in [Cerene Vale](<https://zeithalt.github.io/r/cerene_vale.html>)
+
+Built on eon 880 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva.html>)
+
+Oceanic Discovery Center is a place dedicated to the exploration and research of the oceans surrounding the Zeithalt Island which have been ignored for too long and the unique ecosystem thriving under these oceans. Its aims are to explore and map all parts of the uncharted parts of the oceans in an organized fashion and discovery, research and protection of new species living under the sea.
+
+Its a building complex located at the most southern reaches of Cerene Vale right next to the southern sea. The buildings inside divide into 2 main parts for the departments 2 main objectives, a part dedicated to exploration and mapping of the oceans and the other part dedicated to discovery, research and protection of the species living under the sea. Uniting both of these parts is the Center Building located at the middle of the complex, tasked with the management of Oceanic Discovery Center's entire operations.
+
+Outside of these, there are also 4 naval dockyards at the complex to house its ships along with necessary buildings to support those ships to actually be able do the operations itself.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

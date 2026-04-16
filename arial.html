@@ -19,7 +19,7 @@
   <meta property="og:title" content="💉 Antibody Research Institute and Library">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1168 by Protectores Silva">
+  <meta property="og:description" content="_ARIaL_ in short, this complex of a scientific, medical and, less public, military purpose.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="💉 Antibody Research Institute and Library">
-  <meta name="twitter:description" content="Built on eon 1168 by Protectores Silva">
+  <meta name="twitter:description" content="_ARIaL_ in short, this complex of a scientific, medical and, less public, military purpose.">
   <meta name="twitter:image" content="">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,17 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="antibody-research-institute-and-library">💉 Antibody Research Institute and Library<a class="header-anchor" href="#antibody-research-institute-and-library">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/cerene_vale">Cerene Vale</a></p>
-      <p>Built on eon 1168 by <a href="https://zeithalt.github.io/r/protectores_silva">Protectores Silva</a></p>
-      <p><em>ARIaL</em> in short, this complex of a scientific, medical and, less public, military purpose.</p>
-      <p>Its purpose is research, discovery and storage of new and known antibodies targeting a wide range of toxins and pathogens.</p>
-      <p>The motivation for those activities is in production of antisera granting immunity to various diseases, as well as to possible biological weapons.</p>
-      <p>While <em>Antibody Research Institute</em> handles research, <em>Antibody Library</em> is responsible for storage of biological samples - antibodies (phage display libraries) and cDNA libraries with genes encoding the former (genetically modified bacteria cultures).</p>
-      <p>One of the most significant projects of the <em>ARI</em>, realized in cooperation with <a href="https://zeithalt.github.io/r/modern_cr_research_facility.html">Modern CR Research Facility</a> is researching the possibility of creating antibodies targeting <a href="https://zeithalt.github.io/r/corruption.html">Corruption</a>, thus allowing for production of antisera used to speed up recovery from the Corruption Sickness.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#6120" class="footer-link">
@@ -372,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 💉 Antibody Research Institute and Library
+
+\`🖼️ Landmark\` in [Cerene Vale](<https://zeithalt.github.io/r/cerene_vale>)
+
+Built on eon 1168 by [Protectores Silva](<https://zeithalt.github.io/r/protectores_silva>)
+
+_ARIaL_ in short, this complex of a scientific, medical and, less public, military purpose.
+
+Its purpose is research, discovery and storage of new and known antibodies targeting a wide range of toxins and pathogens. 
+
+The motivation for those activities is in production of antisera granting immunity to various diseases, as well as to possible biological weapons.
+
+While _Antibody Research Institute_ handles research, _Antibody Library_ is responsible for storage of biological samples - antibodies (phage display libraries) and cDNA libraries with genes encoding the former (genetically modified bacteria cultures).
+
+One of the most significant projects of the _ARI_, realized in cooperation with [Modern CR Research Facility](<https://zeithalt.github.io/r/modern_cr_research_facility.html>) is researching the possibility of creating antibodies targeting [Corruption](<https://zeithalt.github.io/r/corruption.html>), thus allowing for production of antisera used to speed up recovery from the Corruption Sickness.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

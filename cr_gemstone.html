@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,22 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="corrupted-gemstone">Corrupted Gemstone<a class="header-anchor" href="#corrupted-gemstone">#</a></h1>
-      <p><span class="tag">📜 Item</span></p>
-      <p>An artefact retrieved by <a href="https://zeithalt.github.io/r/hexagon.html">hexAgon</a> during the <a href="https://zeithalt.github.io/t/#eon0314">The Battle of Corrupted Desert</a>.</p>
-      <p>Heavy sphere of matte black color that appears to be completely black most of the time, but occasionally pulsates with deep red color..</p>
-      <p>During the pulse the matte surface of the cube momentarily becomes completely smooth and transparent as if made of glass, revealing a broken black cube inside it before slowly fading back into its usual color.</p>
-      <p>It’s cold to the touch when it’s matte black, but too hot to hold it during the pulse.</p>
-      <p>It looks as if corruption itself is contained within the gemstone, but the true material it’s made of, its origin and potential power of it are unknown, recorded history of Zeithalt does not have any mentions of similar artefacts.</p>
-      <blockquote>
-        <p>As written by historians:</p>
-        <p><em>It’s witnessed by other <a href="https://zeithalt.github.io/r/mindtech_institute.html">MindTech Institute</a> members that when <a href="https://zeithalt.github.io/r/hexagon.html">hexAgon</a> first touched it, they became completely motionless and unresponsive for several minutes, as if fixed in time. <a href="https://zeithalt.github.io/r/hexagon.html">hexAgon</a> does not recollect it being several minutes, but rather just a fraction of a second, during which a sequence of images - a vision - quickly skipped through their mind.</em></p>
-      </blockquote>
-      <p>Since then other people have touched the gemstone, but got no visions from it. Also, it seems to be only pulsating in <a href="https://zeithalt.github.io/r/hexagon.html">hexAgon's</a> hands - when others hold it, the gemstone stays matte black and cold.</p>
-      <p>It seems that the gemstone has bonded with <a href="https://zeithalt.github.io/r/hexagon.html">hexAgon</a> in some special way.</p>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#08c0" class="footer-link">
@@ -377,7 +368,65 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# Corrupted Gemstone
+
+\`📜 Item\`
+
+An artefact retrieved by [hexAgon](<https://zeithalt.github.io/r/hexagon.html>) during the [The Battle of Corrupted Desert](<https://zeithalt.github.io/t/#eon0314>).
+
+Heavy sphere of matte black color that appears to be completely black most of the time, but occasionally pulsates with deep red color..
+
+During the pulse the matte surface of the cube momentarily becomes completely smooth and transparent as if made of glass, revealing a broken black cube inside it before slowly fading back into its usual color.
+
+It’s cold to the touch when it’s matte black, but too hot to hold it during the pulse.
+
+It looks as if corruption itself is contained within the gemstone, but the true material it’s made of, its origin and potential power of it are unknown, recorded history of Zeithalt does not have any mentions of similar artefacts.
+
+> As written by historians:
+>  
+> *It’s witnessed by other [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute.html>) members that when [hexAgon](<https://zeithalt.github.io/r/hexagon.html>) first touched it, they became completely motionless and unresponsive for several minutes, as if fixed in time. [hexAgon](<https://zeithalt.github.io/r/hexagon.html>) does not recollect it being several minutes, but rather just a fraction of a second, during which a sequence of images - a vision - quickly skipped through their mind.*
+
+Since then other people have touched the gemstone, but got no visions from it. Also, it seems to be only pulsating in [hexAgon's](<https://zeithalt.github.io/r/hexagon.html>) hands - when others hold it, the gemstone stays matte black and cold.
+
+It seems that the gemstone has bonded with [hexAgon](<https://zeithalt.github.io/r/hexagon.html>) in some special way.
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

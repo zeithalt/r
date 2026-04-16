@@ -42,6 +42,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
   <style>
     /* ========================================================= */
 /* 🦋 MIMBOT SHARED THEME BLOCK                              */
@@ -329,18 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="hooly-gun-of-the-inkuisition">🔫 Hooly Gun of the INKuisition<a class="header-anchor" href="#hooly-gun-of-the-inkuisition">#</a></h1>
-      <p><span class="tag">📜 Item</span></p>
-      <p>A modified version of the classic semi-automatic <a href="https://zeithalt.github.io/r/capos_of_mafia.html">Mafia</a> weapon.</p>
-      <p>Its appearance is mesmerizing: The body is forged from a solid silver alloy containing consecrated metal, with every inch covered in ancient runes. The handle is made of dark wood, inlaid with the bones of sinners. The barrel is slightly elongated, featuring an engraved cross and skull at the muzzle, while the trigger is adorned with a tiny figure of a fallen angel.</p>
-      <p>When the weapon is pointed at a sinner, the runes glow crimson and a whisper sounds in the owner's ear: "Bring justice." After the shot, white smoke with the scent of incense emanates from the barrel. Its silver bullets pass through flesh, leaving wounds that will not heal, and the victim's soul will find no peace until the weapon is used to kill someone it deems "worse."</p>
-      <p>If an innocent person is killed by the weapon, the runes go dark, and the owner hears a distorted, long-suffering whisper: "<em>Holy... what have you done?</em>" And, considering a <a href="https://zeithalt.github.io/r/statue_of_ink.html">Capo of the Mafia</a> owns this weapon, he hears this quite often.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/hooly_gun_of_ink.png" alt="Hooly Gun of the INKuisition" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#4630" class="footer-link">
@@ -373,7 +368,57 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🔫 Hooly Gun of the INKuisition
+
+\`📜 Item\`
+
+A modified version of the classic semi-automatic [Mafia](<https://zeithalt.github.io/r/capos_of_mafia.html>) weapon.
+
+Its appearance is mesmerizing: The body is forged from a solid silver alloy containing consecrated metal, with every inch covered in ancient runes. The handle is made of dark wood, inlaid with the bones of sinners. The barrel is slightly elongated, featuring an engraved cross and skull at the muzzle, while the trigger is adorned with a tiny figure of a fallen angel.
+
+When the weapon is pointed at a sinner, the runes glow crimson and a whisper sounds in the owner's ear: "Bring justice." After the shot, white smoke with the scent of incense emanates from the barrel. Its silver bullets pass through flesh, leaving wounds that will not heal, and the victim's soul will find no peace until the weapon is used to kill someone it deems "worse."
+
+If an innocent person is killed by the weapon, the runes go dark, and the owner hears a distorted, long-suffering whisper: "*Holy... what have you done?*" And, considering a [Capo of the Mafia](<https://zeithalt.github.io/r/statue_of_ink.html>) owns this weapon, he hears this quite often.
+
+![Hooly Gun of the INKuisition](https://zeithalt.github.io/r/i/hooly_gun_of_ink.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

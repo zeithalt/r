@@ -19,7 +19,7 @@
   <meta property="og:title" content="🦋 Azure Butterflies Continent">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1208 by Band of Brothers">
+  <meta property="og:description" content="_Azure Butterflies Continent_ (also known as ABC Resort or simply ABC) is a seaside resort located on a small plateau among the peaks of _Indigo Shores_.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/azure_butterflies_continent.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🦋 Azure Butterflies Continent">
-  <meta name="twitter:description" content="Built on eon 1208 by Band of Brothers">
+  <meta name="twitter:description" content="_Azure Butterflies Continent_ (also known as ABC Resort or simply ABC) is a seaside resort located on a small plateau among the peaks of _Indigo Shores_.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/azure_butterflies_continent.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,19 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="azure-butterflies-continent">🦋 Azure Butterflies Continent<a class="header-anchor" href="#azure-butterflies-continent">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/indigo_shore">Indigo Shore</a></p>
-      <p>Built on eon 1208 by <a href="https://zeithalt.github.io/r/band_of_brothers">Band of Brothers</a></p>
-      <p><em>Azure Butterflies Continent</em> (also known as ABC Resort or simply ABC) is a seaside resort located on a small plateau among the peaks of <em>Indigo Shores</em>. It's open to the beautiful view of the ocean from one side while also shielded from the coastal winds from the other.</p>
-      <p>The resort offers its visitors comfortable hotel rooms, an open-air restaurant near the shore, a spacious gymnasium with a variety of equipment, as well as a spa and a small shopping district. The main attraction, however, is its garden that doubles as a sanctuary for several species of butterflies with blue-colored wings, born this way thanks to the mysterious phenomenon behind the blue waters of the region. Rumor goes that such a butterfly touching you can bring good fortune or clarity of mind, however, the staff advises against attempting to catch one, as the insects are rare and fragile creatures.</p>
-      <p>Local souvenir shops sell various merchandise that incorporates the butterflies in its design: hairpins, bracelets, necklaces and shirts, among other items. One can also purchase postcards with depictions of the butterfly garden and shoreline landscapes there.</p>
-      <p>The resort's slogan is "Your azure-colored paradise", a simple yet memorable sentence that is rarely left out of the conversation, be the name <em>"Azure Butterflies Continent"</em> mentioned. Its options remain affordable, while making even the shortest visit worth the spent money, living up to the proclaimed title of a paradise in the hearts of most visitors.</p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/azure_butterflies_continent.png" alt="Azure Butterflies Continent" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#cfd0" class="footer-link">
@@ -374,7 +368,59 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🦋 Azure Butterflies Continent
+
+\`🖼️ Landmark\` in [Indigo Shore](<https://zeithalt.github.io/r/indigo_shore>)
+
+Built on eon 1208 by [Band of Brothers](<https://zeithalt.github.io/r/band_of_brothers>)
+
+_Azure Butterflies Continent_ (also known as ABC Resort or simply ABC) is a seaside resort located on a small plateau among the peaks of _Indigo Shores_. It's open to the beautiful view of the ocean from one side while also shielded from the coastal winds from the other.
+
+The resort offers its visitors comfortable hotel rooms, an open-air restaurant near the shore, a spacious gymnasium with a variety of equipment, as well as a spa and a small shopping district. The main attraction, however, is its garden that doubles as a sanctuary for several species of butterflies with blue-colored wings, born this way thanks to the mysterious phenomenon behind the blue waters of the region. Rumor goes that such a butterfly touching you can bring good fortune or clarity of mind, however, the staff advises against attempting to catch one, as the insects are rare and fragile creatures.
+
+Local souvenir shops sell various merchandise that incorporates the butterflies in its design: hairpins, bracelets, necklaces and shirts, among other items. One can also purchase postcards with depictions of the butterfly garden and shoreline landscapes there.
+
+The resort's slogan is "Your azure-colored paradise", a simple yet memorable sentence that is rarely left out of the conversation, be the name _"Azure Butterflies Continent"_ mentioned. Its options remain affordable, while making even the shortest visit worth the spent money, living up to the proclaimed title of a paradise in the hearts of most visitors.
+
+![Azure Butterflies Continent](https://zeithalt.github.io/r/i/azure_butterflies_continent.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)

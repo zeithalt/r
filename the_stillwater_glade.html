@@ -19,7 +19,7 @@
   <meta property="og:title" content="🌳 Stillwater Glade">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject first 1-2 sentences of text (Strip markdown/HTML tags!) -->
-  <meta property="og:description" content="Built on eon 1304 by MindTech Institute">
+  <meta property="og:description" content="Tucked between a dense forest patch and a lazy water stream, in the northern part of _A’as Forest_ lies a quiet opening known as _Stillwater Glade_.">
 
   <!-- PRE-UPLOAD SCRIPT TARGET: Inject URL of the first image on the page (Must be an absolute URL starting with https://) -->
   <meta property="og:image" content="https://zeithalt.github.io/r/i/stillwater_glade.png">
@@ -27,7 +27,7 @@
   <!-- Twitter/Discord specific tags for large image previews -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="🌳 Stillwater Glade">
-  <meta name="twitter:description" content="Built on eon 1304 by MindTech Institute">
+  <meta name="twitter:description" content="Tucked between a dense forest patch and a lazy water stream, in the northern part of _A’as Forest_ lies a quiet opening known as _Stillwater Glade_.">
   <meta name="twitter:image" content="https://zeithalt.github.io/r/i/stillwater_glade.png">
 
   <!-- Optional: This sets the vertical colored line on the left side of Discord embeds -->
@@ -41,6 +41,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Marked.js for client-side markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
   <style>
     /* ========================================================= */
@@ -329,20 +333,9 @@
   <article>
 
 
-    <div class="content">
-      <h1 id="stillwater-glade">🌳 Stillwater Glade<a class="header-anchor" href="#stillwater-glade">#</a></h1>
-      <p><span class="tag">🖼️ Landmark</span> in <a href="https://zeithalt.github.io/r/aas_forest">A'as Forest</a></p>
-      <p>Built on eon 1304 by <a href="https://zeithalt.github.io/r/mindtech_institute">MindTech Institute</a></p>
-      <p>Tucked between a dense forest patch and a lazy water stream, in the northern part of <em>A’as Forest</em> lies a quiet opening known as <em>Stillwater Glade</em>. For eons, it was a place of no recorded significance - a shaded patch of trickling groundwater, glimmering moss, and pleasant birdsong. Unmapped and unnamed.</p>
-      <p>But since the <a href="https://zeithalt.github.io/t/#eon1286">war approached</a> <em>A’as</em> and unrest crept into daily life, <em>Stillwater Glade</em> became a place of quiet pilgrimage. Children were the first to go here, then caretakers, then entire households seeking calm. They said the glade made things <em>quieter</em> not in the ears, but in the head.</p>
-      <p>The moss absorbs footsteps perfectly. The trees curve overhead in a natural dome, their branches woven to offer a calming shelter.</p>
-      <p>Now, it has become a place for spontaneous silent gatherings. A place to sit, breathe and... simply be.</p>
-      <p>In recent weeks, it has become common to say, with soft irony: <em>“If A’as must fall, let the Stillwater remain.”</em></p>
-      <figure>
-        <img src="https://zeithalt.github.io/r/i/stillwater_glade.png" alt="Stillwater Glade" loading="lazy">
-      </figure>
-    </div>
+    <div id="page-content" class="content"></div>
   </article>
+
 
   <footer class="site-footer">
     <a href="https://zeithalt.github.io/r/#2ef0" class="footer-link">
@@ -375,7 +368,61 @@
 </div>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
+  // ── Render page content via marked.js ────────────────────────────
+  const contentMarkdown = `# 🌳 Stillwater Glade
+
+\`🖼️ Landmark\` in [A'as Forest](<https://zeithalt.github.io/r/aas_forest>)
+
+Built on eon 1304 by [MindTech Institute](<https://zeithalt.github.io/r/mindtech_institute>)
+
+Tucked between a dense forest patch and a lazy water stream, in the northern part of _A’as Forest_ lies a quiet opening known as _Stillwater Glade_. For eons, it was a place of no recorded significance - a shaded patch of trickling groundwater, glimmering moss, and pleasant birdsong. Unmapped and unnamed.
+
+But since the [war approached](<https://zeithalt.github.io/t/#eon1286>) _A’as_ and unrest crept into daily life, _Stillwater Glade_ became a place of quiet pilgrimage. Children were the first to go here, then caretakers, then entire households seeking calm. They said the glade made things _quieter_ not in the ears, but in the head.
+
+The moss absorbs footsteps perfectly. The trees curve overhead in a natural dome, their branches woven to offer a calming shelter.
+
+Now, it has become a place for spontaneous silent gatherings. A place to sit, breathe and... simply be.
+
+In recent weeks, it has become common to say, with soft irony: *“If A’as must fall, let the Stillwater remain.”*
+
+![Stillwater Glade](https://zeithalt.github.io/r/i/stillwater_glade.png)
+`;
+  document.getElementById('page-content').innerHTML = marked.parse(contentMarkdown);
+
+  // Wrap standalone <p><img></p> in <figure> for lightbox compatibility
+  document.querySelectorAll('#page-content p > img:only-child').forEach(img => {
+    const p = img.parentNode;
+    const figure = document.createElement('figure');
+    p.parentNode.insertBefore(figure, p);
+    figure.appendChild(img);
+    p.remove();
+  });
+
+  // Resolve {#anchor-id} in headings and inject hover anchor links
+  document.querySelectorAll('#page-content h1, #page-content h2, #page-content h3, #page-content h4').forEach(h => {
+    const customAnchorMatch = h.textContent.match(/\{#([\w-]+)\}/);
+    if (customAnchorMatch) {
+      h.id = customAnchorMatch[1];
+      h.innerHTML = h.innerHTML.replace(/\{#[\w-]+\}/g, '').trim();
+    }
+    if (h.id) {
+      h.innerHTML += `<a class="header-anchor" href="#${h.id}">#</a>`;
+    }
+  });
+
+  // Style missing links (zeithalt://missing/ scheme → .missing-link)
+  document.querySelectorAll('#page-content a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('zeithalt://missing/')) {
+      const filePath = href.replace('zeithalt://missing/', '');
+      a.removeAttribute('href');
+      a.classList.add('missing-link');
+      a.dataset.missingFile = filePath;
+      a.title = 'Page not found';
+    }
+  });
+
+
   const root = document.documentElement;
 
   // Determine initial theme (checking localStorage first, then system preference)
